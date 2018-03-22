@@ -1,0 +1,229 @@
+6{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+    GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .information td {
+        border: none;
+        padding:5px;
+    }
+</style>
+
+<script>
+    window.onload = function() {
+        
+        var penaltyOrFine = document.getElementById("penaltyOrFine").innerText;
+        if (penaltyOrFine == "Penalty") {
+            document.getElementById("backDutyLength").style.display = "block";
+            document.getElementById("backDutyAmount").style.display = "block";
+            document.getElementById("victimSurchage").style.display = "none";
+        } else {
+            document.getElementById("backDutyLength").style.display = "none";
+            document.getElementById("backDutyAmount").style.display = "none";
+            document.getElementById("victimSurchage").style.display = "block";
+        }
+        
+    }
+</script>
+
+<main id="content" role="main">
+    
+    <div class="grid-row">
+        <div class="column-full">
+            <!-- Alpha phase banner -->
+            {% include "includes/phase_banner_alpha.html" %}
+            {% include "includes/breadcrumb_back.html" %}
+            
+            
+            <div class="peristant-info-banner">
+                <div class="peristant-info-banner-content">9012466 <span class="bold">{{ data['defendents-first-name']}} {{ data['defendents-last-name']}}</span><span style="text-decoration: underline;float:right;margin-right:15px">End session</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-row top_30">
+        <div class="column-two-thirds">
+
+            <h1 class="heading-xlarge top_0 bottom_5">Confirm outcome</h1>
+            <p class="form-hint">{{ data['decision'] }}</p>
+            
+            <!-- FINANCIAL PENALTY -->
+            <div id="financial-penalty">
+                <h3 class="heading-medium">Information to take into account</h3>
+                
+                <table class="information">
+                    <tbody>
+                        <tr>
+                            <td class="bold">Previous confictions</td>
+                            <td>{{data['defendents-previous-convictions']}}</td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Income</td>
+                            <td>{{data['defendents-income']}}</td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Claiming benefits?</td>
+                            <td>{{data['defendents-claiming-benefits']}}</td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Employment status</td>
+                            <td>{{data['defendents-employment-status']}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <hr class="top_60 bottom_60">
+                
+                <h3 class="heading-large bottom_15">Offence 1</h3>
+                <h4 class="heading-medium top_15 bottom_5">{{data['offence-type']}}</h4>
+                <p class="top_5 bottom_15">{{data['offence-description']}}</p>
+                <p id="backDutyLength" class="bold top_15 bottom_15">{{data['back-duty-description']}}</p>
+                
+                <form class="form" action="" method="post">
+                    <div class="form-group">
+                        <fieldset class="inline">
+
+                            <legend>
+                            <h4 class="heading-medium bottom_5 top_15">{{data['offence-banding-header']}}</h4>
+                            <p class="bottom_5">{{ data['penalty-or-fine'] }} band applied</p>
+                            </legend>
+
+                            <div class="multiple-choice" data-target="band-a">
+                                <input id="banding-1" type="radio" name="banding-group" value="Band A" checked="checked">
+                                <label for="banding-1">Band A</label>
+                            </div>
+                            
+                            <div class="multiple-choice" data-target="band-b">
+                                <input id="banding-2" type="radio" name="banding-group" value="Band B">
+                                <label for="banding-2">Band B</label>
+                            </div>
+                            
+                            <div class="multiple-choice" data-target="band-c">
+                                <input id="banding-3" type="radio" name="banding-group" value="Band C">
+                                <label for="banding-3">Band C</label>
+                            </div>
+                            
+                        </fieldset>
+                        
+                        <fieldset>
+                            
+                            <div class="js-hidden" id="band-a">
+                                <div class="panel panel-border-wide top_15">
+                                    
+                                    <label id="penaltyOrFine" class="form-label" for="penalty-or-fine-amount">{{ data['penalty-or-fine'] }}</label>
+                                    <div class="input-icon">
+                                        <i>£</i>
+                                        <input class="form-control" id="penalty-or-fine-amount" type="number" min="0.0" step="0.01"  name="penalty-or-fine-amount" value="250">
+                                    </div>
+
+                                    <div id="backDutyAmount" class="top_15">
+                                        <label class="form-label" for="back-duty-amount">Back duty</label>
+                                        <div class="input-icon">
+                                            <i>£</i>
+                                            <input class="form-control" id="back-duty-amount" type="number" min="0.00" step="0.01"  name="back-duty-amount" value="500">
+                                        </div>
+                                    </div>
+                                    
+                                    <label class="form-label top_15" for="compensation-amount">Compensation</label>
+                                    <div class="input-icon">
+                                        <i>£</i>
+                                        <input class="form-control" id="compensation-amount" type="number" min="0.00" step="0.01"  name="compensation-amount" value="0">
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                        </fieldset>
+                        
+                        <fieldset>
+
+                            <div class="js-hidden" id="band-b">
+                                <div class="panel panel-border-wide top_15">
+                                    <p>Band B</p>
+                                </div>
+                            </div>
+
+                         </fieldset>
+                        
+                        <fieldset>
+
+                            <div class="js-hidden" id="band-c">
+                                <div class="panel panel-border-wide top_15">
+                                    <p>Band C</p>
+                                </div>
+                            </div>
+
+                         </fieldset>
+                        
+                        <p class="bottom_5 top_30">{{ data['penalty-or-fine'] }} has been calculated taking into account:</p>
+                        <ul class="list list-bullet">
+                            <li>income <span class="bold">£120</span> weekly (due to defendant claiming benefits or on low income)</li>
+                            <li>guilty plea</li>
+                        </ul>
+
+                        <hr class="top_60 bottom_60">
+                                                    
+                        <fieldset>
+                            
+                           <h3 class="heading-medium top_0">Check costs and surcharge</h3>
+                            
+                            <label class="form-label" for="costs">Costs</label>
+                            <div class="input-icon">
+                                <i>£</i>
+                                <input class="form-control" id="costs" type="number" min="0.00" step="0.01"  name="costs" value="125">
+                            </div>
+
+                            <div id="victimSurchage">
+                                <label class="form-label top_15" for="victim-surcharge">Victim surcharge</label>
+                                <div class="input-icon">
+                                    <i>£</i>
+                                    <input class="form-control" id="victim-surcharge" type="number" min="0.00" step="0.01"  name="victim-surcharge" value="30">
+                                </div>
+                            </div>
+
+                            <div class="multiple-choice top_15">
+                                <input id="confirm-collection-order" name="confirm-collection-order" type="checkbox" checked="checked" value="Yes">
+                                <label for="confirm-collection-order">Confirm a collection order will be issued</label>
+                            </div>
+                            
+                        </fieldset>
+                        
+                        <input class="button top_30" type="submit" value="Continue">
+                        <p class="top_15"><a href="#">Back</a></p>
+
+                    </div>
+                </form>
+
+                
+            </div>
+            
+        </div>
+        
+        <div class="column-one-third">
+            <div class="right-column-nav">
+                <hr class="bold-hr ">
+                <h3 class="heading-small">Documents</h3>
+                <!-- Thumbnail - small icon -->
+                <div class="download-file top_15 bottom_30">
+                    <img src="/public/images/Thumbnail%20icon%20-%20small.png" title="document title">
+                    <div class="download-file-text">
+                        <span class="font-xsmall"><a href="#">SJP notice</a></span>
+                        <span class="font-xsmall">PDF, 157KB, 2 pages</span>
+                    </div>
+                </div>
+                
+                <h3 class="heading-small">Online plea</h3>
+                <p><a href="#">Defendant's online plea</a></p>
+
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}

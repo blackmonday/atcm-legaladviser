@@ -1,0 +1,34 @@
+{% extends "layout-dashboard.html" %}
+
+{% block page_title %}
+  CJS CPP homepage template version two
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/homepage_header_template_2.html" %}
+
+<main id="content" role="main">
+        
+    {% include "includes/phase_banner_alpha.html" %}
+
+    <div class="grid-row">
+        
+        <div class="column-two-thirds"> 
+            
+            <h2 class="heading-medium">Make case decisions</h2> 
+            <p><a href="" title="">Start a new SJP session</a></p>
+                                    
+        </div>
+        
+        <div class="column-one-third">
+            <h2 class="heading-medium">Temporary links</h2> 
+            <!--<p><a href="billy-smith.html" title="">View a TV Licensing case</a></p>-->
+            <p><a href="case-details-page.html" title="">View a {{ data['prosecutor-group'] }} case</a></p>
+        </div>
+        
+    </div>
+    
+</main>
+
+{% endblock %}

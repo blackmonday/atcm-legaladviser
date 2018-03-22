@@ -1,0 +1,102 @@
+6{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+    GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .information td {
+        border: none;
+        padding:5px;
+    }
+</style>
+
+<script>
+    window.onload = function() {
+                
+    }
+</script>
+
+<main id="content" role="main">
+    
+    <div class="grid-row">
+        <div class="column-full">
+            <!-- Alpha phase banner -->
+            {% include "includes/phase_banner_alpha.html" %}
+            {% include "includes/breadcrumb_back.html" %}
+            
+            
+            <div class="peristant-info-banner">
+                <div class="peristant-info-banner-content">9012466 <span class="bold">{{ data['defendents-first-name']}} {{ data['defendents-last-name']}}</span><span style="text-decoration: underline;float:right;margin-right:15px">End session</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-row top_30">
+        <div class="column-two-thirds">
+
+            <h1 class="heading-xlarge top_0 bottom_30">Payment method</h1>
+            
+            <div class="panel panel-border-wide bottom_30">
+                <p class="bottom_5">Total to pay</p>
+                <p class="bold top_5">£{{data['total-payment']}}</p>
+            </div>
+            
+            <form class="form" action="" method="post">
+                <div class="form-group">
+                    
+                    <fieldset>
+
+                        <legend>
+                            <h1 class="heading-medium top_0">Select option</h1>
+                        </legend>
+
+                        <div class="multiple-choice">
+                            <input id="radio-1" type="radio" name="payment-method-group" value="Pay direct to court">
+                            <label for="radio-1">Pay direct to court</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="radio-2" type="radio" name="payment-method-group" value="Deduct from benefits">
+                            <label for="radio-2">Deduct from benefits</label>
+                        </div>
+                        <p class="form-block">or</p>
+                        <div class="multiple-choice">
+                            <input id="radio-3" type="radio" name="payment-method-group" value="Attach to earnings">
+                            <label for="radio-3">Attach to earnings</label>
+                        </div>
+
+                    </fieldset>
+                    
+                    <input class="button top_30" type="submit" value="Continue">
+                    <div class="top_15"><a href="#">Back</a></div>
+                </div>
+            </form>
+
+        </div>
+        
+        <div class="column-one-third">
+            <div class="right-column-nav">
+                <hr class="bold-hr ">
+                <h3 class="heading-small">Documents</h3>
+                <!-- Thumbnail - small icon -->
+                <div class="download-file top_15 bottom_30">
+                    <img src="/public/images/Thumbnail%20icon%20-%20small.png" title="document title">
+                    <div class="download-file-text">
+                        <span class="font-xsmall"><a href="#">SJP notice</a></span>
+                        <span class="font-xsmall">PDF, 157KB, 2 pages</span>
+                    </div>
+                </div>
+                
+                <h3 class="heading-small">Online plea</h3>
+                <p><a href="#">Defendant's online plea</a></p>
+
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}

@@ -1,0 +1,147 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+    GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<!-- ------- -->
+<!-- OVERLAY -->
+<style>
+    tr {
+        vertical-align: middle;
+    }
+</style>
+
+<script>
+    
+    function filesAdded() {
+        document.getElementById("noFilesAdded").style.display = "none";
+        document.getElementById("filesAdded").style.display = "block";
+    }
+    
+    function uploadRemoveRow1() {
+        document.getElementById("noFilesAdded").style.display = "block";
+        document.getElementById("filesAdded").style.display = "none";
+    }
+
+</script>
+
+<div id="overlay" onclick="off()">
+    <div id="overlay-info">
+        <h3 class="heading-medium top_0 bottom_15">Remove a file</h3>
+        <p class="top_15 bottom_15">Are you sure you want to remove the following file?</p>        
+        <table class="removeFileTable">
+            <tbody>
+                <tr>
+                    <td class="bold">Name</td>
+                    <td>Plea</td>
+                </tr>
+                <tr>
+                    <td class="bold">Type</td>
+                    <td>PDF, 256KB, 3 pages</td>
+                </tr>
+                <tr>
+                    <td class="bold">Uploaded on</td>
+                    <td>15 January 2018</td>
+                </tr>
+            </tbody>
+        </table>
+        <input class="button top_20 bottom_15" type="submit" value="Confirm and remove file" onclick="uploadRemoveRow1(); off()">
+        <p class="remove-link bottom_0" onclick="off()">cancel</p>
+    </div>
+</div>
+
+<div id="overlay2" onclick="off()">
+    <div id="overlay-info-2">
+        <img src="/public/images/upload-doc-update.png" onclick="filesAdded()">
+    </div>
+</div>
+
+<main id="content" role="main">
+    
+    <div class="grid-row">
+        <div class="column-full">
+            <!-- Alpha phase banner -->
+            {% include "includes/phase_banner_alpha.html" %}
+            {% include "includes/breadcrumb_back.html" %}
+            
+            <div class="peristant-info-banner">
+                <div class="peristant-info-banner-content">9012466 &nbsp;&nbsp;<span class="bold">Billy SMITH</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-row top_30">
+        <div class="column-two-thirds">
+
+            <h1 class="heading-xlarge top_0 bottom_30">Upload documents</h1>
+            <p>If available you can upload any of the following:</p>
+            <ul class="list list-bullet">
+                <li>a plea document</li>
+                <li>statement of income and outgoings (for example a MC100)</li>
+                <li>other documents (for example a bank statement, email or copy of a travelcard)</li>
+            </ul>
+            <p>Use the ‘Add a file to upload’ button to add individual files to upload to this case.</p>
+
+            <input class="button" type="submit" value="Add a file to upload" onclick="on2()">
+            
+        </div>
+
+        <div id="noFilesAdded" class="column-full">
+            
+            <hr>
+            
+            <h3 class="heading-medium top_30">Files ready to upload</h3>
+            <p>No documents have been added for upload.</p>
+            
+            <hr>
+            
+            <p><a href="billy-smith.html">Cancel - go back to case</a></p>
+
+        </div>
+        
+        <div id="filesAdded" class="column-full" style="display:none">
+            
+            <form class="form" action="" method="post">
+
+                <hr>
+
+                <h3 class="heading-medium top_30">Files ready to upload</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Type</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="row1">
+                            <th scope="row"><input class="form-control" id="file-name" type="text" name="file-name" value="Plea" style="width:80%"></th>
+                            <td>PDF, 256KB, 3 pages</td>
+                            <td onclick="on()" class="remove-link">Remove</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="top_30">After you’ve added all the files you want to upload to this case use the ‘Upload files’ button to add them to the case.</p>
+
+                <input class="button-secondary" type="submit" value="Upload files">
+
+                <p class="top_30"><a href="billy-smith.html">Cancel - go back to case</a></p>
+                
+            </form>
+
+        </div>
+
+        
+    </div>
+
+</main>
+
+{% endblock %}
+
+

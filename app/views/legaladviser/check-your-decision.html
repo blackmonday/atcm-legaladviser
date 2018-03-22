@@ -1,0 +1,210 @@
+6{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+    GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .check-your-decisions-table td {
+        border: 0;
+        padding: 5px;
+    }
+    .table-cell-width {
+        width: 40%;
+    }
+    .check-your-decisions-table td:last-child {
+        text-align: right;
+    }
+</style>
+
+<script>
+    window.onload = function() {
+        var confirmCollectionOrder = document.getElementById("confirm-collection-order").innerText;
+                
+        if (confirmCollectionOrder == "Yes") {
+            document.getElementById("confirm-collection-order").innerText = "Yes";
+        } else if (confirmCollectionOrder != "Yes") {
+            document.getElementById("confirm-collection-order").innerText = "No";
+        }
+
+    }
+</script>
+
+<main id="content" role="main">
+    
+    <div class="grid-row">
+        <div class="column-full">
+            <!-- Alpha phase banner -->
+            {% include "includes/phase_banner_alpha.html" %}
+            {% include "includes/breadcrumb_back.html" %}
+            
+            <div class="peristant-info-banner">
+                <div class="peristant-info-banner-content">9012466 <span class="bold">{{ data['defendents-first-name']}} {{ data['defendents-last-name']}}</span><span style="text-decoration: underline;float:right;margin-right:15px">End session</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-row top_30">
+        <div class="column-full">
+
+            <h1 class="heading-xlarge top_0 bottom_5">Check your decision</h1>
+
+            <form class="form" action="" method="post">
+                <div class="form-group">
+                    
+                    <h2 class="heading-large">Offence 1</h2>
+                    
+                    <table class="check-your-decisions-table">
+                        <tbody>
+                            <tr>
+                                <td class="heading-medium">Decision</td>
+                                <td></td>
+                                <td><a href="#">Change</a></td>
+                            </tr>
+                            <tr>
+                                <td class="table-cell-width bold">Offence type</td>
+                                <td>{{data['offence-type']}}</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="table-cell-width bold">Verdict</td>
+                                <td>{{data['verdict']}}</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="table-cell-width bold">Result</td>
+                                <td>{{data['decision']}}</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <hr>
+                    
+                    <table class="check-your-decisions-table">
+                        <tbody>
+                            <tr>
+                                <td class="heading-medium">Outcome</td>
+                                <td></td>
+                                <td><a href="#">Change</a></td>
+                            </tr>
+                            <tr>
+                                <td class="table-cell-width bold">Defendant's weekly income</td>
+                                <td>{{data['defendents-income']}}</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="table-cell-width bold">Guilty plea taken into account</td>
+                                <td>{{data['guilty-plea-taken-into-account']}}</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="table-cell-width bold">Fine band applied</td>
+                                <td>{{data['banding-group']}}</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="table-cell-width bold">Penalty</td>
+                                <td>£{{data['penalty-or-fine-amount']}}</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="table-cell-width bold">Back duty</td>
+                                <td>£{{data['back-duty-amount']}}</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="table-cell-width bold">Compensation</td>
+                                <td>£{{data['compensation-amount']}}</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <hr>
+                    
+                    <table class="check-your-decisions-table">
+                        <tbody>
+                            <tr>
+                                <td class="heading-medium">Costs</td>
+                                <td></td>
+                                <td><a href="#">Change</a></td>
+                            </tr>
+                            <tr>
+                                <td class="table-cell-width bold">Costs</td>
+                                <td>£{{data['costs']}}</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="table-cell-width bold">Collection order issued</td>
+                                <td id="confirm-collection-order">{{data['confirm-collection-order']}}</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <hr>
+                    
+                    <table class="check-your-decisions-table">
+                        <tbody>
+                            <tr>
+                                <td class="heading-medium">Payment</td>
+                                <td></td>
+                                <td><a href="#">Change</a></td>
+                            </tr>
+                            <tr>
+                                <td class="table-cell-width bold">Total</td>
+                                <td>£{{data['total-payment']}}</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="table-cell-width bold">Payment method</td>
+                                <td>{{data['payment-method']}}</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="table-cell-width bold">Reason you didn't deduct from benefits</td>
+                                <td>{{data['deduct-from-benefits-reason']}}</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="table-cell-width bold">How should defendent pay the court</td>
+                                <td>{{data['how-should-defendent-pay']}}</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="table-cell-width bold">Lump sum amount</td>
+                                <td>£{{data['total-payment']}}</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <hr>
+                    
+                    <label class="form-label" for="optional-note">
+                        <span class="heading-medium">Add a note (optional)</span>
+                        <p class="bottom_5">This will only be seen by court staff</p>
+                    </label>
+                    <textarea class="form-control form-control-3-4" name="optional-note" id="optional-note" rows="5"></textarea>
+                    
+                    
+                    
+                    
+                    
+
+                    <input class="button top_30" type="submit" value="Continue">
+                    <p class="top_15"><a href="#">Back</a></p>
+
+                </div>
+            </form>
+            
+        </div>
+        
+    </div>
+
+</main>
+
+{% endblock %}

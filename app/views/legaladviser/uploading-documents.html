@@ -1,0 +1,107 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+    GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+
+<div id="overlay" onclick="off()">
+    <div id="overlay-info">
+        <h3 class="heading-medium top_0 bottom_15">Remove a file</h3>
+        <p class="top_15 bottom_15">Are you sure you want to remove the following file?</p>        
+        <table class="removeFileTable">
+            <tbody>
+                <tr>
+                    <td class="bold">Name</td>
+                    <td>{{ data['file-name'] }}</td>
+                </tr>
+                <tr>
+                    <td class="bold">Type</td>
+                    <td>PDF, 256KB, 3 pages</td>
+                </tr>
+                <tr>
+                    <td class="bold">Uploaded on</td>
+                    <td>15 January 2018</td>
+                </tr>
+                <tr>
+                    <td class="bold">Upload time</td>
+                    <td>10:56am</td>
+                </tr>
+            </tbody>
+        </table>
+        <input class="button top_20 bottom_15" type="submit" value="Confirm and remove file" onclick="removeRow1(); off()">
+        <p class="remove-link bottom_0" onclick="off()">cancel</p>
+    </div>
+</div>
+
+<main id="content" role="main">
+    
+    <div class="grid-row">
+        <div class="column-full">
+            <!-- Alpha phase banner -->
+            {% include "includes/phase_banner_alpha.html" %}
+            {% include "includes/breadcrumb_back.html" %}
+        </div>
+    </div>
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+
+            <h1 class="heading-xlarge top_30 bottom_30">Uploading documents</h1>
+            <h2 class="heading-medium top_30 bottom_15">Files being uploaded</h2>
+                        
+         </div>
+    </div>
+    
+    <div id="noFilesAdded" class="grid-row">
+        <div class="column-full">
+            <p>All file uploads have been canceled or removed</p>
+            
+            <p class="top_30"><a href="billy-smith.html">Go back to case</a></p>
+        </div>
+    </div>
+    
+    <div id="filesAdded" class="grid-row">
+        <div class="column-full">
+ 
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Uploaded on</th>
+                        <th scope="col">Upload time</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="row1">
+                        <th scope="row">{{ data['file-name'] }}</th>
+                        <td>PDF, 256KB, 3 pages</td>
+                        <td id=progressBar1 colspan="2">
+                            <div id="container" style="vertical-align: top">
+                                <div id="border"></div>
+                                <div id="progress-bar-1"></div>
+                            </div>
+                        </td>
+                        <td id="uploadDate1" style="display: none">19 March 2018</td>
+                        <td id="uploadTime1" style="display: none">10:56 am</td>
+                        <td id="row1cancel" class="remove-link"onclick="removeRow1();">Cancel</td>
+                        <td id="row1remove" class="remove-link" onclick="on()" style="display: none">Remove</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p class="top_30"><a href="billy-smith.html">Go back to case</a></p>
+
+        </div>
+        
+        
+    </div>
+</main>
+
+{% endblock %}
+
+

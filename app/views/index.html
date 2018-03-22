@@ -1,0 +1,51 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+    GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div class="grid-row">
+        <div class="column-two-thirds">
+
+            <h1 class="heading-xlarge">
+                ATCM Legal Adviser
+                <span class="heading-secondary">Using GOV.UK prototype kit {{releaseVersion}}</span>
+            </h1>{{releaseVersion | log }}
+            
+            <p>This design demo is intended for user testing with legal advisers.</p>
+
+            <!--<a href="/legaladviser/dashboard">Let's get started</a>-->
+            
+            <form class="form" action="" method="post">
+                
+                <div class="form-group">
+                    <fieldset>
+                        <legend>
+                            <h1 class="heading-medium top_15">Choose a flow</h1>
+                        </legend>
+                        <div class="multiple-choice">
+                            <input id="radio-1" type="radio" name="prosecutor-group" value="DVLA (with back duty)">
+                            <label for="radio-1">DVLA (with back duty)</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="radio-2" type="radio" name="prosecutor-group" value="DVLA (no back duty)">
+                            <label for="radio-2">DVLA (no back duty) - <span class="bold">NOT YET WORKING</span></label>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                <input class="button" type="submit" value="Continue">
+
+            </form>
+
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}
+
+

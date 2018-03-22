@@ -1,0 +1,152 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+    GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<style>
+    tr {
+        vertical-align: top;
+    }
+</style>
+
+<main id="content" role="main">
+    
+    <div class="grid-row">
+        <div class="column-full">
+            <!-- Alpha phase banner -->
+            {% include "includes/phase_banner_alpha.html" %}
+            {% include "includes/breadcrumb_back.html" %}
+            
+            <div class="peristant-info-banner">
+                <div class="peristant-info-banner-content">9012466 <span class="bold">Billy SMITH</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-row top_30">
+        <div class="column-two-thirds">
+
+            <h1 class="heading-xlarge top_0 bottom_30">Add or change income</h1>
+            
+            <p>You don’t need to enter all details from the MC100.</p>
+            <p>Please enter only the following:</p>
+            
+            <label class="form-label-bold" for="title">Net income</label>
+            <input class="form-control" id="title" type="text" name="title" value="£ 275">
+            
+            <form>
+                <fieldset>
+                    <div class="form-group">
+                      <legend>
+                        <span class="form-label-bold top_30">
+                          Frequency of income and outgoings
+                        </span>
+                        <span class="form-hint">Check the form to see what the defendant has ticked</span>
+                      </legend>
+                        <div class="multiple-choice">
+                            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
+                            <label for="radio-inline-1">Weekly</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No" checked="checked">
+                            <label for="radio-inline-2">Fortnightly</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
+                            <label for="radio-inline-2">Montly</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
+                            <label for="radio-inline-2">Annually</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+            <form>
+                <fieldset>
+                    <div class="form-group">
+                        <legend>
+                            <span class="form-label-bold top_30">Employement status</span>
+                            <span class="form-hint">Choose employed if they do any work for an employer</span>
+                        </legend>
+
+                        <div class="multiple-choice">
+                            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes" checked="checked">
+                            <label for="radio-inline-1">Employed (full or part-time)</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
+                            <label for="radio-inline-2">Self-employed</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
+                            <label for="radio-inline-2">Unemployed</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
+                            <label for="radio-inline-2">Company representative</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
+                            <label for="radio-inline-2">Other (for example, retired, student)</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
+                            <label for="radio-inline-2">Don’t know or not applicable</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+            <form>
+                <fieldset>
+                    <div class="form-group">
+                        <legend>
+                            <span class="form-label-bold top_30">Is the defendent claiming benefits?</span>
+                            <span class="form-hint">Do not include child benefit</span>
+                        </legend>
+
+                        <div class="multiple-choice">
+                            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
+                            <label for="radio-inline-1">Yes</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No" checked="checked">
+                            <label for="radio-inline-2">No</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
+                            <label for="radio-inline-2">Dont' know / not applicable</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            
+            <form class="form top_30" action="" method="post">
+                <input class="button" type="submit" value="Save">
+                <div class="top_15"><a href="#">Cancel</a></div>
+            </form>
+            
+        </div>
+        
+        <div class="coloumn-one-third">
+            <!-- RIGHT COLUMN NAVIGATION - VARIATION FIVE -->
+            <!--
+            <div class="right-column-nav">
+                <hr class="bold-hr">
+                <h3 class="heading-medium">Case options</h3>
+                <p><a href="">Withdraw offence</a></p>
+            </div>
+            -->
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}
+
+

@@ -1,0 +1,125 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+    GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<style>
+    tr {
+        vertical-align: top;
+    }
+    
+</style>
+
+<main id="content" role="main">
+    
+    <div class="grid-row">
+        <div class="column-full">
+            <!-- Alpha phase banner -->
+            {% include "includes/phase_banner_alpha.html" %}
+            {% include "includes/breadcrumb_back.html" %}
+            
+            <div class="peristant-info-banner">
+                <div class="peristant-info-banner-content">9012466 <span class="bold">Billy SMITH</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-row top_30">
+        <div class="column-two-thirds">
+
+            <h1 class="heading-xlarge top_0 bottom_30">Add or change personal details</h1>
+            
+            <p class="top_30">Keep these personal details up to date.</p>
+            
+            <p class="bold top_30">Personal details</p>
+            
+            <label class="form-label" for="title">Title (optional)</label>
+            <input class="form-control" id="title" type="text" name="title">
+            
+            <label class="form-label top_15" for="first-name">First name</label>
+            <input class="form-control" id="first-name" type="text" name="first-name" value="Smith">
+            
+            <label class="form-label top_15" for="last-name">Last name</label>
+            <input class="form-control" id="last-name" type="text" name="last-name" value="Billy">
+            
+            <!-- Date of birth -->
+            <form>
+              <div class="form-group top_15">
+                <fieldset>
+                  <legend>
+                    <span class="form-label">
+                      Date of birth
+                    </span>
+                    <span class="form-hint">For example, 31 3 1980</span>
+                  </legend>
+                  <div class="form-date">
+                    <div class="form-group form-group-day">
+                      <label class="form-label" for="dob-day">Day</label>
+                      <input class="form-control" id="dob-day" name="dob-day" type="number" pattern="[0-9]*" value="4">
+                    </div>
+                    <div class="form-group form-group-month">
+                      <label class="form-label" for="dob-month">Month</label>
+                      <input class="form-control" id="dob-month" name="dob-month" type="number" pattern="[0-9]*" value="4">
+                    </div>
+                    <div class="form-group form-group-year">
+                      <label class="form-label" for="dob-year">Year</label>
+                      <input class="form-control" id="dob-year" name="dob-year" type="number" pattern="[0-9]*" value="1970">
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </form>
+            
+            <p class="bold top_60">Address</p>
+            
+            <label class="form-label" for="address">Address</label>
+            <input class="form-control" id="address-line-1" type="text" name="address-line-1" value="6 Blessington Road">
+            <input class="form-control top_5" id="address-line-2" type="text" name="address-line-2" value="Lewisham">
+            
+            <label class="form-label top_15" for="town-or-city">Town or city</label>
+            <input class="form-control" id="town-or-city" type="text" name="town-or-city" value="London">
+            
+            <label class="form-label top_15" for="county">County (optional)</label>
+            <input class="form-control" id="county" type="text" name="county">
+            
+            <label class="form-label top_15" for="postcode">Postcode</label>
+            <input class="form-control" id="postcode" type="text" name="postcode" value="SE13 5EB">
+
+            <p class="bold top_60">Email and telephone</p>
+            
+            <label class="form-label" for="email">Email</label>
+            <input class="form-control" id="email" type="text" name="email" value="billy_s765@gmail.com">
+            
+            <label class="form-label top_15" for="home-telephone">Home telephone</label>
+            <input class="form-control" id="home-telephone" type="text" name="home-telephone">
+            
+            <label class="form-label top_15" for="mobile">Mobile</label>
+            <input class="form-control" id="mobile" type="text" name="mobile" value="07975337198">
+                        
+            <form class="form" action="" method="post">
+                <input class="button top_30" type="submit" value="Save">
+                <div class="top_15"><a href="#">Cancel</a></div>
+            </form>
+
+        </div>
+        
+        <div class="coloumn-one-third">
+            <!-- RIGHT COLUMN NAVIGATION - VARIATION FIVE -->
+            <!--
+            <div class="right-column-nav">
+                <hr class="bold-hr">
+                <h3 class="heading-medium">Case options</h3>
+                <p><a href="">Withdraw offence</a></p>
+            </div>
+            -->
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}
+
+
