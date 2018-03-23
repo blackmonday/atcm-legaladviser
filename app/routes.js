@@ -41,9 +41,9 @@ router.post('/', function (req, res) {
         req.session.data['offence-banding-header'] = "Check penalty, back duty and compensation"
         req.session.data['guilty-plea-taken-into-account'] = "Yes"
         req.session.data['verdict'] = "Proved SJP"
-        req.session.data['payment-method'] = "Pay directly to court"
-        req.session.data['deduct-from-benefits-reason'] = "No information from the defendant"
-        req.session.data['how-should-defendent-pay'] = "Lump sum amount"
+        //req.session.data['payment-method'] = "Pay directly to court"
+        //req.session.data['deduct-from-benefits-reason'] = "No information from the defendant"
+        //req.session.data['how-should-defendent-pay'] = "Lump sum amount"
 
         
         res.redirect('/legaladviser/dashboard')
@@ -62,6 +62,7 @@ router.post('/', function (req, res) {
 router.post('/legaladviser/case-details-page', function (req, res) {
     
     req.session.data['decision'] = req.session.data['make-a-decision-group']
+        
     res.redirect('/legaladviser/confirm-outcome')
     
 })
@@ -85,7 +86,15 @@ router.post('/legaladviser/confirm-outcome', function (req, res) {
 // PAYMENT METHOD
 router.post('/legaladviser/payment-method', function (req, res) {
     
-    res.redirect('/legaladviser/pay-direct-to-court')
+    var paymentMethod = req.session.data['payment-method-group']
+        
+    if (paymentMethod == "Pay direct to court") {
+        res.redirect('/legaladviser/pay-direct-to-court')
+    } else if (paymentMethod == "Deduct from benefits") {
+        res.redirect('/legaladviser/deduct-from-benefits')
+    }  else if (paymentMethod == "Attach to earnings") {
+        res.redirect('/legaladviser/attach-to-earnings')
+    } 
     
 })
 

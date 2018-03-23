@@ -1,0 +1,68 @@
+6{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+    GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .information td {
+        border: none;
+        padding:5px;
+    }
+</style>
+
+<script>
+    window.onload = function() {
+                
+    }
+</script>
+
+<main id="content" role="main">
+    
+    <div class="grid-row">
+        <div class="column-full">
+            <!-- Alpha phase banner -->
+            {% include "includes/phase_banner_alpha.html" %}
+            {% include "includes/breadcrumb_back.html" %}
+            
+            
+            <div class="peristant-info-banner">
+                <div class="peristant-info-banner-content">9012466 <span class="bold">{{ data['defendents-first-name']}} {{ data['defendents-last-name']}}</span><span style="text-decoration: underline;float:right;margin-right:15px">End session</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-row top_30">
+        <div class="column-two-thirds">
+                        
+            <h1 class="heading-xlarge top_0 bottom_30">Deduct from benefits</h1>
+            <a href="javascript:history.go(-1);">Back</a>
+            
+        </div>
+        
+        <div class="column-one-third">
+            <div class="right-column-nav">
+                <hr class="bold-hr ">
+                <h3 class="heading-small">Documents</h3>
+                <!-- Thumbnail - small icon -->
+                <div class="download-file top_15 bottom_30">
+                    <img src="/public/images/Thumbnail%20icon%20-%20small.png" title="document title">
+                    <div class="download-file-text">
+                        <span class="font-xsmall"><a href="#">SJP notice</a></span>
+                        <span class="font-xsmall">PDF, 157KB, 2 pages</span>
+                    </div>
+                </div>
+                
+                <h3 class="heading-small">Online plea</h3>
+                <p><a href="#">Defendant's online plea</a></p>
+
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}

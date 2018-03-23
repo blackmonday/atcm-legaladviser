@@ -19,8 +19,7 @@ $(document).ready(function () {
     
     
     
-    
-    
+
     $( "#progress-bar-1" ).animate({
         width: "100%"
     }, 5000, function() {
@@ -53,8 +52,6 @@ $(document).ready(function () {
     });
     
 })
-
-
 
 /* TABS PATTERN */
 function tabGroup(tableObj, which) {

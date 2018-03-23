@@ -1,4 +1,4 @@
-6{% extends "layout-CPP.html" %}
+{% extends "layout-CPP.html" %}
 
 {% block page_title %}
     GOV.UK prototype kit
@@ -14,7 +14,47 @@
 </style>
 
 <script>
+    
     window.onload = function() {
+        
+        /* CHECK DECISION */
+        var decisiontype = document.getElementById('decision').innerText;
+        if (decisiontype == "Financial penalty") {
+            document.getElementById('referToCourtHearing').style.display = "none"; 
+            document.getElementById('withdraw').style.display = "none";
+            document.getElementById('discharge').style.display = "none";
+            document.getElementById('dismiss').style.display = "none";
+            
+        } else if (decisiontype == "Refer to court hearing") {
+            document.getElementById('financialPenalty').style.display = "none"; 
+            document.getElementById('withdraw').style.display = "none";
+            document.getElementById('discharge').style.display = "none";
+            document.getElementById('dismiss').style.display = "none";
+            
+        } else if (decisiontype == "Withdraw") {
+            document.getElementById('financialPenalty').style.display = "none"; 
+            document.getElementById('referToCourtHearing').style.display = "none";
+            document.getElementById('discharge').style.display = "none";
+            document.getElementById('dismiss').style.display = "none";
+            
+       } else if (decisiontype == "Discharge") {
+            document.getElementById('financialPenalty').style.display = "none"; 
+            document.getElementById('referToCourtHearing').style.display = "none"; 
+            document.getElementById('withdraw').style.display = "none";
+            document.getElementById('dismiss').style.display = "none";
+           
+        } else if (decisiontype == "Dismiss") {
+            document.getElementById('financialPenalty').style.display = "none"; 
+            document.getElementById('referToCourtHearing').style.display = "none"; 
+            document.getElementById('withdraw').style.display = "none";
+            document.getElementById('discharge').style.display = "none";
+        }
+        
+        
+        
+        
+        
+        
         
         var penaltyOrFine = document.getElementById("penaltyOrFine").innerText;
         if (penaltyOrFine == "Penalty") {
@@ -26,8 +66,31 @@
             document.getElementById("backDutyAmount").style.display = "none";
             document.getElementById("victimSurchage").style.display = "block";
         }
+  
+        if(document.getElementById('banding-1').checked) {
+            document.getElementById("penaltyOrFineAmount").value = "250";
+        } else if (document.getElementById('banding-2').checked) {
+            document.getElementById("penaltyOrFineAmount").value = "500";
+        } else if (document.getElementById('banding-3').checked) {
+            document.getElementById("penaltyOrFineAmount").value = "750";
+        } else {
+            document.getElementById('banding-1').checked = true;
+            document.getElementById("penaltyOrFineAmount").value = "250";
+        }
         
+
     }
+    
+    function checkBand() {
+        if(document.getElementById('banding-1').checked) {
+            document.getElementById("penaltyOrFineAmount").value = "250";
+        } else if (document.getElementById('banding-2').checked) {
+            document.getElementById("penaltyOrFineAmount").value = "500";
+        } else if (document.getElementById('banding-3').checked) {
+            document.getElementById("penaltyOrFineAmount").value = "750";
+        }
+    }
+
 </script>
 
 <main id="content" role="main">
@@ -45,11 +108,12 @@
         </div>
     </div>
 
-    <div class="grid-row top_30">
+    <div id="financialPenalty">
+        <div class="grid-row top_30">
         <div class="column-two-thirds">
 
             <h1 class="heading-xlarge top_0 bottom_5">Confirm outcome</h1>
-            <p class="form-hint">{{ data['decision'] }}</p>
+            <div id="decision" class="form-hint">{{ data['decision'] }}</div>
             
             <!-- FINANCIAL PENALTY -->
             <div id="financial-penalty">
@@ -93,17 +157,17 @@
                             </legend>
 
                             <div class="multiple-choice" data-target="band-a">
-                                <input id="banding-1" type="radio" name="banding-group" value="Band A" checked="checked">
+                                <input id="banding-1" type="radio" name="banding-group" value="Band A" {{ checked('banding-group','Band A') }} onclick="checkBand()">
                                 <label for="banding-1">Band A</label>
                             </div>
                             
-                            <div class="multiple-choice" data-target="band-b">
-                                <input id="banding-2" type="radio" name="banding-group" value="Band B">
+                            <div class="multiple-choice" data-target="band-a">
+                                <input id="banding-2" type="radio" name="banding-group" value="Band B" {{ checked('banding-group','Band B') }} onclick="checkBand()">
                                 <label for="banding-2">Band B</label>
                             </div>
                             
-                            <div class="multiple-choice" data-target="band-c">
-                                <input id="banding-3" type="radio" name="banding-group" value="Band C">
+                            <div class="multiple-choice" data-target="band-a">
+                                <input id="banding-3" type="radio" name="banding-group" value="Band C" {{ checked('banding-group','Band C') }} onclick="checkBand()">
                                 <label for="banding-3">Band C</label>
                             </div>
                             
@@ -111,13 +175,13 @@
                         
                         <fieldset>
                             
-                            <div class="js-hidden" id="band-a">
+                            <div id="band-a">
                                 <div class="panel panel-border-wide top_15">
                                     
                                     <label id="penaltyOrFine" class="form-label" for="penalty-or-fine-amount">{{ data['penalty-or-fine'] }}</label>
                                     <div class="input-icon">
                                         <i>£</i>
-                                        <input class="form-control" id="penalty-or-fine-amount" type="number" min="0.0" step="0.01"  name="penalty-or-fine-amount" value="250">
+                                        <input class="form-control" id="penaltyOrFineAmount" type="number" min="0.0" step="0.01" name="penalty-or-fine-amount">
                                     </div>
 
                                     <div id="backDutyAmount" class="top_15">
@@ -139,6 +203,7 @@
 
                         </fieldset>
                         
+                        <!--
                         <fieldset>
 
                             <div class="js-hidden" id="band-b">
@@ -157,7 +222,8 @@
                                 </div>
                             </div>
 
-                         </fieldset>
+                        </fieldset>
+                        -->
                         
                         <p class="bottom_5 top_30">{{ data['penalty-or-fine'] }} has been calculated taking into account:</p>
                         <ul class="list list-bullet">
@@ -223,7 +289,51 @@
         </div>
 
     </div>
+    </div>
+    
+    <div id="referToCourtHearing">
+        <div class="grid-row top_30">
+            <div class="column-two-thirds">
 
+                <h1 class="heading-xlarge top_0 bottom_5">Confirm outcome</h1>
+                <p class="form-hint">{{ data['decision'] }}</p>
+
+            </div>
+        </div>
+    </div>
+    
+    <div id="withdraw">
+        <div class="grid-row top_30">
+            <div class="column-two-thirds">
+
+                <h1 class="heading-xlarge top_0 bottom_5">Confirm outcome</h1>
+                <p class="form-hint">{{ data['decision'] }}</p>
+
+            </div>
+        </div>
+    </div>
+    
+    <div id="discharge">
+        <div class="grid-row top_30">
+            <div class="column-two-thirds">
+
+                <h1 class="heading-xlarge top_0 bottom_5">Confirm outcome</h1>
+                <p class="form-hint">{{ data['decision'] }}</p>
+
+            </div>
+        </div>
+    </div>
+    
+    <div id="dismiss">
+        <div class="grid-row top_30">
+            <div class="column-two-thirds">
+
+                <h1 class="heading-xlarge top_0 bottom_5">Confirm outcome</h1>
+                <p class="form-hint">{{ data['decision'] }}</p>
+
+            </div>
+        </div>
+    </div>
+    
 </main>
-
 {% endblock %}

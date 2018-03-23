@@ -52,17 +52,17 @@
                             <h1 class="heading-medium top_0">Select why you didn’t deduct from benefits or attach to earnings</h1>
                         </legend>
                         <div class="multiple-choice">
-                            <input id="radio-1" type="radio" name="deduct-from-benefits-group" value="No information from defendant">
+                            <input id="radio-1" type="radio" name="deduct-from-benefits-group" value="No information from defendant" {{ checked('deduct-from-benefits-group','No information from defendant') }}>
                             <label for="radio-1">No information from defendant</label>
                         </div>
                         <div class="multiple-choice" data-target="other-reason">
-                            <input id="radio-2" type="radio" name="deduct-from-benefits-group" value="Other reason">
+                            <input id="radio-2" type="radio" name="deduct-from-benefits-group" value="Other reason" {{ checked('deduct-from-benefits-group','Other reason') }}>
                             <label for="radio-2">Other reason</label>
                         </div>
                         <div class="js-hidden" id="other-reason">
                             <div class="panel panel-border-wide top_15">
-                                <label class="form-label" for="textarea">Enter a reason</label>
-                                <textarea class="form-control form-control-3-4" name="textarea" id="textarea" rows="5"></textarea>
+                                <label class="form-label" for="other-reason">Enter a reason</label>
+                                <textarea class="form-control form-control-3-4" name="other-reason" id="other-reason" rows="5"></textarea>
                             </div>
                         </div>
                     </fieldset>
@@ -72,31 +72,33 @@
                             <h1 class="heading-medium top_30">How should defendant pay the court?</h1>
                         </legend>
                         <div class="multiple-choice">
-                            <input id="radio-1" type="radio" name="deduct-from-benefits-group" value="No information from defendant">
-                            <label for="radio-1">Lump sum within 14 days</label>
+                            <input id="radio-1a" type="radio" name="how-should-defendent-pay-group" value="Lump sum within 14 days" {{ checked('how-should-defendent-pay-group','Lump sum within 14 days') }}>
+                            <label for="radio-1a">Lump sum within 14 days</label>
                         </div>
                         <div class="multiple-choice">
-                            <input id="radio-1" type="radio" name="deduct-from-benefits-group" value="No information from defendant">
-                            <label for="radio-1">Lump sum within 28 days</label>
+                            <input id="radio-2a" type="radio" name="how-should-defendent-pay-group" value="Lump sum within 28 days" {{ checked('how-should-defendent-pay-group','Lump sum within 28 days') }}>
+                            <label for="radio-2a">Lump sum within 28 days</label>
                         </div>
-                        <div class="multiple-choice">
-                            <input id="radio-1" type="radio" name="deduct-from-benefits-group" value="No information from defendant">
-                            <label for="radio-1">Lump sum plus instalments</label>
+                        <div class="multiple-choice" data-target="lump-sum-plus-instalment-details">
+                            <input id="radio-3a" type="radio" name="how-should-defendent-pay-group" value="Lump sum plus instalments" {{ checked('how-should-defendent-pay-group','Lump sum plus instalments') }}>
+                            <label for="radio-3a">Lump sum plus instalments</label>
                         </div>
-                        <p class="form-block">or</p>
-                        <div class="multiple-choice" data-target="instalment-details">
-                            <input id="radio-2" type="radio" name="deduct-from-benefits-group" value="Other reason">
-                            <label for="radio-2">Instalment only</label>
-                        </div>
-                        
-                        <div class="js-hidden" id="instalment-details">
+                        <div class="js-hidden" id="lump-sum-plus-instalment-details">
                             <div class="panel panel-border-wide top_15">
                                 
                                 <fieldset>
-                                    <label class="form-label" for="instalment-amount">Instalment amount</label>
+                                    <label class="form-label" for="lump-sum-amount">Lump sum amount</label>
                                     <div class="input-icon">
                                         <i>£</i>
-                                        <input class="form-control" id="instalment-amount" type="number" min="0.0" step="0.01"  name="instalment-amount">
+                                        <input class="form-control" id="lump-sum-amount" type="number" min="0.0" step="0.01"  name="lump-sum-amount" value="{{ data['lump-sum-amount'] }}">
+                                    </div>
+                                </fieldset>
+                                
+                                <fieldset class="top_30">
+                                    <label class="form-label" for="instalment-amount-1">Instalment amount</label>
+                                    <div class="input-icon">
+                                        <i>£</i>
+                                        <input class="form-control" id="instalment-amount-1" type="number" min="0.0" step="0.01"  name="instalment-amount-1" value="{{ data['instalment-amount-1'] }}">
                                     </div>
                                 </fieldset>
                                 
@@ -105,16 +107,16 @@
                                         <h1>How often should instalments be made?</h1>
                                     </legend>
                                     <div class="multiple-choice top_10">
-                                        <input id="radio-1" type="radio" name="instalment-length-group" value="Weekly">
-                                        <label for="radio-1">Weekly</label>
+                                        <input id="radio-1b" type="radio" name="instalment-length-group" value="Weekly" {{ checked('instalment-length-group','Weekly') }}>
+                                        <label for="radio-1b">Weekly</label>
                                     </div>
                                     <div class="multiple-choice">
-                                        <input id="radio-2" type="radio" name="instalment-length-group" value="Fortnightly">
-                                        <label for="radio-2">Fortnightly</label>
+                                        <input id="radio-2b" type="radio" name="instalment-length-group" value="Fortnightly" {{ checked('instalment-length-group','Fortnightly') }}>
+                                        <label for="radio-2b">Fortnightly</label>
                                     </div>
                                     <div class="multiple-choice">
-                                        <input id="radio-3" type="radio" name="instalment-length-group" value="Monthly">
-                                        <label for="radio-3">Monthly</label>
+                                        <input id="radio-3b" type="radio" name="instalment-length-group" value="Monthly" {{ checked('instalment-length-group','Monthly') }}>
+                                        <label for="radio-3b">Monthly</label>
                                     </div>
                                 </fieldset>
                                 
@@ -125,16 +127,75 @@
                                     </legend>
                                     <div class="form-date">
                                         <div class="form-group form-group-day">
-                                            <label class="form-label" for="dob-day">Day</label>
-                                            <input class="form-control" id="dob-day" name="dob-day" type="number" pattern="[0-9]*">
+                                            <label class="form-label" for="day">Day</label>
+                                            <input class="form-control" id="day" name="day" type="number" pattern="[0-9]*" value="{{ data['day'] }}">
                                         </div>
                                         <div class="form-group form-group-month">
-                                            <label class="form-label" for="dob-month">Month</label>
-                                            <input class="form-control" id="dob-month" name="dob-month" type="number" pattern="[0-9]*">
+                                            <label class="form-label" for="month">Month</label>
+                                            <input class="form-control" id="month" name="month" type="number" pattern="[0-9]*" value="{{ data['month'] }}">
                                         </div>
                                         <div class="form-group form-group-year">
-                                            <label class="form-label" for="dob-year">Year</label>
-                                            <input class="form-control" id="dob-year" name="dob-year" type="number" pattern="[0-9]*">
+                                            <label class="form-label" for="year">Year</label>
+                                            <input class="form-control" id="year" name="year" type="number" pattern="[0-9]*" value="{{ data['year'] }}">
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                            </div>
+                        </div>
+                        
+                        <p class="form-block">or</p>
+                        
+                        <div class="multiple-choice" data-target="instalment-details">
+                            <input id="radio-4a" type="radio" name="how-should-defendent-pay-group" value="Instalments only" {{ checked('how-should-defendent-pay-group','Instalments only') }}>
+                            <label for="radio-4a">Instalments only</label>
+                        </div>
+                        <div class="js-hidden" id="instalment-details">
+                            <div class="panel panel-border-wide top_15">
+                                
+                                <fieldset>
+                                    <label class="form-label" for="instalment-amount-2">Instalment amount</label>
+                                    <div class="input-icon">
+                                        <i>£</i>
+                                        <input class="form-control" id="instalment-amount-2" type="number" min="0.0" step="0.01"  name="instalment-amount-2" value="{{ data['instalment-amount-2'] }}">
+                                    </div>
+                                </fieldset>
+                                
+                                <fieldset class="top_30">
+                                    <legend>
+                                        <h1>How often should instalments be made?</h1>
+                                    </legend>
+                                    <div class="multiple-choice top_10">
+                                        <input id="radio-1b" type="radio" name="instalment-length-group" value="Weekly" {{ checked('instalment-length-group','Weekly') }}>
+                                        <label for="radio-1b">Weekly</label>
+                                    </div>
+                                    <div class="multiple-choice">
+                                        <input id="radio-2b" type="radio" name="instalment-length-group" value="Fortnightly" {{ checked('instalment-length-group','Fortnightly') }}>
+                                        <label for="radio-2b">Fortnightly</label>
+                                    </div>
+                                    <div class="multiple-choice">
+                                        <input id="radio-3b" type="radio" name="instalment-length-group" value="Monthly" {{ checked('instalment-length-group','Monthly') }}>
+                                        <label for="radio-3b">Monthly</label>
+                                    </div>
+                                </fieldset>
+                                
+                                <fieldset class="top_30">
+                                    <legend>
+                                        <span class="form-label">Instalment start date</span>
+                                        <span class="form-hint">For example, 31 3 1980</span>
+                                    </legend>
+                                    <div class="form-date">
+                                        <div class="form-group form-group-day">
+                                            <label class="form-label" for="day2">Day</label>
+                                            <input class="form-control" id="day2" name="day2" type="number" pattern="[0-9]*" value="{{ data['day2'] }}">
+                                        </div>
+                                        <div class="form-group form-group-month">
+                                            <label class="form-label" for="month2">Month</label>
+                                            <input class="form-control" id="month2" name="month2" type="number" pattern="[0-9]*" value="{{ data['month2'] }}">
+                                        </div>
+                                        <div class="form-group form-group-year">
+                                            <label class="form-label" for="year2">Year</label>
+                                            <input class="form-control" id="year2" name="year2" type="number" pattern="[0-9]*" value="{{ data['year2'] }}">
                                         </div>
                                     </div>
                                 </fieldset>
