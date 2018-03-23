@@ -314,8 +314,16 @@
             <div class="column-two-thirds">
 
                 <h1 class="heading-xlarge top_0 bottom_5">Confirm outcome</h1>
-                <p>Withdraw coming soon</p>
 
+                <h3 class="heading-large bottom_15">Offence 1</h3>
+                <h4 class="heading-medium top_15 bottom_5">{{data['offence-type']}}</h4>
+                <p class="top_5 bottom_15">{{data['offence-description']}}</p>
+                <p id="backDutyLength" class="bold top_15 bottom_30">{{data['back-duty-description']}}</p>
+                
+                <label class="heading-medium" for="withdrawn-reason">Withdraw</label>
+                <p class="bottom_5">Reason for withdrawing offence</p>
+                <textarea class="form-control form-control-3-4" name="withdrawn-reason" id="withdrawn-reason" rows="5">{{ data['withdrawn-reason'] }}</textarea>
+                
                 <form class="form" action="" method="post">
                     <div class="form-group">
                         <input class="button top_30" type="submit" value="Continue">

@@ -15,7 +15,7 @@
 
 <script>
     window.onload = function() {
-                
+    
     }
 </script>
 
@@ -34,19 +34,21 @@
         </div>
     </div>
 
+    {% include "includes/display-decision.html" %}
+
     <div class="grid-row top_30">
         <div class="column-two-thirds">
 
             <h1 class="heading-xlarge top_0 bottom_30">Payment method</h1>
-            
+
             <div class="panel panel-border-wide bottom_30">
                 <p class="bottom_5">Total to pay</p>
                 <p class="bold top_5">£{{data['total-payment']}}</p>
             </div>
-            
+
             <form class="form" action="" method="post">
                 <div class="form-group">
-                    
+
                     <fieldset>
 
                         <legend>
@@ -68,12 +70,12 @@
                         </div>
 
                     </fieldset>
-                    
+
                     <input class="button top_30" type="submit" value="Continue">
                     <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
                 </div>
             </form>
-
+            
         </div>
         
         <div class="column-one-third">

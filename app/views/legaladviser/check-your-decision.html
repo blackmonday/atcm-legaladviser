@@ -349,10 +349,44 @@
     
     <div id="withdraw">
         <h1 class="heading-xlarge top_0 bottom_5">Check your decision</h1>
-        <p>Withdraw coming soon</p>
+
+        <h2 class="heading-large">Offence 1</h2>
+
+        <table class="check-your-decisions-table">
+            <tbody>
+                <tr>
+                    <td class="heading-medium">Decision</td>
+                    <td></td>
+                    <td><a href="/legaladviser/confirm-outcome">Change</a></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Offence type</td>
+                    <td>{{data['offence-type']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Verdict</td>
+                    <td>{{data['verdict']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Result</td>
+                    <td>{{data['decision']}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
 
         <form class="form" action="" method="post">
             <div class="form-group">
+                <label class="form-label" for="optional-note">
+                    <span class="heading-medium">Add a note (optional)</span>
+                    <p class="bottom_5">This will only be seen by court staff</p>
+                </label>
+                <textarea class="form-control form-control-3-4" name="optional-note" id="optional-note" rows="5"></textarea>
+
                 <input class="button top_30" type="submit" value="Continue">
                 <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
 

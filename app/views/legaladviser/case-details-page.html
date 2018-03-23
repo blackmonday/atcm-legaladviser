@@ -12,9 +12,35 @@
         /* CHECK DECISION */
         var decisiontype = document.getElementById('decision').innerText;
         if (decisiontype == "Financial penalty") {
+            document.getElementById('referToCourtHearingTab').style.display = "none";
+            document.getElementById('withdrawTab').style.display = "none";
+            document.getElementById('dischargeTab').style.display = "none";
             document.getElementById('dismissTab').style.display = "none";
+            
+        } else if (decisiontype == "Refer to court hearing") {
+            document.getElementById('financialPenaltyTab').style.display = "none"; 
+            document.getElementById('withdrawTab').style.display = "none";
+            document.getElementById('dischargeTab').style.display = "none";
+            document.getElementById('dismissTab').style.display = "none";
+            
+        } else if (decisiontype == "Withdraw") {
+            document.getElementById('financialPenaltyTab').style.display = "none"; 
+            document.getElementById('referToCourtHearingTab').style.display = "none";
+            document.getElementById('dischargeTab').style.display = "none";
+            document.getElementById('dismissTab').style.display = "none";
+            
+        } else if (decisiontype == "Discharge") {
+            document.getElementById('financialPenaltyTab').style.display = "none"; 
+            document.getElementById('referToCourtHearingTab').style.display = "none";
+            document.getElementById('withdrawTab').style.display = "none";
+            document.getElementById('dismissTab').style.display = "none";
+            
         } else if (decisiontype == "Dismiss") {
             document.getElementById('financialPenaltyTab').style.display = "none"; 
+            document.getElementById('referToCourtHearingTab').style.display = "none";
+            document.getElementById('withdrawTab').style.display = "none";
+            document.getElementById('dischargeTab').style.display = "none";
+
         }
 
         
@@ -289,6 +315,11 @@
                                 </tbody>
                             </table>
                         </div>
+
+                        <div id="referToCourtHearingTab">
+                            <h4 class="heading-medium bottom_10 top_0">Court decision</h4>
+                            <p>Refer to court hearing coming soon</p>
+                        </div>
                         
                         <div id="dismissTab">
                             <h4 class="heading-medium bottom_10 top_0">Court decision</h4>
@@ -315,7 +346,17 @@
                             </table>
 
                         </div>
-
+                        
+                        <div id="dischrgeTab">
+                            <h4 class="heading-medium bottom_10 top_0">Court decision</h4>
+                            <p>Discharge coming soon</p>
+                        </div>
+                        
+                        <div id="withdrawTab">
+                            <h4 class="heading-medium bottom_10 top_0">Court decision</h4>
+                            <p>Withdraw coming soon</p>
+                        </div>
+                        
                     </div>
 
                 </div>   
