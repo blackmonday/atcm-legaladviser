@@ -62,7 +62,7 @@ router.post('/', function (req, res) {
 router.post('/legaladviser/case-details-page', function (req, res) {
     
     req.session.data['decision'] = req.session.data['make-a-decision-group']
-        
+            
     res.redirect('/legaladviser/confirm-outcome')
     
 })
@@ -78,7 +78,33 @@ router.post('/legaladviser/confirm-outcome', function (req, res) {
     
     req.session.data['total-payment'] = fine+backduty+compensation+costs;
     
-    res.redirect('/legaladviser/payment-method')
+    var decisionMade = req.session.data['make-a-decision-group']
+    if (decisionMade == "Financial penalty") {
+        res.redirect('/legaladviser/payment-method')
+    }
+    if (decisionMade == "Refer to court hearing") {
+        res.redirect('/legaladviser/check-your-decision')
+    }
+    if (decisionMade == "Withdraw") {
+        res.redirect('/legaladviser/check-your-decision')
+    }
+    if (decisionMade == "Discharge") {
+        res.redirect('/legaladviser/payment-method')
+    }
+    
+    /* DISMISS */
+    if (decisionMade == "Dismiss") {
+        var dismissCase = req.session.data['dismiss-this-offence-group']
+        if (dismissCase == "Yes") {
+            res.redirect('/legaladviser/check-your-decision')
+        } else if (dismissCase == "No") {
+            res.redirect('/legaladviser/case-details-page')
+        }
+    }
+    
+    
+
+    
     
 })
 

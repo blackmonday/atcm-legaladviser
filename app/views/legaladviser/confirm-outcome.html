@@ -108,12 +108,13 @@
         </div>
     </div>
 
+    {% include "includes/display-decision.html" %}
+
     <div id="financialPenalty">
         <div class="grid-row top_30">
         <div class="column-two-thirds">
 
             <h1 class="heading-xlarge top_0 bottom_5">Confirm outcome</h1>
-            <div id="decision" class="form-hint">{{ data['decision'] }}</div>
             
             <!-- FINANCIAL PENALTY -->
             <div id="financial-penalty">
@@ -259,7 +260,7 @@
                         </fieldset>
                         
                         <input class="button top_30" type="submit" value="Continue">
-                        <p class="top_15"><a href="#">Back</a></p>
+                        <p class="top_15"><a href="javascript:history.go(-1);">Back</a></p>
 
                     </div>
                 </form>
@@ -296,8 +297,13 @@
             <div class="column-two-thirds">
 
                 <h1 class="heading-xlarge top_0 bottom_5">Confirm outcome</h1>
-                <p class="form-hint">{{ data['decision'] }}</p>
-                <a href="javascript:history.go(-1);">Back</a>
+
+                <form class="form" action="" method="post">
+                    <div class="form-group">
+                        <input class="button top_30" type="submit" value="Continue">
+                        <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
+                    </div>
+                </form>
 
             </div>
         </div>
@@ -308,8 +314,14 @@
             <div class="column-two-thirds">
 
                 <h1 class="heading-xlarge top_0 bottom_5">Confirm outcome</h1>
-                <p class="form-hint">{{ data['decision'] }}</p>
-                <a href="javascript:history.go(-1);">Back</a>
+                <p>Withdraw coming soon</p>
+
+                <form class="form" action="" method="post">
+                    <div class="form-group">
+                        <input class="button top_30" type="submit" value="Continue">
+                        <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
+                    </div>
+                </form>
 
             </div>
         </div>
@@ -320,8 +332,13 @@
             <div class="column-two-thirds">
 
                 <h1 class="heading-xlarge top_0 bottom_5">Confirm outcome</h1>
-                <p class="form-hint">{{ data['decision'] }}</p>
-                <a href="javascript:history.go(-1);">Back</a>
+
+                <form class="form" action="" method="post">
+                    <div class="form-group">
+                        <input class="button top_30" type="submit" value="Continue">
+                        <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
+                    </div>
+                </form>
 
             </div>
         </div>
@@ -332,8 +349,36 @@
             <div class="column-two-thirds">
 
                 <h1 class="heading-xlarge top_0 bottom_5">Confirm outcome</h1>
-                <p class="form-hint">{{ data['decision'] }}</p>
-                <a href="javascript:history.go(-1);">Back</a>
+                
+                <h3 class="heading-large bottom_15">Offence 1</h3>
+                <h4 class="heading-medium top_15 bottom_5">{{data['offence-type']}}</h4>
+                <p class="top_5 bottom_15">{{data['offence-description']}}</p>
+                <p id="backDutyLength" class="bold top_15 bottom_15">{{data['back-duty-description']}}</p>
+                
+                <form class="form" action="" method="post">
+                    <div class="form-group">
+                        
+                        <fieldset class="inline">
+                            <legend>
+                                <h2 class="heading-medium bottom_5">Dismiss this offence</h2>
+                                <p class="top_5 bottom_5">Are you sure you want to dismiss this offence?</p>
+                            </legend>
+                            <div class="multiple-choice">
+                                <input id="dismiss-offence-1" type="radio" name="dismiss-this-offence-group" value="Yes" {{ checked('dismiss-this-offence-group','Yes') }}>
+                                <label for="dismiss-offence-1">Yes</label>
+                            </div>
+                            <div class="multiple-choice">
+                                <input id="dismiss-offence-2" type="radio" name="dismiss-this-offence-group" value="No" {{ checked('dismiss-this-offence-group','No') }}>
+                                <label for="dismiss-offence-2">No</label>
+                            </div>
+                        </fieldset>
+
+                        
+                        <input class="button top_30" type="submit" value="Continue">
+                        <p class="top_15"><a href="javascript:history.go(-1);">Back</a></p>
+
+                    </div>
+                </form>
 
             </div>
         </div>
