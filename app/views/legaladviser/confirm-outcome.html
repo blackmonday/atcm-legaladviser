@@ -103,6 +103,28 @@
     
     
     
+    function checking() {
+        
+        if (document.getElementById('confirm-collection-order').checked) {
+            document.getElementById('areYouSure').style.display = "none"; 
+        } else {
+            document.getElementById('areYouSure').style.display = "block"; 
+        }
+        
+    }
+    
+    function checking2() {
+        
+        if (document.getElementById('discharge-confirm-collection-order').checked) {
+            document.getElementById('areYouSure2').style.display = "none"; 
+        } else {
+            document.getElementById('areYouSure2').style.display = "block"; 
+        }
+        
+    }
+    
+    
+    
     
     
     
@@ -196,8 +218,8 @@
                             <fieldset class="inline">
 
                                 <legend>
-                                <h4 class="heading-medium bottom_5 top_15">{{data['offence-banding-header']}}</h4>
-                                <p class="bottom_5">{{ data['penalty-or-fine'] }} band applied</p>
+                                    <h4 class="heading-medium bottom_5 top_15">{{data['offence-banding-header']}}</h4>
+                                    <p class="bottom_5">{{ data['penalty-or-fine'] }} band applied</p>
                                 </legend>
 
                                 <div class="multiple-choice" data-target="band-a">
@@ -296,9 +318,35 @@
                                 </div>
 
                                 <div class="multiple-choice top_15">
-                                    <input id="confirm-collection-order" name="confirm-collection-order" type="checkbox" checked>
+                                    <input id="confirm-collection-order" name="confirm-collection-order" type="checkbox" checked onClick="checking()">
                                     <label for="confirm-collection-order">Confirm a collection order will be issued</label>
                                 </div>
+                                
+                                
+                                
+                                
+                                <div id="areYouSure" style="display: none">
+                                    <fieldset class="inline">
+                                        <div class="panel panel-border-wide top_15">
+                                            <legend>
+                                                <h3>
+                                                Are you sure you want to proceed without a collection order?
+                                                </h3>
+                                            </legend>
+                                            <div class="multiple-choice">
+                                                <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
+                                                <label for="radio-inline-1">Yes</label>
+                                            </div>
+                                            <div class="multiple-choice">
+                                                <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
+                                                <label for="radio-inline-2">No</label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                
+                                
+                                
 
                             </fieldset>
 
@@ -590,9 +638,35 @@
                             </div>
 
                             <div class="multiple-choice top_15">
-                                <input id="discharge-confirm-collection-order" name="discharge-confirm-collection-order" type="checkbox" checked>
+                                <input id="discharge-confirm-collection-order" name="discharge-confirm-collection-order" type="checkbox" checked onClick="checking2()">
                                 <label for="discharge-confirm-collection-order">Confirm a collection order will be issued</label>
                             </div>
+                            
+                            <div id="areYouSure2" style="display: none">
+                                <fieldset class="inline">
+                                    <div class="panel panel-border-wide top_15">
+                                        <legend>
+                                            <h3>
+                                            Are you sure you want to proceed without a collection order?
+                                            </h3>
+                                        </legend>
+                                        <div class="multiple-choice">
+                                            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
+                                            <label for="radio-inline-1">Yes</label>
+                                        </div>
+                                        <div class="multiple-choice">
+                                            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
+                                            <label for="radio-inline-2">No</label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            
+                            
+                            
+                            
+                            
+                            
 
                         </fieldset>
 
