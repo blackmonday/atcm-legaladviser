@@ -20,7 +20,7 @@
 </style>
 
 <script>
-    window.onload = function() {
+    window.onload = function() {  
         
         /* CHECK DECISION */
         var decisiontype = document.getElementById('decision').innerText;
@@ -57,6 +57,8 @@
 
         
         
+
+        
         
         
         
@@ -64,18 +66,42 @@
         
         
         var confirmCollectionOrder = document.getElementById("confirm-collection-order").innerText;
-                
-        if (confirmCollectionOrder == "Yes") {
+        if (confirmCollectionOrder == "on") {
+            //alert('Financial Order - CHECKED');
             document.getElementById("confirm-collection-order").innerText = "Yes";
-        } else if (confirmCollectionOrder != "Yes") {
+        } else if (confirmCollectionOrder != "on") {
+            //alert('Financial Order - not checked');
             document.getElementById("confirm-collection-order").innerText = "No";
         }
+        
+        var dischargeConfirmCollectionOrder = document.getElementById("discharge-confirm-collection-order").innerText;
+        if (dischargeConfirmCollectionOrder == "on") {
+            //alert('Discharge - CHECKED');
+            document.getElementById("discharge-confirm-collection-order").innerText = "Yes";
+        } else if (dischargeConfirmCollectionOrder != "on") {
+            //alert('Dischaerge - not checked');
+            document.getElementById("discharge-confirm-collection-order").innerText = "No";
+        }
+
+        
+                        
+
+        
+        
+
+        
+                                        
+                                
+
+
         
         var howToPay = document.getElementById("howShouldDefendentPay").innerText;
         if ((howToPay == "Lump sum within 14 days") || (howToPay == "Lump sum within 28 days")) {
             document.getElementById("instalmentsRow").style.display = "none";
+            document.getElementById('lumpSumInstalmentRow').style.display = "none";
         }
         if (howToPay == "Lump sum plus instalments") {
+            document.getElementById('lumpSumOnlyRow').style.display = "none";
             document.getElementById('instalmentAmount2').style.display = "none";
             document.getElementById('paymentDay2').style.display = "none";
             document.getElementById('paymentMonth2').style.display = "none";
@@ -95,7 +121,7 @@
                 document.getElementById("paymentMonth").innerText = "June";
             } else if (paymentMonth == "7") {
                 document.getElementById("paymentMonth").innerText = "July";
-            } else if (paymentMonth == "882") {
+            } else if (paymentMonth == "8") {
                 document.getElementById("paymentMonth").innerText = "August";
             } else if (paymentMonth == "9") {
                 document.getElementById("paymentMonth").innerText = "September";
@@ -108,6 +134,8 @@
             }
         }
         if (howToPay == "Instalments only") {
+            document.getElementById('lumpSumInstalmentRow').style.display = "none";
+            document.getElementById('lumpSumOnlyRow').style.display = "none";
             document.getElementById('instalmentAmount1').style.display = "none";
             document.getElementById('paymentDay').style.display = "none";
             document.getElementById('paymentMonth').style.display = "none";
@@ -140,6 +168,44 @@
             }
         }
 
+        
+        
+        
+        /* ********************** */
+        /* REFER TO COURT HEARING */
+        var paymentMonth = document.getElementById("hearingMonth").innerText;
+        if (paymentMonth == "1") {
+            document.getElementById("hearingMonth").innerText = "January";
+        } else if (paymentMonth == "2") {
+            document.getElementById("hearingMonth").innerText = "February";
+        } else if (paymentMonth == "3") {
+            document.getElementById("hearingMonth").innerText = "March";
+        } else if (paymentMonth == "4") {
+            document.getElementById("hearingMonth").innerText = "April";
+        } else if (paymentMonth == "5") {
+            document.getElementById("hearingMonth").innerText = "May";
+        } else if (paymentMonth == "6") {
+            document.getElementById("hearingMonth").innerText = "June";
+        } else if (paymentMonth == "7") {
+            document.getElementById("hearingMonth").innerText = "July";
+        } else if (paymentMonth == "8") {
+            document.getElementById("hearingMonth").innerText = "August";
+        } else if (paymentMonth == "9") {
+            document.getElementById("hearingMonth").innerText = "September";
+        } else if (paymentMonth == "10") {
+            document.getElementById("hearingMonth").innerText = "October";
+        } else if (paymentMonth == "11") {
+            document.getElementById("hearingMonth").innerText = "November";
+        } else if (paymentMonth == "12") {
+            document.getElementById("hearingMonth").innerText = "December";
+        }
+        
+        if (document.getElementById("interpreterGroup").innerText == "Yes") {
+            document.getElementById("whichLanguage").style.display = "table-row";
+        } else {
+            document.getElementById("whichLanguage").style.display = "none";
+        }
+    
     }
 </script>
 
@@ -288,11 +354,27 @@
                                     <td id="howShouldDefendentPay">{{data['how-should-defendent-pay-group']}}</td>
                                     <td></td>
                                 </tr>
-                                <tr>
+                                
+
+                                
+                                
+                                
+                                <tr id="lumpSumOnlyRow">
                                     <td class="table-cell-width bold">Lump sum amount</td>
-                                    <td>£{{data['total-payment']}}</td>
+                                    <td>£<span id="totalPayment">{{data['total-payment']}}</span></td>
                                     <td></td>
                                 </tr>
+                                
+                                <tr id="lumpSumInstalmentRow">
+                                    <td class="table-cell-width bold">Lump sum amount</td>
+                                    <td>£<span id="totalPayment">{{data['lump-sum-amount']}}</span></td>
+                                    <td></td>
+                                </tr>
+                                
+                                
+                                
+                                
+                                
                                 <tr id="instalmentsRow">
                                     <td class="table-cell-width bold">Instalments</td>
                                     <td>£<span id="instalmentAmount1">{{data['instalment-amount-1']}}</span><span id="instalmentAmount2">{{data['instalment-amount-2']}}</span> <span style="text-transform: lowercase">{{data['instalment-length-group']}}</span>, starting on 
@@ -318,11 +400,6 @@
                         </label>
                         <textarea class="form-control form-control-3-4" name="optional-note" id="optional-note" rows="5"></textarea>
 
-
-
-
-
-
                         <input class="button top_30" type="submit" value="Continue">
                         <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
 
@@ -336,10 +413,108 @@
         
     <div id="referToCourtHearing">
         <h1 class="heading-xlarge top_0 bottom_5">Check your decision</h1>
-        <p>Refer to court hearing coming soon</p>
 
         <form class="form" action="" method="post">
             <div class="form-group">
+                
+                <h2 class="heading-large">Offence 1</h2>
+
+                <table class="check-your-decisions-table">
+                    <tbody>
+                        <tr>
+                            <td class="heading-medium">Decision</td>
+                            <td></td>
+                            <td><a href="#">Change</a></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell-width bold">Offence type</td>
+                            <td>{{data['offence-type']}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell-width bold">Verdict</td>
+                            <td>{{data['verdict']}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell-width bold">Result</td>
+                            <td>{{data['decision']}}</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <hr>
+                
+                <table class="check-your-decisions-table">
+                    <tbody>
+                        <tr>
+                            <td class="heading-medium">Outcome - refer to court hearing</td>
+                            <td></td>
+                            <td><a href="confirm-outcome">Change</a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="table-cell-width bold">Refer to which court?</td>
+                            <td>{{ data['refer-to-which-court-group'] }}</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td class="table-cell-width bold">Court room</td>
+                            <td>{{ data['court-room-group'] }}</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td class="table-cell-width bold">Date of hearing</td>
+                            <td>{{ data['hearing-day'] }} <span id="hearingMonth">{{ data['hearing-month'] }}</span> {{ data['hearing-year'] }}</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td class="table-cell-width bold">Start time of hearing session</td>
+                            <td>{{ data['hearing-time-hour'] }}:{{ data['hearing-time-minute'] }}</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td class="table-cell-width bold">Reason for referring to court</td>
+                            <td>{{ data['reason-for-referring-to-court-group'] }} {{ data['equivocal-plea-group'] }}{{ data['case-management-group'] }}</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td class="table-cell-width bold">Is an interpreter needed in court</td>
+                            <td id="interpreterGroup">{{ data['interpreter-group'] }}</td>
+                            <td></td>
+                        </tr>
+
+                        <tr id="whichLanguage">
+                            <td class="table-cell-width bold">Which language</td>
+                            <td>{{ data['interpeter-language'] }}</td>
+                            <td></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <hr>
+
+                <label class="form-label" for="optional-note">
+                    <span class="heading-medium">Add a note (optional)</span>
+                    <p class="bottom_5">This will only be seen by court staff</p>
+                </label>
+                <textarea class="form-control form-control-3-4" name="optional-note" id="optional-note" rows="5"></textarea>
+                    
+
+                        
+                        
+                        
+                
+                
+                
+                
                 <input class="button top_30" type="submit" value="Continue">
                 <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
 
@@ -396,8 +571,158 @@
 
     <div id="discharge">
         <h1 class="heading-xlarge top_0 bottom_5">Check your decision</h1>
-        <p>Discharge coming soon</p>
 
+        <h2 class="heading-large">Offence 1</h2>
+
+        <table class="check-your-decisions-table">
+            <tbody>
+                <tr>
+                    <td class="heading-medium">Decision</td>
+                    <td></td>
+                    <td><a href="#">Change</a></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Offence type</td>
+                    <td>{{data['offence-type']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Verdict</td>
+                    <td>{{data['verdict']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Result</td>
+                    <td>{{data['decision']}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+  
+        <table class="check-your-decisions-table">
+            <tbody>
+                <tr>
+                    <td class="heading-medium">Outcome</td>
+                    <td></td>
+                    <td><a href="/legaladviser/confirm-outcome">Change</a></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Type of discharge</td>
+                    <td>{{data['discharge-type-group']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Compensation</td>
+                    <td>£{{data['discharge-compensation']}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+        
+        <table class="check-your-decisions-table">
+            <tbody>
+                <tr>
+                    <td class="heading-medium">Costs</td>
+                    <td></td>
+                    <td><a href="confirm-outcome">Change</a></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Costs</td>
+                    <td>£{{data['discharge-costs']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Victim surcharge</td>
+                    <td>£{{data['discharge-victim-surcharge']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Collection order issued</td>
+                    <td id="discharge-confirm-collection-order">{{data['discharge-confirm-collection-order']}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <table class="check-your-decisions-table">
+            <tbody>
+                <tr>
+                    <td class="heading-medium">Payment</td>
+                    <td></td>
+                    <td><a href="payment-method">Change</a></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Total</td>
+                    <td>£{{data['total-payment-discharge']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Payment method</td>
+                    <td>{{data['payment-method-group']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Reason you didn't deduct from benefits</td>
+                    <td>{{data['deduct-from-benefits-group']}} {{data['other-reason']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">How should defendent pay the court</td>
+                    <td id="howShouldDefendentPay">{{data['how-should-defendent-pay-group']}}</td>
+                    <td></td>
+                </tr>
+                
+                
+                
+                
+                <tr id="lumpSumOnly">
+                    <td class="table-cell-width bold">Lump sum amount</td>
+                    <td>£{{data['total-payment-discharge']}}</td>
+                    <td></td>
+                </tr>
+                
+                <tr id="lumpSumInstalment">
+                    <td class="table-cell-width bold">Lump sum amount</td>
+                    <td>£<span id="totalPayment">{{data['lump-sum-amount']}}</span></td>
+                    <td></td>
+                </tr>
+
+                
+                
+                
+                <tr id="instalmentsRow2">
+                    <td class="table-cell-width bold">Instalments</td>
+                    <td>£<span id="instalmentAmount1">{{data['instalment-amount-1']}}</span><span id="instalmentAmount2">{{data['instalment-amount-2']}}</span> <span style="text-transform: lowercase">{{data['instalment-length-group']}}</span>, starting on 
+
+                        <span id="paymentDay">{{data['day']}}</span>
+                        <span id="paymentDay2">{{data['day2']}}</span> 
+
+                        <span id="paymentMonth">{{data['month']}}</span>
+                        <span id="paymentMonth2">{{data['month2']}}</span> 
+
+                        <span id="paymentYear">{{data['year']}}</span>
+                        <span id="paymentYear2">{{data['year2']}}</span></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        
+        
+        
+        
+        
+        
+        
+        
         <form class="form" action="" method="post">
             <div class="form-group">
                 <input class="button top_30" type="submit" value="Continue">

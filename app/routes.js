@@ -75,8 +75,16 @@ router.post('/legaladviser/confirm-outcome', function (req, res) {
     var backduty = Number(req.session.data['back-duty-amount'])
     var compensation = Number(req.session.data['compensation-amount'])
     var costs = Number(req.session.data['costs'])
-    
     req.session.data['total-payment'] = fine+backduty+compensation+costs;
+    
+    
+    
+    var dischargeCompensation = Number(req.session.data['discharge-compensation'])
+    var dischargeCosts = Number(req.session.data['discharge-costs'])
+    var dischargeVictimSurcharge = Number(req.session.data['discharge-victim-surcharge'])
+    req.session.data['total-payment-discharge'] = dischargeCompensation+dischargeCosts+dischargeVictimSurcharge;
+    
+    
     
     var decisionMade = req.session.data['make-a-decision-group']
     if (decisionMade == "Financial penalty") {
