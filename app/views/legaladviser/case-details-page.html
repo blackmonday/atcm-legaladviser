@@ -9,6 +9,28 @@
 <script>
     window.onload = function() {
         
+        
+        
+        
+        var howToPayFinal = document.getElementById('howToPayGroup').innerText;
+        if ((howToPayFinal == "Lump sum within 14 days") || (howToPayFinal == "Lump sum within 28 days")) {
+            document.getElementById('lumpSumAmount').style.display = "none";
+            document.getElementById('instalmentOnly').style.display = "none";
+        }
+        if (howToPayFinal == "Lump sum plus instalments") {
+            document.getElementById('totalPayment').style.display = "none";
+            document.getElementById('instalmentOnly').style.display = "none";
+        }
+        if (howToPayFinal == "Instalments only") {
+            document.getElementById('totalPayment').style.display = "none";
+            document.getElementById('lumpSumAmount').style.display = "none";
+        }
+
+        
+        
+        
+        
+        
         /* CHECK DECISION */
         var decisiontype = document.getElementById('decision').innerText;
         if (decisiontype == "Financial penalty") {
@@ -43,12 +65,6 @@
 
         }
 
-        
-        
-        
-        
-        
-        
         var prosecutorCheck = document.getElementById("prosecutorCheck").innerText;
         if (prosecutorCheck == "DVLA (with back duty)") {
             document.getElementById("backDutyLength").style.display = "block";
@@ -69,6 +85,45 @@
             document.getElementById("tabGroup2").style.display = "none";
         }
 
+        
+        
+        
+        
+        
+            var paymentMonth = document.getElementById("paymentMonth").innerText;
+            if (paymentMonth == "1") {
+                document.getElementById("paymentMonth").innerText = "January";
+            } else if (paymentMonth == "2") {
+                document.getElementById("paymentMonth").innerText = "February";
+            } else if (paymentMonth == "3") {
+                document.getElementById("paymentMonth").innerText = "March";
+            } else if (paymentMonth == "4") {
+                document.getElementById("paymentMonth").innerText = "April";
+            } else if (paymentMonth == "5") {
+                document.getElementById("paymentMonth").innerText = "May";
+            } else if (paymentMonth == "6") {
+                document.getElementById("paymentMonth").innerText = "June";
+            } else if (paymentMonth == "7") {
+                document.getElementById("paymentMonth").innerText = "July";
+            } else if (paymentMonth == "8") {
+                document.getElementById("paymentMonth").innerText = "August";
+            } else if (paymentMonth == "9") {
+                document.getElementById("paymentMonth").innerText = "September";
+            } else if (paymentMonth == "10") {
+                document.getElementById("paymentMonth").innerText = "October";
+            } else if (paymentMonth == "11") {
+                document.getElementById("paymentMonth").innerText = "November";
+            } else if (paymentMonth == "12") {
+                document.getElementById("paymentMonth").innerText = "December";
+            }
+
+        
+        
+        
+        
+        
+        
+        
     }
 </script>
 
@@ -80,7 +135,9 @@
     .court-decision td:first, .payment-and-collection td:first {
         width:40%;
     }
-
+    .table-cell-width {
+        width: 40%;
+    }
 </style>
 
 <div id="overlay-file-1" onclick="overlay_file_1_off()">
@@ -302,16 +359,64 @@
 
                             <hr>
 
+                            <h4 class="heading-medium bottom_10 top_0">Payment and collection</h4>
+                        
                             <table class="payment-and-collection">
                                 <tbody>
                                     <tr>
-                                        <td class="bold">Collection order made</td>
-                                        <td>{{data['payment-method']}}</td>
+                                        <td class="bold table-cell-width">Collection order made</td>
+                                        <td>{{data['payment-method-group']}}</td>
                                     </tr>
-                                    <tr>
-                                        <td class="bold">Payment terms</td>
-                                        <td>£{{data['total-payment']}} {{data['how-should-defendent-pay-group']}}</td>
+                                    <tr id="totalPayment">
+                                        <td class="bold table-cell-width">Payment terms</td>
+                                        <td>£{{data['total-payment']}} to be paid as a <span id="howToPayGroup">{{data['how-should-defendent-pay-group']}}</span></td>
                                     </tr>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <tr id="lumpSumAmount">
+                                        <td class="bold table-cell-width">Payment terms</td>
+                                        <td>£{{data['lump-sum-amount']}} to be paid as a <span id="howToPayGroup">{{data['how-should-defendent-pay-group']}}</span> of £{{data['instalment-amount-1']}} paid {{data['instalment-length-group']}} starting on 
+                                        <span id="paymentDay">{{data['day']}}</span>
+                                        <span id="paymentDay2">{{data['day2']}}</span> 
+
+                                        <span id="paymentMonth">{{data['month']}}</span>
+                                        <span id="paymentMonth2">{{data['month2']}}</span> 
+
+                                        <span id="paymentYear">{{data['year']}}</span>
+                                        <span id="paymentYear2">{{data['year2']}}</span></td>
+                                    </tr>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <tr id="instalmentOnly">
+                                        <td class="bold table-cell-width">Payment terms</td>
+                                        <td>£{{data['instalment-amount-2']}} to be paid {{data['instalment-length-group']}} as a <span id="howToPayGroup">{{data['how-should-defendent-pay-group']}}</span> starting on  
+                                        
+                                        <span id="paymentDay">{{data['day']}}</span>
+                                        <span id="paymentDay2">{{data['day2']}}</span> 
+
+                                        <span id="paymentMonth">{{data['month']}}</span>
+                                        <span id="paymentMonth2">{{data['month2']}}</span> 
+
+                                        <span id="paymentYear">{{data['year']}}</span>
+                                        <span id="paymentYear2">{{data['year2']}}</span></td>
+                                    </tr>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
                                 </tbody>
                             </table>
                         </div>
