@@ -38,7 +38,199 @@
         <div class="column-two-thirds">
                         
             <h1 class="heading-xlarge top_0 bottom_30">Deduct from benefits</h1>
-            <a href="javascript:history.go(-1);">Back</a>
+            
+            <h3 class="heading-medium">Defendent's details</h3>
+            <p><span class="bold">National Insurance number:</span> {{ data['defendents-nin']}}</p>
+            
+            <form class="form" action="" method="post">
+                <div class="form-group">
+
+                    <fieldset>
+                        <legend>
+                            <h1 class="heading-medium">Reason for deducting from benefits</h1>
+                        </legend>
+                        <div class="multiple-choice">
+                            <input id="radio-a1" type="radio" name="reason-for-deducting-from-benefits-group" value="Compensation ordered">
+                            <label for="radio-a1">Compensation ordered</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="radio-a2" type="radio" name="reason-for-deducting-from-benefits-group" value="Defendant failed to pay in past">
+                            <label for="radio-a2">Defendant failed to pay in past</label>
+                        </div>
+                        <p class="form-block">or</p>
+                        <div class="multiple-choice">
+                            <input id="radio-a3" type="radio" name="reason-for-deducting-from-benefits-group" value="I am a British citizen living abroad">
+                            <label for="radio-a3">Defendant requested this</label>
+                        </div>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <legend>
+                            <h1 class="heading-medium">Set reserve terms</h1>
+                        </legend>
+                        <div class="multiple-choice">
+                            <input id="radio-b1" type="radio" name="set-reserve-terms-group" value="Lump sum within 14 days" {{ checked('set-reserve-terms-group','Lump sum within 14 days') }}>
+                            <label for="radio-b1">Lump sum within 14 days</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="radio-b2" type="radio" name="set-reserve-terms-group" value="Lump sum within 28 days" {{ checked('set-reserve-terms-group','Lump sum within 28 days') }}>
+                            <label for="radio-b2">Lump sum within 28 days</label>
+                        </div>
+                        
+                        <div class="multiple-choice" data-target="lump-sum-plus-instalment">
+                            <input id="radio-b3" type="radio" name="set-reserve-terms-group" value="Lump sum plus instalment" {{ checked('set-reserve-terms-group','Lump sum plus instalment') }}>
+                            <label for="radio-b3">Lump sum plus instalment</label>
+                        </div>
+                        <div class="js-hidden" id="lump-sum-plus-instalment">
+                            <div class="panel panel-border-wide top_15">
+                                
+                                <fieldset>
+                                    <label class="form-label" for="lump-sum-amount">Lump sum amount</label>
+                                    <div class="input-icon">
+                                        <i>£</i>
+                                        <input class="form-control" id="lump-sum-amount" type="number" min="0.0" step="0.01"  name="lump-sum-amount" value="{{ data['lump-sum-amount'] }}">
+                                    </div>
+                                </fieldset>
+                                
+                                <fieldset class="top_15">
+                                    <label class="form-label" for="instalments-amount">Instalment amount</label>
+                                    <div class="input-icon">
+                                        <i>£</i>
+                                        <input class="form-control" id="instalments-amount" type="number" min="0.0" step="0.01"  name="instalments-amount" value="{{ data['instalments-amount'] }}">
+                                    </div>
+                                </fieldset>
+
+                                <fieldset class="top_15">
+                                    <legend>
+                                        <p>How often should instalment be made?</p>
+                                    </legend>
+                                    <div class="multiple-choice">
+                                        <input id="instalment-frequency-1" type="radio" name="lump-sum-instalment-frequency-group" value="Weekly" {{ checked('lump-sum-instalment-frequency-group','Weekly') }}>
+                                        <label for="instalment-frequency-1">Weekly</label>
+                                    </div>
+                                    <div class="multiple-choice">
+                                        <input id="instalment-frequency-2" type="radio" name="lump-sum-instalment-frequency-group" value="Fortnightly" {{ checked('lump-sum-instalment-frequency-group','Fortnightly') }}>
+                                        <label for="instalment-frequency-2">Fortnightly</label>
+                                    </div>
+                                    <div class="multiple-choice">
+                                        <input id="instalment-frequency-3" type="radio" name="lump-sum-instalment-frequency-group" value="Monthly" {{ checked('lump-sum-instalment-frequency-group','Monthly') }}>
+                                        <label for="instalment-frequency-3">Monthly</label>
+                                    </div>
+                                </fieldset>
+                                
+                                <fieldset class="top_15">
+                                    <legend>
+                                        <span class="form-label">Instalment start date</span>
+                                        <span class="form-hint">For example, 31 3 1980</span>
+                                    </legend>
+                                    <div class="form-date">
+                                        <div class="form-group form-group-day">
+                                            <label class="form-label" for="day">Day</label>
+                                            <input class="form-control" id="day" name="day" type="number" pattern="[0-9]*" value="{{ data['day'] }}">
+                                        </div>
+                                        <div class="form-group form-group-month">
+                                            <label class="form-label" for="month">Month</label>
+                                            <input class="form-control" id="month" name="month" type="number" pattern="[0-9]*" value="{{ data['month'] }}">
+                                        </div>
+                                        <div class="form-group form-group-year">
+                                            <label class="form-label" for="year">Year</label>
+                                            <input class="form-control" id="year" name="year" type="number" pattern="[0-9]*" value="{{ data['year'] }}">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="multiple-choice" data-target="instalments-only">
+                            <input id="radio-b4" type="radio" name="set-reserve-terms-group" value="Instalments only">
+                            <label for="radio-b4">Instalments only</label>
+                        </div>
+                        <div class="js-hidden" id="instalments-only">
+                            <div class="panel panel-border-wide top_15">
+                                <label class="form-label" for="instalments-only-amount">Instalment amount</label>
+                                <div class="input-icon">
+                                    <i>£</i>
+                                    <input class="form-control" id="instalments-only-amount" type="number" min="0.0" step="0.01"  name="instalments-only-amount" value="{{ data['instalments-only-amount'] }}">
+                                </div>
+                                
+                                <fieldset class="top_15">
+                                    <legend>
+                                        <p>How often should instalment be made?</p>
+                                    </legend>
+                                    <div class="multiple-choice">
+                                        <input id="instalment-frequency-1" type="radio" name="instalment-only-frequency-group" value="Weekly" {{ checked('instalment-only-frequency-group','Weekly') }}>
+                                        <label for="instalment-frequency-1">Weekly</label>
+                                    </div>
+                                    <div class="multiple-choice">
+                                        <input id="instalment-frequency-2" type="radio" name="instalment-only-frequency-group" value="Fortnightly" {{ checked('instalment-only-only-instalment-frequency-group','Fortnightly') }}>
+                                        <label for="instalment-frequency-2">Fortnightly</label>
+                                    </div>
+                                    <div class="multiple-choice">
+                                        <input id="instalment-frequency-3" type="radio" name="xinstalment-only-frequency-group" value="Monthly" {{ checked('instalment-only-only-instalment-frequency-group','Monthly') }}>
+                                        <label for="instalment-frequency-3">Monthly</label>
+                                    </div>
+                                </fieldset>
+                                
+                                <fieldset class="top_15">
+                                    <legend>
+                                        <span class="form-label">Instalment start date</span>
+                                        <span class="form-hint">For example, 31 3 1980</span>
+                                    </legend>
+                                    <div class="form-date">
+                                        <div class="form-group form-group-day">
+                                            <label class="form-label" for="day">Day</label>
+                                            <input class="form-control" id="day" name="day" type="number" pattern="[0-9]*" value="{{ data['day'] }}">
+                                        </div>
+                                        <div class="form-group form-group-month">
+                                            <label class="form-label" for="month">Month</label>
+                                            <input class="form-control" id="month" name="month" type="number" pattern="[0-9]*" value="{{ data['month'] }}">
+                                        </div>
+                                        <div class="form-group form-group-year">
+                                            <label class="form-label" for="year">Year</label>
+                                            <input class="form-control" id="year" name="year" type="number" pattern="[0-9]*" value="{{ data['year'] }}">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+
+                            </div>
+                        </div>
+                        
+                    </fieldset>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <input class="button top_15" type="submit" value="Continue">
+                    <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
+
+                </div>
+            </form>
             
         </div>
         

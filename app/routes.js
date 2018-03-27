@@ -30,6 +30,7 @@ router.post('/', function (req, res) {
         req.session.data['defendents-claiming-benefits'] = "No"
         req.session.data['defendents-employment-status'] = "Employed (full or part-time)"
         req.session.data['defendents-plea'] = "Pleaded guilty SJP"
+        req.session.data['defendents-nin'] = "AB 12 34 56 C"
         req.session.data['case-status'] = "Plea received - ready for decision"
         req.session.data['prosecutor'] = "DVLA"
         req.session.data['notice-served'] = "30 April 2018"
@@ -135,6 +136,22 @@ router.post('/legaladviser/payment-method', function (req, res) {
 // *******************
 // PAY DIRECT TO COURT
 router.post('/legaladviser/pay-direct-to-court', function (req, res) {
+    
+    res.redirect('/legaladviser/check-your-decision')
+    
+})
+
+// ********************
+// DEDUCT FROM BENEFITS
+router.post('/legaladviser/deduct-from-benefits', function (req, res) {
+    
+    res.redirect('/legaladviser/check-your-decision')
+    
+})
+
+// ******************
+// ATTACH TO EARNINGS
+router.post('/legaladviser/attach-to-earnings', function (req, res) {
     
     res.redirect('/legaladviser/check-your-decision')
     
