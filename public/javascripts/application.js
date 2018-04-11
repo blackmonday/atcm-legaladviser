@@ -142,3 +142,38 @@ function removeRow1() {
     document.getElementById("noFilesAdded").style.display = "block";
     document.getElementById("filesAdded").style.display = "none";
 }
+
+
+
+
+
+
+
+
+/* *********************** */
+/* Character count pattern */
+$(document).ready(function() {
+    var text_max = 5000; // This the maximum character count
+    var text_spread = 100; // This calculates when to change the text colour to red
+    
+    $('#character_count_6').html('Character count: 0 /' + text_max);
+
+    $('#benefits-details').keyup(function() {
+        var text_length = $('#benefits-details').val().length;
+
+        $('#character_count_6').html('Character count: ' + text_length + ' /' + text_max);
+        
+        if (text_length > (text_max-text_spread)) {
+            $('#character_count_6').css('color','#B10E1E');
+        } else {
+            $('#character_count_6').css('color','#6F777B');
+        }
+        if (text_length > (text_max)) {
+            $('#character_count_6').addClass('bold');
+        } else {
+            $('#character_count_6').removeClass('bold');
+        }
+    });
+
+
+});

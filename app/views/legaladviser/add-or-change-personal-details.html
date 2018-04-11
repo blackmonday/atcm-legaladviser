@@ -21,9 +21,8 @@
             {% include "includes/phase_banner_alpha.html" %}
             {% include "includes/breadcrumb_back.html" %}
             
-            <div class="peristant-info-banner">
-                <div class="peristant-info-banner-content">{{ data['case-reference-number']}} <span class="bold">{{ data['defendents-first-name']}} {{ data['defendents-last-name']}}</span><span style="text-decoration: underline;float:right;margin-right:15px">End session</span></div>
-            </div>
+            {% include "includes/persist-info-banner.html" %}
+
         </div>
     </div>
 

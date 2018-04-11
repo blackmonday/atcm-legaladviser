@@ -20,9 +20,8 @@
             {% include "includes/phase_banner_alpha.html" %}
             {% include "includes/breadcrumb_back.html" %}
             
-            <div class="peristant-info-banner">
-                <div class="peristant-info-banner-content">9012466 <span class="bold">Billy SMITH</span></div>
-            </div>
+            {% include "includes/persist-info-banner.html" %}
+                        
         </div>
     </div>
 
@@ -35,97 +34,152 @@
             <p>Please enter only the following:</p>
             
             <label class="form-label-bold" for="title">Net income</label>
-            <input class="form-control" id="title" type="text" name="title" value="£ 275">
+            <div class="input-icon">
+                <i>£</i>
+                <input class="form-control" id="defendents-income-amount" type="number" min="0.01" step="0.01" name="defendents-income-amount" value="{{ data['defendents-income-amount'] }}">
+            </div>
+
             
-            <form>
-                <fieldset>
-                    <div class="form-group">
-                      <legend>
-                        <span class="form-label-bold top_30">
-                          Frequency of income and outgoings
-                        </span>
-                        <span class="form-hint">Check the form to see what the defendant has ticked</span>
-                      </legend>
-                        <div class="multiple-choice">
-                            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
-                            <label for="radio-inline-1">Weekly</label>
+            <form class="form" action="" method="post">            
+                <div class="form-group bottom_0">
+                    <fieldset>
+                        <div class="form-group">
+                          <legend>
+                            <span class="form-label-bold top_30">
+                              Frequency of income and outgoings
+                            </span>
+                            <span class="form-hint">Check the form to see what the defendant has ticked</span>
+                          </legend>
+                            <div class="multiple-choice">
+                                <input id="income-frequency-1" type="radio" name="income-frequency-group" value="Weekly" {{ checked('income-frequency-group','Weekly') }}>
+                                <label for="income-frequency-1">Weekly</label>
+                            </div>
+                            <div class="multiple-choice">
+                                <input id="income-frequency-2" type="radio" name="income-frequency-group" value="Fortnightly" {{ checked('income-frequency-group','Fortnightly') }}>
+                                <label for="income-frequency-2">Fortnightly</label>
+                            </div>
+                            <div class="multiple-choice">
+                                <input id="income-frequency-3" type="radio" name="income-frequency-group" value="Monthly" {{ checked('income-frequency-group','Monthly') }}>
+                                <label for="income-frequency-3">Monthly</label>
+                            </div>
+                            <div class="multiple-choice">
+                                <input id="income-frequency-4" type="radio" name="income-frequency-group" value="Annually" {{ checked('income-frequency-group','Annually') }}>
+                                <label for="income-frequency-4">Annually</label>
+                            </div>
                         </div>
-                        <div class="multiple-choice">
-                            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No" checked="checked">
-                            <label for="radio-inline-2">Fortnightly</label>
-                        </div>
-                        <div class="multiple-choice">
-                            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
-                            <label for="radio-inline-2">Montly</label>
-                        </div>
-                        <div class="multiple-choice">
-                            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
-                            <label for="radio-inline-2">Annually</label>
-                        </div>
-                    </div>
-                </fieldset>
+                    </fieldset>
+                </div>
             </form>
 
-            <form>
-                <fieldset>
-                    <div class="form-group">
+            <form class="form" action="" method="post">            
+                <div class="form-group">
+                    <fieldset>
                         <legend>
-                            <span class="form-label-bold top_30">Employement status</span>
+                            <span class="form-label-bold">Employement status</span>
                             <span class="form-hint">Choose employed if they do any work for an employer</span>
                         </legend>
 
+                        <div class="multiple-choice" data-target="employer-details">
+                            <input id="employment-status-1" type="radio" name="employment-status-group" value="Employed (full or part-time)" {{ checked('employment-status-group','Employed (full or part-time)') }}>
+                            <label for="employment-status-1">Employed (full or part-time)</label>
+                        </div>
+                        <div class="js-hidden" id="employer-details">
+                            <div class="panel panel-border-wide top_15">
+                                <h3 class="heading-small">Employer details</h3>
+                                <label class="form-label" for="employee-number">Employee number (optional)</label>
+                                <input class="form-control" id="employee-number" type="text" name="employee-number" value="{{ data['employee-number'] }}">
+
+                                <label class="form-label top_15" for="employer-name">Employer name</label>
+                                <input class="form-control" id="employer-name" type="text" name="employer-name" value="{{ data['employer-name'] }}">
+
+                                <label class="form-label top_15" for="employer-addess-line-1">Building and street</label>
+                                <input class="form-control" id="employer-address-line-1" type="text" name="employer-address-line-1" value="{{ data['employer-address-line-1'] }}">
+                                <input class="form-control top_5" id="employer-address-line-2" type="text" name="employer-address-line-2" value="{{ data['employer-address-line-2'] }}">
+                                <input class="form-control top_5" id="employer-address-line-3" type="text" name="employer-address-line-3" value="{{ data['employer-address-line-3'] }}">
+
+                                <label class="form-label top_15" for="employer-town-or-city">Town or city</label>
+                                <input class="form-control" id="employer-town-or-city" type="text" name="employer-town-or-city" value="{{ data['employer-town-or-city'] }}">
+
+                                <label class="form-label top_15" for="employer-postcode">Postcode</label>
+                                <input class="form-control" id="employer-postcode" type="text" name="employer-postcode" value="{{ data['employer-postcode'] }}">
+
+                                <label class="form-label top_15" for="employer-telephone">Employer telephone (optional)</label>
+                                <input class="form-control" id="employer-telephone" type="text" name="employer-telephone" value="{{ data['employer-telephone'] }}">
+
+                            
+                            </div>
+                        </div>
+
                         <div class="multiple-choice">
-                            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes" checked="checked">
-                            <label for="radio-inline-1">Employed (full or part-time)</label>
+                            <input id="employment-status-2" type="radio" name="employment-status-group" value="Self-employed" {{ checked('employment-status-group','Self-employed') }}>
+                            <label for="employment-status-2">Self-employed</label>
                         </div>
                         <div class="multiple-choice">
-                            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
-                            <label for="radio-inline-2">Self-employed</label>
+                            <input id="employment-status-3" type="radio" name="employment-status-group" value="Unemployed" {{ checked('employment-status-group','Unemployed') }}>
+                            <label for="employment-status-3">Unemployed</label>
                         </div>
+                        <div class="multiple-choice" data-target="company-rep-details">
+                            <input id="employment-status-4" type="radio" name="employment-status-group" value="Company representative" {{ checked('employment-status-group','Company representative') }}>
+                            <label for="employment-status-4">Company representative</label>
+                        </div>
+                        <div class="js-hidden" id="company-rep-details">
+                            <div class="panel panel-border-wide top_15">
+                                <label class="form-label" for="company-rep-title">Enter title (optional)</label>
+                                <input class="form-control" id="company-rep-title" type="text" name="company-rep-title" value="{{ data['company-rep-title'] }}">
+                            </div>
+                        </div>
+
+                        <div class="multiple-choice" data-target="other-details">
+                            <input id="employment-status-5" type="radio" name="employment-status-group" value="Other (for example, retired, student)" {{ checked('employment-status-group','Other (for example, retired, student)') }}>
+                            <label for="employment-status-5">Other (for example, retired, student)</label>
+                        </div>
+                        <div class="js-hidden" id="other-details">
+                            <div class="panel panel-border-wide top_15">
+                                <label class="form-label" for="other-employment-details">Enter details (optional)</label>
+                                <input class="form-control" id="other-employment-details" type="text" name="other-employment-details" value="{{ data['other-employment-details'] }}">
+                            </div>
+                        </div>
+
                         <div class="multiple-choice">
-                            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
-                            <label for="radio-inline-2">Unemployed</label>
+                            <input id="employment-status-6" type="radio" name="employment-status-group" value="Don’t know or not applicable" {{ checked('employment-status-group','Don’t know or not applicable') }}>
+                            <label for="employment-status-6">Don’t know or not applicable</label>
                         </div>
-                        <div class="multiple-choice">
-                            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
-                            <label for="radio-inline-2">Company representative</label>
-                        </div>
-                        <div class="multiple-choice">
-                            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
-                            <label for="radio-inline-2">Other (for example, retired, student)</label>
-                        </div>
-                        <div class="multiple-choice">
-                            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
-                            <label for="radio-inline-2">Don’t know or not applicable</label>
-                        </div>
-                    </div>
-                </fieldset>
+                    </fieldset>
+                </div>
             </form>
 
-            <form>
-                <fieldset>
-                    <div class="form-group">
+            <form class="form" action="" method="post">            
+                <div class="form-group">
+                    <fieldset>
                         <legend>
-                            <span class="form-label-bold top_30">Is the defendent claiming benefits?</span>
+                            <span class="form-label-bold">Is the defendent claiming benefits?</span>
                             <span class="form-hint">Do not include child benefit</span>
                         </legend>
 
+                        <div class="multiple-choice" data-target="benefits-claimed">
+                            <input id="claiming-benefits-1" type="radio" name="claiming-benefits-group" value="Yes" {{ checked('claiming-benefits-group','Yes') }}>
+                            <label for="claiming-benefits-1">Yes</label>
+                        </div>
+                        <div class="js-hidden" id="benefits-claimed">
+                            <div class="panel panel-border-wide top_15">
+                                <label class="form-label" for="benefits-details">Enter details (optional)</label>
+                                <textarea class="form-control form-control-3-4" name="benefits-details" id="benefits-details" rows="5">{{ data['benefits-details'] }}</textarea>
+                                <div class="font-xsmall form-control-3-4" id="character_count_6"></div>
+                            </div>
+                        </div>
+
                         <div class="multiple-choice">
-                            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
-                            <label for="radio-inline-1">Yes</label>
+                            <input id="claiming-benefits-2" type="radio" name="claiming-benefits-group" value="No" {{ checked('claiming-benefits-group','No') }}>
+                            <label for="claiming-benefits-2">No</label>
                         </div>
                         <div class="multiple-choice">
-                            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No" checked="checked">
-                            <label for="radio-inline-2">No</label>
+                            <input id="claiming-benefits-3" type="radio" name="claiming-benefits-group" value="Dont' know / not applicable" {{ checked('claiming-benefits-group','Dont know / not applicable') }}>
+                            <label for="claiming-benefits-3">Dont know / not applicable</label>
                         </div>
-                        <div class="multiple-choice">
-                            <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
-                            <label for="radio-inline-2">Dont' know / not applicable</label>
-                        </div>
-                    </div>
-                </fieldset>
+                    </fieldset>
+                </div>
             </form>
-            
+
             <form class="form top_30" action="" method="post">
                 <input class="button" type="submit" value="Save">
                 <div class="top_15"><a href="#">Cancel</a></div>

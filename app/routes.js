@@ -38,8 +38,11 @@ router.post('/', function (req, res) {
         req.session.data['defendents-email'] = "billy_s765@gmail.com"
         req.session.data['defendents-previous-convictions'] = "2"
         req.session.data['defendents-income'] = "£142.92 weekly (actual)"
-        req.session.data['defendents-claiming-benefits'] = "No"
+        req.session.data['defendents-income-amount'] = "142.92"
+        req.session.data['defendents-claiming-benefits'] = "Yes"
+        req.session.data['benefits-details'] = ""
         req.session.data['defendents-employment-status'] = "Employed (full or part-time)"
+        req.session.data['employment-status-group'] = "Employed (full or part-time)"
         req.session.data['defendents-plea'] = "Pleaded guilty SJP"
         req.session.data['defendents-nin'] = "AB 12 34 56 C"
         req.session.data['case-status'] = "Plea received - ready for decision"
@@ -53,6 +56,20 @@ router.post('/', function (req, res) {
         req.session.data['offence-banding-header'] = "Check penalty, back duty and compensation"
         req.session.data['guilty-plea-taken-into-account'] = "Yes"
         req.session.data['verdict'] = "Proved SJP"
+        
+        req.session.data['income-frequency-group'] = "Weekly"
+        req.session.data['employee-number'] = "Employee number"
+        req.session.data['employer-name'] = "Employer name"
+        req.session.data['employer-address-line-1'] = "Address line 1"
+        req.session.data['employer-address-line-2'] = "Address line 2"
+        req.session.data['employer-address-line-3'] = "Address line 3"
+        req.session.data['employer-town-or-city'] = "Town or city"
+        req.session.data['employer-postcode'] = "Postcode"
+        req.session.data['employer-telephone'] = "Employer telephone"
+
+        req.session.data['claiming-benefits-group'] = "Yes"
+        
+        
         //req.session.data['payment-method'] = "Pay directly to court"
         //req.session.data['deduct-from-benefits-reason'] = "No information from the defendant"
         //req.session.data['how-should-defendent-pay'] = "Lump sum amount"
@@ -211,7 +228,7 @@ router.post('/legaladviser/add-or-change-personal-details', function (req, res) 
     req.session.data['defendents-dob-month'] = req.session.data['new-dob-month']
     req.session.data['defendents-dob-year'] = req.session.data['new-dob-year']
     
-    req.session.data['defendents-address-line-1'] = req.session.data['new-adress-line-1']
+    req.session.data['defendents-address-line-1'] = req.session.data['new-address-line-1']
     req.session.data['defendents-address-line-2'] = req.session.data['new-address-line-2']
     req.session.data['defendents-town-or-city'] = req.session.data['new-town-or-city']
     req.session.data['defendents-county'] = req.session.data['new-county']
