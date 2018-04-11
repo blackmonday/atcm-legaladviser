@@ -10,6 +10,51 @@
     window.onload = function() {
         
         
+        var homeTelephone = document.getElementById('homeTelephone').innerText;
+        if(homeTelephone != "") {
+            document.getElementById('addHomeTelephone').style.display = "none";
+        } else {
+            document.getElementById('homeTelephone').style.display = "none";
+        }
+        
+        var dobMonth = document.getElementById('dobMonth').innerText;
+        if (dobMonth == "1") {
+            document.getElementById('dobMonth').innerText = "January";
+        } else if (dobMonth == "2") {
+            document.getElementById('dobMonth').innerText = "February";
+        } else if (dobMonth == "3") {
+            document.getElementById('dobMonth').innerText = "March";
+        } else if (dobMonth == "4") {
+            document.getElementById('dobMonth').innerText = "April";
+        } else if (dobMonth == "5") {
+            document.getElementById('dobMonth').innerText = "May";
+        } else if (dobMonth == "6") {
+            document.getElementById('dobMonth').innerText = "June";
+        } else if (dobMonth == "7") {
+            document.getElementById('dobMonth').innerText = "July";
+        } else if (dobMonth == "8") {
+            document.getElementById('dobMonth').innerText = "August";
+        } else if (dobMonth == "9") {
+            document.getElementById('dobMonth').innerText = "September";
+        } else if (dobMonth == "10") {
+            document.getElementById('dobMonth').innerText = "October";
+        } else if (dobMonth == "11") {
+            document.getElementById('dobMonth').innerText = "November";
+        } else if (dobMonth == "12") {
+            document.getElementById('dobMonth').innerText = "December";
+        } 
+        
+        
+        
+        
+        var warningBannerSwitch = document.getElementById('warningBannerSwitch').innerText;
+        if (warningBannerSwitch == "on") {
+            document.getElementById('warningBanner').style.display = "block"
+        } else {
+            document.getElementById('warningBanner').style.display = "none"
+        }
+        
+                
         
         
         var howToPayFinal = document.getElementById('howToPayGroup').innerText;
@@ -177,7 +222,7 @@
             <div id="prosecutorCheck" style="display:none">{{ data['prosecutor-group'] }}</div>
             
             <div class="peristant-info-banner">
-                <div class="peristant-info-banner-content">9012466 <span class="bold">{{ data['defendents-first-name']}} {{ data['defendents-last-name']}}</span><span style="text-decoration: underline;float:right;margin-right:15px">End session</span></div>
+                <div class="peristant-info-banner-content">{{ data['case-reference-number']}} <span class="bold">{{ data['defendents-first-name']}} <span class="last-name">{{ data['defendents-last-name']}}</span></span><span style="text-decoration: underline;float:right;margin-right:15px">End session</span></div>
             </div>
         </div>
     </div>
@@ -187,13 +232,49 @@
     <div class="grid-row top_30">
         <div class="column-two-thirds">
             
-            <h1 class="heading-xlarge top_0 bottom_5">{{ data['defendents-first-name']}} {{ data['defendents-last-name']}}</h1>
-            <p class="form-hint">{{data['defendents-age']}}<br>
+            <h1 class="heading-xlarge top_0 bottom_5">{{ data['defendents-first-name']}} <span class="last-name">{{ data['defendents-last-name']}}</span></h1>
+            <p class="form-hint">{{data['defendents-dob-day']}} <span id="dobMonth">{{data['defendents-dob-month']}}</span> {{data['defendents-dob-year']}} ({{data['defendents-age']}} years old)<br>
             {{data['defendents-address-line-1']}}, {{data['defendents-address-line-2']}}, {{data['defendents-town-or-city']}} {{data['defendents-postcode']}}</p>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <!-- WARNING BANNER PATTERN -->
+            <div id="warningBanner" class="warning-banner-nest" style="display: none">
+                <div class="warning-banner">
+                    <div class="warning-banner-icon"><img src="/public/images/alert-icon-white.svg" class="warning-banner-icon"></div>
+                    <div class="warning-banner-text">The following defendant details have been updated:
+                        <div id="dob" class="top_10">Date of bith</div>
+                        <div id="address" class="top_5">Address details</div>
+                        <div id="name" class="top_5">Name</div>
+                        
+                        <div id="warningBannerSwitch" style="display:none">{{data['warning-banner-switch']}}</div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
            <div class="tabGroup top_30">
                 <a id="tabA" class="tab-on" onclick="tabGroup(tabContent, 'TAB-ONE')" href="javascript: void(0)">Case details</a>
                 <a id="tabB" class="tab" onclick="tabGroup(tabContent, 'TAB-TWO')" href="javascript: void(0)">Personal details</a>
+                <a id="tabC" class="tab" onclick="tabGroup(tabContent, 'TAB-THREE')" href="javascript: void(0)">Income</a>
                 <hr>
             </div>
             <div id="tabContent" class="top_30">
@@ -227,38 +308,56 @@
                     <table class="top_10">
                         <tr>
                             <th class="bold" style="border: none">Name</th>
-                            <td style="border: none">Camilla JONES</td>
+                            <td style="border: none">{{data['defendents-first-name']}} <span class="last-name">{{data['defendents-last-name']}}</span></td>
                         </tr>
                         <tr>
                             <th class="bold" style="border: none">Date of birth</th>
-                            <td style="border: none">4 April 1970 (46 years old)</td>
+                            <td style="border: none">{{data['defendents-dob-day']}} <span id="dobMonth">{{data['defendents-dob-month']}}</span> {{data['defendents-dob-year']}} ({{data['defendents-age']}} years old)</td>
                         </tr>
                         <tr>
                             <th class="bold" style="border: none">Address</th>
-                            <td style="border: none">6 Blessington Road<br>
-                            Lewisham<br>
-                            London<br>
-                            SE13 5EB</td>
+                            <td style="border: none">{{data['defendents-address-line-1']}}<br>
+                            {{data['defendents-address-line-2']}}<br>
+                            {{data['defendents-town-or-city']}}<br>
+                            {{data['defendents-postcode']}}</td>
                         </tr>
                         <tr>
                             <th class="bold" style="border: none">Email</th>
-                            <td style="border: none">billy_s765@gmail.com</td>
+                            <td style="border: none">{{data['defendents-email']}}</td>
                         </tr>
                         <tr>
                             <th class="bold" style="border: none">Home telephone</th>
-                            <td style="border: none"><a href="" title="">Add home telephone</a></td>
+                            <td id="addHomeTelephone" style="border: none"><a href="add-or-change-personal-details.html" title="">Add home telephone</a></td>
+                            <td id="homeTelephone" style="border: none">{{data['defendents-home-telephone']}}</td>
                         </tr>
                         <tr>
                             <th class="bold" style="border: none">Mobile</th>
-                            <td style="border: none">07975337198</td>
-                        </tr>
-                        <tr>
-                            <th class="bold" style="border: none">National Insurance number</th>
-                            <td style="border: none">VO 12 3445 56 D</td>
+                            <td style="border: none">{{data['defendents-mobile']}}</td>
                         </tr>
                     </table>
                     
-                    <p class="top_15"><a href="" title="">Change personal details</a></p>
+                    <p class="top_15"><a href="add-or-change-personal-details.html" title="">Change personal details</a></p>
+                </div>
+
+                <!-- TAB THREE -->
+                <div id="tabThreeContent">
+                    <h4 class="heading-medium bottom_10">Income</h4>
+                    <table class="top_10">
+                        <tr>
+                            <th class="bold" style="border: none">National Insurance number</th>
+                            <td style="border: none">{{data['defendents-nin']}}</td>
+                        </tr>
+                        <tr>
+                            <th class="bold" style="border: none">Net income (converted to weekly)</th>
+                            <td style="border: none">£100</td>
+                        </tr>
+                        <tr>
+                            <th class="bold" style="border: none">Claiming benefits</th>
+                            <td style="border: none">Benefit one, benefit two, benefit three, benefit four</td>
+                        </tr>
+                    </table>
+                    
+                    <p class="top_15"><a href="add-or-change-income.html" title="">Change income details</a></p>
                 </div>
 
             </div>

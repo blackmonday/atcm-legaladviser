@@ -17,14 +17,25 @@ router.post('/', function (req, res) {
     var prosecutor = req.session.data['prosecutor-group']
 
     if (prosecutor == "DVLA (with back duty)") {
+        req.session.data['case-reference-number'] = "9012466"
         req.session.data['penalty-or-fine'] = "Penalty"
-        req.session.data['defendents-first-name'] = "Camilla "
-        req.session.data['defendents-last-name'] = "JONES"
-        req.session.data['defendents-age'] = "4 April 1970 (46 years old)"
+        req.session.data['defendents-title'] = ""
+        req.session.data['defendents-first-name'] = "Camilla"
+        req.session.data['defendents-last-name'] = "Jones"
+        req.session.data['defendents-age'] = "46"
+        req.session.data['defendents-dob'] = "4 April 1970"
+        req.session.data['defendents-dob-short'] = "4 Apr 1970"
+        req.session.data['defendents-dob-day'] = "4"
+        req.session.data['defendents-dob-month'] = "4"
+        req.session.data['defendents-dob-year'] = "1970"
         req.session.data['defendents-address-line-1'] = "6 Blessington Road"
         req.session.data['defendents-address-line-2'] = "Lewisham"
+        req.session.data['defendents-address-line-3'] = ""
         req.session.data['defendents-town-or-city'] = "London"
         req.session.data['defendents-postcode'] = "SE13 5EB"       
+        req.session.data['defendents-home-telephone'] = ""
+        req.session.data['defendents-mobile'] = "07975337198"
+        req.session.data['defendents-email'] = "billy_s765@gmail.com"
         req.session.data['defendents-previous-convictions'] = "2"
         req.session.data['defendents-income'] = "£142.92 weekly (actual)"
         req.session.data['defendents-claiming-benefits'] = "No"
@@ -56,6 +67,14 @@ router.post('/', function (req, res) {
         res.redirect('/legaladviser/dashboard')
     }
 
+})
+
+// **************
+// DASHBOARD PAGE
+router.post('/legaladviser/dashboard', function (req, res) {
+                
+    res.redirect('/legaladviser/search-for-a-case')
+    
 })
 
 // *****************
@@ -182,14 +201,43 @@ router.post('/legaladviser/check-your-decision', function (req, res) {
 // ******************************
 // ADD OR CHANGE PERSONAL DETAILS
 router.post('/legaladviser/add-or-change-personal-details', function (req, res) {
-
-    res.redirect('/legaladviser/add-or-change-income')
+    
+    
+    req.session.data['defendents-title'] = req.session.data['new-title']
+    req.session.data['defendents-first-name'] = req.session.data['new-first-name']
+    req.session.data['defendents-last-name'] = req.session.data['new-last-name']
+    req.session.data['defendents-home-telephone'] = req.session.data['new-home-telephone']
+    req.session.data['defendents-dob-day'] = req.session.data['new-dob-day']
+    req.session.data['defendents-dob-month'] = req.session.data['new-dob-month']
+    req.session.data['defendents-dob-year'] = req.session.data['new-dob-year']
+    
+    req.session.data['defendents-address-line-1'] = req.session.data['new-adress-line-1']
+    req.session.data['defendents-address-line-2'] = req.session.data['new-address-line-2']
+    req.session.data['defendents-town-or-city'] = req.session.data['new-town-or-city']
+    req.session.data['defendents-county'] = req.session.data['new-county']
+    req.session.data['defendents-postcode'] = req.session.data['new-postcode']
+    
+    req.session.data['defendents-email'] = req.session.data['new-email']
+    req.session.data['defendents-home-telephone'] = req.session.data['new-home-telephone']
+    req.session.data['defendents-mobile'] = req.session.data['new-mobile']
+        
+    req.session.data['warning-banner-switch'] = "on"
+    
+    res.redirect('/legaladviser/case-details-page')
     
 })
+
+
+
+
+
+
+
+
 // ********************
 // ADD OR CHANGE INCOME
 router.post('/legaladviser/add-or-change-income', function (req, res) {
 
-    res.redirect('/legaladviser/upload-documents')
+    res.redirect('/legaladviser/case-details-page')
     
 })

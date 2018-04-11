@@ -458,3 +458,32 @@ tr {
     padding-left: 25px;
     padding-right: 0;
 }
+
+
+
+
+// Search
+.search-submit {
+    height: 40px;
+    width: 40px;
+    background: #0B0C0C;
+    border: none;
+    margin-left:-43px;
+    border-radius:0;
+    //padding-top:8px;
+    cursor: pointer;
+}
+.search-submit-blue {
+    background: #005EA5;
+    cursor: pointer;
+    padding-top:8px;
+}
+
+
+
+
+
+// Last name
+.last-name {
+    text-transform: uppercase;
+}
