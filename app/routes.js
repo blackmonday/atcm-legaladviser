@@ -37,13 +37,13 @@ router.post('/', function (req, res) {
         req.session.data['defendents-mobile'] = "07975337198"
         req.session.data['defendents-email'] = "billy_s765@gmail.com"
         req.session.data['defendents-previous-convictions'] = "2"
-        req.session.data['defendents-income'] = "£142.92 weekly (actual)"
-        req.session.data['defendents-income-amount'] = "142.92"
+        req.session.data['defendents-income'] = "£250 weekly (actual)"
+        req.session.data['defendents-income-amount'] = "1000"
         req.session.data['defendents-claiming-benefits'] = "Yes"
         req.session.data['benefits-details'] = ""
         req.session.data['defendents-employment-status'] = "Employed (full or part-time)"
         req.session.data['employment-status-group'] = "Employed (full or part-time)"
-        req.session.data['defendents-plea'] = "Pleaded guilty SJP"
+        req.session.data['defendents-plea'] = "No plea received"
         req.session.data['defendents-nin'] = "AB 12 34 56 C"
         req.session.data['case-status'] = "Plea received - ready for decision"
         req.session.data['prosecutor'] = "DVLA"
@@ -57,17 +57,20 @@ router.post('/', function (req, res) {
         req.session.data['guilty-plea-taken-into-account'] = "Yes"
         req.session.data['verdict'] = "Proved SJP"
         
-        req.session.data['income-frequency-group'] = "Weekly"
-        req.session.data['employee-number'] = "Employee number"
-        req.session.data['employer-name'] = "Employer name"
-        req.session.data['employer-address-line-1'] = "Address line 1"
-        req.session.data['employer-address-line-2'] = "Address line 2"
-        req.session.data['employer-address-line-3'] = "Address line 3"
-        req.session.data['employer-town-or-city'] = "Town or city"
-        req.session.data['employer-postcode'] = "Postcode"
-        req.session.data['employer-telephone'] = "Employer telephone"
+        req.session.data['income-frequency-group'] = "Monthly"
+        req.session.data['employee-number'] = "100192"
+        req.session.data['employer-name'] = "Sainsbury's"
+        req.session.data['employer-address-line-1'] = "Albert Road South"
+        req.session.data['employer-address-line-2'] = ""
+        req.session.data['employer-address-line-3'] = ""
+        req.session.data['employer-town-or-city'] = "Watford"
+        req.session.data['employer-postcode'] = "WD17 1PE"
+        req.session.data['employer-telephone'] = "01923 255252"
 
-        req.session.data['claiming-benefits-group'] = "Yes"
+        req.session.data['claiming-benefits-group'] = "No"
+        req.session.data['benefits-details'] = ""
+        
+        
         
         
         //req.session.data['payment-method'] = "Pay directly to court"
@@ -254,7 +257,40 @@ router.post('/legaladviser/add-or-change-personal-details', function (req, res) 
 // ********************
 // ADD OR CHANGE INCOME
 router.post('/legaladviser/add-or-change-income', function (req, res) {
+    
+    req.session.data['defendents-income-amount'] = req.session.data['new-defendents-income-amount']
+    req.session.data['income-frequency-group'] = req.session.data['new-income-frequency-group']
+    req.session.data['employment-status-group'] = req.session.data['new-employment-status-group']
+    req.session.data['employee-number'] = req.session.data['new-employee-number']
+    req.session.data['employer-name'] = req.session.data['new-employer-name']
+    req.session.data['employer-address-line-1'] = req.session.data['new-employer-address-line-1']
+    req.session.data['employer-address-line-2'] = req.session.data['new-employer-address-line-2']
+    req.session.data['employer-address-line-3'] = req.session.data['new-employer-address-line-3']
+    req.session.data['employer-town-or-city'] = req.session.data['new-employer-town-or-city']
+    req.session.data['employer-postcode'] = req.session.data['new-employer-postcode']
+    req.session.data['employer-telephone'] = req.session.data['new-employer-telephone']
+    req.session.data['company-rep-title'] = req.session.data['new-company-rep-title']
+    req.session.data['other-employment-details'] = req.session.data['new-other-employment-details']
+    req.session.data['claiming-benefits-group'] = req.session.data['new-claiming-benefits-group']
+    req.session.data['benefits-details'] = req.session.data['new-benefits-details']
+    req.session.data['defendents-nin'] = req.session.data['new-defendents-nin']
 
     res.redirect('/legaladviser/case-details-page')
     
 })
+
+
+
+
+
+
+// ***********
+// CHANGE PLEA
+router.post('/legaladviser/change-plea', function (req, res) {
+    
+    req.session.data['defendents-plea'] = req.session.data['new-defendents-plea']
+
+    res.redirect('/legaladviser/case-details-page')
+    
+})
+

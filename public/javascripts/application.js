@@ -158,8 +158,8 @@ $(document).ready(function() {
     
     $('#character_count_6').html('Character count: 0 /' + text_max);
 
-    $('#benefits-details').keyup(function() {
-        var text_length = $('#benefits-details').val().length;
+    $('#new-benefits-details').keyup(function() {
+        var text_length = $('#new-benefits-details').val().length;
 
         $('#character_count_6').html('Character count: ' + text_length + ' /' + text_max);
         

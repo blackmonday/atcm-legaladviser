@@ -8,8 +8,42 @@
 
 <script>
     window.onload = function() {
+
+        if (document.getElementById('defendantsPlea').innerText == "NO PLEA RECEIVED") {
+            //alert(document.getElementById("defendantsPlea").innerText);
+            document.getElementById('case-status').innerText = "No plea received"
+        }
         
         
+        
+        
+        
+        
+        if (document.getElementById('benefits-being-claimed').innerText == "No") {
+            document.getElementById('benefits-details-group').style.display = "none"
+        }
+        
+        
+        var incomeCalculation2 = Number(document.getElementById("incomeCalculation").innerText);
+        
+        if (document.getElementById('incomeFrequency').innerText == "Weekly") {
+            //alert('paid WEEKLY = '+incomeCalculation2);
+            document.getElementById("incomeCalculation").innerText = incomeCalculation2;
+        } else if (document.getElementById('incomeFrequency').innerText == "Fortnightly") {
+            //alert('paid FORTNIGHTLY converted to weekly = '+incomeCalculation2/2);
+            document.getElementById("incomeCalculation").innerText = incomeCalculation2/2;
+        } else if (document.getElementById('incomeFrequency').innerText == "Monthly") {
+            //alert('paid MONTHLY converted to weekly = '+incomeCalculation2/4);
+            document.getElementById("incomeCalculation").innerText = incomeCalculation2/4;
+        } else if (document.getElementById('incomeFrequency').innerText == "Annually") {
+            //alert('paid ANNUALLY converted to weekly = '+incomeCalculation2/52);
+            document.getElementById("incomeCalculation").innerText = incomeCalculation2/52;
+        }
+        
+        
+        
+        
+                
         var homeTelephone = document.getElementById('homeTelephone').innerText;
         if(homeTelephone != "") {
             document.getElementById('addHomeTelephone').style.display = "none";
@@ -261,17 +295,7 @@
             <h1 class="heading-xlarge top_0 bottom_5">{{ data['defendents-first-name']}} <span class="last-name">{{ data['defendents-last-name']}}</span></h1>
             <p class="form-hint">{{data['defendents-dob-day']}} <span id="dobMonth">{{data['defendents-dob-month']}}</span> {{data['defendents-dob-year']}} ({{data['defendents-age']}} years old)<br>
             {{data['defendents-address-line-1']}}, {{data['defendents-address-line-2']}}, {{data['defendents-town-or-city']}} {{data['defendents-postcode']}}</p>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                        
             <!-- WARNING BANNER PATTERN -->
             <div id="warningBanner" class="warning-banner-nest" style="display: none">
                 <div class="warning-banner">
@@ -285,17 +309,6 @@
                     </div>
                 </div>
             </div>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
             
            <div class="tabGroup top_30">
                 <a id="tabA" class="tab-on" onclick="tabGroup(tabContent, 'TAB-ONE')" href="javascript: void(0)">Case details</a>
@@ -379,11 +392,11 @@
                         </tr>
                         <tr>
                             <th class="bold" style="border: none">Net income (converted to weekly)</th>
-                            <td style="border: none">£{{data['defendents-income-amount']}}</td>
+                            <td style="border: none">£<span id="incomeCalculation">{{data['defendents-income-amount']}}</span><span id="incomeFrequency" style="display:none">{{data['income-frequency-group']}}</span></td>
                         </tr>
                         <tr>
                             <th class="bold" style="border: none">Claiming benefits</th>
-                            <td style="border: none">{{data['benefits-details']}}</td>
+                            <td style="border: none"><span id="benefits-being-claimed">{{data['claiming-benefits-group']}}</span><span id="benefits-details-group"> - {{data['benefits-details']}}</span></td>
                         </tr>
                     </table>
                     
@@ -400,7 +413,7 @@
             <p id="backDutyLength" class="bold">{{data['back-duty-description']}}</p>
             
             <div class="top_60">
-                <span class="label">{{data['defendents-plea']}}</span>
+                <span id="defendantsPlea" class="label">{{data['defendents-plea']}}</span><span id="changePleaLink" style="margin-left: 15px"><a href="change-plea.html">Change plea</a></span>
             </div>
         </div>
         
@@ -501,12 +514,6 @@
                                         <td>£{{data['total-payment']}} to be paid as a <span id="howToPayGroup">{{data['how-should-defendent-pay-group']}}</span></td>
                                     </tr>
                                     
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
                                     <tr id="lumpSumAmount">
                                         <td class="bold table-cell-width">Payment terms</td>
                                         <td>£{{data['lump-sum-amount']}} to be paid as a <span id="howToPayGroup">{{data['how-should-defendent-pay-group']}}</span> of £{{data['instalment-amount-1']}} paid {{data['instalment-length-group']}} starting on 
@@ -519,12 +526,6 @@
                                         <span id="paymentYear">{{data['year']}}</span>
                                         <span id="paymentYear2">{{data['year2']}}</span></td>
                                     </tr>
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
                                     
                                     <tr id="instalmentOnly">
                                         <td class="bold table-cell-width">Payment terms</td>
@@ -539,12 +540,6 @@
                                         <span id="paymentYear">{{data['year']}}</span>
                                         <span id="paymentYear2">{{data['year2']}}</span></td>
                                     </tr>
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
                                     
                                 </tbody>
                             </table>
@@ -612,12 +607,6 @@
 
                 </div>   
             </div>
-            
-            
-            
-            
-            
-            
 
         </div>
         
@@ -660,9 +649,6 @@
                     </div>
                 </form>
 
-                
-                
-                
             </div>
         </div>
         

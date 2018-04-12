@@ -1,0 +1,90 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+    GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<style>
+    tr {
+        vertical-align: top;
+    }
+</style>
+
+<main id="content" role="main">
+    
+    <div class="grid-row">
+        <div class="column-full">
+            <!-- Alpha phase banner -->
+            {% include "includes/phase_banner_alpha.html" %}
+            {% include "includes/breadcrumb_back.html" %}
+            
+            {% include "includes/persist-info-banner.html" %}
+                        
+        </div>
+    </div>
+
+    <div class="grid-row top_30">
+        <div class="column-two-thirds">
+
+            <h1 class="heading-xlarge top_0 bottom_30">Change plea</h1>
+            
+            <h3 class="heading-small">Current plea</h3>
+            
+            <div class="top_15">
+                <span class="label">{{data['defendents-plea']}}</span>
+            </div>
+            
+            <form class="form" action="" method="post">            
+                <div class="form-group bottom_0">
+                    <fieldset>
+                        <div class="form-group">
+                          <legend>
+                            <span class="form-label-bold top_30 bottom_5">
+                              Change plea to
+                            </span>
+                          </legend>
+                            <div class="multiple-choice">
+                                <input id="new-defendents-plea-1" type="radio" name="new-defendents-plea" value="No plea received" {{ checked('defendents-plea','No plea received') }}>
+                                <label for="new-defendents-plea-1">No plea received</label>
+                            </div>
+                            <div class="multiple-choice">
+                                <input id="new-defendents-plea-2" type="radio" name="new-defendents-plea" value="Guilty - I don't want to come to court" {{ checked('defendents-plea','Guilty - I don&#39;t want to come to court') }}>
+                                <label for="new-defendents-plea-2">Guilty - I don&#39;t want to come to court</label>
+                            </div>
+                            <div class="multiple-choice">
+                                <input id="new-defendents-plea-3" type="radio" name="new-defendents-plea" value="Guilty - I want to come to court" {{ checked('defendents-plea','Guilty - I want to come to court') }}>
+                                <label for="new-defendents-plea-3">Guilty - I want to come to court</label>
+                            </div>
+                            <div class="multiple-choice">
+                                <input id="new-defendents-plea-4" type="radio" name="new-defendents-plea" value="Not guilty - send me the date of my trial" {{ checked('defendents-plea','Not guilty - send me the date of my trial') }}>
+                                <label for="new-defendents-plea-4">Not guilty - send me the date of my trial</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <input class="button" type="submit" value="Save">
+                <div class="top_15"><a href="#">Cancel</a></div>
+            </form>
+            
+        </div>
+        
+        <div class="coloumn-one-third">
+            <!-- RIGHT COLUMN NAVIGATION - VARIATION FIVE -->
+            <!--
+            <div class="right-column-nav">
+                <hr class="bold-hr">
+                <h3 class="heading-medium">Case options</h3>
+                <p><a href="">Withdraw offence</a></p>
+            </div>
+            -->
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}
+
+
