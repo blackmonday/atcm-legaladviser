@@ -22,6 +22,34 @@
 <script>
     
     window.onload = function() {
+        
+        
+        
+        
+        
+        
+        var incomeCalculation2 = Number(document.getElementById("defendentsIncomeShort").innerText);
+        
+        if (document.getElementById('incomeFrequency').innerText == "Weekly") {
+            document.getElementById("defendentsIncomeShort").innerText = incomeCalculation2;
+        } else if (document.getElementById('incomeFrequency').innerText == "Fortnightly") {
+            document.getElementById("defendentsIncomeShort").innerText = incomeCalculation2/2;
+        } else if (document.getElementById('incomeFrequency').innerText == "Monthly") {
+            document.getElementById("defendentsIncomeShort").innerText = incomeCalculation2/4;
+        } else if (document.getElementById('incomeFrequency').innerText == "Annually") {
+            document.getElementById("defendentsIncomeShort").innerText = incomeCalculation2/52;
+        }
+        
+        
+        
+        
+        
+        
+                
+        
+        
+        
+        
 
         /* CHECK DECISION */
         var decisiontype = document.getElementById('decision').innerText;
@@ -191,16 +219,16 @@
                                 <td>{{data['defendents-previous-convictions']}}</td>
                             </tr>
                             <tr>
-                                <td class="bold">Income</td>
-                                <td>{{data['defendents-income']}}</td>
+                                <td class="bold">Net income (converted to weekly)</td>
+                                <td>£<span id="defendentsIncomeShort">{{data['defendents-income-amount']}}</span><span id="incomeFrequency" style="display:none">{{data['income-frequency-group']}}</span></td>
                             </tr>
                             <tr>
                                 <td class="bold">Claiming benefits?</td>
-                                <td>{{data['defendents-claiming-benefits']}}</td>
+                                <td>{{data['claiming-benefits-group']}}</td>
                             </tr>
                             <tr>
                                 <td class="bold">Employment status</td>
-                                <td>{{data['defendents-employment-status']}}</td>
+                                <td>{{data['employment-status-group']}}</td>
                             </tr>
                         </tbody>
                     </table>

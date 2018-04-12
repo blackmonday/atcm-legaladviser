@@ -8,12 +8,29 @@
 
 <script>
     window.onload = function() {
-
-        if (document.getElementById('defendantsPlea').innerText == "NO PLEA RECEIVED") {
-            //alert(document.getElementById("defendantsPlea").innerText);
-            document.getElementById('case-status').innerText = "No plea received"
+        
+        var defendants_plea = document.getElementById('defendantsPlea').innerText;
+        var case_status = document.getElementById('case-status').innerText;
+        var decision = document.getElementById('decision').innerText;
+        
+        
+        if (decision == "") {
+            if (defendants_plea == "NO PLEA RECEIVED") {
+                document.getElementById('case-status').innerText = "No plea received";
+            } else {
+                document.getElementById('case-status').innerText = "Plea received - ready for decision";
+            }
+        } else if (decision != "") {
+            document.getElementById('case-status').innerText = "Completed";
+            document.getElementById('changePleaLink').style.display = "none";
+            
+            
+            
         }
         
+        
+        
+
         
         
         
@@ -27,16 +44,12 @@
         var incomeCalculation2 = Number(document.getElementById("incomeCalculation").innerText);
         
         if (document.getElementById('incomeFrequency').innerText == "Weekly") {
-            //alert('paid WEEKLY = '+incomeCalculation2);
             document.getElementById("incomeCalculation").innerText = incomeCalculation2;
         } else if (document.getElementById('incomeFrequency').innerText == "Fortnightly") {
-            //alert('paid FORTNIGHTLY converted to weekly = '+incomeCalculation2/2);
             document.getElementById("incomeCalculation").innerText = incomeCalculation2/2;
         } else if (document.getElementById('incomeFrequency').innerText == "Monthly") {
-            //alert('paid MONTHLY converted to weekly = '+incomeCalculation2/4);
             document.getElementById("incomeCalculation").innerText = incomeCalculation2/4;
         } else if (document.getElementById('incomeFrequency').innerText == "Annually") {
-            //alert('paid ANNUALLY converted to weekly = '+incomeCalculation2/52);
             document.getElementById("incomeCalculation").innerText = incomeCalculation2/52;
         }
         
@@ -170,7 +183,7 @@
             document.getElementById('dischargeTab').style.display = "none";
 
         }
-
+        
         var prosecutorCheck = document.getElementById("prosecutorCheck").innerText;
         if (prosecutorCheck == "DVLA (with back duty)") {
             document.getElementById("backDutyLength").style.display = "block";
@@ -178,6 +191,12 @@
             document.getElementById("backDutyLength").style.display = "none";
             document.getElementById("backDutyLength").style.display = "none";
         }
+        
+        
+        
+        
+        
+        
         
         var caseStatus = document.getElementById("case-status").innerText;
         if (caseStatus == "Completed") {
@@ -222,13 +241,6 @@
             } else if (paymentMonth == "12") {
                 document.getElementById("paymentMonth").innerText = "December";
             }
-
-        
-        
-        
-        
-        
-        
         
     }
 </script>
@@ -287,7 +299,7 @@
         </div>
     </div>
 
-    {% include "includes/display-decision.html" %}
+    <span style="display:none">{% include "includes/display-decision.html" %}</span>
 
     <div class="grid-row top_30">
         <div class="column-two-thirds">
@@ -463,6 +475,7 @@
                     <!-- TAB TWO -->
                     <div id="tabTwoContent2">
                         
+                        <!-- FINANCIAL PENALTY TAB -->
                         <div id="financialPenaltyTab">
                             <h4 class="heading-medium bottom_10 top_0">Court decision</h4>
                         
@@ -545,11 +558,27 @@
                             </table>
                         </div>
 
+                        <!-- REFER TO COURT HEARING TAB -->
                         <div id="referToCourtHearingTab">
                             <h4 class="heading-medium bottom_10 top_0">Court decision</h4>
                             <p>Refer to court hearing coming soon</p>
+                            
+                            <table class="court-decision">
+                                <tbody>
+                                    <tr>
+                                        <td class="bold">Referred to full court hearing</td>
+                                        <td>xxx</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bold">Decision made</td>
+                                        <td>xxx</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
                         </div>
                         
+                        <!-- DISMISS TAB -->
                         <div id="dismissTab">
                             <h4 class="heading-medium bottom_10 top_0">Court decision</h4>
                         
@@ -576,11 +605,61 @@
 
                         </div>
                         
+                        <!-- DISCHARGE TAB -->
                         <div id="dischargeTab">
                             <h4 class="heading-medium bottom_10 top_0">Court decision</h4>
                             <p>Discharge coming soon</p>
+                            
+                            <table class="court-decision">
+                                <tbody>
+                                    <tr>
+                                        <td class="bold">Result</td>
+                                        <td>xxx</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bold">Compensation</td>
+                                        <td>xxx</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bold">Costs</td>
+                                        <td>xxx</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bold">Victim surcharge</td>
+                                        <td>xxx</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bold">Decision made</td>
+                                        <td>xxx</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h4 class="heading-medium">Payment and collection</h4>
+                            <table class="court-decision">
+                                <tbody>
+                                    <tr>
+                                        <td class="bold">Collection order made</td>
+                                        <td>xxx</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bold">Total to pay</td>
+                                        <td>xxx</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bold">Payment method</td>
+                                        <td>xxx</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bold">Instalments only</td>
+                                        <td>xxx</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
                         </div>
                         
+                        <!-- WITHDRAW TAB -->
                         <div id="withdrawTab">
                             <h4 class="heading-medium bottom_10 top_0">Court decision</h4>
 

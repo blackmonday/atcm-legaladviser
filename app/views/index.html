@@ -10,12 +10,13 @@
     <div class="grid-row">
         <div class="column-two-thirds">
 
-            <h1 class="heading-xlarge">
+            <h1 class="heading-xlarge top_60 bottom_5">
                 ATCM Legal Adviser
-                <span class="heading-secondary">Using GOV.UK prototype kit {{releaseVersion}}</span>
-            </h1>{{releaseVersion | log }}
+            </h1>
+
+            <p class="form-hint">This prototype is built using the GOV.UK prototype kit {{releaseVersion}}</p>
             
-            <p>This design demo is intended for user testing with legal advisers.</p>
+            <p class="top_60 bottom_30">This design demo is currently set up for DVLA cases.</p>
 
             <!--<a href="/legaladviser/dashboard">Let's get started</a>-->
             
@@ -27,12 +28,12 @@
                             <h1 class="heading-medium top_15">Choose a flow</h1>
                         </legend>
                         <div class="multiple-choice">
-                            <input id="radio-1" type="radio" name="prosecutor-group" value="DVLA (with back duty)">
+                            <input id="radio-1" type="radio" name="prosecutor-group" value="DVLA (with back duty)" checked="checked">
                             <label for="radio-1">DVLA (with back duty)</label>
                         </div>
                         <div class="multiple-choice">
                             <input id="radio-2" type="radio" name="prosecutor-group" value="DVLA (no back duty)">
-                            <label for="radio-2">DVLA (no back duty) - <span class="bold">NOT YET WORKING</span></label>
+                            <label for="radio-2" class="form-hint">DVLA (no back duty) - <span class="bold">ONLY PARTIALLY WORKING</span></label>
                         </div>
                     </fieldset>
                 </div>
