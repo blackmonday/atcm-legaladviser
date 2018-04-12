@@ -22,6 +22,23 @@
 <script>
     window.onload = function() {  
         
+        
+        
+        var incomeCalculation3 = Number(document.getElementById("incomeCalculation").innerText);
+        
+        if (document.getElementById('incomeFrequency').innerText == "Weekly") {
+            document.getElementById("incomeCalculation").innerText = incomeCalculation3;
+        } else if (document.getElementById('incomeFrequency').innerText == "Fortnightly") {
+            document.getElementById("incomeCalculation").innerText = incomeCalculation3/2;
+        } else if (document.getElementById('incomeFrequency').innerText == "Monthly") {
+            document.getElementById("incomeCalculation").innerText = incomeCalculation3/4;
+        } else if (document.getElementById('incomeFrequency').innerText == "Annually") {
+            document.getElementById("incomeCalculation").innerText = incomeCalculation3/52;
+        }
+        
+        
+        
+        
         /* CHECK DECISION */
         var decisiontype = document.getElementById('decision').innerText;
         if (decisiontype == "Financial penalty") {
@@ -92,8 +109,46 @@
         
                                         
                                 
+        /* XXXXXXXXXXX */       
+        /* XXXXXXXXXXX */       
+        /* XXXXXXXXXXX */       
+        /* XXXXXXXXXXX */       
+        /* XXXXXXXXXXX */       
+        /* XXXXXXXXXXX */       
+        /* XXXXXXXXXXX */
+        
+        if (document.getElementById('setReserveTermsGroup').innerText == "Lump sum plus instalments") {
+            document.getElementById("lumpSumOnlyRow").style.display = "none";
+            document.getElementById("instalmentsOnlyAmount").innerText = "";
+            document.getElementById("instalmentsOlnyFrequencyGroup").innerText = "";
+            
+            document.getElementById("paymentDay").innerText = "";
+            document.getElementById("paymentMonth").innerText = "";
+            document.getElementById("paymentYear").innerText = "";
+        }
+        if (document.getElementById('setReserveTermsGroup').innerText == "Instalments only") {
+            document.getElementById("lumpSumOnlyRow").style.display = "none";
+            document.getElementById("lumpSumInstalmentRow").style.display = "none";
+            document.getElementById("instalmentsAmount").innerText = "";
+            document.getElementById("lumpSumInstalmentFrequencyGroup").innerText = "";
+            
+            document.getElementById("paymentDay2").innerText = "";
+            document.getElementById("paymentMonth2").innerText = "";
+            document.getElementById("paymentYear2").innerText = "";            
+        }
+        if ((document.getElementById('setReserveTermsGroup').innerText == "Lump sum within 14 days") || (document.getElementById('setReserveTermsGroup').innerText == "Lump sum within 28 days")) {
+            document.getElementById("instalmentsRow").style.display = "none";
+            document.getElementById("lumpSumInstalmentRow").style.display = "none";
+        }
 
-
+        
+        if (document.getElementById('paymentMethod').innerText == "Deduct from benefits") {
+            document.getElementById('reasonYouDidntDeductFromBenefits').style.display = "none";
+            document.getElementById('HowShouldDefendantPayTheCourt').style.display = "none";
+        }
+        if (document.getElementById('paymentMethod').innerText != "Deduct from benefits") {
+            document.getElementById('reasonForDeductingFromBenefits').style.display = "none";
+        }
         
         var howToPay = document.getElementById("howShouldDefendentPay").innerText;
         if ((howToPay == "Lump sum within 14 days") || (howToPay == "Lump sum within 28 days")) {
@@ -106,6 +161,16 @@
             document.getElementById('paymentDay2').style.display = "none";
             document.getElementById('paymentMonth2').style.display = "none";
             document.getElementById('paymentYear2').style.display = "none";
+        }
+        if (howToPay == "Instalments only") {
+            document.getElementById('lumpSumInstalmentRow').style.display = "none";
+            document.getElementById('lumpSumOnlyRow').style.display = "none";
+            document.getElementById('instalmentAmount1').style.display = "none";
+            document.getElementById('paymentDay').style.display = "none";
+            document.getElementById('paymentMonth').style.display = "none";
+            document.getElementById('paymentYear').style.display = "none";
+        }
+        
             var paymentMonth = document.getElementById("paymentMonth").innerText;
             if (paymentMonth == "1") {
                 document.getElementById("paymentMonth").innerText = "January";
@@ -132,17 +197,10 @@
             } else if (paymentMonth == "12") {
                 document.getElementById("paymentMonth").innerText = "December";
             }
-        }
-        if (howToPay == "Instalments only") {
-            document.getElementById('lumpSumInstalmentRow').style.display = "none";
-            document.getElementById('lumpSumOnlyRow').style.display = "none";
-            document.getElementById('instalmentAmount1').style.display = "none";
-            document.getElementById('paymentDay').style.display = "none";
-            document.getElementById('paymentMonth').style.display = "none";
-            document.getElementById('paymentYear').style.display = "none";
+        
             var paymentMonth2 = document.getElementById("paymentMonth2").innerText;
             if (paymentMonth2 == "1") {
-                document.getElementById("paymentMont2").innerText = "January";
+                document.getElementById("paymentMonth2").innerText = "January";
             } else if (paymentMonth2 == "2") {
                 document.getElementById("paymentMonth2").innerText = "February";
             } else if (paymentMonth2 == "3") {
@@ -166,8 +224,13 @@
             } else if (paymentMonth2 == "12") {
                 document.getElementById("paymentMonth2").innerText = "December";
             }
-        }
 
+        
+        
+        
+        
+        
+        
         
         
         
@@ -235,6 +298,7 @@
 
                         <h2 class="heading-large">Offence 1</h2>
 
+                        <!-- DECISION -->
                         <table class="check-your-decisions-table">
                             <tbody>
                                 <tr>
@@ -262,6 +326,7 @@
 
                         <hr>
 
+                        <!-- OUTCOME -->
                         <table class="check-your-decisions-table">
                             <tbody>
                                 <tr>
@@ -271,8 +336,8 @@
                                 </tr>
                                 <tr>
                                     <td class="table-cell-width bold">Defendant's weekly income</td>
-                                    <td>{{data['defendents-income']}}</td>
-                                    <td></td>
+                                    <td>£<span id="incomeCalculation">{{data['defendents-income-amount']}}</span></td>
+                                    <td><span id="incomeFrequency" style="display:none">{{data['income-frequency-group']}}</span></td>
                                 </tr>
                                 <tr>
                                     <td class="table-cell-width bold">Guilty plea taken into account</td>
@@ -304,6 +369,7 @@
 
                         <hr>
 
+                        <!-- COSTS -->
                         <table class="check-your-decisions-table">
                             <tbody>
                                 <tr>
@@ -326,11 +392,12 @@
 
                         <hr>
 
+                        <!-- PAYMENT -->
                         <table class="check-your-decisions-table">
                             <tbody>
                                 <tr>
                                     <td class="heading-medium">Payment</td>
-                                    <td></td>
+                                    <td><span id="setReserveTermsGroup" style="">{{data['set-reserve-terms-group']}}</span></td>
                                     <td><a href="payment-method">Change</a></td>
                                 </tr>
                                 <tr>
@@ -340,40 +407,41 @@
                                 </tr>
                                 <tr>
                                     <td class="table-cell-width bold">Payment method</td>
-                                    <td>{{data['payment-method-group']}}</td>
+                                    <td><span id="paymentMethod">{{data['payment-method-group']}}</span></td>
                                     <td></td>
                                 </tr>
-                                <tr>
+                                
+                                <tr id="reasonForDeductingFromBenefits">
+                                    <td class="table-cell-width bold">Reason for deducting from benefits</td>
+                                    <td>{{data['reason-for-deducting-from-benefits-group']}}</td>
+                                    <td></td>
+                                </tr>
+                                
+                                <tr id="reasonYouDidntDeductFromBenefits">
                                     <td class="table-cell-width bold">Reason you didn't deduct from benefits</td>
                                     <td>{{data['deduct-from-benefits-group']}} {{data['other-reason']}}</td>
                                     <td></td>
                                 </tr>
-                                <tr>
-                                    <td class="table-cell-width bold">How should defendent pay the court</td>
+                                
+                                <tr id="HowShouldDefendantPayTheCourt">
+                                    <td class="table-cell-width bold">How should defendant pay the court</td>
                                     <td id="howShouldDefendentPay">{{data['how-should-defendent-pay-group']}}</td>
                                     <td></td>
                                 </tr>
                                 
-
-                                
-                                
-                                
                                 <tr id="lumpSumOnlyRow">
                                     <td class="table-cell-width bold">Lump sum amount</td>
-                                    <td>£<span id="totalPayment">{{data['total-payment']}}</span></td>
+                                    <td>£<span id="totalPayment">{{data['total-payment']}}</span> <span style="text-transform: lowercase">{{data['set-reserve-terms-group']}}</span></td>
                                     <td></td>
                                 </tr>
                                 
                                 <tr id="lumpSumInstalmentRow">
                                     <td class="table-cell-width bold">Lump sum amount</td>
-                                    <td>£<span id="totalPayment">{{data['lump-sum-amount']}}</span></td>
+                                    <td>£<span id="totalPayment">{{data['lump-sum-amount']}}</span> <span style="text-transform: lowercase">{{data['set-reserve-terms-group']}}</span></td>
                                     <td></td>
                                 </tr>
-                                
-                                
-                                
-                                
-                                
+
+                                <!--
                                 <tr id="instalmentsRow">
                                     <td class="table-cell-width bold">Instalments</td>
                                     <td>£<span id="instalmentAmount1">{{data['instalment-amount-1']}}</span><span id="instalmentAmount2">{{data['instalment-amount-2']}}</span> <span style="text-transform: lowercase">{{data['instalment-length-group']}}</span>, starting on 
@@ -388,6 +456,23 @@
                                         <span id="paymentYear2">{{data['year2']}}</span></td>
                                     <td></td>
                                 </tr>
+                                -->
+
+                                <tr id="instalmentsRow">
+                                    <td class="table-cell-width bold">Instalments xx</td>
+                                    <td>£<span id="instalmentsOnlyAmount">{{data['instalments-only-amount']}}</span><span id="instalmentsAmount">{{data['instalments-amount']}}</span> <span id="lumpSumInstalmentFrequencyGroup" style="text-transform: lowercase">{{data['lump-sum-instalment-frequency-group']}}</span><span id="instalmentsOlnyFrequencyGroup" style="text-transform: lowercase">{{data['instalment-only-frequency-group']}}</span>, starting on 
+
+                                        <span id="paymentDay">{{data['day']}}</span>
+                                        <span id="paymentDay2">{{data['day2']}}</span> 
+
+                                        <span id="paymentMonth">{{data['month']}}</span>
+                                        <span id="paymentMonth2">{{data['month2']}}</span> 
+
+                                        <span id="paymentYear">{{data['year']}}</span>
+                                        <span id="paymentYear2">{{data['year2']}}</span></td>
+                                    <td></td>
+                                </tr>
+
                             </tbody>
                         </table>
 
@@ -673,22 +758,22 @@
                 </tr>
                 <tr>
                     <td class="table-cell-width bold">How should defendent pay the court</td>
-                    <td id="howShouldDefendentPay">{{data['how-should-defendent-pay-group']}}</td>
+                    <td id="howShouldDefendentPay2">{{data['how-should-defendent-pay-group']}}</td>
                     <td></td>
                 </tr>
                 
                 
                 
                 
-                <tr id="lumpSumOnly">
+                <tr id="lumpSumOnly2">
                     <td class="table-cell-width bold">Lump sum amount</td>
                     <td>£{{data['total-payment-discharge']}}</td>
                     <td></td>
                 </tr>
                 
-                <tr id="lumpSumInstalment">
+                <tr id="lumpSumInstalment2">
                     <td class="table-cell-width bold">Lump sum amount</td>
-                    <td>£<span id="totalPayment">{{data['lump-sum-amount']}}</span></td>
+                    <td>£<span id="totalPayment2">{{data['lump-sum-amount']}}</span></td>
                     <td></td>
                 </tr>
 

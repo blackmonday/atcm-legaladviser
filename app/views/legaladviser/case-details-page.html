@@ -129,20 +129,39 @@
         }
         
                 
+       
         
+        
+        
+        
+        
+        
+        
+        
+        /* ************** */
+        /* ************** */
+        /* ************** */
+        /* ************** */
+        /* ************** */
+        /* ************** */
+        
+        var howToPayFinal2 = document.getElementById('setReserveTermsGroup').innerText;
         
         var howToPayFinal = document.getElementById('howToPayGroup').innerText;
-        if ((howToPayFinal == "Lump sum within 14 days") || (howToPayFinal == "Lump sum within 28 days")) {
+        if ((howToPayFinal2 == "Lump sum within 14 days") || (howToPayFinal2 == "Lump sum within 28 days")) {
+            //document.getElementById('totalPayment').style.display = "block";
             document.getElementById('lumpSumAmount').style.display = "none";
             document.getElementById('instalmentOnly').style.display = "none";
         }
-        if (howToPayFinal == "Lump sum plus instalments") {
+        if (howToPayFinal2 == "Lump sum plus instalments") {
             document.getElementById('totalPayment').style.display = "none";
+            //document.getElementById('lumpSumAmount').style.display = "block";
             document.getElementById('instalmentOnly').style.display = "none";
         }
-        if (howToPayFinal == "Instalments only") {
+        if (howToPayFinal2 == "Instalments only") {
             document.getElementById('totalPayment').style.display = "none";
             document.getElementById('lumpSumAmount').style.display = "none";
+            //document.getElementById('instalmentOnly').style.display = "block";
         }
 
         
@@ -209,38 +228,65 @@
             document.getElementById("statmentOfFactGroup").style.display = "block";
             document.getElementById("tabGroup2").style.display = "none";
         }
-
         
         
         
         
         
-            var paymentMonth = document.getElementById("paymentMonth").innerText;
-            if (paymentMonth == "1") {
-                document.getElementById("paymentMonth").innerText = "January";
-            } else if (paymentMonth == "2") {
-                document.getElementById("paymentMonth").innerText = "February";
-            } else if (paymentMonth == "3") {
-                document.getElementById("paymentMonth").innerText = "March";
-            } else if (paymentMonth == "4") {
-                document.getElementById("paymentMonth").innerText = "April";
-            } else if (paymentMonth == "5") {
-                document.getElementById("paymentMonth").innerText = "May";
-            } else if (paymentMonth == "6") {
-                document.getElementById("paymentMonth").innerText = "June";
-            } else if (paymentMonth == "7") {
-                document.getElementById("paymentMonth").innerText = "July";
-            } else if (paymentMonth == "8") {
-                document.getElementById("paymentMonth").innerText = "August";
-            } else if (paymentMonth == "9") {
-                document.getElementById("paymentMonth").innerText = "September";
-            } else if (paymentMonth == "10") {
-                document.getElementById("paymentMonth").innerText = "October";
-            } else if (paymentMonth == "11") {
-                document.getElementById("paymentMonth").innerText = "November";
-            } else if (paymentMonth == "12") {
-                document.getElementById("paymentMonth").innerText = "December";
-            }
+        
+        var paymentMonth = document.getElementById("paymentMonth").innerText;
+        if (paymentMonth == "1") {
+            document.getElementById("paymentMonth").innerText = "January";
+        } else if (paymentMonth == "2") {
+            document.getElementById("paymentMonth").innerText = "February";
+        } else if (paymentMonth == "3") {
+            document.getElementById("paymentMonth").innerText = "March";
+        } else if (paymentMonth == "4") {
+            document.getElementById("paymentMonth").innerText = "April";
+        } else if (paymentMonth == "5") {
+            document.getElementById("paymentMonth").innerText = "May";
+        } else if (paymentMonth == "6") {
+            document.getElementById("paymentMonth").innerText = "June";
+        } else if (paymentMonth == "7") {
+            document.getElementById("paymentMonth").innerText = "July";
+        } else if (paymentMonth == "8") {
+            document.getElementById("paymentMonth").innerText = "August";
+        } else if (paymentMonth == "9") {
+            document.getElementById("paymentMonth").innerText = "September";
+        } else if (paymentMonth == "10") {
+            document.getElementById("paymentMonth").innerText = "October";
+        } else if (paymentMonth == "11") {
+            document.getElementById("paymentMonth").innerText = "November";
+        } else if (paymentMonth == "12") {
+            document.getElementById("paymentMonth").innerText = "December";
+        }
+        
+        var paymentMonth2 = document.getElementById("paymentMonth2").innerText;
+        if (paymentMonth2 == "1") {
+            document.getElementById("paymentMonth2").innerText = "January";
+        } else if (paymentMonth2 == "2") {
+            document.getElementById("paymentMonth2").innerText = "February";
+        } else if (paymentMonth2 == "3") {
+            document.getElementById("paymentMonth2").innerText = "March";
+        } else if (paymentMonth2 == "4") {
+            document.getElementById("paymentMonth2").innerText = "April";
+        } else if (paymentMonth2 == "5") {
+            document.getElementById("paymentMonth2").innerText = "May";
+        } else if (paymentMonth2 == "6") {
+            document.getElementById("paymentMonth2").innerText = "June";
+        } else if (paymentMonth2 == "7") {
+            document.getElementById("paymentMonth2").innerText = "July";
+        } else if (paymentMonth2 == "8") {
+            document.getElementById("paymentMonth2").innerText = "August";
+        } else if (paymentMonth2 == "9") {
+            document.getElementById("paymentMonth2").innerText = "September";
+        } else if (paymentMonth2 == "10") {
+            document.getElementById("paymentMonth2").innerText = "October";
+        } else if (paymentMonth2 == "11") {
+            document.getElementById("paymentMonth2").innerText = "November";
+        } else if (paymentMonth2 == "12") {
+            document.getElementById("paymentMonth2").innerText = "December";
+        }
         
     }
 </script>
@@ -322,7 +368,7 @@
                 </div>
             </div>
             
-           <div class="tabGroup top_30">
+            <div class="tabGroup top_30">
                 <a id="tabA" class="tab-on" onclick="tabGroup(tabContent, 'TAB-ONE')" href="javascript: void(0)">Case details</a>
                 <a id="tabB" class="tab" onclick="tabGroup(tabContent, 'TAB-TWO')" href="javascript: void(0)">Personal details</a>
                 <a id="tabC" class="tab" onclick="tabGroup(tabContent, 'TAB-THREE')" href="javascript: void(0)">Income</a>
@@ -515,43 +561,43 @@
                             <hr>
 
                             <h4 class="heading-medium bottom_10 top_0">Payment and collection</h4>
-                        
+                            
+                            <span id="setReserveTermsGroup" style="">{{data['set-reserve-terms-group']}}</span>
+                            
                             <table class="payment-and-collection">
                                 <tbody>
                                     <tr>
                                         <td class="bold table-cell-width">Collection order made</td>
                                         <td>{{data['payment-method-group']}}</td>
                                     </tr>
+                                    
                                     <tr id="totalPayment">
                                         <td class="bold table-cell-width">Payment terms</td>
-                                        <td>£{{data['total-payment']}} to be paid as a <span id="howToPayGroup">{{data['how-should-defendent-pay-group']}}</span></td>
+                                        <td>£{{data['total-payment']}} to be paid as a <span style="text-transform: lowercase">{{data['set-reserve-terms-group']}}</span></td>
                                     </tr>
                                     
                                     <tr id="lumpSumAmount">
                                         <td class="bold table-cell-width">Payment terms</td>
-                                        <td>£{{data['lump-sum-amount']}} to be paid as a <span id="howToPayGroup">{{data['how-should-defendent-pay-group']}}</span> of £{{data['instalment-amount-1']}} paid {{data['instalment-length-group']}} starting on 
-                                        <span id="paymentDay">{{data['day']}}</span>
-                                        <span id="paymentDay2">{{data['day2']}}</span> 
+                                        <td>£{{data['lump-sum-amount']}} to be paid <span id="howToPayGroup" style="text-transform: lowercase">{{data['lump-sum-instalment-frequency-group']}}</span> starting on 
+                                            
+                                        <span id="paymentDay">{{data['day2']}}</span>
 
-                                        <span id="paymentMonth">{{data['month']}}</span>
-                                        <span id="paymentMonth2">{{data['month2']}}</span> 
+                                        <span id="paymentMonth">{{data['month2']}}</span>
 
-                                        <span id="paymentYear">{{data['year']}}</span>
-                                        <span id="paymentYear2">{{data['year2']}}</span></td>
+                                        <span id="paymentYear">{{data['year2']}}</span>
+                                            
                                     </tr>
                                     
                                     <tr id="instalmentOnly">
                                         <td class="bold table-cell-width">Payment terms</td>
-                                        <td>£{{data['instalment-amount-2']}} to be paid {{data['instalment-length-group']}} as a <span id="howToPayGroup">{{data['how-should-defendent-pay-group']}}</span> starting on  
+                                        <td>£{{data['instalments-only-amount']}} to be paid <span style="text-transform: lowercase">{{data['instalment-only-frequency-group']}}</span> starting on  
                                         
-                                        <span id="paymentDay">{{data['day']}}</span>
-                                        <span id="paymentDay2">{{data['day2']}}</span> 
+                                        <span id="paymentDay2">{{data['day']}}</span> 
 
-                                        <span id="paymentMonth">{{data['month']}}</span>
-                                        <span id="paymentMonth2">{{data['month2']}}</span> 
+                                        <span id="paymentMonth2">{{data['month']}}</span> 
 
-                                        <span id="paymentYear">{{data['year']}}</span>
-                                        <span id="paymentYear2">{{data['year2']}}</span></td>
+                                        <span id="paymentYear2">{{data['year']}}</span></td>
+                                        
                                     </tr>
                                     
                                 </tbody>

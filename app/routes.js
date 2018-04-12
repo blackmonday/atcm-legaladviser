@@ -44,7 +44,7 @@ router.post('/', function (req, res) {
         req.session.data['benefits-details'] = ""
         req.session.data['defendents-employment-status'] = "Employed (full or part-time)"
         req.session.data['employment-status-group'] = "Employed (full or part-time)"
-        req.session.data['defendents-plea'] = "No plea received"
+        req.session.data['defendents-plea'] = "Pleaded Not Guilty"
         req.session.data['defendents-nin'] = "AB 12 34 56 C"
         req.session.data['case-status'] = "No plea received"
         req.session.data['prosecutor'] = "DVLA"

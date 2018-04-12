@@ -48,16 +48,16 @@
                             <h1 class="heading-medium">Reason for deducting from benefits</h1>
                         </legend>
                         <div class="multiple-choice">
-                            <input id="radio-a1" type="radio" name="reason-for-deducting-from-benefits-group" value="Compensation ordered">
+                            <input id="radio-a1" type="radio" name="reason-for-deducting-from-benefits-group" value="Compensation ordered" {{ checked('reason-for-deducting-from-benefits-group','Compensation ordered') }}>
                             <label for="radio-a1">Compensation ordered</label>
                         </div>
                         <div class="multiple-choice">
-                            <input id="radio-a2" type="radio" name="reason-for-deducting-from-benefits-group" value="Defendant failed to pay in past">
+                            <input id="radio-a2" type="radio" name="reason-for-deducting-from-benefits-group" value="Defendant failed to pay in past" {{ checked('reason-for-deducting-from-benefits-group','Defendant failed to pay in past') }}>
                             <label for="radio-a2">Defendant failed to pay in past</label>
                         </div>
                         <p class="form-block">or</p>
                         <div class="multiple-choice">
-                            <input id="radio-a3" type="radio" name="reason-for-deducting-from-benefits-group" value="I am a British citizen living abroad">
+                            <input id="radio-a3" type="radio" name="reason-for-deducting-from-benefits-group" value="Defendant requested this" {{ checked('reason-for-deducting-from-benefits-group','Defendant requested this') }}>
                             <label for="radio-a3">Defendant requested this</label>
                         </div>
                     </fieldset>
@@ -75,11 +75,11 @@
                             <label for="radio-b2">Lump sum within 28 days</label>
                         </div>
                         
-                        <div class="multiple-choice" data-target="lump-sum-plus-instalment">
-                            <input id="radio-b3" type="radio" name="set-reserve-terms-group" value="Lump sum plus instalment" {{ checked('set-reserve-terms-group','Lump sum plus instalment') }}>
-                            <label for="radio-b3">Lump sum plus instalment</label>
+                        <div class="multiple-choice" data-target="lump-sum-plus-instalments">
+                            <input id="radio-b3" type="radio" name="set-reserve-terms-group" value="Lump sum plus instalments" {{ checked('set-reserve-terms-group','Lump sum plus instalments') }}>
+                            <label for="radio-b3">Lump sum plus instalments</label>
                         </div>
-                        <div class="js-hidden" id="lump-sum-plus-instalment">
+                        <div class="js-hidden" id="lump-sum-plus-instalments">
                             <div class="panel panel-border-wide top_15">
                                 
                                 <fieldset>
@@ -123,23 +123,22 @@
                                     </legend>
                                     <div class="form-date">
                                         <div class="form-group form-group-day">
-                                            <label class="form-label" for="day">Day</label>
-                                            <input class="form-control" id="day" name="day" type="number" pattern="[0-9]*" value="{{ data['day'] }}">
+                                            <label class="form-label" for="day2">Day</label>
+                                            <input class="form-control" id="day2" name="day2" type="number" pattern="[0-9]*" value="{{ data['day2'] }}">
                                         </div>
                                         <div class="form-group form-group-month">
-                                            <label class="form-label" for="month">Month</label>
-                                            <input class="form-control" id="month" name="month" type="number" pattern="[0-9]*" value="{{ data['month'] }}">
+                                            <label class="form-label" for="month2">Month</label>
+                                            <input class="form-control" id="month2" name="month2" type="number" pattern="[0-9]*" value="{{ data['month2'] }}">
                                         </div>
                                         <div class="form-group form-group-year">
-                                            <label class="form-label" for="year">Year</label>
-                                            <input class="form-control" id="year" name="year" type="number" pattern="[0-9]*" value="{{ data['year'] }}">
+                                            <label class="form-label" for="year2">Year</label>
+                                            <input class="form-control" id="year2" name="year2" type="number" pattern="[0-9]*" value="{{ data['year2'] }}">
                                         </div>
                                     </div>
                                 </fieldset>
                                 
                             </div>
                         </div>
-                        
                         
                         
                         
@@ -166,11 +165,11 @@
                                         <label for="instalment-frequency-1">Weekly</label>
                                     </div>
                                     <div class="multiple-choice">
-                                        <input id="instalment-frequency-2" type="radio" name="instalment-only-frequency-group" value="Fortnightly" {{ checked('instalment-only-only-instalment-frequency-group','Fortnightly') }}>
+                                        <input id="instalment-frequency-2" type="radio" name="instalment-only-frequency-group" value="Fortnightly" {{ checked('instalment-only-frequency-group','Fortnightly') }}>
                                         <label for="instalment-frequency-2">Fortnightly</label>
                                     </div>
                                     <div class="multiple-choice">
-                                        <input id="instalment-frequency-3" type="radio" name="xinstalment-only-frequency-group" value="Monthly" {{ checked('instalment-only-only-instalment-frequency-group','Monthly') }}>
+                                        <input id="instalment-frequency-3" type="radio" name="xinstalment-only-frequency-group" value="Monthly" {{ checked('instalment-only-frequency-group','Monthly') }}>
                                         <label for="instalment-frequency-3">Monthly</label>
                                     </div>
                                 </fieldset>
