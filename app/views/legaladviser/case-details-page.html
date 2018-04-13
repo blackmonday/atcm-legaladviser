@@ -644,12 +644,19 @@
                             <table class="court-decision">
                                 <tbody>
                                     <tr>
-                                        <td class="bold">Referred to full court hearing</td>
-                                        <td>Summons issued for hearing before {{ data['refer-to-which-court-group'] }} on {{ data['hearing-day'] }} <span id="hearingMonth">{{ data['hearing-month'] }}</span> {{ data['hearing-year'] }} at {{ data['court-room-group'] }} at {{ data['hearing-time-hour'] }}:{{ data['hearing-time-minute'] }}. </td>
+                                        <td class="bold" style="width:45%">Referred to full court hearing</td>
+                                        <td>
+                                            <p class="top_0 bottom_10">Summons issued for hearing before {{ data['refer-to-which-court-group'] }} on {{ data['hearing-day'] }} <span id="hearingMonth">{{ data['hearing-month'] }}</span> {{ data['hearing-year'] }} at {{ data['court-room-group'] }} at {{ data['hearing-time-hour'] }}:{{ data['hearing-time-minute'] }}.</p>
+                                            <p class="top_10 bottom_0">Reason: {{data['reason-for-referring-to-court-group']}}</p>
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td class="bold">Decision made</td>
-                                        <td>{{data['decision']}}</td>
+                                        <td class="bold"><p class="bold top_15">Decision made</p></td>
+                                        <td>
+                                            <p class="top_15">13 April 2018<br>
+                                            Joe Bloggs and Peter Smith<br>
+                                            {{ data['refer-to-which-court-group'] }}</p>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
