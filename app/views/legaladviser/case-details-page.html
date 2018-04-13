@@ -288,6 +288,39 @@
             document.getElementById("paymentMonth2").innerText = "December";
         }
         
+        
+        
+        
+        /* ********************** */
+        /* REFER TO COURT HEARING */
+        var paymentMonth = document.getElementById("hearingMonth").innerText;
+        if (paymentMonth == "1") {
+            document.getElementById("hearingMonth").innerText = "January";
+        } else if (paymentMonth == "2") {
+            document.getElementById("hearingMonth").innerText = "February";
+        } else if (paymentMonth == "3") {
+            document.getElementById("hearingMonth").innerText = "March";
+        } else if (paymentMonth == "4") {
+            document.getElementById("hearingMonth").innerText = "April";
+        } else if (paymentMonth == "5") {
+            document.getElementById("hearingMonth").innerText = "May";
+        } else if (paymentMonth == "6") {
+            document.getElementById("hearingMonth").innerText = "June";
+        } else if (paymentMonth == "7") {
+            document.getElementById("hearingMonth").innerText = "July";
+        } else if (paymentMonth == "8") {
+            document.getElementById("hearingMonth").innerText = "August";
+        } else if (paymentMonth == "9") {
+            document.getElementById("hearingMonth").innerText = "September";
+        } else if (paymentMonth == "10") {
+            document.getElementById("hearingMonth").innerText = "October";
+        } else if (paymentMonth == "11") {
+            document.getElementById("hearingMonth").innerText = "November";
+        } else if (paymentMonth == "12") {
+            document.getElementById("hearingMonth").innerText = "December";
+        }
+
+        
     }
 </script>
 
@@ -607,17 +640,16 @@
                         <!-- REFER TO COURT HEARING TAB -->
                         <div id="referToCourtHearingTab">
                             <h4 class="heading-medium bottom_10 top_0">Court decision</h4>
-                            <p>Refer to court hearing coming soon</p>
                             
                             <table class="court-decision">
                                 <tbody>
                                     <tr>
                                         <td class="bold">Referred to full court hearing</td>
-                                        <td>xxx</td>
+                                        <td>Summons issued for hearing before {{ data['refer-to-which-court-group'] }} on {{ data['hearing-day'] }} <span id="hearingMonth">{{ data['hearing-month'] }}</span> {{ data['hearing-year'] }} at {{ data['court-room-group'] }} at {{ data['hearing-time-hour'] }}:{{ data['hearing-time-minute'] }}. </td>
                                     </tr>
                                     <tr>
                                         <td class="bold">Decision made</td>
-                                        <td>xxx</td>
+                                        <td>{{data['decision']}}</td>
                                     </tr>
                                 </tbody>
                             </table>

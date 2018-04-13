@@ -151,11 +151,12 @@ router.post('/legaladviser/confirm-outcome', function (req, res) {
         }
     }
     
-    
-
-    
-    
 })
+
+
+
+
+
 
 // **************
 // PAYMENT METHOD
@@ -181,6 +182,11 @@ router.post('/legaladviser/pay-direct-to-court', function (req, res) {
     
 })
 
+
+
+
+
+
 // ********************
 // DEDUCT FROM BENEFITS
 router.post('/legaladviser/deduct-from-benefits', function (req, res) {
@@ -188,6 +194,11 @@ router.post('/legaladviser/deduct-from-benefits', function (req, res) {
     res.redirect('/legaladviser/check-your-decision')
     
 })
+
+
+
+
+
 
 // ******************
 // ATTACH TO EARNINGS
@@ -209,11 +220,6 @@ router.post('/legaladviser/check-your-decision', function (req, res) {
     res.redirect('/legaladviser/case-details-page')
     
 })
-
-
-
-
-
 
 
 
@@ -247,9 +253,6 @@ router.post('/legaladviser/add-or-change-personal-details', function (req, res) 
     res.redirect('/legaladviser/case-details-page')
     
 })
-
-
-
 
 
 
@@ -294,4 +297,3 @@ router.post('/legaladviser/change-plea', function (req, res) {
     res.redirect('/legaladviser/case-details-page')
     
 })
-
