@@ -649,14 +649,14 @@
                             <label class="form-label" for="costs">Costs</label>
                             <div class="input-icon">
                                 <i>£</i>
-                                <input class="form-control" id="discharge-costs" type="number" min="0.00" step="0.01"  name="discharge-costs" value="125">
+                                <input class="form-control" id="discharge-costs" type="number" min="0.00" step="0.01"  name="discharge-costs" value="{{ data['discharge-costs'] }}">
                             </div>
 
                             <div id="victimSurchage">
                                 <label class="form-label top_15" for="discharge-victim-surcharge">Victim surcharge</label>
                                 <div class="input-icon">
                                     <i>£</i>
-                                    <input class="form-control" id="discharge-victim-surcharge" type="number" min="0.00" step="0.01"  name="discharge-victim-surcharge" value="30">
+                                    <input class="form-control" id="discharge-victim-surcharge" type="number" min="0.00" step="0.01"  name="discharge-victim-surcharge" value="{{ data['discharge-victim-surcharge'] }}">
                                 </div>
                             </div>
 

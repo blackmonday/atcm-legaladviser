@@ -1,0 +1,128 @@
+6{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+    GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<style>
+    table td {
+        border-bottom: none;
+        padding: 10px 0 0 0;
+    }
+</style>
+
+<script>
+    window.onload = function() {
+    }
+</script>
+
+<main id="content" role="main">
+    
+    <div class="grid-row">
+        <div class="column-full">
+            <!-- Alpha phase banner -->
+            {% include "includes/phase_banner_alpha.html" %}
+            {% include "includes/breadcrumb_back.html" %}
+            
+            {% include "includes/persist-info-banner.html" %}
+
+        </div>
+    </div>
+
+    {% include "includes/display-decision.html" %}
+
+    <div class="grid-row top_30">
+        <div class="column-full">
+
+            <h1 class="heading-xlarge top_0 bottom_5">Defendant's online plea</h1>
+            <p>Submitted online on 28 January 2018 at 2:35pm</p>
+            
+            <table>
+                <caption class="heading-medium bottom_0">Personal details</caption>
+                <tbody>
+                    <tr>
+                        <td style="width:50%">Name</td>
+                        <td>Camilla JONES</td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td>
+                            6 Blessington Road<br>
+                            Lewisham<br>
+                            London<br>
+                            SE13 5EB
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Home telephone</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Mobile</td>
+                        <td>07975337198</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>billy_s765@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td>Date of birth</td>
+                        <td>4 April 1970 (46 years old)</td>
+                    </tr>
+                    <tr>
+                        <td>National Insurance number</td>
+                        <td>AB 12 34 56 C</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <hr class="top_60 bottom_60">
+            
+            <table>
+                <caption class="heading-medium top_0 bottom_0">Plea</caption>
+                <tbody>
+                    <tr>
+                        <td style="width:50%">How they pleaded</td>
+                        <td>Not guilty</td>
+                    </tr>
+                    <tr>
+                        <td style="width:50%">How to complete case</td>
+                        <td>Online</td>
+                    </tr>
+                    <tr>
+                        <td style="width:50%">Information for magistrates (mitigation)</td>
+                        <td>None given</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <hr class="top_60 bottom_15">
+
+        </div>
+    </div>
+    
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            
+            <h4 class="heading-medium">Note added</h4>
+            <p>There are no notes for this online plea.</p>
+            
+        </div>
+    </div>
+    
+    <div class="grid-row">
+        <div class="column-full">
+
+            <form class="form" action="" method="post">
+                <input class="button top_30" type="submit" value="Back">
+            </form>
+
+        </div>
+
+    </div>
+    
+</main>
+
+{% endblock %}

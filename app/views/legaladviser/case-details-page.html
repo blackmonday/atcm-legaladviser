@@ -30,6 +30,18 @@
         
         
         
+        
+        
+        var dischargeConfirmCollectionOrder = document.getElementById('dischargeConfirmCollectionOrder').innerText;
+        if (dischargeConfirmCollectionOrder == "on") {
+            document.getElementById('dischargeConfirmCollectionOrder').innerText = "Yes";
+        } else {
+            document.getElementById('dischargeConfirmCollectionOrder').innerText = "No";
+        }
+
+        
+        
+        
 
         
         
@@ -522,7 +534,7 @@
                 </div>
                 
                 <h3 class="heading-small">Online plea</h3>
-                <p><a href="#">Defendant's online plea</a></p>
+                <p><a href="defendants-online-plea.html">Defendant's online plea</a></p>
 
             </div>
         </div>
@@ -583,9 +595,9 @@
                                     <tr>
                                         <td class="bold">Decision made</td>
                                         <td>
-                                            <div>1 May 2018</div>
+                                            <div>13 April 2018</div>
                                             <div class="top_10">Joe Bloggs and Peter Smith<br>
-                                            Stratford Magistrate's Court</div>
+                                            Lorem Ipsum Magistrate's Court</div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -653,9 +665,9 @@
                                     <tr>
                                         <td class="bold"><p class="bold top_15">Decision made</p></td>
                                         <td>
-                                            <p class="top_15">13 April 2018<br>
-                                            Joe Bloggs and Peter Smith<br>
-                                            {{ data['refer-to-which-court-group'] }}</p>
+                                            <div class="top_15">13 April 2018</div>
+                                            <div class="top_10">Joe Bloggs and Peter Smith<br>
+                                            Lorem Ipsum Magistrate's Court Magistrate's Court</div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -693,29 +705,33 @@
                         <!-- DISCHARGE TAB -->
                         <div id="dischargeTab">
                             <h4 class="heading-medium bottom_10 top_0">Court decision</h4>
-                            <p>Discharge coming soon</p>
+                            <p style="font-size:.9em; color:mediumvioletred"><i>Discharge decsion tab is still being worked on</i></p>
                             
                             <table class="court-decision">
                                 <tbody>
                                     <tr>
-                                        <td class="bold">Result</td>
-                                        <td>xxx</td>
+                                        <td class="bold" style="width:40%">Result</td>
+                                        <td>{{data['decision']}}d</td>
                                     </tr>
                                     <tr>
                                         <td class="bold">Compensation</td>
-                                        <td>xxx</td>
+                                        <td>£{{data['discharge-compensation']}}</td>
                                     </tr>
                                     <tr>
                                         <td class="bold">Costs</td>
-                                        <td>xxx</td>
+                                        <td>£{{data['discharge-costs']}}</td>
                                     </tr>
                                     <tr>
                                         <td class="bold">Victim surcharge</td>
-                                        <td>xxx</td>
+                                        <td>£{{data['discharge-victim-surcharge']}}</td>
                                     </tr>
                                     <tr>
                                         <td class="bold">Decision made</td>
-                                        <td>xxx</td>
+                                        <td>
+                                            <div>13 April 2018</div>
+                                            <div class="top_10">Joe Bloggs and Peter Smith<br>
+                                            Lorem Ipsum Magistrate's Court Magistrate's Court</div>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -724,16 +740,16 @@
                             <table class="court-decision">
                                 <tbody>
                                     <tr>
-                                        <td class="bold">Collection order made</td>
-                                        <td>xxx</td>
+                                        <td class="bold" style="width:40%">Collection order made</td>
+                                        <td><span id="dischargeConfirmCollectionOrder">{{data['discharge-confirm-collection-order']}}</span></td>
                                     </tr>
                                     <tr>
                                         <td class="bold">Total to pay</td>
-                                        <td>xxx</td>
+                                        <td>£{{data['total-payment-discharge']}}</td>
                                     </tr>
                                     <tr>
                                         <td class="bold">Payment method</td>
-                                        <td>xxx</td>
+                                        <td>{{data['payment-method-group']}}</td>
                                     </tr>
                                     <tr>
                                         <td class="bold">Instalments only</td>

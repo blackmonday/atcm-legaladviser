@@ -71,6 +71,9 @@ router.post('/', function (req, res) {
         req.session.data['claiming-benefits-group'] = "No"
         req.session.data['benefits-details'] = ""
         
+        req.session.data['discharge-costs'] = "125"
+        req.session.data['discharge-victim-surcharge'] = "30"
+        
         
         
         
@@ -294,6 +297,17 @@ router.post('/legaladviser/change-plea', function (req, res) {
     
     req.session.data['defendents-plea'] = req.session.data['new-defendents-plea']
 
+    res.redirect('/legaladviser/case-details-page')
+    
+})
+
+
+
+
+// ***********
+// CHANGE PLEA
+router.post('/legaladviser/defendants-online-plea', function (req, res) {
+    
     res.redirect('/legaladviser/case-details-page')
     
 })
