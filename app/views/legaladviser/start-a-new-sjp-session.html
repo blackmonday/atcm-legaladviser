@@ -1,0 +1,90 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+    GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<style>
+    tr {
+        vertical-align: top;
+    }
+</style>
+
+<main id="content" role="main">
+    
+    <div class="grid-row">
+        <div class="column-full">
+            <!-- Alpha phase banner -->
+            {% include "includes/phase_banner_alpha.html" %}
+            {% include "includes/breadcrumb_back.html" %}
+                                    
+        </div>
+    </div>
+
+    <div class="grid-row top_30">
+        <div class="column-two-thirds">
+
+            <h1 class="heading-xlarge top_0 bottom_30">Start a new Single Justice Procedure session</h1>
+            
+            <form class="form" action="" method="post">
+                
+                <fieldset class="bottom_30">
+                    <label class="form-label" for="court-location">Court location</label>
+                    <select class="form-control" id="court-location" name="court-location">
+                        <option>Court location one</option>
+                        <option>Court location two</option>
+                        <option>Court location three</option>
+                    </select>
+                </fieldset>
+                
+                <fieldset class="inline bottom_30">
+                    <legend>
+                        <h3 class="">
+                            Are you working with a magistrate?
+                        </h3>
+                    </legend>
+                    <div class="multiple-choice" data-target="magistrateYes">
+                        <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
+                        <label for="radio-inline-1">Yes</label>
+                    </div>
+                    <div class="multiple-choice">
+                        <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
+                        <label for="radio-inline-2">No – I’m working under delegated powers</label>
+                    </div>
+                    
+                    <div class="js-hidden" id="magistrateYes">
+                        <div class="panel panel-border-wide">
+
+                            <label class="form-label" for="magistrates-name">Magistrates' name</label>
+                            <input class="form-control" id="magistrates-name" type="text" name="magistrates-name" valuse="{{ data['magistrates-name']}}">
+                        
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <input class="button" type="submit" value="Save">
+                <div class="top_15"><a href="#">Cancel</a></div>
+            </form>
+            
+        </div>
+        
+        <div class="coloumn-one-third">
+            <!-- RIGHT COLUMN NAVIGATION - VARIATION FIVE -->
+            <!--
+            <div class="right-column-nav">
+                <hr class="bold-hr">
+                <h3 class="heading-medium">Case options</h3>
+                <p><a href="">Withdraw offence</a></p>
+            </div>
+            -->
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}
+
+

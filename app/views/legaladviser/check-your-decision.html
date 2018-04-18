@@ -101,20 +101,11 @@
         }
 
         
-                        
 
         
         
-
         
-                                        
                                 
-        /* XXXXXXXXXXX */       
-        /* XXXXXXXXXXX */       
-        /* XXXXXXXXXXX */       
-        /* XXXXXXXXXXX */       
-        /* XXXXXXXXXXX */       
-        /* XXXXXXXXXXX */       
         /* XXXXXXXXXXX */
         
         if (document.getElementById('setReserveTermsGroup').innerText == "Lump sum plus instalments") {
@@ -229,9 +220,7 @@
         
         
         
-        
-        
-        
+    
         
         
         /* ********************** */
@@ -269,6 +258,38 @@
             document.getElementById("whichLanguage").style.display = "none";
         }
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /**** DISCHARGE ****/
+        
+        var totalPayment2 = document.getElementById("totalPayment2").innerText;
+        if (totalPayment2 == "") {
+            //alert('no total payment 2');
+            document.getElementById("lumpSumInstalment2").style.display = "none";
+        } else {
+            
+            document.getElementById("lumpSumOnly2").style.display = "none";
+        }
+        
+        var instalmentAmount1 = document.getElementById("instalmentAmount1").innerText;
+        var instalmentAmount2 = document.getElementById("instalmentAmount2").innerText;
+        if ((instalmentAmount2 == "") || (instalmentAmount1 == "")) {
+            document.getElementById("instalmentsRow2").style.display = "none";
+        }
+
     }
 </script>
 

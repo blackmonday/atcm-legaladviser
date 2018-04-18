@@ -101,6 +101,14 @@ router.post('/legaladviser/dashboard', function (req, res) {
     
 })
 
+// ********************************************
+// Start a new Single Justice Procedure session
+router.post('/legaladviser/start-a-new-sjp-session', function (req, res) {
+                
+    res.redirect('/legaladviser/case-details-page')
+    
+})
+
 // *****************
 // CASE DETAILS PAGE
 router.post('/legaladviser/case-details-page', function (req, res) {
