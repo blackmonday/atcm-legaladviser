@@ -312,8 +312,8 @@ router.post('/legaladviser/change-plea', function (req, res) {
 
 
 
-// ***********
-// CHANGE PLEA
+// **********************
+// DEFENDANTS ONLINE PLEA
 router.post('/legaladviser/defendants-online-plea', function (req, res) {
     
     res.redirect('/legaladviser/case-details-page')
