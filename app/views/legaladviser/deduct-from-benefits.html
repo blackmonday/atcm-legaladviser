@@ -91,10 +91,10 @@
                                 </fieldset>
                                 
                                 <fieldset class="top_15">
-                                    <label class="form-label" for="instalments-amount">Instalment amount</label>
+                                    <label class="form-label" for="instalment-amount-1">Instalment amount</label>
                                     <div class="input-icon">
                                         <i>£</i>
-                                        <input class="form-control" id="instalments-amount" type="number" min="0.0" step="0.01"  name="instalments-amount" value="{{ data['instalments-amount'] }}">
+                                        <input class="form-control" id="instalment-amount-1" type="number" min="0.0" step="0.01"  name="instalment-amount-1" value="{{ data['instalment-amount-1'] }}">
                                     </div>
                                 </fieldset>
 
@@ -150,10 +150,10 @@
                         </div>
                         <div class="js-hidden" id="instalments-only">
                             <div class="panel panel-border-wide top_15">
-                                <label class="form-label" for="instalments-only-amount">Instalment amount</label>
+                                <label class="form-label" for="instalment-amount-2">Instalment amount</label>
                                 <div class="input-icon">
                                     <i>£</i>
-                                    <input class="form-control" id="instalments-only-amount" type="number" min="0.0" step="0.01"  name="instalments-only-amount" value="{{ data['instalments-only-amount'] }}">
+                                    <input class="form-control" id="instalment-amount-2" type="number" min="0.0" step="0.01"  name="instalment-amount-2" value="{{ data['instalment-amount-2'] }}">
                                 </div>
                                 
                                 <fieldset class="top_15">
@@ -169,7 +169,7 @@
                                         <label for="instalment-frequency-2">Fortnightly</label>
                                     </div>
                                     <div class="multiple-choice">
-                                        <input id="instalment-frequency-3" type="radio" name="xinstalment-only-frequency-group" value="Monthly" {{ checked('instalment-only-frequency-group','Monthly') }}>
+                                        <input id="instalment-frequency-3" type="radio" name="instalment-only-frequency-group" value="Monthly" {{ checked('instalment-only-frequency-group','Monthly') }}>
                                         <label for="instalment-frequency-3">Monthly</label>
                                     </div>
                                 </fieldset>

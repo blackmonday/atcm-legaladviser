@@ -15,6 +15,34 @@
 
 <script>
     window.onload = function() {
+        
+        var dobMonth2 = document.getElementById('dobMonth2').innerText;
+        if (dobMonth2 == "1") {
+            document.getElementById('dobMonth2').innerText = "January";
+        } else if (dobMonth2 == "2") {
+            document.getElementById('dobMonth2').innerText = "February";
+        } else if (dobMonth2 == "3") {
+            document.getElementById('dobMonth2').innerText = "March";
+        } else if (dobMonth2 == "4") {
+            document.getElementById('dobMonth2').innerText = "April";
+        } else if (dobMonth2 == "5") {
+            document.getElementById('dobMonth2').innerText = "May";
+        } else if (dobMonth2 == "6") {
+            document.getElementById('dobMonth2').innerText = "June";
+        } else if (dobMonth2 == "7") {
+            document.getElementById('dobMonth2').innerText = "July";
+        } else if (dobMonth2 == "8") {
+            document.getElementById('dobMonth2').innerText = "August";
+        } else if (dobMonth2 == "9") {
+            document.getElementById('dobMonth2').innerText = "September";
+        } else if (dobMonth2 == "10") {
+            document.getElementById('dobMonth2').innerText = "October";
+        } else if (dobMonth2 == "11") {
+            document.getElementById('dobMonth2').innerText = "November";
+        } else if (dobMonth2 == "12") {
+            document.getElementById('dobMonth2').innerText = "December";
+        } 
+        
     }
 </script>
 
@@ -44,36 +72,36 @@
                 <tbody>
                     <tr>
                         <td style="width:50%">Name</td>
-                        <td>Camilla JONES</td>
+                        <td>{{data['defendents-first-name']}} <span class="last-name">{{data['defendents-last-name']}}</span></td>
                     </tr>
                     <tr>
                         <td>Address</td>
                         <td>
-                            6 Blessington Road<br>
-                            Lewisham<br>
-                            London<br>
-                            SE13 5EB
+                            {{data['defendents-address-line-1']}}<br>
+                            {{data['defendents-address-line-2']}}<br>
+                            {{data['defendents-town-or-city']}}<br>
+                            {{data['defendents-postcode']}}
                         </td>
                     </tr>
                     <tr>
                         <td>Home telephone</td>
-                        <td>-</td>
+                        <td>{{data['defendents-home-telephone']}}</td>
                     </tr>
                     <tr>
                         <td>Mobile</td>
-                        <td>07975337198</td>
+                        <td>{{data['defendents-mobile']}}</td>
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td>billy_s765@gmail.com</td>
+                        <td>{{data['defendents-email']}}</td>
                     </tr>
                     <tr>
                         <td>Date of birth</td>
-                        <td>4 April 1970 (46 years old)</td>
+                        <td>{{data['defendents-dob-day']}} <span id="dobMonth2">{{data['defendents-dob-month']}}</span> {{data['defendents-dob-year']}} ({{data['defendents-age']}} years old)</td>
                     </tr>
                     <tr>
                         <td>National Insurance number</td>
-                        <td>AB 12 34 56 C</td>
+                        <td>{{data['defendents-nin']}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -85,7 +113,7 @@
                 <tbody>
                     <tr>
                         <td style="width:50%">How they pleaded</td>
-                        <td>Not guilty</td>
+                        <td>{{data['defendents-plea']}}</td>
                     </tr>
                     <tr>
                         <td style="width:50%">How to complete case</td>
@@ -93,7 +121,7 @@
                     </tr>
                     <tr>
                         <td style="width:50%">Information for magistrates (mitigation)</td>
-                        <td>None given</td>
+                        <td>{{data['mitigation']}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -107,7 +135,7 @@
         <div class="column-two-thirds">
             
             <h4 class="heading-medium">Note added</h4>
-            <p>There are no notes for this online plea.</p>
+            <p>{{data['notes-added']}}</p>
             
         </div>
     </div>

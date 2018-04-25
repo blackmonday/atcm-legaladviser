@@ -16,7 +16,18 @@
 
             <p class="form-hint">This prototype is built using the GOV.UK prototype kit {{releaseVersion}}</p>
             
-            <p class="top_60 bottom_30">This design demo is currently set up for DVLA cases.</p>
+            <p class="top_60 bottom_15"><span class="bold">NOTE:</span> When making the following decisions the 'Check your decision' page and 'Decision' tab on the case details page do not always function properly in this prototype:</p>
+            
+            <p class="top_15 bottom_5"><span class="bold">'Check your decision' page</span></p>
+            <ul class="list list-bullet">
+                <li>Financial penalty with instalments (lump sum okay)</li>
+                <li>Discharge with instalments (lump sum okay)</li>
+                <li>Attach to earnings</li>
+            </ul>
+            <p class="top_15 bottom_5"><span class="bold">'Decision' tab</span></p>
+            <ul class="list list-bullet bottom_60">
+                <li>All decisions are not displaying correctly</li>
+            </ul>
 
             <!--<a href="/legaladviser/dashboard">Let's get started</a>-->
             
@@ -33,8 +44,19 @@
                         </div>
                         <div class="multiple-choice">
                             <input id="radio-2" type="radio" name="prosecutor-group" value="DVLA (no back duty)">
-                            <label for="radio-2" class="form-hint">DVLA (no back duty) - <span class="bold">ONLY PARTIALLY WORKING</span></label>
+                            <label for="radio-2">DVLA (no back duty)</label>
                         </div>
+                        
+                        <div class="multiple-choice">
+                            <input id="radio-2" type="radio" name="prosecutor-group" value="TFL">
+                            <label for="radio-2">Transport for London</label>
+                        </div>
+
+                        <div class="multiple-choice">
+                            <input id="radio-2" type="radio" name="prosecutor-group" value="TVL">
+                            <label for="radio-2">TV Licensing</label>
+                        </div>
+
                     </fieldset>
                 </div>
                 

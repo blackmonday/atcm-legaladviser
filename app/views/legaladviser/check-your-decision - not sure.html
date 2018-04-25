@@ -1,0 +1,918 @@
+6{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+    GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .check-your-decisions-table td {
+        border: 0;
+        padding: 5px;
+    }
+    .table-cell-width {
+        width: 40%;
+    }
+    .check-your-decisions-table td:last-child {
+        text-align: right;
+    }
+</style>
+
+<script>
+    window.onload = function() {  
+        
+        
+        
+        
+        
+        
+        var whichPaymentType = document.getElementById('paymentMethod').innerText;
+        if (whichPaymentType == "Pay direct to court") {
+            document.getElementById('deductFromBenefits').style.display = "none";
+            document.getElementById('attachToEarnings').style.display = "none";
+        }
+        if (whichPaymentType == "Deduct from benefits") {
+            document.getElementById('payDirectToCourt').style.display = "none";
+            document.getElementById('attachToEarnings').style.display = "none";
+        }
+        if (whichPaymentType == "Attach to earnings") {
+            document.getElementById('payDirectToCourt').style.display = "none";
+            document.getElementById('deductFromBenefits').style.display = "none";
+        }
+        
+
+            
+            
+            
+            
+        
+        
+        
+        
+        
+        
+        
+        var incomeCalculation3 = Number(document.getElementById("incomeCalculation").innerText);
+        
+        if (document.getElementById('incomeFrequency').innerText == "Weekly") {
+            document.getElementById("incomeCalculation").innerText = incomeCalculation3;
+        } else if (document.getElementById('incomeFrequency').innerText == "Fortnightly") {
+            document.getElementById("incomeCalculation").innerText = incomeCalculation3/2;
+        } else if (document.getElementById('incomeFrequency').innerText == "Monthly") {
+            document.getElementById("incomeCalculation").innerText = incomeCalculation3/4;
+        } else if (document.getElementById('incomeFrequency').innerText == "Annually") {
+            document.getElementById("incomeCalculation").innerText = incomeCalculation3/52;
+        }
+        
+        
+        
+        
+        /* CHECK DECISION */
+        var decisiontype = document.getElementById('decision').innerText;
+        if (decisiontype == "Financial penalty") {
+            document.getElementById('referToCourtHearing').style.display = "none"; 
+            document.getElementById('withdraw').style.display = "none";
+            document.getElementById('discharge').style.display = "none";
+            document.getElementById('dismiss').style.display = "none";
+            
+        } else if (decisiontype == "Refer to court hearing") {
+            document.getElementById('financialPenalty').style.display = "none"; 
+            document.getElementById('withdraw').style.display = "none";
+            document.getElementById('discharge').style.display = "none";
+            document.getElementById('dismiss').style.display = "none";
+            
+        } else if (decisiontype == "Withdraw") {
+            document.getElementById('financialPenalty').style.display = "none"; 
+            document.getElementById('referToCourtHearing').style.display = "none";
+            document.getElementById('discharge').style.display = "none";
+            document.getElementById('dismiss').style.display = "none";
+            
+       } else if (decisiontype == "Discharge") {
+            document.getElementById('financialPenalty').style.display = "none"; 
+            document.getElementById('referToCourtHearing').style.display = "none"; 
+            document.getElementById('withdraw').style.display = "none";
+            document.getElementById('dismiss').style.display = "none";
+           
+        } else if (decisiontype == "Dismiss") {
+            document.getElementById('financialPenalty').style.display = "none"; 
+            document.getElementById('referToCourtHearing').style.display = "none"; 
+            document.getElementById('withdraw').style.display = "none";
+            document.getElementById('discharge').style.display = "none";
+        }
+
+        
+        
+
+        
+        
+        
+        
+        
+        
+        
+        var confirmCollectionOrder = document.getElementById("confirm-collection-order").innerText;
+        if (confirmCollectionOrder == "on") {
+            //alert('Financial Order - CHECKED');
+            document.getElementById("confirm-collection-order").innerText = "Yes";
+        } else if (confirmCollectionOrder != "on") {
+            //alert('Financial Order - not checked');
+            document.getElementById("confirm-collection-order").innerText = "No";
+        }
+        
+        var dischargeConfirmCollectionOrder = document.getElementById("discharge-confirm-collection-order").innerText;
+        if (dischargeConfirmCollectionOrder == "on") {
+            //alert('Discharge - CHECKED');
+            document.getElementById("discharge-confirm-collection-order").innerText = "Yes";
+        } else if (dischargeConfirmCollectionOrder != "on") {
+            //alert('Dischaerge - not checked');
+            document.getElementById("discharge-confirm-collection-order").innerText = "No";
+        }
+
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+                                
+        /* LUMP SUM PLUS INSTALMENTS */
+        
+        if (document.getElementById('setReserveTermsGroup').innerText == "Lump sum plus instalments") {
+            document.getElementById("lumpSumOnlyRow").style.display = "none";
+            document.getElementById("instalmentsOnlyAmount").innerText = "";
+            document.getElementById("instalmentsOlnyFrequencyGroup").innerText = "";
+            
+            document.getElementById("paymentDay").innerText = "";
+            document.getElementById("paymentMonth").innerText = "";
+            document.getElementById("paymentYear").innerText = "";
+        }
+        
+        /* INSTALMENTS ONLY */
+        if (document.getElementById('setReserveTermsGroup').innerText == "Instalments only") {
+            document.getElementById("lumpSumOnlyRow").style.display = "none";
+            document.getElementById("lumpSumInstalmentRow").style.display = "none";
+            document.getElementById("instalmentsAmount").innerText = "";
+            document.getElementById("lumpSumInstalmentFrequencyGroup").innerText = "";
+            
+            document.getElementById("paymentDay2").innerText = "";
+            document.getElementById("paymentMonth2").innerText = "";
+            document.getElementById("paymentYear2").innerText = "";            
+        }
+        
+        /* LUMP SUM WITHIN 14 DAYS */
+        if ((document.getElementById('setReserveTermsGroup').innerText == "Lump sum within 14 days") || (document.getElementById('setReserveTermsGroup').innerText == "Lump sum within 28 days")) {
+            document.getElementById("instalmentsRow").style.display = "none";
+            document.getElementById("lumpSumInstalmentRow").style.display = "none";
+        }
+        
+        if (document.getElementById('paymentMethod').innerText == "Deduct from benefits") {
+            document.getElementById('reasonYouDidntDeductFromBenefits').style.display = "none";
+            document.getElementById('HowShouldDefendantPayTheCourt').style.display = "none";
+        }
+        if (document.getElementById('paymentMethod').innerText != "Deduct from benefits") {
+            document.getElementById('reasonForDeductingFromBenefits').style.display = "none";
+        }
+        
+        var howToPay = document.getElementById("howShouldDefendentPay").innerText;
+        if ((howToPay == "Lump sum within 14 days") || (howToPay == "Lump sum within 28 days")) {
+            document.getElementById("instalmentsRow").style.display = "none";
+            document.getElementById('lumpSumInstalmentRow').style.display = "none";
+        }
+        if (howToPay == "Lump sum plus instalments") {
+            document.getElementById('lumpSumOnlyRow').style.display = "none";
+            document.getElementById('instalmentAmount2').style.display = "none";
+            document.getElementById('paymentDay2').style.display = "none";
+            document.getElementById('paymentMonth2').style.display = "none";
+            document.getElementById('paymentYear2').style.display = "none";
+        }
+        if (howToPay == "Instalments only") {
+            document.getElementById('lumpSumInstalmentRow').style.display = "none";
+            document.getElementById('lumpSumOnlyRow').style.display = "none";
+            document.getElementById('instalmentAmount1').style.display = "none";
+            document.getElementById('paymentDay').style.display = "none";
+            document.getElementById('paymentMonth').style.display = "none";
+            document.getElementById('paymentYear').style.display = "none";
+        }
+        
+            var paymentMonth = document.getElementById("paymentMonth").innerText;
+            if (paymentMonth == "1") {
+                document.getElementById("paymentMonth").innerText = "January";
+            } else if (paymentMonth == "2") {
+                document.getElementById("paymentMonth").innerText = "February";
+            } else if (paymentMonth == "3") {
+                document.getElementById("paymentMonth").innerText = "March";
+            } else if (paymentMonth == "4") {
+                document.getElementById("paymentMonth").innerText = "April";
+            } else if (paymentMonth == "5") {
+                document.getElementById("paymentMonth").innerText = "May";
+            } else if (paymentMonth == "6") {
+                document.getElementById("paymentMonth").innerText = "June";
+            } else if (paymentMonth == "7") {
+                document.getElementById("paymentMonth").innerText = "July";
+            } else if (paymentMonth == "8") {
+                document.getElementById("paymentMonth").innerText = "August";
+            } else if (paymentMonth == "9") {
+                document.getElementById("paymentMonth").innerText = "September";
+            } else if (paymentMonth == "10") {
+                document.getElementById("paymentMonth").innerText = "October";
+            } else if (paymentMonth == "11") {
+                document.getElementById("paymentMonth").innerText = "November";
+            } else if (paymentMonth == "12") {
+                document.getElementById("paymentMonth").innerText = "December";
+            }
+        
+            var paymentMonth2 = document.getElementById("paymentMonth2").innerText;
+            if (paymentMonth2 == "1") {
+                document.getElementById("paymentMonth2").innerText = "January";
+            } else if (paymentMonth2 == "2") {
+                document.getElementById("paymentMonth2").innerText = "February";
+            } else if (paymentMonth2 == "3") {
+                document.getElementById("paymentMonth2").innerText = "March";
+            } else if (paymentMonth2 == "4") {
+                document.getElementById("paymentMonth2").innerText = "April";
+            } else if (paymentMonth2 == "5") {
+                document.getElementById("paymentMonth2").innerText = "May";
+            } else if (paymentMonth2 == "6") {
+                document.getElementById("paymentMonth2").innerText = "June";
+            } else if (paymentMonth2 == "7") {
+                document.getElementById("paymentMonth2").innerText = "July";
+            } else if (paymentMonth2 == "882") {
+                document.getElementById("paymentMonth2").innerText = "August";
+            } else if (paymentMonth2 == "9") {
+                document.getElementById("paymentMonth2").innerText = "September";
+            } else if (paymentMonth2 == "10") {
+                document.getElementById("paymentMonth2").innerText = "October";
+            } else if (paymentMonth2 == "11") {
+                document.getElementById("paymentMonth2").innerText = "November";
+            } else if (paymentMonth2 == "12") {
+                document.getElementById("paymentMonth2").innerText = "December";
+            }
+
+        
+        
+        
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        /* ********************** */
+        /* REFER TO COURT HEARING */
+        var paymentMonth = document.getElementById("hearingMonth").innerText;
+        if (paymentMonth == "1") {
+            document.getElementById("hearingMonth").innerText = "January";
+        } else if (paymentMonth == "2") {
+            document.getElementById("hearingMonth").innerText = "February";
+        } else if (paymentMonth == "3") {
+            document.getElementById("hearingMonth").innerText = "March";
+        } else if (paymentMonth == "4") {
+            document.getElementById("hearingMonth").innerText = "April";
+        } else if (paymentMonth == "5") {
+            document.getElementById("hearingMonth").innerText = "May";
+        } else if (paymentMonth == "6") {
+            document.getElementById("hearingMonth").innerText = "June";
+        } else if (paymentMonth == "7") {
+            document.getElementById("hearingMonth").innerText = "July";
+        } else if (paymentMonth == "8") {
+            document.getElementById("hearingMonth").innerText = "August";
+        } else if (paymentMonth == "9") {
+            document.getElementById("hearingMonth").innerText = "September";
+        } else if (paymentMonth == "10") {
+            document.getElementById("hearingMonth").innerText = "October";
+        } else if (paymentMonth == "11") {
+            document.getElementById("hearingMonth").innerText = "November";
+        } else if (paymentMonth == "12") {
+            document.getElementById("hearingMonth").innerText = "December";
+        }
+        
+        if (document.getElementById("interpreterGroup").innerText == "Yes") {
+            document.getElementById("whichLanguage").style.display = "table-row";
+        } else {
+            document.getElementById("whichLanguage").style.display = "none";
+        }
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /**** DISCHARGE ****/
+        
+        var totalPayment2 = document.getElementById("totalPayment2").innerText;
+        if (totalPayment2 == "") {
+            //alert('no total payment 2');
+            document.getElementById("lumpSumInstalment2").style.display = "none";
+        } else {
+            
+            document.getElementById("lumpSumOnly2").style.display = "none";
+        }
+        
+        var instalmentAmount1 = document.getElementById("instalmentAmount1").innerText;
+        var instalmentAmount2 = document.getElementById("instalmentAmount2").innerText;
+        if ((instalmentAmount2 == "") || (instalmentAmount1 == "")) {
+            document.getElementById("instalmentsRow2").style.display = "none";
+        }
+
+    }
+</script>
+
+<main id="content" role="main">
+    
+    <div class="grid-row">
+        <div class="column-full">
+            <!-- Alpha phase banner -->
+            {% include "includes/phase_banner_alpha.html" %}
+            {% include "includes/breadcrumb_back.html" %}
+            
+            {% include "includes/persist-info-banner.html" %}
+
+        </div>
+    </div>
+
+    {% include "includes/display-decision.html" %}
+
+    <div id="financialPenalty">
+        <div class="grid-row top_30">
+            <div class="column-full">
+
+                <h1 class="heading-xlarge top_0 bottom_5">Check your decision</h1>
+
+                <form class="form" action="" method="post">
+                    <div class="form-group">
+
+                        <h2 class="heading-large">Offence 1</h2>
+
+                        <!-- DECISION -->
+                        <table class="check-your-decisions-table">
+                            <tbody>
+                                <tr>
+                                    <td class="heading-medium">Decision</td>
+                                    <td></td>
+                                    <td><a href="case-details-page">Change</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-cell-width bold">Offence type</td>
+                                    <td>{{data['offence-type']}}</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-cell-width bold">Verdict</td>
+                                    <td>{{data['verdict']}}</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-cell-width bold">Result</td>
+                                    <td>{{data['decision']}}</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <hr>
+
+                        <!-- OUTCOME -->
+                        <table class="check-your-decisions-table">
+                            <tbody>
+                                <tr>
+                                    <td class="heading-medium">Outcome</td>
+                                    <td></td>
+                                    <td><a href="confirm-outcome.html">Change</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-cell-width bold">Defendant's weekly income</td>
+                                    <td>£<span id="incomeCalculation">{{data['defendents-income-amount']}}</span></td>
+                                    <td><span id="incomeFrequency" style="display:none">{{data['income-frequency-group']}}</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-cell-width bold">Guilty plea taken into account</td>
+                                    <td>{{data['guilty-plea-taken-into-account']}}</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-cell-width bold">Fine band applied</td>
+                                    <td>{{data['banding-group']}}</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-cell-width bold">Penalty</td>
+                                    <td>£{{data['penalty-or-fine-amount']}}</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-cell-width bold">Back duty</td>
+                                    <td>£{{data['back-duty-amount']}}</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-cell-width bold">Compensation</td>
+                                    <td>£{{data['compensation-amount']}}</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <hr>
+
+                        <!-- COSTS -->
+                        <table class="check-your-decisions-table">
+                            <tbody>
+                                <tr>
+                                    <td class="heading-medium">Costs</td>
+                                    <td></td>
+                                    <td><a href="payment-method.html">Change</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-cell-width bold">Costs</td>
+                                    <td>£{{data['costs']}}</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-cell-width bold">Collection order issued</td>
+                                    <td id="confirm-collection-order">{{data['confirm-collection-order']}}</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <hr>
+
+                        <!-- PAYMENT -->
+                        <table class="check-your-decisions-table">
+                            <tbody>
+                                <tr>
+                                    <td class="heading-medium">Payment</td>
+                                    <td><span id="setReserveTermsGroup" style="">{{data['set-reserve-terms-group']}}</span></td>
+                                    <td><a href="payment-method">Change</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-cell-width bold">Total</td>
+                                    <td>£{{data['total-payment']}}</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-cell-width bold">Payment method</td>
+                                    <td><span id="paymentMethod">{{data['payment-method-group']}}</span></td>
+                                    <td></td>
+                                </tr>
+
+                                <tr id="reasonForDeductingFromBenefits">
+                                    <td class="table-cell-width bold">Reason for deducting from benefits</td>
+                                    <td>{{data['reason-for-deducting-from-benefits-group']}}</td>
+                                    <td></td>
+                                </tr>
+                                
+                                <tr id="reasonYouDidntDeductFromBenefits">
+                                    <td class="table-cell-width bold">Reason you didn't deduct from benefits</td>
+                                    <td>{{data['deduct-from-benefits-group']}} {{data['other-reason']}}</td>
+                                    <td></td>
+                                </tr>
+                                
+                                <tr id="HowShouldDefendantPayTheCourt">
+                                    <td class="table-cell-width bold">How should defendant pay the court</td>
+                                    <td id="howShouldDefendentPay">{{data['how-should-defendent-pay-group']}}</td>
+                                    <td></td>
+                                </tr>
+                                
+                                <tr id="lumpSumOnlyRow">
+                                    <td class="table-cell-width bold">Lump sum amount</td>
+                                    <td>£<span id="totalPayment">{{data['total-payment']}}</span> <span style="text-transform: lowercase">{{data['set-reserve-terms-group']}}</span></td>
+                                    <td></td>
+                                </tr>
+                                
+                                <tr id="lumpSumInstalmentRow">
+                                    <td class="table-cell-width bold">Lump sum amount</td>
+                                    <td>£<span id="totalPayment">{{data['lump-sum-amount']}}</span> <span style="text-transform: lowercase">{{data['set-reserve-terms-group']}}</span></td>
+                                    <td></td>
+                                </tr>
+
+                                <tr id="instalmentsRow">
+                                    <td class="table-cell-width bold">Instalments</td>
+                                    <td>£<span id="instalmentsOnlyAmount">{{data['instalment-amount-2']}}</span><span id="instalmentsAmount">{{data['instalment-amount-1']}}</span> <span id="lumpSumInstalmentFrequencyGroup" style="text-transform: lowercase">{{data['instalment-length-group']}}</span><span id="instalmentsOlnyFrequencyGroup" style="text-transform: lowercase">{{data['instalment-length-group-2']}}</span> starting on 
+
+                                        <span id="paymentDay">{{data['day']}}</span>
+                                        <span id="paymentDay2">{{data['day2']}}</span> 
+
+                                        <span id="paymentMonth">{{data['month']}}</span>
+                                        <span id="paymentMonth2">{{data['month2']}}</span> 
+
+                                        <span id="paymentYear">{{data['year']}}</span>
+                                        <span id="paymentYear2">{{data['year2']}}</span></td>
+                                    <td></td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+
+                        <hr>
+
+                        <label class="form-label" for="optional-note">
+                            <span class="heading-medium">Add a note (optional)</span>
+                            <p class="bottom_5">This will only be seen by court staff</p>
+                        </label>
+                        <textarea class="form-control form-control-3-4" name="optional-note" id="optional-note" rows="5"></textarea>
+
+                        <input class="button top_30" type="submit" value="Continue">
+                        <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
+
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+        
+    <div id="referToCourtHearing">
+        <h1 class="heading-xlarge top_0 bottom_5">Check your decision</h1>
+
+        <form class="form" action="" method="post">
+            <div class="form-group">
+                
+                <h2 class="heading-large">Offence 1</h2>
+
+                <table class="check-your-decisions-table">
+                    <tbody>
+                        <tr>
+                            <td class="heading-medium">Decision</td>
+                            <td></td>
+                            <td><a href="case-details-page">Change</a></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell-width bold">Offence type</td>
+                            <td>{{data['offence-type']}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell-width bold">Verdict</td>
+                            <td>{{data['verdict']}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell-width bold">Result</td>
+                            <td>{{data['decision']}}</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <hr>
+                
+                <table class="check-your-decisions-table">
+                    <tbody>
+                        <tr>
+                            <td class="heading-medium">Outcome - refer to court hearing</td>
+                            <td></td>
+                            <td><a href="confirm-outcome">Change</a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="table-cell-width bold">Refer to which court?</td>
+                            <td>{{ data['refer-to-which-court-group'] }}</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td class="table-cell-width bold">Court room</td>
+                            <td>{{ data['court-room-group'] }}</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td class="table-cell-width bold">Date of hearing</td>
+                            <td>{{ data['hearing-day'] }} <span id="hearingMonth">{{ data['hearing-month'] }}</span> {{ data['hearing-year'] }}</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td class="table-cell-width bold">Start time of hearing session</td>
+                            <td>{{ data['hearing-time-hour'] }}:{{ data['hearing-time-minute'] }}</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td class="table-cell-width bold">Reason for referring to court</td>
+                            <td>{{ data['reason-for-referring-to-court-group'] }} {{ data['equivocal-plea-group'] }}{{ data['case-management-group'] }}</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td class="table-cell-width bold">Is an interpreter needed in court</td>
+                            <td id="interpreterGroup">{{ data['interpreter-group'] }}</td>
+                            <td></td>
+                        </tr>
+
+                        <tr id="whichLanguage">
+                            <td class="table-cell-width bold">Which language</td>
+                            <td>{{ data['interpeter-language'] }}</td>
+                            <td></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <hr>
+
+                <label class="form-label" for="optional-note">
+                    <span class="heading-medium">Add a note (optional)</span>
+                    <p class="bottom_5">This will only be seen by court staff</p>
+                </label>
+                <textarea class="form-control form-control-3-4" name="optional-note" id="optional-note" rows="5"></textarea>
+                    
+
+                        
+                        
+                        
+                
+                
+                
+                
+                <input class="button top_30" type="submit" value="Continue">
+                <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
+
+            </div>
+        </form>
+    </div>
+    
+    <div id="withdraw">
+        <h1 class="heading-xlarge top_0 bottom_5">Check your decision</h1>
+
+        <h2 class="heading-large">Offence 1</h2>
+
+        <table class="check-your-decisions-table">
+            <tbody>
+                <tr>
+                    <td class="heading-medium">Decision</td>
+                    <td></td>
+                    <td><a href="case-details-page">Change</a></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Offence type</td>
+                    <td>{{data['offence-type']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Verdict</td>
+                    <td>{{data['verdict']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Result</td>
+                    <td>{{data['decision']}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <form class="form" action="" method="post">
+            <div class="form-group">
+                <label class="form-label" for="optional-note">
+                    <span class="heading-medium">Add a note (optional)</span>
+                    <p class="bottom_5">This will only be seen by court staff</p>
+                </label>
+                <textarea class="form-control form-control-3-4" name="optional-note" id="optional-note" rows="5"></textarea>
+
+                <input class="button top_30" type="submit" value="Continue">
+                <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
+
+            </div>
+        </form>
+    </div>
+
+    <div id="discharge">
+        
+        <h1 class="heading-xlarge top_0 bottom_5">Check your decision</h1>
+
+        <h2 class="heading-large">Offence 1</h2>
+
+        <table class="check-your-decisions-table">
+            <tbody>
+                <tr>
+                    <td class="heading-medium">Decision</td>
+                    <td></td>
+                    <td><a href="case-details-page">Change</a></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Offence type</td>
+                    <td>{{data['offence-type']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Verdict</td>
+                    <td>{{data['verdict']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Result</td>
+                    <td>{{data['decision']}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+  
+        <table class="check-your-decisions-table">
+            <tbody>
+                <tr>
+                    <td class="heading-medium">Outcome</td>
+                    <td></td>
+                    <td><a href="/legaladviser/confirm-outcome">Change</a></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Type of discharge</td>
+                    <td>{{data['discharge-type-group']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Compensation</td>
+                    <td>£{{data['discharge-compensation']}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+        
+        <table class="check-your-decisions-table">
+            <tbody>
+                <tr>
+                    <td class="heading-medium">Costs</td>
+                    <td></td>
+                    <td><a href="confirm-outcome">Change</a></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Costs</td>
+                    <td>£{{data['discharge-costs']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Victim surcharge</td>
+                    <td>£{{data['discharge-victim-surcharge']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Collection order issued</td>
+                    <td id="discharge-confirm-collection-order">{{data['discharge-confirm-collection-order']}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <table class="check-your-decisions-table">
+            <tbody>
+                <tr>
+                    <td class="heading-medium">Payment</td>
+                    <td></td>
+                    <td><a href="payment-method">Change</a></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Total</td>
+                    <td>£{{data['total-payment-discharge']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Payment method</td>
+                    <td>{{data['payment-method-group']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Reason you didn't deduct from benefits</td>
+                    <td>{{data['deduct-from-benefits-group']}} {{data['other-reason']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">How should defendent pay the court</td>
+                    <td id="howShouldDefendentPay2">{{data['how-should-defendent-pay-group']}}</td>
+                    <td></td>
+                </tr>
+                
+                
+                
+                
+                <tr id="lumpSumOnly2">
+                    <td class="table-cell-width bold">Lump sum amount</td>
+                    <td>£{{data['total-payment-discharge']}}</td>
+                    <td></td>
+                </tr>
+                
+                <tr id="lumpSumInstalment2">
+                    <td class="table-cell-width bold">Lump sum amount</td>
+                    <td>£<span id="totalPayment2">{{data['lump-sum-amount']}}</span></td>
+                    <td></td>
+                </tr>
+
+                
+                
+                
+                <tr id="instalmentsRow2">
+                    <td class="table-cell-width bold">Instalments</td>
+                    <td>£<span id="instalmentAmount1">{{data['instalment-amount-1']}}</span><span id="instalmentAmount2">{{data['instalment-amount-2']}}</span> <span style="text-transform: lowercase">{{data['instalment-length-group']}}</span>, starting on 
+
+                        <span id="paymentDay">{{data['day']}}</span>
+                        <span id="paymentDay2">{{data['day2']}}</span> 
+
+                        <span id="paymentMonth">{{data['month']}}</span>
+                        <span id="paymentMonth2">{{data['month2']}}</span> 
+
+                        <span id="paymentYear">{{data['year']}}</span>
+                        <span id="paymentYear2">{{data['year2']}}</span></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+        
+        <form class="form" action="" method="post">
+            <div class="form-group">
+                <input class="button top_30" type="submit" value="Continue">
+                <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
+
+            </div>
+        </form>
+        
+    </div>
+
+    <div id="dismiss">
+        <h1 class="heading-xlarge top_0 bottom_5">Check your decision</h1>
+
+        <form class="form" action="" method="post">
+            <div class="form-group">
+                
+                <h2 class="heading-large">Offence 1</h2>
+
+                <table class="check-your-decisions-table">
+                    <tbody>
+                        <tr>
+                            <td class="heading-medium">Decision</td>
+                            <td></td>
+                            <td><a href="/legaladviser/confirm-outcome">Change</a></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell-width bold">Offence type</td>
+                            <td>{{data['offence-type']}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell-width bold">Verdict</td>
+                            <td>{{data['verdict']}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell-width bold">Result</td>
+                            <td>{{data['decision']}}</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <hr>
+                
+                <label class="form-label" for="optional-note">
+                    <span class="heading-medium">Add a note (optional)</span>
+                    <p class="bottom_5">This will only be seen by court staff</p>
+                </label>
+                <textarea class="form-control form-control-3-4" name="optional-note" id="optional-note" rows="5"></textarea>
+
+                <input class="button top_30" type="submit" value="Continue">
+                <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
+
+            </div>
+        </form>
+    </div>
+
+</main>
+
+{% endblock %}

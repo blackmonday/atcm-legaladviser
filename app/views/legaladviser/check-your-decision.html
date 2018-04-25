@@ -22,208 +22,153 @@
 <script>
     window.onload = function() {  
         
-        
-        
-        var incomeCalculation3 = Number(document.getElementById("incomeCalculation").innerText);
-        
-        if (document.getElementById('incomeFrequency').innerText == "Weekly") {
-            document.getElementById("incomeCalculation").innerText = incomeCalculation3;
-        } else if (document.getElementById('incomeFrequency').innerText == "Fortnightly") {
-            document.getElementById("incomeCalculation").innerText = incomeCalculation3/2;
-        } else if (document.getElementById('incomeFrequency').innerText == "Monthly") {
-            document.getElementById("incomeCalculation").innerText = incomeCalculation3/4;
-        } else if (document.getElementById('incomeFrequency').innerText == "Annually") {
-            document.getElementById("incomeCalculation").innerText = incomeCalculation3/52;
-        }
-        
-        
-        
-        
-        /* CHECK DECISION */
-        var decisiontype = document.getElementById('decision').innerText;
-        if (decisiontype == "Financial penalty") {
-            document.getElementById('referToCourtHearing').style.display = "none"; 
+        /* WHAT DECISION CONTENT SHOULD BE DISPLAYED */
+        var decision = document.getElementById('decision').innerText;
+        if (decision == "Financial penalty") {
+            document.getElementById('referToCourtHearing').style.display = "none";
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
             
-        } else if (decisiontype == "Refer to court hearing") {
-            document.getElementById('financialPenalty').style.display = "none"; 
+        } else if (decision == "Refer to court hearing") {
+            document.getElementById('financialPenalty').style.display = "none";
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
             
-        } else if (decisiontype == "Withdraw") {
-            document.getElementById('financialPenalty').style.display = "none"; 
+        } else if (decision == "Withdraw") {
+            document.getElementById('financialPenalty').style.display = "none";
             document.getElementById('referToCourtHearing').style.display = "none";
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
             
-       } else if (decisiontype == "Discharge") {
-            document.getElementById('financialPenalty').style.display = "none"; 
-            document.getElementById('referToCourtHearing').style.display = "none"; 
+        } else if (decision == "Discharge") {
+            document.getElementById('financialPenalty').style.display = "none";
+            document.getElementById('referToCourtHearing').style.display = "none";
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
-           
-        } else if (decisiontype == "Dismiss") {
-            document.getElementById('financialPenalty').style.display = "none"; 
-            document.getElementById('referToCourtHearing').style.display = "none"; 
+            
+        } else if (decision == "Dismiss") {
+            document.getElementById('financialPenalty').style.display = "none";
+            document.getElementById('referToCourtHearing').style.display = "none";
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('discharge').style.display = "none";
-        }
-
-        
-        
-
-        
-        
-        
-        
-        
-        
-        
-        var confirmCollectionOrder = document.getElementById("confirm-collection-order").innerText;
-        if (confirmCollectionOrder == "on") {
-            //alert('Financial Order - CHECKED');
-            document.getElementById("confirm-collection-order").innerText = "Yes";
-        } else if (confirmCollectionOrder != "on") {
-            //alert('Financial Order - not checked');
-            document.getElementById("confirm-collection-order").innerText = "No";
-        }
-        
-        var dischargeConfirmCollectionOrder = document.getElementById("discharge-confirm-collection-order").innerText;
-        if (dischargeConfirmCollectionOrder == "on") {
-            //alert('Discharge - CHECKED');
-            document.getElementById("discharge-confirm-collection-order").innerText = "Yes";
-        } else if (dischargeConfirmCollectionOrder != "on") {
-            //alert('Dischaerge - not checked');
-            document.getElementById("discharge-confirm-collection-order").innerText = "No";
-        }
-
-        
-
-        
-        
-        
-                                
-        /* XXXXXXXXXXX */
-        
-        if (document.getElementById('setReserveTermsGroup').innerText == "Lump sum plus instalments") {
-            document.getElementById("lumpSumOnlyRow").style.display = "none";
-            document.getElementById("instalmentsOnlyAmount").innerText = "";
-            document.getElementById("instalmentsOlnyFrequencyGroup").innerText = "";
             
-            document.getElementById("paymentDay").innerText = "";
-            document.getElementById("paymentMonth").innerText = "";
-            document.getElementById("paymentYear").innerText = "";
         }
-        if (document.getElementById('setReserveTermsGroup').innerText == "Instalments only") {
-            document.getElementById("lumpSumOnlyRow").style.display = "none";
-            document.getElementById("lumpSumInstalmentRow").style.display = "none";
-            document.getElementById("instalmentsAmount").innerText = "";
-            document.getElementById("lumpSumInstalmentFrequencyGroup").innerText = "";
+        
+        
+        
+        
+        
+        
+        /* WHAT PAYMENT CONTENT SHOULD BE DISPLAYED */
+        var paymentMethodGroup = document.getElementById('paymentMethodGroup').innerText;
+        if (paymentMethodGroup == "Pay direct to court") {
+            /* financial penalty */
+            document.getElementById('deductFromBenefitsSection').style.display = "none";
+            document.getElementById('attachToEarningsSection').style.display = "none";
             
-            document.getElementById("paymentDay2").innerText = "";
-            document.getElementById("paymentMonth2").innerText = "";
-            document.getElementById("paymentYear2").innerText = "";            
+            /* discharge */
+            document.getElementById('deductFromBenefitsSection2').style.display = "none";
+            document.getElementById('attachToEarningsSection2').style.display = "none";
+
+        } else if (paymentMethodGroup == "Deduct from benefits") {
+            /* financial penalty */
+            document.getElementById('payDirectToCourtSection').style.display = "none";
+            document.getElementById('attachToEarningsSection').style.display = "none";
+            
+            /* discharge */
+            document.getElementById('payDirectToCourtSection2').style.display = "none";
+            document.getElementById('attachToEarningsSection2').style.display = "none";
+
+        } else if (paymentMethodGroup == "Attach to earnings") {
+            /* financial penalty */
+            document.getElementById('payDirectToCourtSection').style.display = "none";
+            document.getElementById('deductFromBenefitsSection').style.display = "none";
+            
+            /* discharge */
+            document.getElementById('payDirectToCourtSection2').style.display = "none";
+            document.getElementById('deductFromBenefitsSection2').style.display = "none";
+
         }
-        if ((document.getElementById('setReserveTermsGroup').innerText == "Lump sum within 14 days") || (document.getElementById('setReserveTermsGroup').innerText == "Lump sum within 28 days")) {
-            document.getElementById("instalmentsRow").style.display = "none";
-            document.getElementById("lumpSumInstalmentRow").style.display = "none";
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
         
-        if (document.getElementById('paymentMethod').innerText == "Deduct from benefits") {
-            document.getElementById('reasonYouDidntDeductFromBenefits').style.display = "none";
-            document.getElementById('HowShouldDefendantPayTheCourt').style.display = "none";
-        }
-        if (document.getElementById('paymentMethod').innerText != "Deduct from benefits") {
-            document.getElementById('reasonForDeductingFromBenefits').style.display = "none";
-        }
-        
-        var howToPay = document.getElementById("howShouldDefendentPay").innerText;
-        if ((howToPay == "Lump sum within 14 days") || (howToPay == "Lump sum within 28 days")) {
-            document.getElementById("instalmentsRow").style.display = "none";
-            document.getElementById('lumpSumInstalmentRow').style.display = "none";
-        }
-        if (howToPay == "Lump sum plus instalments") {
-            document.getElementById('lumpSumOnlyRow').style.display = "none";
+        /* LUMPS SUM? INSTALMENTS? - PAY DIRECT TO COURT */
+        var howShouldDefendantPay = document.getElementById('howShouldDefendantPay').innerText;
+        if ((howShouldDefendantPay == "Lump sum within 14 days") || (howShouldDefendantPay == "Lump sum within 28 days")) {
+            document.getElementById('lumpSumPluInstalments').style.display = "none";
+            document.getElementById('instalments').style.display = "none";
+            document.getElementById('instalmentsFrequency').style.display = "none";
+            document.getElementById('instalmentsStartDate').style.display = "none";
+        } else if (howShouldDefendantPay == "Lump sum plus instalments") {
+            document.getElementById('lumpSum14or28').style.display = "none";
             document.getElementById('instalmentAmount2').style.display = "none";
-            document.getElementById('paymentDay2').style.display = "none";
-            document.getElementById('paymentMonth2').style.display = "none";
-            document.getElementById('paymentYear2').style.display = "none";
-        }
-        if (howToPay == "Instalments only") {
-            document.getElementById('lumpSumInstalmentRow').style.display = "none";
-            document.getElementById('lumpSumOnlyRow').style.display = "none";
+            document.getElementById('instalmentsDate2').style.display = "none";
+        } else if (howShouldDefendantPay == "Instalments only") {
+            document.getElementById('lumpSum14or28').style.display = "none";
+            document.getElementById('lumpSumPluInstalments').style.display = "none";
             document.getElementById('instalmentAmount1').style.display = "none";
-            document.getElementById('paymentDay').style.display = "none";
-            document.getElementById('paymentMonth').style.display = "none";
-            document.getElementById('paymentYear').style.display = "none";
+            document.getElementById('instalmentsDate1').style.display = "none";
         }
-        
-            var paymentMonth = document.getElementById("paymentMonth").innerText;
-            if (paymentMonth == "1") {
-                document.getElementById("paymentMonth").innerText = "January";
-            } else if (paymentMonth == "2") {
-                document.getElementById("paymentMonth").innerText = "February";
-            } else if (paymentMonth == "3") {
-                document.getElementById("paymentMonth").innerText = "March";
-            } else if (paymentMonth == "4") {
-                document.getElementById("paymentMonth").innerText = "April";
-            } else if (paymentMonth == "5") {
-                document.getElementById("paymentMonth").innerText = "May";
-            } else if (paymentMonth == "6") {
-                document.getElementById("paymentMonth").innerText = "June";
-            } else if (paymentMonth == "7") {
-                document.getElementById("paymentMonth").innerText = "July";
-            } else if (paymentMonth == "8") {
-                document.getElementById("paymentMonth").innerText = "August";
-            } else if (paymentMonth == "9") {
-                document.getElementById("paymentMonth").innerText = "September";
-            } else if (paymentMonth == "10") {
-                document.getElementById("paymentMonth").innerText = "October";
-            } else if (paymentMonth == "11") {
-                document.getElementById("paymentMonth").innerText = "November";
-            } else if (paymentMonth == "12") {
-                document.getElementById("paymentMonth").innerText = "December";
-            }
-        
-            var paymentMonth2 = document.getElementById("paymentMonth2").innerText;
-            if (paymentMonth2 == "1") {
-                document.getElementById("paymentMonth2").innerText = "January";
-            } else if (paymentMonth2 == "2") {
-                document.getElementById("paymentMonth2").innerText = "February";
-            } else if (paymentMonth2 == "3") {
-                document.getElementById("paymentMonth2").innerText = "March";
-            } else if (paymentMonth2 == "4") {
-                document.getElementById("paymentMonth2").innerText = "April";
-            } else if (paymentMonth2 == "5") {
-                document.getElementById("paymentMonth2").innerText = "May";
-            } else if (paymentMonth2 == "6") {
-                document.getElementById("paymentMonth2").innerText = "June";
-            } else if (paymentMonth2 == "7") {
-                document.getElementById("paymentMonth2").innerText = "July";
-            } else if (paymentMonth2 == "882") {
-                document.getElementById("paymentMonth2").innerText = "August";
-            } else if (paymentMonth2 == "9") {
-                document.getElementById("paymentMonth2").innerText = "September";
-            } else if (paymentMonth2 == "10") {
-                document.getElementById("paymentMonth2").innerText = "October";
-            } else if (paymentMonth2 == "11") {
-                document.getElementById("paymentMonth2").innerText = "November";
-            } else if (paymentMonth2 == "12") {
-                document.getElementById("paymentMonth2").innerText = "December";
-            }
+
+        /* LUMPS SUM? INSTALMENTS? - DEDUCT FROM BENEFITS */
+        var howShouldDefendantPay_2 = document.getElementById('howShouldDefendantPay_2').innerText;
+        if ((howShouldDefendantPay_2 == "Lump sum within 14 days") || (howShouldDefendantPay_2 == "Lump sum within 28 days")) {
+            document.getElementById('lumpSumPluInstalments_2').style.display = "none";
+            document.getElementById('instalments_2').style.display = "none";
+            document.getElementById('instalmentsFrequency_2').style.display = "none";
+            document.getElementById('instalmentsStartDate_2').style.display = "none";
+        } else if (howShouldDefendantPay_2 == "Lump sum plus instalments") {
+            document.getElementById('lumpSum14or28_2').style.display = "none";
+            document.getElementById('instalmentAmount2_2').style.display = "none";
+            document.getElementById('instalmentsDate1_2').style.display = "none";
+        } else if (howShouldDefendantPay_2 == "Instalments only") {
+            document.getElementById('lumpSum14or28_2').style.display = "none";
+            document.getElementById('lumpSumPluInstalments_2').style.display = "none";
+            document.getElementById('instalmentAmount1_2').style.display = "none";
+            document.getElementById('instalmentsDate2_2').style.display = "none";
+        }
+
+        /* LUMPS SUM? INSTALMENTS? - ATTACH TO EARNINGS */
+        var howShouldDefendantPay_3 = document.getElementById('howShouldDefendantPay_3').innerText;
+        if ((howShouldDefendantPay_3 == "Lump sum within 14 days") || (howShouldDefendantPay_3 == "Lump sum within 28 days")) {
+            //alert('boom! lump sum 14 or 28 days');
+            document.getElementById('a2eLumpSumAmount').style.display = "none";
+            document.getElementById('instalmentsOnly_3').style.display = "none";
+            document.getElementById('instalments_3').style.display = "none";
+            document.getElementById('instalmentsFrequency_3').style.display = "none";
+            document.getElementById('instalmentsStartDate_3').style.display = "none";
+        } else if (howShouldDefendantPay_3 == "Lump sum plus instalments") {
+            //alert('boom! lump sum plus instalments');
+            document.getElementById('instalmentsDate2_3').style.display = "none";
+            document.getElementById('a2eTotalPayment').style.display = "none";
+            document.getElementById('instalmentsOnly_3').style.display = "none";
+            document.getElementById('a2eFrequency2').style.display = "none";
+
+        } else if (howShouldDefendantPay_3 == "Instalments only") {
+            //alert('boom! instalments only');
+            document.getElementById('instalmentsDate1_3').style.display = "none";
+            document.getElementById('lumpSum_3').style.display = "none";
+            document.getElementById('instalments_3').style.display = "none";
+            document.getElementById('a2eFrequency1').style.display = "none";
+        }
+
 
         
         
         
         
-    
-        
-        
-        /* ********************** */
+
+
         /* REFER TO COURT HEARING */
         var paymentMonth = document.getElementById("hearingMonth").innerText;
         if (paymentMonth == "1") {
@@ -257,39 +202,363 @@
         } else {
             document.getElementById("whichLanguage").style.display = "none";
         }
-    
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        /**** DISCHARGE ****/
-        
-        var totalPayment2 = document.getElementById("totalPayment2").innerText;
-        if (totalPayment2 == "") {
-            //alert('no total payment 2');
-            document.getElementById("lumpSumInstalment2").style.display = "none";
+        var reasonForReferringToCourt = document.getElementById('reasonForReferringToCourt').innerText;
+        if (reasonForReferringToCourt == "Equivocal plea") {
+            document.getElementById("caseManagementGroup").style.display = "none";
+        } else if (reasonForReferringToCourt == "For case management hearing") {
+            document.getElementById("equivocalPleaGroup").style.display = "none";
         } else {
-            
-            document.getElementById("lumpSumOnly2").style.display = "none";
+            document.getElementById("equivocalPleaGroup").style.display = "none";
+            document.getElementById("caseManagementGroup").style.display = "none";
         }
         
-        var instalmentAmount1 = document.getElementById("instalmentAmount1").innerText;
-        var instalmentAmount2 = document.getElementById("instalmentAmount2").innerText;
-        if ((instalmentAmount2 == "") || (instalmentAmount1 == "")) {
-            document.getElementById("instalmentsRow2").style.display = "none";
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /* INSTALMENT MONTH */
+        var instalmentMonth1 = document.getElementById("instalmentMonth1").innerText;
+        if (instalmentMonth1 == "1") {
+            document.getElementById("instalmentMonth1").innerText = "January";
+        } else if (instalmentMonth1 == "2") {
+            document.getElementById("instalmentMonth1").innerText = "February";
+        } else if (instalmentMonth1 == "3") {
+            document.getElementById("instalmentMonth1").innerText = "March";
+        } else if (instalmentMonth1 == "4") {
+            document.getElementById("instalmentMonth1").innerText = "April";
+        } else if (instalmentMonth1 == "5") {
+            document.getElementById("instalmentMonth1").innerText = "Mau";
+        } else if (instalmentMonth1 == "6") {
+            document.getElementById("instalmentMonth1").innerText = "June";
+        } else if (instalmentMonth1 == "7") {
+            document.getElementById("instalmentMonth1").innerText = "July";
+        } else if (instalmentMonth1 == "8") {
+            document.getElementById("instalmentMonth1").innerText = "August";
+        } else if (instalmentMonth1 == "9") {
+            document.getElementById("instalmentMonth1").innerText = "September";
+        } else if (instalmentMonth1 == "10") {
+            document.getElementById("instalmentMonth1").innerText = "October";
+        } else if (instalmentMonth1 == "11") {
+            document.getElementById("instalmentMonth1").innerText = "November";
+        } else if (instalmentMonth1 == "12") {
+            document.getElementById("instalmentMonth1").innerText = "December";
         }
 
+        var instalmentMonth1_2 = document.getElementById("instalmentMonth1_2").innerText;
+        if (instalmentMonth1_2 == "1") {
+            document.getElementById("instalmentMonth1_2").innerText = "January";
+        } else if (instalmentMonth1_2 == "2") {
+            document.getElementById("instalmentMonth1_2").innerText = "February";
+        } else if (instalmentMonth1_2 == "3") {
+            document.getElementById("instalmentMonth1_2").innerText = "March";
+        } else if (instalmentMonth1_2 == "4") {
+            document.getElementById("instalmentMonth1_2").innerText = "April";
+        } else if (instalmentMonth1_2 == "5") {
+            document.getElementById("instalmentMonth1_2").innerText = "Mau";
+        } else if (instalmentMonth1_2 == "6") {
+            document.getElementById("instalmentMonth1_2").innerText = "June";
+        } else if (instalmentMonth1_2 == "7") {
+            document.getElementById("instalmentMonth1_2").innerText = "July";
+        } else if (instalmentMonth1_2 == "8") {
+            document.getElementById("instalmentMonth1_2").innerText = "August";
+        } else if (instalmentMonth1_2 == "9") {
+            document.getElementById("instalmentMonth1_2").innerText = "September";
+        } else if (instalmentMonth1_2 == "10") {
+            document.getElementById("instalmentMonth1_2").innerText = "October";
+        } else if (instalmentMonth1_2 == "11") {
+            document.getElementById("instalmentMonth1_2").innerText = "November";
+        } else if (instalmentMonth1_2 == "12") {
+            document.getElementById("instalmentMonth1_2").innerText = "December";
+        }
+
+        var instalmentMonth2 = document.getElementById("instalmentMonth2").innerText;
+        if (instalmentMonth2 == "1") {
+            document.getElementById("instalmentMonth2").innerText = "January";
+        } else if (instalmentMonth2 == "2") {
+            document.getElementById("instalmentMonth2").innerText = "February";
+        } else if (instalmentMonth2 == "3") {
+            document.getElementById("instalmentMonth2").innerText = "March";
+        } else if (instalmentMonth2 == "4") {
+            document.getElementById("instalmentMonth2").innerText = "April";
+        } else if (instalmentMonth2 == "5") {
+            document.getElementById("instalmentMonth2").innerText = "Mau";
+        } else if (instalmentMonth2 == "6") {
+            document.getElementById("instalmentMonth2").innerText = "June";
+        } else if (instalmentMonth2 == "7") {
+            document.getElementById("instalmentMonth2").innerText = "July";
+        } else if (instalmentMonth2 == "8") {
+            document.getElementById("instalmentMonth2").innerText = "August";
+        } else if (instalmentMonth2 == "9") {
+            document.getElementById("instalmentMonth2").innerText = "September";
+        } else if (instalmentMonth2 == "10") {
+            document.getElementById("instalmentMonth2").innerText = "October";
+        } else if (instalmentMonth2 == "11") {
+            document.getElementById("instalmentMonth2").innerText = "November";
+        } else if (instalmentMonth2 == "12") {
+            document.getElementById("instalmentMonth2").innerText = "December";
+        }
+        
+        var instalmentMonth2_2 = document.getElementById("instalmentMonth2_2").innerText;
+        if (instalmentMonth2_2 == "1") {
+            document.getElementById("instalmentMonth2_2").innerText = "January";
+        } else if (instalmentMonth2_2 == "2") {
+            document.getElementById("instalmentMonth2_2").innerText = "February";
+        } else if (instalmentMonth2_2 == "3") {
+            document.getElementById("instalmentMonth2_2").innerText = "March";
+        } else if (instalmentMonth2_2 == "4") {
+            document.getElementById("instalmentMonth2_2").innerText = "April";
+        } else if (instalmentMonth2_2 == "5") {
+            document.getElementById("instalmentMonth2_2").innerText = "Mau";
+        } else if (instalmentMonth2_2 == "6") {
+            document.getElementById("instalmentMonth2_2").innerText = "June";
+        } else if (instalmentMonth2_2 == "7") {
+            document.getElementById("instalmentMonth2_2").innerText = "July";
+        } else if (instalmentMonth2_2 == "8") {
+            document.getElementById("instalmentMonth2_2").innerText = "August";
+        } else if (instalmentMonth2_2 == "9") {
+            document.getElementById("instalmentMonth2_2").innerText = "September";
+        } else if (instalmentMonth2_2 == "10") {
+            document.getElementById("instalmentMonth2_2").innerText = "October";
+        } else if (instalmentMonth2_2 == "11") {
+            document.getElementById("instalmentMonth2_2").innerText = "November";
+        } else if (instalmentMonth2_2 == "12") {
+            document.getElementById("instalmentMonth2_2").innerText = "December";
+        }
+        
+        
+        
+        
+        
+        
+        
+        var instalmentMonth1_3 = document.getElementById("instalmentMonth1_3").innerText;
+        if (instalmentMonth1_3 == "1") {
+            document.getElementById("instalmentMonth1_3").innerText = "January";
+        } else if (instalmentMonth1_3 == "2") {
+            document.getElementById("instalmentMonth1_3").innerText = "February";
+        } else if (instalmentMonth1_3 == "3") {
+            document.getElementById("instalmentMonth1_3").innerText = "March";
+        } else if (instalmentMonth1_3 == "4") {
+            document.getElementById("instalmentMonth1_3").innerText = "April";
+        } else if (instalmentMonth1_3 == "5") {
+            document.getElementById("instalmentMonth1_3").innerText = "Mau";
+        } else if (instalmentMonth1_3 == "6") {
+            document.getElementById("instalmentMonth1_3").innerText = "June";
+        } else if (instalmentMonth1_3 == "7") {
+            document.getElementById("instalmentMonth1_3").innerText = "July";
+        } else if (instalmentMonth1_3 == "8") {
+            document.getElementById("instalmentMonth1_3").innerText = "August";
+        } else if (instalmentMonth1_3 == "9") {
+            document.getElementById("instalmentMonth1_3").innerText = "September";
+        } else if (instalmentMonth1_3 == "10") {
+            document.getElementById("instalmentMonth1_3").innerText = "October";
+        } else if (instalmentMonth1_3 == "11") {
+            document.getElementById("instalmentMonth1_3").innerText = "November";
+        } else if (instalmentMonth1_3 == "12") {
+            document.getElementById("instalmentMonth1_3").innerText = "December";
+        }
+        
+        var instalmentMonth2_3 = document.getElementById("instalmentMonth2_3").innerText;
+        if (instalmentMonth2_3 == "1") {
+            document.getElementById("instalmentMonth2_3").innerText = "January";
+        } else if (instalmentMonth2_3 == "2") {
+            document.getElementById("instalmentMonth2_3").innerText = "February";
+        } else if (instalmentMonth2_3 == "3") {
+            document.getElementById("instalmentMonth2_3").innerText = "March";
+        } else if (instalmentMonth2_3 == "4") {
+            document.getElementById("instalmentMonth2_3").innerText = "April";
+        } else if (instalmentMonth2_3 == "5") {
+            document.getElementById("instalmentMonth2_3").innerText = "Mau";
+        } else if (instalmentMonth2_3 == "6") {
+            document.getElementById("instalmentMonth2_3").innerText = "June";
+        } else if (instalmentMonth2_3 == "7") {
+            document.getElementById("instalmentMonth2_3").innerText = "July";
+        } else if (instalmentMonth2_3 == "8") {
+            document.getElementById("instalmentMonth2_3").innerText = "August";
+        } else if (instalmentMonth2_3 == "9") {
+            document.getElementById("instalmentMonth2_3").innerText = "September";
+        } else if (instalmentMonth2_3 == "10") {
+            document.getElementById("instalmentMonth2_3").innerText = "October";
+        } else if (instalmentMonth2_3 == "11") {
+            document.getElementById("instalmentMonth2_3").innerText = "November";
+        } else if (instalmentMonth2_3 == "12") {
+            document.getElementById("instalmentMonth2_3").innerText = "December";
+        }
+
+
+        
+        
+                        
+                        
+        
+        
+        
+        
+        
+        
+        /* OUTCOME SECTION */
+        var incomeCalculation3 = Number(document.getElementById("incomeCalculation").innerText);
+        
+        if (document.getElementById('incomeFrequency').innerText == "Weekly") {
+            document.getElementById("incomeCalculation").innerText = incomeCalculation3;
+        } else if (document.getElementById('incomeFrequency').innerText == "Fortnightly") {
+            document.getElementById("incomeCalculation").innerText = incomeCalculation3/2;
+        } else if (document.getElementById('incomeFrequency').innerText == "Monthly") {
+            document.getElementById("incomeCalculation").innerText = incomeCalculation3/4;
+        } else if (document.getElementById('incomeFrequency').innerText == "Annually") {
+            document.getElementById("incomeCalculation").innerText = incomeCalculation3/52;
+        }
+        
+        
+        
+        
+        
+        /* COST SECTION */
+        var confirmCollectionOrder = document.getElementById("confirm-collection-order").innerText;
+        if (confirmCollectionOrder == "on") {
+            //alert('Financial Order - CHECKED');
+            document.getElementById("confirm-collection-order").innerText = "Yes";
+        } else if (confirmCollectionOrder != "on") {
+            //alert('Financial Order - not checked');
+            document.getElementById("confirm-collection-order").innerText = "No";
+        }
+        
+        var dischargeConfirmCollectionOrder = document.getElementById("discharge-confirm-collection-order").innerText;
+        if (dischargeConfirmCollectionOrder == "on") {
+            //alert('Discharge - CHECKED');
+            document.getElementById("discharge-confirm-collection-order").innerText = "Yes";
+        } else if (dischargeConfirmCollectionOrder != "on") {
+            //alert('Dischaerge - not checked');
+            document.getElementById("discharge-confirm-collection-order").innerText = "No";
+        }
+
+        
+        
+        
+        
+        
+        
+        
+        /* DISCHARGE */
+        var discharge_howToPay = document.getElementById('discharge_howToPay').innerText;
+        if ((discharge_howToPay == "Lump sum within 14 days") || (discharge_howToPay == "Lump sum within 28 days")) {
+            document.getElementById("discharge_lumpSumInstalments").style.display = "none";
+            document.getElementById("discharge_instalmentsOnly").style.display = "none";
+            
+        } else if (discharge_howToPay == "Lump sum plus instalments") {
+            document.getElementById("discharge_lumpSumOnly").style.display = "none";
+            document.getElementById("discharge_instalmentsOnly").style.display = "none";
+            
+        } else if (discharge_howToPay == "Instalments only") {
+            document.getElementById("discharge_lumpSumOnly").style.display = "none";
+            document.getElementById("discharge_lumpSumInstalments").style.display = "none";
+            
+        }
+        
+        
+        
+        var discharge_paymentMethod = document.getElementById('paymentMethod').innerText;
+        if (discharge_paymentMethod == "Pay direct to court") {
+            // hide deduct from benefits
+            document.getElementById("deductFromBenefitsSection2").style.display = "none";
+            
+        } else if (discharge_paymentMethod == "Deduct from benefits") {
+            // hide pay direct to court
+            document.getElementById("payDirectToCourtSection2").style.display = "none";
+            document.getElementById("discharge_lumpSumOnly").style.display = "none";
+            document.getElementById("discharge_lumpSumInstalments").style.display = "none";
+            document.getElementById("discharge_instalmentsOnly").style.display = "none";
+            
+        } else if (discharge_paymentMethod == "Attach to earnings") {
+            // hide deduct from benefits
+            document.getElementById("deductFromBenefitsSection2").style.display = "none";
+
+            // hide pay direct to court
+            document.getElementById("payDirectToCourtSection2").style.display = "none";
+            document.getElementById("discharge_lumpSumOnly").style.display = "none";
+            document.getElementById("discharge_lumpSumInstalments").style.display = "none";
+            document.getElementById("discharge_instalmentsOnly").style.display = "none";
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /* DISCHARGE */
+        /* INSTALMENT MONTH */
+        var discharge_instalmentMonth1 = document.getElementById("discharge_instalmentMonth1").innerText;
+        if (discharge_instalmentMonth1 == "1") {
+            document.getElementById("discharge_instalmentMonth1").innerText = "January";
+        } else if (discharge_instalmentMonth1 == "2") {
+            document.getElementById("discharge_instalmentMonth1").innerText = "February";
+        } else if (discharge_instalmentMonth1 == "3") {
+            document.getElementById("discharge_instalmentMonth1").innerText = "March";
+        } else if (discharge_instalmentMonth1 == "4") {
+            document.getElementById("discharge_instalmentMonth1").innerText = "April";
+        } else if (discharge_instalmentMonth1 == "5") {
+            document.getElementById("discharge_instalmentMonth1").innerText = "Mau";
+        } else if (discharge_instalmentMonth1 == "6") {
+            document.getElementById("discharge_instalmentMonth1").innerText = "June";
+        } else if (discharge_instalmentMonth1 == "7") {
+            document.getElementById("discharge_instalmentMonth1").innerText = "July";
+        } else if (discharge_instalmentMonth1 == "8") {
+            document.getElementById("discharge_instalmentMonth1").innerText = "August";
+        } else if (discharge_instalmentMonth1 == "9") {
+            document.getElementById("discharge_instalmentMonth1").innerText = "September";
+        } else if (discharge_instalmentMonth1 == "10") {
+            document.getElementById("discharge_instalmentMonth1").innerText = "October";
+        } else if (discharge_instalmentMonth1 == "11") {
+            document.getElementById("discharge_instalmentMonth1").innerText = "November";
+        } else if (discharge_instalmentMonth1 == "12") {
+            document.getElementById("discharge_nstalmentMonth1").innerText = "December";
+        }
+        
+        var discharge_instalmentMonth2 = document.getElementById("discharge_instalmentMonth2").innerText;
+        if (discharge_instalmentMonth2 == "1") {
+            document.getElementById("discharge_instalmentMonth2").innerText = "January";
+        } else if (discharge_instalmentMonth2 == "2") {
+            document.getElementById("discharge_instalmentMonth2").innerText = "February";
+        } else if (discharge_instalmentMonth2 == "3") {
+            document.getElementById("discharge_instalmentMonth2").innerText = "March";
+        } else if (discharge_instalmentMonth2 == "4") {
+            document.getElementById("discharge_instalmentMonth2").innerText = "April";
+        } else if (discharge_instalmentMonth2 == "5") {
+            document.getElementById("discharge_instalmentMonth2").innerText = "Mau";
+        } else if (discharge_instalmentMonth2 == "6") {
+            document.getElementById("discharge_instalmentMonth2").innerText = "June";
+        } else if (discharge_instalmentMonth2 == "7") {
+            document.getElementById("discharge_instalmentMonth2").innerText = "July";
+        } else if (discharge_instalmentMonth2 == "8") {
+            document.getElementById("discharge_instalmentMonth2").innerText = "August";
+        } else if (discharge_instalmentMonth2 == "9") {
+            document.getElementById("discharge_instalmentMonth2").innerText = "September";
+        } else if (discharge_instalmentMonth2 == "10") {
+            document.getElementById("discharge_instalmentMonth2").innerText = "October";
+        } else if (discharge_instalmentMonth2 == "11") {
+            document.getElementById("discharge_instalmentMonth2").innerText = "November";
+        } else if (discharge_instalmentMonth2 == "12") {
+            document.getElementById("discharge_nstalmentMonth2").innerText = "December";
+        }
+        
+
+        
+        
+        
     }
 </script>
 
@@ -412,13 +681,13 @@
                         </table>
 
                         <hr>
-
+                        
                         <!-- PAYMENT -->
-                        <table class="check-your-decisions-table">
+                        <table id="finacialPenaltySection" class="check-your-decisions-table">
                             <tbody>
                                 <tr>
                                     <td class="heading-medium">Payment</td>
-                                    <td><span id="setReserveTermsGroup" style="">{{data['set-reserve-terms-group']}}</span></td>
+                                    <td></td>
                                     <td><a href="payment-method">Change</a></td>
                                 </tr>
                                 <tr>
@@ -431,74 +700,164 @@
                                     <td><span id="paymentMethod">{{data['payment-method-group']}}</span></td>
                                     <td></td>
                                 </tr>
-                                
-                                <tr id="reasonForDeductingFromBenefits">
-                                    <td class="table-cell-width bold">Reason for deducting from benefits</td>
-                                    <td>{{data['reason-for-deducting-from-benefits-group']}}</td>
-                                    <td></td>
-                                </tr>
-                                
-                                <tr id="reasonYouDidntDeductFromBenefits">
-                                    <td class="table-cell-width bold">Reason you didn't deduct from benefits</td>
+                            </tbody>
+                        </table>
+                        
+                        <!-- PAYMENT -->
+                        <!-- PAY DIRECT TO COURT -->
+                        <table id="payDirectToCourtSection" class="check-your-decisions-table">
+                            <tbody>
+                                <tr>
+                                    <td class="table-cell-width bold">Reason you didn't decuct from benefits</td>
                                     <td>{{data['deduct-from-benefits-group']}} {{data['other-reason']}}</td>
                                     <td></td>
                                 </tr>
-                                
-                                <tr id="HowShouldDefendantPayTheCourt">
+                                <tr>
                                     <td class="table-cell-width bold">How should defendant pay the court</td>
-                                    <td id="howShouldDefendentPay">{{data['how-should-defendent-pay-group']}}</td>
+                                    <td id="howShouldDefendantPay">{{data['how-should-defendent-pay-group']}}</td>
                                     <td></td>
                                 </tr>
                                 
-                                <tr id="lumpSumOnlyRow">
+                                <tr id="lumpSum14or28">
                                     <td class="table-cell-width bold">Lump sum amount</td>
-                                    <td>£<span id="totalPayment">{{data['total-payment']}}</span> <span style="text-transform: lowercase">{{data['set-reserve-terms-group']}}</span></td>
+                                    <td>£<span id="totalPayment">{{data['total-payment']}}</span><!-- <span style="text-transform: lowercase">{{data['set-reserve-terms-group']}}</span>--></td>
                                     <td></td>
                                 </tr>
                                 
-                                <tr id="lumpSumInstalmentRow">
+                                <tr id="lumpSumPluInstalments">
                                     <td class="table-cell-width bold">Lump sum amount</td>
-                                    <td>£<span id="totalPayment">{{data['lump-sum-amount']}}</span> <span style="text-transform: lowercase">{{data['set-reserve-terms-group']}}</span></td>
+                                    <td>£<span id="totalPayment">{{data['lump-sum-amount']}}</span><!-- <span style="text-transform: lowercase">{{data['set-reserve-terms-group']}}</span>--></td>
                                     <td></td>
                                 </tr>
-
-                                <!--
-                                <tr id="instalmentsRow">
-                                    <td class="table-cell-width bold">Instalments</td>
-                                    <td>£<span id="instalmentAmount1">{{data['instalment-amount-1']}}</span><span id="instalmentAmount2">{{data['instalment-amount-2']}}</span> <span style="text-transform: lowercase">{{data['instalment-length-group']}}</span>, starting on 
-
-                                        <span id="paymentDay">{{data['day']}}</span>
-                                        <span id="paymentDay2">{{data['day2']}}</span> 
-
-                                        <span id="paymentMonth">{{data['month']}}</span>
-                                        <span id="paymentMonth2">{{data['month2']}}</span> 
-
-                                        <span id="paymentYear">{{data['year']}}</span>
-                                        <span id="paymentYear2">{{data['year2']}}</span></td>
+                                
+                                <tr id="instalments">
+                                    <td class="table-cell-width bold">Instalment amount</td>
+                                    <td>£<span id="instalmentAmount1">{{data['instalment-amount-1']}}</span><span id="instalmentAmount2">{{data['instalment-amount-2']}}</span></td>
                                     <td></td>
                                 </tr>
-                                -->
-
-                                <tr id="instalmentsRow">
-                                    <td class="table-cell-width bold">Instalments xx</td>
-                                    <td>£<span id="instalmentsOnlyAmount">{{data['instalments-only-amount']}}</span><span id="instalmentsAmount">{{data['instalments-amount']}}</span> <span id="lumpSumInstalmentFrequencyGroup" style="text-transform: lowercase">{{data['lump-sum-instalment-frequency-group']}}</span><span id="instalmentsOlnyFrequencyGroup" style="text-transform: lowercase">{{data['instalment-only-frequency-group']}}</span>, starting on 
-
-                                        <span id="paymentDay">{{data['day']}}</span>
-                                        <span id="paymentDay2">{{data['day2']}}</span> 
-
-                                        <span id="paymentMonth">{{data['month']}}</span>
-                                        <span id="paymentMonth2">{{data['month2']}}</span> 
-
-                                        <span id="paymentYear">{{data['year']}}</span>
-                                        <span id="paymentYear2">{{data['year2']}}</span></td>
+                                
+                                <tr id="instalmentsFrequency">
+                                    <td class="table-cell-width bold">How often should instalments be made?</td>
+                                    <td>{{data['instalment-length-group']}}</td>
+                                    <td></td>
+                                </tr>
+                                <tr id="instalmentsStartDate">
+                                    <td class="table-cell-width bold">Instalment start date</td>
+                                    <td id="instalmentsDate1">{{ data['day'] }} <span id="instalmentMonth1">{{ data['month'] }}</span> {{ data['year'] }}</td>
+                                    <td id="instalmentsDate2">{{ data['day2'] }} <span id="instalmentMonth2">{{ data['month2'] }}</span> {{ data['year2'] }}</td>
                                     <td></td>
                                 </tr>
 
                             </tbody>
                         </table>
 
+                        <!-- PAYMENT -->
+                        <!-- DEDUCT FROM BENEFITS -->
+                        <table id="deductFromBenefitsSection" class="check-your-decisions-table">
+                            <tbody>
+                                <tr>
+                                    <td class="table-cell-width bold">Reason for deducting from benefits</td>
+                                    <td>{{data['reason-for-deducting-from-benefits-group']}}</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-cell-width bold">How should defendant pay the court</td>
+                                    <td id="howShouldDefendantPay_2">{{data['set-reserve-terms-group']}}</td>
+                                    <td></td>
+                                </tr>
+
+                                <tr id="lumpSum14or28_2">
+                                    <td class="table-cell-width bold">Lump sum amount</td>
+                                    <td>£<span id="totalPayment_2">{{data['total-payment']}}</span><!-- <span style="text-transform: lowercase">{{data['set-reserve-terms-group']}}</span>--></td>
+                                    <td></td>
+                                </tr>
+                                
+                                <tr id="lumpSumPluInstalments_2">
+                                    <td class="table-cell-width bold">Lump sum amount</td>
+                                    <td>£<span id="totalPayment_2">{{data['lump-sum-amount']}}</span><!-- <span style="text-transform: lowercase">{{data['set-reserve-terms-group']}}</span>--></td>
+                                    <td></td>
+                                </tr>
+                                
+                                <tr id="instalments_2">
+                                    <td class="table-cell-width bold">Instalment amount</td>
+                                    <td>£<span id="instalmentAmount1_2">{{data['instalment-amount-1']}}</span><span id="instalmentAmount2_2">{{data['instalment-amount-2']}}</span></td>
+                                    <td></td>
+                                </tr>
+                                
+                                <tr id="instalmentsFrequency_2">
+                                    <td class="table-cell-width bold">How often should instalments be made?</td>
+                                    <td>{{data['lump-sum-instalment-frequency-group']}}</td>
+                                    <td></td>
+                                </tr>
+                                <tr id="instalmentsStartDate_2">
+                                    <td class="table-cell-width bold">Instalment start date</td>
+                                    <td id="instalmentsDate1_2">{{ data['day'] }} <span id="instalmentMonth1_2">{{ data['month'] }}</span> {{ data['year'] }}</td>
+                                    <td id="instalmentsDate2_2">{{ data['day2'] }} <span id="instalmentMonth2_2">{{ data['month2'] }}</span> {{ data['year2'] }}</td>
+                                    <td></td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+
+                        <!-- PAYMENT -->
+                        <!-- ATTACH TO EARNINGS -->
+                        <table id="attachToEarningsSection" class="check-your-decisions-table">
+                            <tbody>
+                                <tr>
+                                    <td class="table-cell-width bold">Reason you attached to earnings</td>
+                                    <td>{{data['reason-for-attaching-to-earnings-group']}}</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-cell-width bold">How should defendant pay the court</td>
+                                    <td id="howShouldDefendantPay_3">{{data['set-reserve-terms-group']}}</td>
+                                    <td></td>
+                                </tr>
+
+                                
+                                
+                                
+                                <tr id="lumpSum_3">
+                                    <td class="table-cell-width bold">Lump sum amount</td>
+                                    <td>£<span id="a2eTotalPayment">{{data['total-payment']}}</span><span id="a2eLumpSumAmount">{{data['lump-sum-amount']}}</span></td>
+                                    <td></td>
+                                </tr>
+                                <tr id="instalments_3">
+                                    <td class="table-cell-width bold">Instalment amount</td>
+                                    <td>£{{data['instalments-amount']}}</td>
+                                    <td></td>
+                                </tr>
+                                <tr id="instalmentsOnly_3">
+                                    <td class="table-cell-width bold">Instalment amount</td>
+                                    <td>£{{data['instalments-only-amount']}}</td>
+                                    <td></td>
+                                </tr>
+                                
+                                
+                                
+                                <tr id="instalmentsFrequency_3">
+                                    <td class="table-cell-width bold">How often should instalments be made?</td>
+                                    <td><span id="a2eFrequency1">{{data['lump-sum-instalment-frequency-group']}}</span><span id="a2eFrequency2">{{data['instalment-only-frequency-group-2']}}</span></td>
+                                    <td></td>
+                                </tr>
+                                <tr id="instalmentsStartDate_3">
+                                    <td class="table-cell-width bold">Instalment start date</td>
+                                    <td id="instalmentsDate1_3">{{ data['day'] }} <span id="instalmentMonth1_3">{{ data['month'] }}</span> {{ data['year'] }}</td>
+                                    <td id="instalmentsDate2_3">{{ data['day2'] }} <span id="instalmentMonth2_3">{{ data['month2'] }}</span> {{ data['year2'] }}</td>
+                                    <td></td>
+                                </tr>
+
+
+                                
+                                
+                                
+                                
+                            </tbody>
+                        </table>
+
                         <hr>
 
+                        <!-- ADD A NOTE -->
                         <label class="form-label" for="optional-note">
                             <span class="heading-medium">Add a note (optional)</span>
                             <p class="bottom_5">This will only be seen by court staff</p>
@@ -524,6 +883,7 @@
                 
                 <h2 class="heading-large">Offence 1</h2>
 
+                <!-- DECISION -->
                 <table class="check-your-decisions-table">
                     <tbody>
                         <tr>
@@ -551,10 +911,11 @@
 
                 <hr>
                 
+                <!-- OUTCOME -->
                 <table class="check-your-decisions-table">
                     <tbody>
                         <tr>
-                            <td class="heading-medium">Outcome - refer to court hearing</td>
+                            <td class="heading-medium">Outcome</td>
                             <td></td>
                             <td><a href="confirm-outcome">Change</a></td>
                         </tr>
@@ -585,7 +946,7 @@
 
                         <tr>
                             <td class="table-cell-width bold">Reason for referring to court</td>
-                            <td>{{ data['reason-for-referring-to-court-group'] }} {{ data['equivocal-plea-group'] }}{{ data['case-management-group'] }}</td>
+                            <td><span id="reasonForReferringToCourt">{{ data['reason-for-referring-to-court-group'] }}</span><span id="equivocalPleaGroup"> - {{ data['equivocal-plea-group'] }}</span><span id="caseManagementGroup"> - {{ data['case-management-group'] }}</span></td>
                             <td></td>
                         </tr>
 
@@ -606,20 +967,13 @@
 
                 <hr>
 
+                <!-- ADD A NOTE -->
                 <label class="form-label" for="optional-note">
                     <span class="heading-medium">Add a note (optional)</span>
                     <p class="bottom_5">This will only be seen by court staff</p>
                 </label>
                 <textarea class="form-control form-control-3-4" name="optional-note" id="optional-note" rows="5"></textarea>
                     
-
-                        
-                        
-                        
-                
-                
-                
-                
                 <input class="button top_30" type="submit" value="Continue">
                 <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
 
@@ -632,6 +986,7 @@
 
         <h2 class="heading-large">Offence 1</h2>
 
+        <!-- DECISION -->
         <table class="check-your-decisions-table">
             <tbody>
                 <tr>
@@ -654,11 +1009,17 @@
                     <td>{{data['decision']}}</td>
                     <td></td>
                 </tr>
+                <tr>
+                    <td class="table-cell-width bold">Reason for withdrawal</td>
+                    <td>{{data['withdrawn-reason']}}</td>
+                    <td></td>
+                </tr>
             </tbody>
         </table>
 
         <hr>
 
+        <!-- ADD A NOTE -->
         <form class="form" action="" method="post">
             <div class="form-group">
                 <label class="form-label" for="optional-note">
@@ -672,6 +1033,7 @@
 
             </div>
         </form>
+        
     </div>
 
     <div id="discharge">
@@ -680,6 +1042,7 @@
 
         <h2 class="heading-large">Offence 1</h2>
 
+        <!-- DECISION -->
         <table class="check-your-decisions-table">
             <tbody>
                 <tr>
@@ -707,6 +1070,7 @@
 
         <hr>
   
+        <!-- OUTCOME -->
         <table class="check-your-decisions-table">
             <tbody>
                 <tr>
@@ -729,6 +1093,7 @@
 
         <hr>
         
+        <!-- COSTS -->
         <table class="check-your-decisions-table">
             <tbody>
                 <tr>
@@ -756,6 +1121,156 @@
 
         <hr>
 
+        <!-- PAYMENT -->
+        <table id="finacialPenaltySection2" class="check-your-decisions-table">
+            <tbody>
+                <tr>
+                    <td class="heading-medium">Payment</td>
+                    <td></td>
+                    <td><a href="payment-method">Change</a></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Total</td>
+                    <td>£{{data['total-payment-discharge']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Payment method</td>
+                    <td><span id="paymentMethod">{{data['payment-method-group']}}</span></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        
+        
+        
+        
+        
+        
+        <!-- PAYMENT -->
+        <!-- PAY DIRECT TO COURT -->
+        <table id="payDirectToCourtSection2" class="check-your-decisions-table">
+            <tbody>
+                <tr>
+                    <td class="table-cell-width bold">Reason you didn't deduct from benefits</td>
+                    <td>{{data['deduct-from-benefits-group']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">How should defendent pay the court</td>
+                    <td id="discharge_howToPay">{{data['how-should-defendent-pay-group']}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- PAYMENT -->
+        <!-- PAY DIRECT TO COURT -->
+        <!-- LUMP SUM ONLY -->
+        <table id="discharge_lumpSumOnly" class="check-your-decisions-table">
+            <tbody>
+                <tr>
+                    <td class="table-cell-width bold">Lump sum amount</td>
+                    <td>£{{data['total-payment-discharge']}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+                
+        <!-- PAYMENT -->
+        <!-- PAY DIRECT TO COURT -->
+        <!-- LUMP SUM PLUS INSTALMENTS -->
+        <table id="discharge_lumpSumInstalments" class="check-your-decisions-table" style="border: 1px solid red">
+            <tbody>
+                <tr>
+                    <td class="table-cell-width bold">Lump sum amount</td>
+                    <td>£{{data['lump-sum-amount']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Instalment amount</td>
+                    <td>£{{data['instalment-amount-1']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Instalment frequency</td>
+                    <td>{{data['instalment-length-group']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Instalment start date</td>
+                    <td>{{data['day']}} <span id="discharge_instalmentMonth1">{{data['month']}}</span> {{data['year']}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- PAYMENT -->
+        <!-- PAY DIRECT TO COURT -->
+        <!-- INSTALMENTS ONLY -->
+        <table id="discharge_instalmentsOnly" class="check-your-decisions-table" style="border: 1px solid blue">
+            <tbody>
+                <tr>
+                    <td class="table-cell-width bold">Instalment amount</td>
+                    <td>£ {{data['instalment-amount-2']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Instalment frequency</td>
+                    <td>{{data['instalment-length-group-2']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width bold">Instalment start date</td>
+                    <td>{{data['day2']}} <span id="discharge_instalmentMonth2">{{data['month2']}}</span> {{data['year2']}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        
+        
+        
+        
+        
+        
+        <!-- PAYMENT -->
+        <!-- DEDUCT FROM BENEFITS -->
+        <table id="deductFromBenefitsSection2" class="check-your-decisions-table" style="border: 1px solid green">
+            <tbody>
+                <tr>
+                    <td class="table-cell-width bold">xxx</td>
+                    <td>deduct from benefits section</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        
+        
+        
+        
+        
+        <!-- PAYMENT -->
+        <!-- ATTACH TO EARNINGS -->
+        <table id="attachToEarningsSection2" class="check-your-decisions-table">
+            <tbody>
+                <tr>
+                    <td class="table-cell-width bold">xxx</td>
+                    <td>attach to earnings section</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        
+        
+        
+        
+
+        <!-- PAYMENT - old -->
+        <!--
         <table class="check-your-decisions-table">
             <tbody>
                 <tr>
@@ -818,6 +1333,7 @@
                 </tr>
             </tbody>
         </table>
+        -->
 
         <hr>
         
@@ -839,6 +1355,7 @@
                 
                 <h2 class="heading-large">Offence 1</h2>
 
+                <!-- DECISION -->
                 <table class="check-your-decisions-table">
                     <tbody>
                         <tr>
@@ -866,6 +1383,7 @@
 
                 <hr>
                 
+                <!-- ADD A NOTE -->
                 <label class="form-label" for="optional-note">
                     <span class="heading-medium">Add a note (optional)</span>
                     <p class="bottom_5">This will only be seen by court staff</p>

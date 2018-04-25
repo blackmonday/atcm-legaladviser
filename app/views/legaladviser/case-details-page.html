@@ -23,9 +23,6 @@
         } else if (decision != "") {
             document.getElementById('case-status').innerText = "Completed";
             document.getElementById('changePleaLink').style.display = "none";
-            
-            
-            
         }
         
         
@@ -528,7 +525,7 @@
                 <div class="download-file top_15 bottom_30">
                     <img src="/public/images/Thumbnail%20icon%20-%20small.png" title="document title">
                     <div class="download-file-text">
-                        <span class="font-xsmall"><a href="#">SJP notice</a></span>
+                        <span class="font-xsmall dummy-link">SJP notice</span>
                         <span class="font-xsmall">PDF, 157KB, 2 pages</span>
                     </div>
                 </div>
@@ -573,7 +570,7 @@
                             <table class="court-decision">
                                 <tbody>
                                     <tr>
-                                        <td class="bold">Verdict</td>
+                                        <td class="bold table-cell-width">Verdict</td>
                                         <td>{{data['verdict']}}</td>
                                     </tr>
                                     <tr>
@@ -618,7 +615,7 @@
                                     
                                     <tr id="totalPayment">
                                         <td class="bold table-cell-width">Payment terms</td>
-                                        <td>£{{data['total-payment']}} to be paid as a <span style="text-transform: lowercase">{{data['set-reserve-terms-group']}}</span></td>
+                                        <td>£{{data['total-payment']}} to be paid as a <span style="text-transform: lowercase">{{data['how-should-defendent-pay-group']}}</span></td>
                                     </tr>
                                     
                                     <tr id="lumpSumAmount">
@@ -656,7 +653,7 @@
                             <table class="court-decision">
                                 <tbody>
                                     <tr>
-                                        <td class="bold" style="width:45%">Referred to full court hearing</td>
+                                        <td class="bold table-cell-width">Referred to full court hearing</td>
                                         <td>
                                             <p class="top_0 bottom_10">Summons issued for hearing before {{ data['refer-to-which-court-group'] }} on {{ data['hearing-day'] }} <span id="hearingMonth">{{ data['hearing-month'] }}</span> {{ data['hearing-year'] }} at {{ data['court-room-group'] }} at {{ data['hearing-time-hour'] }}:{{ data['hearing-time-minute'] }}.</p>
                                             <p class="top_10 bottom_0">Reason: {{data['reason-for-referring-to-court-group']}}</p>
@@ -682,7 +679,7 @@
                             <table class="court-decision">
                                 <tbody>
                                     <tr>
-                                        <td class="bold">Verdict</td>
+                                        <td class="bold table-cell-width">Verdict</td>
                                         <td>{{data['verdict']}}</td>
                                     </tr>
                                     <tr>
@@ -705,12 +702,11 @@
                         <!-- DISCHARGE TAB -->
                         <div id="dischargeTab">
                             <h4 class="heading-medium bottom_10 top_0">Court decision</h4>
-                            <p style="font-size:.9em; color:mediumvioletred"><i>Discharge decsion tab is still being worked on</i></p>
                             
                             <table class="court-decision">
                                 <tbody>
                                     <tr>
-                                        <td class="bold" style="width:40%">Result</td>
+                                        <td class="bold table-cell-width">Result</td>
                                         <td>{{data['decision']}}d</td>
                                     </tr>
                                     <tr>
@@ -740,7 +736,7 @@
                             <table class="court-decision">
                                 <tbody>
                                     <tr>
-                                        <td class="bold" style="width:40%">Collection order made</td>
+                                        <td class="bold table-cell-width">Collection order made</td>
                                         <td><span id="dischargeConfirmCollectionOrder">{{data['discharge-confirm-collection-order']}}</span></td>
                                     </tr>
                                     <tr>
@@ -755,6 +751,11 @@
                                         <td class="bold">Instalments only</td>
                                         <td>xxx</td>
                                     </tr>
+                                    
+                                    
+                                    
+                                    
+                                    
                                 </tbody>
                             </table>
 
@@ -767,7 +768,7 @@
                             <table class="court-decision">
                                 <tbody>
                                     <tr>
-                                        <td class="bold">Offence withdrawn</td>
+                                        <td class="bold table-cell-width">Offence withdrawn</td>
                                         <td>{{data['withdrawn-reason']}}</td>
                                     </tr>
                                     <tr>
