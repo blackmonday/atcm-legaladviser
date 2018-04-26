@@ -155,8 +155,8 @@
         /* ************** */
         
         var howToPayFinal2 = document.getElementById('setReserveTermsGroup').innerText;
-        
         var howToPayFinal = document.getElementById('howToPayGroup').innerText;
+                
         if ((howToPayFinal2 == "Lump sum within 14 days") || (howToPayFinal2 == "Lump sum within 28 days")) {
             //document.getElementById('totalPayment').style.display = "block";
             document.getElementById('lumpSumAmount').style.display = "none";
@@ -174,7 +174,7 @@
         }
 
         
-        
+
         
         
         
@@ -565,6 +565,8 @@
                         
                         <!-- FINANCIAL PENALTY TAB -->
                         <div id="financialPenaltyTab">
+
+                            <!-- COURT DECISION -->
                             <h4 class="heading-medium bottom_10 top_0">Court decision</h4>
                         
                             <table class="court-decision">
@@ -578,7 +580,7 @@
                                         <td>£{{data['penalty-or-fine-amount']}}</td>
                                     </tr>
                                     <tr>
-                                        <td class="bold">Compensation</td>
+                                        <td class="bold">To pay compensation</td>
                                         <td>£{{data['compensation-amount']}}</td>
                                     </tr>
                                     <tr>
@@ -593,8 +595,9 @@
                                         <td class="bold">Decision made</td>
                                         <td>
                                             <div>13 April 2018</div>
-                                            <div class="top_10">Joe Bloggs and Peter Smith<br>
-                                            Lorem Ipsum Magistrate's Court</div>
+                                            <div class="top_10">Legal adviser: Joe Bloggs<br>
+                                            Magistrate: Peter Smith<br>
+                                            <span class="form-hint">Lorem Ipsum Magistrate's Court</span></div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -602,10 +605,11 @@
 
                             <hr>
 
+                            <!-- PAYMENT AND COLLECTION -->
                             <h4 class="heading-medium bottom_10 top_0">Payment and collection</h4>
                             
                             <span id="setReserveTermsGroup" style="display:none">{{data['set-reserve-terms-group']}}</span>
-                            
+
                             <table class="payment-and-collection">
                                 <tbody>
                                     <tr>
@@ -644,6 +648,7 @@
                                     
                                 </tbody>
                             </table>
+                            
                         </div>
 
                         <!-- REFER TO COURT HEARING TAB -->
@@ -656,15 +661,17 @@
                                         <td class="bold table-cell-width">Referred to full court hearing</td>
                                         <td>
                                             <p class="top_0 bottom_10">Summons issued for hearing before {{ data['refer-to-which-court-group'] }} on {{ data['hearing-day'] }} <span id="hearingMonth">{{ data['hearing-month'] }}</span> {{ data['hearing-year'] }} at {{ data['court-room-group'] }} at {{ data['hearing-time-hour'] }}:{{ data['hearing-time-minute'] }}.</p>
-                                            <p class="top_10 bottom_0">Reason: {{data['reason-for-referring-to-court-group']}}</p>
+                                            <p class="top_10 bottom_15">Reason: {{data['reason-for-referring-to-court-group']}}</p>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    
+                                    <tr style="border-top: 1px solid #BFC1C3">
                                         <td class="bold"><p class="bold top_15">Decision made</p></td>
                                         <td>
                                             <div class="top_15">13 April 2018</div>
-                                            <div class="top_10">Joe Bloggs and Peter Smith<br>
-                                            Lorem Ipsum Magistrate's Court Magistrate's Court</div>
+                                            <div class="top_10">Legal adviser: Joe Bloggs<br>
+                                            Magistrate: Peter Smith<br>
+                                            <span style="color:#6F777B">Lorem Ipsum Magistrate's Court Magistrate's Court</span></div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -690,8 +697,9 @@
                                         <td class="bold">Decision made</td>
                                         <td>
                                             <div>1 May 2018</div>
-                                            <div class="top_10">Joe Bloggs and Peter Smith<br>
-                                            Stratford Magistrate's Court</div>
+                                            <div class="top_10">Legal adviser: Joe Bloggs<br>
+                                            Magistrates: Peter Smith<br>
+                                            <span class="form-hint">Stratford Magistrate's Court</span></div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -701,6 +709,8 @@
                         
                         <!-- DISCHARGE TAB -->
                         <div id="dischargeTab">
+                            
+                            <!-- COURT DECISION -->
                             <h4 class="heading-medium bottom_10 top_0">Court decision</h4>
                             
                             <table class="court-decision">
@@ -710,7 +720,7 @@
                                         <td>{{data['decision']}}d</td>
                                     </tr>
                                     <tr>
-                                        <td class="bold">Compensation</td>
+                                        <td class="bold">To pay compensation of</td>
                                         <td>£{{data['discharge-compensation']}}</td>
                                     </tr>
                                     <tr>
@@ -732,6 +742,7 @@
                                 </tbody>
                             </table>
 
+                            <!-- PAYMENT AND COLLECTION -->
                             <h4 class="heading-medium">Payment and collection</h4>
                             <table class="court-decision">
                                 <tbody>
@@ -775,8 +786,9 @@
                                         <td class="bold">Decision made</td>
                                         <td>
                                             <div>1 May 2018</div>
-                                            <div class="top_10">Joe Bloggs and Peter Smith<br>
-                                            Stratford Magistrate's Court</div>
+                                            <div class="top_10">Legal adviser: Joe Bloggs<br>
+                                            Magistrates: Peter Smith<br>
+                                            <span class="form-hint">Stratford Magistrate's Court</span></div>
                                         </td>
                                     </tr>
                                 </tbody>
