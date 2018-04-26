@@ -76,6 +76,8 @@ router.post('/', function (req, res) {
         
         req.session.data['discharge-costs'] = "125"
         req.session.data['discharge-victim-surcharge'] = "30"
+        
+        req.session.data['payToCourtCostsHeader'] = "Check costs"
                 
         res.redirect('/legaladviser/dashboard')
         
@@ -140,6 +142,8 @@ router.post('/', function (req, res) {
         req.session.data['discharge-costs'] = "125"
         req.session.data['discharge-victim-surcharge'] = "30"
         
+        req.session.data['payToCourtCostsHeader'] = "Check costs and surcharge"
+        
         res.redirect('/legaladviser/dashboard')
         
     } else if (prosecutor == "TFL") {
@@ -203,6 +207,8 @@ router.post('/', function (req, res) {
         req.session.data['discharge-costs'] = "125"
         req.session.data['discharge-victim-surcharge'] = "30"
         
+        req.session.data['payToCourtCostsHeader'] = "Check costs and surcharge"
+        
         res.redirect('/legaladviser/dashboard')
         
     } else if (prosecutor == "TVL") {
@@ -265,6 +271,8 @@ router.post('/', function (req, res) {
         
         req.session.data['discharge-costs'] = "125"
         req.session.data['discharge-victim-surcharge'] = "30"
+        
+        req.session.data['payToCourtCostsHeader'] = "Check costs and surcharge"
         
         res.redirect('/legaladviser/dashboard')
         

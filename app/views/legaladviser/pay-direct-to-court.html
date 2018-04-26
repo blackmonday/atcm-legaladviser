@@ -62,7 +62,7 @@
                         <div class="js-hidden" id="other-reason">
                             <div class="panel panel-border-wide top_15">
                                 <label class="form-label" for="other-reason">Enter a reason</label>
-                                <textarea class="form-control form-control-3-4" name="other-reason" id="other-reason" rows="5"></textarea>
+                                <textarea class="form-control form-control-3-4" name="other-reason" id="other-reason" rows="5">{{ data['other-reason'] }}</textarea>
                             </div>
                         </div>
                     </fieldset>
@@ -166,16 +166,16 @@
                                         <h1>How often should instalments be made?</h1>
                                     </legend>
                                     <div class="multiple-choice top_10">
-                                        <input id="radio-1b" type="radio" name="instalment-length-group-2" value="Weekly" {{ checked('instalment-length-group-2','Weekly') }}>
-                                        <label for="radio-1b">Weekly</label>
+                                        <input id="radio-1bb" type="radio" name="instalment-length-group-2" value="Weekly" {{ checked('instalment-length-group-2','Weekly') }}>
+                                        <label for="radio-1bb">Weekly</label>
                                     </div>
                                     <div class="multiple-choice">
-                                        <input id="radio-2b" type="radio" name="instalment-length-group-2" value="Fortnightly" {{ checked('instalment-length-group-2','Fortnightly') }}>
-                                        <label for="radio-2b">Fortnightly</label>
+                                        <input id="radio-2bb" type="radio" name="instalment-length-group-2" value="Fortnightly" {{ checked('instalment-length-group-2','Fortnightly') }}>
+                                        <label for="radio-2bb">Fortnightly</label>
                                     </div>
                                     <div class="multiple-choice">
-                                        <input id="radio-3b" type="radio" name="instalment-length-group-2" value="Monthly" {{ checked('instalment-length-group-2','Monthly') }}>
-                                        <label for="radio-3b">Monthly</label>
+                                        <input id="radio-3bb" type="radio" name="instalment-length-group-2" value="Monthly" {{ checked('instalment-length-group-2','Monthly') }}>
+                                        <label for="radio-3bb">Monthly</label>
                                     </div>
                                 </fieldset>
                                 
