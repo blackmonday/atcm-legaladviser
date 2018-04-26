@@ -330,6 +330,58 @@
         }
 
         
+        
+        
+        
+        
+        var payCourtTerms = document.getElementById('payCourtTerms').innerText;
+        if ((payCourtTerms == "Lump sum within 14 days") || (payCourtTerms == "Lump sum within 28 days")) {
+            //document.getElementById("totalPayment").style.display = "none";
+            document.getElementById("lumpSumAmount").style.display = "none";
+            document.getElementById("instalmentOnly").style.display = "none";
+            
+            //document.getElementById("dischargeLumpSum").style.display = "none";
+            document.getElementById("dischargeLumpSumInstal").style.display = "none";
+            document.getElementById("dischargeInstal").style.display = "none";
+            
+        } else if (payCourtTerms == "Lump sum plus instalments") {
+            document.getElementById("totalPayment").style.display = "none";
+            //document.getElementById("lumpSumAmount").style.display = "none";
+            document.getElementById("instalmentOnly").style.display = "none";
+            
+            document.getElementById("dischargeLumpSum").style.display = "none";
+            //document.getElementById("dischargeLumpSumInstal").style.display = "none";
+            document.getElementById("dischargeInstal").style.display = "none";
+            
+        } else if (payCourtTerms == "Instalments only") {
+            document.getElementById("totalPayment").style.display = "none";
+            document.getElementById("lumpSumAmount").style.display = "none";
+            //document.getElementById("instalmentOnly").style.display = "none";
+            
+            document.getElementById("dischargeLumpSum").style.display = "none";
+            document.getElementById("dischargeLumpSumInstal").style.display = "none";
+            //document.getElementById("dischargeInstal").style.display = "none";
+            
+        }
+        
+        // totalPayment
+        // lumpSumAmount
+        // instalmentOnly
+        
+        
+        // document.getElementById("dischargeLumpSum").style.display = "none";
+        // document.getElementById("dischargeLumpSumInstal").style.display = "none";
+        // document.getElementById("dischargeInstal").style.display = "none";
+        // dischargeLumpSum
+        // dischargeLumpSumInstal
+        // dischargeInstal
+        
+        
+        var defendentsTitle = document.getElementById('defendentsTitle').innerText;
+        if (defendentsTitle == " ") {
+            document.getElementById('defendentsTitle').innerText = "";
+        }
+
     }
 </script>
 
@@ -447,7 +499,7 @@
                     <table class="top_10">
                         <tr>
                             <th class="bold" style="border: none">Name</th>
-                            <td style="border: none">{{data['defendents-first-name']}} <span class="last-name">{{data['defendents-last-name']}}</span></td>
+                            <td style="border: none"><span id="defendentsTitle">{{data['defendents-title']}} </span>{{data['defendents-first-name']}} <span class="last-name">{{data['defendents-last-name']}}</span></td>
                         </tr>
                         <tr>
                             <th class="bold" style="border: none">Date of birth</th>
@@ -608,6 +660,8 @@
                             <!-- PAYMENT AND COLLECTION -->
                             <h4 class="heading-medium bottom_10 top_0">Payment and collection</h4>
                             
+                            <span id="payCourtTerms" style="display: none">{{data['how-should-defendent-pay-group']}}</span>
+                            
                             <span id="setReserveTermsGroup" style="display:none">{{data['set-reserve-terms-group']}}</span>
 
                             <table class="payment-and-collection">
@@ -616,7 +670,7 @@
                                         <td class="bold table-cell-width">Collection order made</td>
                                         <td>{{data['payment-method-group']}}</td>
                                     </tr>
-                                    
+
                                     <tr id="totalPayment">
                                         <td class="bold table-cell-width">Payment terms</td>
                                         <td>£{{data['total-payment']}} to be paid as a <span style="text-transform: lowercase">{{data['how-should-defendent-pay-group']}}</span></td>
@@ -735,15 +789,21 @@
                                         <td class="bold">Decision made</td>
                                         <td>
                                             <div>13 April 2018</div>
-                                            <div class="top_10">Joe Bloggs and Peter Smith<br>
-                                            Lorem Ipsum Magistrate's Court Magistrate's Court</div>
+                                            <div class="top_10">Legal adviser: Joe Bloggs<br>
+                                            Magistrates: Peter Smith<br>
+                                            <span class="form-hint">Lorem Ipsum Magistrate's Court Magistrate's Court</span></div>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
+                            
+                            <hr>
 
                             <!-- PAYMENT AND COLLECTION -->
                             <h4 class="heading-medium">Payment and collection</h4>
+                            
+                            <!--{{data['how-should-defendent-pay-group']}}-->
+                            
                             <table class="court-decision">
                                 <tbody>
                                     <tr>
@@ -758,11 +818,22 @@
                                         <td class="bold">Payment method</td>
                                         <td>{{data['payment-method-group']}}</td>
                                     </tr>
-                                    <tr>
-                                        <td class="bold">Instalments only</td>
-                                        <td>xxx</td>
+                                
+                                    <tr id="dischargeLumpSum">
+                                        <td class="bold">Payment terms</td>
+                                        <td>Lump sum only coming soon</td>
                                     </tr>
                                     
+                                    <tr id="dischargeLumpSumInstal">
+                                        <td class="bold">Payment terms</td>
+                                        <td>Lump sum + instalments coming soon</td>
+                                    </tr>
+
+                                    <tr id="dischargeInstal">
+                                        <td class="bold">Payment terms</td>
+                                        <td>Instalments only coming soon</td>
+                                    </tr>
+
                                     
                                     
                                     
