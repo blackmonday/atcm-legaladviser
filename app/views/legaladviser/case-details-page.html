@@ -147,6 +147,11 @@
         
         
         
+        
+        
+        
+        
+        
         /* ************** */
         /* ************** */
         /* ************** */
@@ -165,7 +170,7 @@
         if (howToPayFinal2 == "Lump sum plus instalments") {
             document.getElementById('totalPayment').style.display = "none";
             //document.getElementById('lumpSumAmount').style.display = "block";
-            document.getElementById('instalmentOnly').style.display = "none";
+            //document.getElementById('instalmentOnly').style.display = "none";
         }
         if (howToPayFinal2 == "Instalments only") {
             document.getElementById('totalPayment').style.display = "none";
@@ -175,6 +180,16 @@
 
         
 
+        // lump sum amount 2 ?????
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -422,7 +437,6 @@
         <p class="remove-link bottom_0" onclick="overlay_file_1_off()">cancel</p>
     </div>
 </div>
-
 
 <main id="content" role="main">
     
@@ -676,15 +690,18 @@
                                         <td>£{{data['total-payment']}} to be paid as a <span style="text-transform: lowercase">{{data['how-should-defendent-pay-group']}}</span></td>
                                     </tr>
                                     
+                                    <tr id="lumpSumAmount_b">
+                                        <td class="bold table-cell-width">Lump sum</td>
+                                        <td>£{{data['lump-sum-amount']}}</td>
+                                    </tr>
+                                    
                                     <tr id="lumpSumAmount">
                                         <td class="bold table-cell-width">Payment terms</td>
-                                        <td>£{{data['lump-sum-amount']}} to be paid <span id="howToPayGroup" style="text-transform: lowercase">{{data['lump-sum-instalment-frequency-group']}}</span> starting on 
+                                        <td>£{{data['instalment-amount-1']}} to be paid <span id="howToPayGroup" style="text-transform: lowercase">{{data['instalment-length-group']}}</span> starting on
                                             
-                                        <span id="paymentDay">{{data['day2']}}</span>
-
-                                        <span id="paymentMonth">{{data['month2']}}</span>
-
-                                        <span id="paymentYear">{{data['year2']}}</span>
+                                        <span id="paymentDay">{{data['day']}}</span>
+                                        <span id="paymentMonth">{{data['month']}}</span>
+                                        <span id="paymentYear">{{data['year']}}</span></td>
                                             
                                     </tr>
                                     

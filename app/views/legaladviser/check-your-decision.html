@@ -58,8 +58,7 @@
         
         
         
-        
-        
+
         
         /* WHAT PAYMENT CONTENT SHOULD BE DISPLAYED */
         var paymentMethodGroup = document.getElementById('paymentMethodGroup').innerText;
@@ -78,6 +77,7 @@
             document.getElementById('attachToEarningsSection2_instalmentOnly').style.display = "none";
             
             document.getElementById('deductFromBenefitsSection2_LumpSumInstalments').style.display = "none";
+            document.getElementById('attachToEarningsSection_employerDetails').style.display = "none";
             document.getElementById('attachToEarningsSection2_employerDetails').style.display = "none";
 
         } else if (paymentMethodGroup == "Deduct from benefits") {
@@ -92,6 +92,7 @@
             document.getElementById('attachToEarningsSection2_lumpSumInstalment').style.display = "none";
             document.getElementById('attachToEarningsSection2_instalmentOnly').style.display = "none";
             document.getElementById('attachToEarningsSection2_employerDetails').style.display = "none";
+            document.getElementById('attachToEarningsSection1_employerDetails').style.display = "none";
 
         } else if (paymentMethodGroup == "Attach to earnings") {
             /* financial penalty */
@@ -108,6 +109,7 @@
 
         }
         
+        // attachToEarningsSection_employerDetails
         // attachToEarningsSection2
         // attachToEarningsSection2_lumpSumOnly
         // attachToEarningsSection2_lumpSumInstalment
@@ -567,7 +569,7 @@
 
         
         
-        /* ATTACH TO EARNINGS */
+        /* ATTACH TO EARNINGS 1 */
         var a2eEmployeeReference = document.getElementById('a2eEmployeeReference').innerText;
         if (a2eEmployeeReference == "" ) {
             document.getElementById('a2eEmployeeReference').innerText = "Not specified";
@@ -605,7 +607,49 @@
             document.getElementById('a2eAddressLine1').innerText = "Not specified";
         }
         
+        /* ATTACH TO EARNINGS 2 */
+        var a2eEmployeeReference_2 = document.getElementById('a2eEmployeeReference_2').innerText;
+        if (a2eEmployeeReference_2 == "" ) {
+            document.getElementById('a2eEmployeeReference_2').innerText = "Not specified";
+        }
 
+        var a2eEmployerName_2 = document.getElementById('a2eEmployerName_2').innerText;
+        if (a2eEmployerName_2 == "" ) {
+            document.getElementById('a2eEmployerName_2').innerText = "Not specified";
+        }
+
+        var a2eEmployerTelephone_2 = document.getElementById('a2eEmployerTelephone_2').innerText;
+        if (a2eEmployerTelephone_2 == "" ) {
+            document.getElementById('a2eEmployerTelephone_2').innerText = "Not specified";
+        }
+
+        var a2eAddressLine1_2 = document.getElementById('a2eAddressLine1_2').innerHTML;
+        if (a2eAddressLine1_2 == "<br>") {
+            document.getElementById('a2eAddressLine1_2').style.display = "none";
+        }
+        var a2eAddressLine2_2 = document.getElementById('a2eAddressLine2_2').innerHTML;
+        if (a2eAddressLine2_2 == "<br>") {
+            document.getElementById('a2eAddressLine2_2').style.display = "none";
+        }
+        var a2eAddressTown_2 = document.getElementById('a2eAddressTown_2').innerHTML;
+        if (a2eAddressTown_2 == "<br>") {
+            document.getElementById('a2eAddressTown_2').style.display = "none";
+        }
+        var a2eAddressPostcode_2 = document.getElementById('a2eAddressPostcode_2').innerHTML;
+        if (a2eAddressPostcode_2 == "") {
+            document.getElementById('a2eAddressPostcode_2').style.display = "none";
+        }
+        
+        if ((a2eAddressLine1_2 == "<br>") && (a2eAddressLine2_2 == "<br>") && (a2eAddressTown_2 == "<br>") && (a2eAddressPostcode_2 == "")) {
+            document.getElementById('a2eAddressLine1_2').style.display = "block";
+            document.getElementById('a2eAddressLine1_2').innerText = "Not specified";
+        }
+        
+
+        
+        
+        
+        
         
 
         
@@ -1080,13 +1124,11 @@
                                 
                             </tbody>
                         </table>
-
-                        
                         
                         <!-- PAYMENT -->
                         <!-- ATTACH TO EARNINGS -->
                         <!-- EMPLOYER DETAILS -->
-                        <table id="attachToEarningsSection2_employerDetails" class="check-your-decisions-table">
+                        <table id="attachToEarningsSection_employerDetails" class="check-your-decisions-table">
                             <tbody>
                                 <tr>
                                     <td class="table-cell-width bold">Employer reference</td>
@@ -1114,10 +1156,6 @@
                                 </tr>
                             </tbody>
                         </table>
-
-
-                        
-                        
                         
                         <hr>
 
@@ -1624,26 +1662,26 @@
             <tbody>
                 <tr>
                     <td class="table-cell-width bold">Employer reference</td>
-                    <td id="a2eEmployeeReference">{{ data['a2e-employee-reference'] }}</td>
+                    <td id="a2eEmployeeReference_2">{{ data['a2e-employee-reference'] }}</td>
                     <td></td>
                 </tr>
                 <tr>
                     <td class="table-cell-width bold">Employer name</td>
-                    <td id="a2eEmployerName">{{ data['a2e-employer-name'] }}</td>
+                    <td id="a2eEmployerName_2">{{ data['a2e-employer-name'] }}</td>
                     <td></td>
                 </tr>
                 <tr>
                     <td class="table-cell-width bold">Employer address</td>
                     <td style="text-align: left">
-                        <span id="a2eAddressLine1">{{ data['a2e-employer-address-line-1'] }}<br></span>
-                        <span id="a2eAddressLine2">{{ data['a2e-employer-address-line-2'] }}<br></span>
-                        <span id="a2eAddressTown">{{ data['a2e-employer-town-or-city'] }}<br></span>
-                        <span id="a2eAddressPostcode">{{ data['a2e-employer-postcode'] }}</span>
+                        <span id="a2eAddressLine1_2">{{ data['a2e-employer-address-line-1'] }}<br></span>
+                        <span id="a2eAddressLine2_2">{{ data['a2e-employer-address-line-2'] }}<br></span>
+                        <span id="a2eAddressTown_2">{{ data['a2e-employer-town-or-city'] }}<br></span>
+                        <span id="a2eAddressPostcode_2">{{ data['a2e-employer-postcode'] }}</span>
                     </td>
                 </tr>
                 <tr>
                     <td class="table-cell-width bold">Employer telephone</td>
-                    <td id="a2eEmployerTelephone">{{data['a2e-employer-telephone']}}</td>
+                    <td id="a2eEmployerTelephone_2">{{data['a2e-employer-telephone']}}</td>
                     <td></td>
                 </tr>
             </tbody>
