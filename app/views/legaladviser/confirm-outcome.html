@@ -41,6 +41,18 @@
             document.getElementById("defendentsIncomeShort").innerText = incomeCalculation2/52;
         }
         
+        var incomeCalculation3 = Number(document.getElementById("defendentsIncomeShort2").innerText);
+        
+        if (document.getElementById('incomeFrequency').innerText == "Weekly") {
+            document.getElementById("defendentsIncomeShort2").innerText = incomeCalculation3;
+        } else if (document.getElementById('incomeFrequency').innerText == "Fortnightly") {
+            document.getElementById("defendentsIncomeShort2").innerText = incomeCalculation3/2;
+        } else if (document.getElementById('incomeFrequency').innerText == "Monthly") {
+            document.getElementById("defendentsIncomeShort2").innerText = incomeCalculation3/4;
+        } else if (document.getElementById('incomeFrequency').innerText == "Annually") {
+            document.getElementById("defendentsIncomeShort2").innerText = incomeCalculation3/52;
+        }
+        
         
         
         
@@ -303,12 +315,31 @@
                             </fieldset>
                             -->
 
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
                             <p class="bottom_5 top_30">{{ data['penalty-or-fine'] }} has been calculated taking into account:</p>
                             <ul class="list list-bullet">
-                                <li>income <span class="bold">£120</span> weekly (due to defendant claiming benefits or on low income)</li>
+                                <li>income <span class="bold">£</span><span id="defendentsIncomeShort2" class="bold">{{data['defendents-income-amount']}}</span> weekly (due to defendant claiming benefits or on low income)</li>
                                 <li>guilty plea</li>
                             </ul>
 
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
                             <hr class="top_60 bottom_60">
 
                             <fieldset>
