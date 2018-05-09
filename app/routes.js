@@ -301,7 +301,8 @@ router.post('/legaladviser/start-a-new-sjp-session', function (req, res) {
 router.post('/legaladviser/case-details-page', function (req, res) {
     
     req.session.data['decision'] = req.session.data['make-a-decision-group']
-            
+    req.session.data['decision-b'] = req.session.data['make-a-decision-group-b']
+                
     res.redirect('/legaladviser/confirm-outcome')
     
 })

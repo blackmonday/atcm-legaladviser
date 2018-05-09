@@ -66,7 +66,8 @@
 
         /* CHECK DECISION */
         var decisiontype = document.getElementById('decision').innerText;
-        if (decisiontype == "Financial penalty") {
+        var decisiontype_b = document.getElementById('decision-b').innerText;
+        if ((decisiontype == "Financial penalty") || (decisiontype_b == "Financial penalty")) {
             document.getElementById('referToCourtHearing').style.display = "none"; 
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('discharge').style.display = "none";
@@ -84,7 +85,7 @@
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
             
-       } else if (decisiontype == "Discharge") {
+       } else if ((decisiontype == "Discharge") || (decisiontype_b == "Discharge")) {
             document.getElementById('financialPenalty').style.display = "none"; 
             document.getElementById('referToCourtHearing').style.display = "none"; 
             document.getElementById('withdraw').style.display = "none";
