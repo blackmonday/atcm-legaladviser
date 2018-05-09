@@ -245,7 +245,7 @@ router.post('/', function (req, res) {
         req.session.data['prosecutor'] = "TV Licensing"
         req.session.data['notice-served'] = "30 April 2018"
         req.session.data['dates-to-avoid'] = "18 June 2018"
-        req.session.data['mitigation'] = "No mitigation given"
+        req.session.data['mitigation'] = "I have been long term sick and I can't get to the post office to buy a TV Licence"
         req.session.data['offence-type'] = "Possess/control TV set with intent another use install without a licence"
         req.session.data['offence-description'] = "On 01/11/2017 at Chelmsford in the county of Essex were in possession or control of a colour television receiver knowing, or having reasonable grounds for believing, that another person intended to install or use the receiver without a licence."
         req.session.data['statement-of-facts'] = "On 01/11/2017 at Chelmsford in the county of Essex were in possession or control of a colour television receiver knowing, or having reasonable grounds for believing, that another person intended to install or use the receiver without a licence."
