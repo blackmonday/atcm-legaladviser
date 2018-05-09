@@ -9,10 +9,11 @@
 <script>
     window.onload = function() {
         
+        
+        
         var defendants_plea = document.getElementById('defendantsPlea').innerText;
         var case_status = document.getElementById('case-status').innerText;
         var decision = document.getElementById('decision').innerText;
-        
         
         if (decision == "") {
             if (defendants_plea == "NO PLEA RECEIVED") {
@@ -24,6 +25,29 @@
             document.getElementById('case-status').innerText = "Completed";
             document.getElementById('changePleaLink').style.display = "none";
         }
+        
+        if (defendants_plea == "NO PLEA RECEIVED") {
+            document.getElementById('noPlea').style.display = "block";
+            document.getElementById('guiltyPlea').style.display = "none";
+            document.getElementById('notGuiltyPlea').style.display = "none";
+        } else if ((defendants_plea == "PLEADED GUILTY SJP") || (defendants_plea == "PLEADED GUILTY") || (defendants_plea == "PLEADED GUILTY - COURT HEARING REQUESTED")) {
+            document.getElementById('noPlea').style.display = "none";
+            document.getElementById('guiltyPlea').style.display = "block";
+            document.getElementById('notGuiltyPlea').style.display = "none";
+        } else if (defendants_plea == "PLEADED NOT GUILTY") {
+            document.getElementById('noPlea').style.display = "none";
+            document.getElementById('guiltyPlea').style.display = "none";
+            document.getElementById('notGuiltyPlea').style.display = "block";
+        }
+            // No plea received
+            // Pleaded Guilty SJP
+            // Pleaded Guilty - Court hearing requested
+            // Pleaded Not Guilty
+            
+
+        
+        
+        
         
         
         
@@ -902,25 +926,79 @@
                                 <h1 class="heading-medium top_0 bottom_15">Make a decision</h1>
                             </legend>
 
-                            <div class="multiple-choice">
-                                <input id="radio-1" type="radio" name="make-a-decision-group" value="Financial penalty">
-                                <label for="radio-1">Financial penalty</label>
+                            <div id="noPlea">
+                                <div class="multiple-choice" data-target="prove-sjp-type">
+                                    <input id="radio-1" type="radio" name="make-a-decision-group" value="Financial penalty">
+                                    <label for="radio-1">Prove SJP</label>
+                                </div>
+                                
+                                <div class="js-hidden" id="prove-sjp-type">
+                                    <div class="panel panel-border-wide top_15">
+                                        <fieldset>
+
+                                            <div class="multiple-choice" data-target="prove-sjp-type">
+                                                <input id="radio-2" type="radio" name="make-a-decision-group" value="Financial penalty">
+                                                <label for="radio-2">Financial penalty</label>
+                                            </div>
+                                            <div class="multiple-choice" data-target="prove-sjp-type">
+                                                <input id="radio-3" type="radio" name="make-a-decision-group" value="Discharge">
+                                                <label for="radio-3">Discharge</label>
+                                            </div>
+                                            
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                
+                                <div class="multiple-choice">
+                                    <input id="radio-4" type="radio" name="make-a-decision-group" value="Withdraw">
+                                    <label for="radio-4">Withdraw</label>
+                                </div>
+                                <div class="multiple-choice">
+                                    <input id="radio-5" type="radio" name="make-a-decision-group" value="Refer to court hearing">
+                                    <label for="radio-5">Refer to court hearing</label>
+                                </div>
+                                <div class="multiple-choice">
+                                    <input id="radio-6" type="radio" name="make-a-decision-group" value="Dismiss">
+                                    <label for="radio-6">Dismiss</label>
+                                </div>
                             </div>
-                            <div class="multiple-choice">
-                                <input id="radio-2" type="radio" name="make-a-decision-group" value="Refer to court hearing">
-                                <label for="radio-2">Refer to court hearing</label>
+                            
+                            <div id="guiltyPlea">
+                                <div class="multiple-choice">
+                                    <input id="radio-1-2" type="radio" name="make-a-decision-group" value="Financial penalty">
+                                    <label for="radio-1-2">Financial penalty</label>
+                                </div>
+                                <div class="multiple-choice">
+                                    <input id="radio-2-2" type="radio" name="make-a-decision-group" value="Discharge">
+                                    <label for="radio-2-2">Discharge</label>
+                                </div>
+                                <div class="multiple-choice">
+                                    <input id="radio-3-2" type="radio" name="make-a-decision-group" value="Refer to court hearing">
+                                    <label for="radio-3-2">Refer to court hearing</label>
+                                </div>
+                                <div class="multiple-choice">
+                                    <input id="radio-4-2" type="radio" name="make-a-decision-group" value="Withdraw">
+                                    <label for="radio-4-2">Withdraw</label>
+                                </div>
+                                <div class="multiple-choice">
+                                    <input id="radio-5-2" type="radio" name="make-a-decision-group" value="Dismiss">
+                                    <label for="radio-5-2">Dismiss</label>
+                                </div>
                             </div>
-                            <div class="multiple-choice">
-                                <input id="radio-3" type="radio" name="make-a-decision-group" value="Withdraw">
-                                <label for="radio-3">Withdraw</label>
-                            </div>
-                            <div class="multiple-choice">
-                                <input id="radio-3" type="radio" name="make-a-decision-group" value="Discharge">
-                                <label for="radio-3">Discharge</label>
-                            </div>
-                            <div class="multiple-choice">
-                                <input id="radio-3" type="radio" name="make-a-decision-group" value="Dismiss">
-                                <label for="radio-3">Dismiss</label>
+                            
+                            <div id="notGuiltyPlea">
+                                <div class="multiple-choice">
+                                    <input id="radio-1-3" type="radio" name="make-a-decision-group" value="Refer to court hearing">
+                                    <label for="radio-1-3">Refer to court hearing</label>
+                                </div>
+                                <div class="multiple-choice">
+                                    <input id="radio-2-3" type="radio" name="make-a-decision-group" value="Withdraw">
+                                    <label for="radio-2-3">Withdraw</label>
+                                </div>
+                                <div class="multiple-choice">
+                                    <input id="radio-3-3" type="radio" name="make-a-decision-group" value="Dismiss">
+                                    <label for="radio-2-3">Dismiss</label>
+                                </div>
                             </div>
                             
                         </fieldset>

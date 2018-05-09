@@ -43,6 +43,10 @@
             document.getElementById('dobMonth2').innerText = "December";
         } 
         
+        var defendantsHomeTelephone = document.getElementById('defendantsHomeTelephone').innerText;
+        if (defendantsHomeTelephone == "") {
+            document.getElementById('defendantsHomeTelephone').innerText = "—"
+        }
     }
 </script>
 
@@ -85,7 +89,7 @@
                     </tr>
                     <tr>
                         <td>Home telephone</td>
-                        <td>{{data['defendents-home-telephone']}}</td>
+                        <td id="defendantsHomeTelephone">{{data['defendents-home-telephone']}}</td>
                     </tr>
                     <tr>
                         <td>Mobile</td>
