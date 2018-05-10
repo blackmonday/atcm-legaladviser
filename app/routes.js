@@ -14,6 +14,8 @@ module.exports = router
 // INDEX
 router.post('/', function (req, res) {
     
+    req.session.data['SJPsessionStarted'] = "False"
+
     var prosecutor = req.session.data['prosecutor-group']
     req.session.data['magistrates-name'] = "Alice Johnson"
 
@@ -292,7 +294,7 @@ router.post('/', function (req, res) {
 // **************
 // DASHBOARD PAGE
 router.post('/legaladviser/dashboard', function (req, res) {
-                
+                    
     res.redirect('/legaladviser/search-for-a-case')
     
 })
@@ -301,6 +303,8 @@ router.post('/legaladviser/dashboard', function (req, res) {
 // Start a new Single Justice Procedure session
 router.post('/legaladviser/start-a-new-sjp-session', function (req, res) {
     
+    req.session.data['SJPsessionStarted'] = "True"
+
     res.redirect('/legaladviser/case-details-page')
     
 })

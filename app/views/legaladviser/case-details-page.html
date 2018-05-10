@@ -39,6 +39,23 @@
             document.getElementById('guiltyPlea').style.display = "none";
             document.getElementById('notGuiltyPlea').style.display = "block";
         }
+        
+        var SJPsessionStarted = document.getElementById('SJPsessionStarted').innerText;
+        var delegatePowers = document.getElementById('delegatePowers').innerText;
+        
+        if (SJPsessionStarted == "True") {
+            if (delegatePowers == "Yes") {
+                document.getElementById('noPlea').style.display = "block";
+                document.getElementById('guiltyPlea').style.display = "none";
+                document.getElementById('notGuiltyPlea').style.display = "none";
+            }
+            if (delegatePowers == "No") {
+                document.getElementById('noPlea').style.display = "none";
+                document.getElementById('guiltyPlea').style.display = "none";
+                document.getElementById('notGuiltyPlea').style.display = "block";
+            }
+        }
+
             // No plea received
             // Pleaded Guilty SJP
             // Pleaded Guilty - Court hearing requested
@@ -421,6 +438,13 @@
             document.getElementById('defendentsTitle').innerText = "";
         }
 
+        
+        
+        
+        
+        
+
+        
     }
 </script>
 
@@ -477,7 +501,7 @@
         </div>
     </div>
 
-    <span style="display:none">{% include "includes/display-decision.html" %}</span>
+    <span style="">{% include "includes/display-decision.html" %}</span>
 
     <div class="grid-row top_30">
         <div class="column-two-thirds">
