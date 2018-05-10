@@ -39,33 +39,30 @@
                     </select>
                 </fieldset>
                 
-                <fieldset class="inline bottom_30">
-                    <legend>
-                        <h3 class="">
-                            Are you working with a magistrate?
-                        </h3>
-                    </legend>
-                    <div class="multiple-choice" data-target="magistrateYes">
-                        <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
-                        <label for="radio-inline-1">Yes</label>
-                    </div>
-                    <div class="multiple-choice">
-                        <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
-                        <label for="radio-inline-2">No – I’m working under delegated powers</label>
-                    </div>
-                    
-                    <div class="js-hidden" id="magistrateYes">
-                        <div class="panel panel-border-wide">
+                <div class="form-group">
+                    <fieldset data-required data-error="Select yes or no">
+                        <legend class="bottom_5">Are you working with a magistrate?</legend>
 
-                            <label class="form-label" for="magistrates-name">Magistrates' name</label>
-                            <input class="form-control" id="magistrates-name" type="text" name="magistrates-name" valuse="{{ data['magistrates-name']}}">
-                        
+                        <div class="multiple-choice" data-target="magistrateYes">
+                            <input id="radio-1" type="radio" name="radio-group" value="Yes" {{ checked('radio-group','Yes') }}>
+                            <label for="radio-1">Yes</label>
                         </div>
-                    </div>
 
-                </fieldset>
+                        <div class="js-hidden" id="magistrateYes">
+                            <div class="panel panel-border-wide">
+                                <label class="form-label" for="magistrates-name">Magistrates' name</label>
+                                <input class="form-control" id="magistrates-name" type="text" name="magistrates-name" value="{{ data['magistrates-name']}}">
+                            </div>
+                        </div>
 
-                <input class="button" type="submit" value="Save">
+                        <div class="multiple-choice">
+                            <input id="radio-2" type="radio" name="radio-group" value="No" {{ checked('radio-group','No') }}>
+                            <label for="radio-2">No – I’m working under delegated powers</label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <input class="button top_30" type="submit" value="Start session">
                 <div class="top_15"><a href="/legaladviser/dashboard">Cancel</a></div>
             </form>
             

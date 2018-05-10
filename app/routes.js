@@ -15,6 +15,7 @@ module.exports = router
 router.post('/', function (req, res) {
     
     var prosecutor = req.session.data['prosecutor-group']
+    req.session.data['magistrates-name'] = "Alice Johnson"
 
     if (prosecutor == "DVLA (with back duty)") {
         req.session.data['case-reference-number'] = "9012466"
@@ -299,7 +300,7 @@ router.post('/legaladviser/dashboard', function (req, res) {
 // ********************************************
 // Start a new Single Justice Procedure session
 router.post('/legaladviser/start-a-new-sjp-session', function (req, res) {
-                
+    
     res.redirect('/legaladviser/case-details-page')
     
 })
