@@ -28,7 +28,6 @@
         
         
         
-        
         var incomeCalculation2 = Number(document.getElementById("defendentsIncomeShort").innerText);
         
         if (document.getElementById('incomeFrequency').innerText == "Weekly") {
@@ -126,7 +125,59 @@
             document.getElementById("penaltyOrFineAmount").value = "250";
         }
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //CHECK COMPENSATION
+        var compensation_amount = document.getElementById('compensation-amount').value;
+        if (compensation_amount == "0") {
+            document.getElementById('reasonForRemovingCompensation').style.display = "block";
+        } else {
+            document.getElementById('reasonForRemovingCompensation').style.display = "none";
+        }
+        
+        var discharge_compensation_amount = document.getElementById('discharge-compensation').value;
+        if (discharge_compensation_amount == "0") {
+            document.getElementById('discharge-reasonForRemovingCompensation').style.display = "block";
+        } else {
+            document.getElementById('discharge-reasonForRemovingCompensation').style.display = "none";
+        }
+
     }
+    
+    //CHECK COMPENSATION
+    function compensationChanged() {
+        var compensation_amount = document.getElementById('compensation-amount').value;
+        if (compensation_amount == "0") {
+            document.getElementById('reasonForRemovingCompensation').style.display = "block";
+        } else {
+            document.getElementById('reasonForRemovingCompensation').style.display = "none";
+        }
+    }
+    function discharge_compensationChanged() {
+        var discharge_compensation_amount = document.getElementById('discharge-compensation').value;
+        if (discharge_compensation_amount == "0") {
+            document.getElementById('discharge-reasonForRemovingCompensation').style.display = "block";
+        } else {
+            document.getElementById('discharge-reasonForRemovingCompensation').style.display = "none";
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -272,21 +323,47 @@
                                         <label id="penaltyOrFine" class="form-label" for="penalty-or-fine-amount">{{ data['penalty-or-fine'] }}</label>
                                         <div class="input-icon">
                                             <i>£</i>
-                                            <input class="form-control" id="penaltyOrFineAmount" type="number" min="0.0" step="0.01" name="penalty-or-fine-amount">
+                                            <input class="form-control form-control-1-4" id="penaltyOrFineAmount" type="number" min="0.0" step="0.01" name="penalty-or-fine-amount">
                                         </div>
 
                                         <div id="backDutyAmount" class="top_15">
                                             <label class="form-label" for="back-duty-amount">Back duty</label>
                                             <div class="input-icon">
                                                 <i>£</i>
-                                                <input class="form-control" id="back-duty-amount" type="number" min="0.00" step="0.01"  name="back-duty-amount" value="500">
+                                                <input class="form-control form-control-1-4" id="back-duty-amount" type="number" min="0.00" step="0.01"  name="back-duty-amount" value="500">
                                             </div>
                                         </div>
 
                                         <label class="form-label top_15" for="compensation-amount">Compensation</label>
                                         <div class="input-icon">
                                             <i>£</i>
-                                            <input class="form-control" id="compensation-amount" type="number" min="0.00" step="0.01"  name="compensation-amount" value="0">
+                                            <input class="form-control form-control-1-4" id="compensation-amount" type="number" min="0.00" step="0.01"  name="compensation-amount" value="{{data['compensation']}}" onkeyup="compensationChanged()">
+                                        </div>
+
+                                        <div id="reasonForRemovingCompensation" class="top_15">
+                                            <label class="form-label top_15 bottom_5" for="compensation-amount">Choose a reason for removing compensation</label>
+                                            <div class="multiple-choice">
+                                                <input id="reason-radio-1" type="radio" name="reason-radio-group" value="Insufficient details provided by the prosecutor">
+                                                <label for="reason-radio-1">Insufficient details provided by the prosecutor</label>
+                                            </div>
+                                            <div class="multiple-choice">
+                                                <input id="reason-radio-2" type="radio" name="reason-radio-group" value="Limited means of the defendant">
+                                                <label for="reason-radio-2">Limited means of the defendant</label>
+                                            </div>
+                                            <div class="multiple-choice">
+                                                <input id="reason-radio-3" type="radio" name="reason-radio-group" value="There is no loss or damage">
+                                                <label for="reason-radio-3">There is no loss or damage</label>
+                                            </div>
+                                            <div class="multiple-choice" data-target="reason-other">
+                                                <input id="reason-radio-4" type="radio" name="reason-radio-group" value="Other">
+                                                <label for="reason-radio-4">Other</label>
+                                            </div>
+
+                                            <div class="panel panel-border-wide js-hidden" id="reason-other">
+                                                <label class="form-label" for="reason-other">Give reason</label>
+                                                <textarea class="form-control form-control-3-4" name="reason-other" id="reason-other" rows="2"></textarea>
+                                            </div>
+
                                         </div>
 
                                     </div>
@@ -350,14 +427,14 @@
                                 <label class="form-label" for="costs">Costs</label>
                                 <div class="input-icon">
                                     <i>£</i>
-                                    <input class="form-control" id="costs" type="number" min="0.00" step="0.01"  name="costs" value="125">
+                                    <input class="form-control form-control-1-4" id="costs" type="number" min="0.00" step="0.01"  name="costs" value="125">
                                 </div>
 
                                 <div id="victimSurchage">
                                     <label class="form-label top_15" for="victim-surcharge">Victim surcharge</label>
                                     <div class="input-icon">
                                         <i>£</i>
-                                        <input class="form-control" id="victim-surcharge" type="number" min="0.00" step="0.01"  name="victim-surcharge" value="30">
+                                        <input class="form-control form-control-1-4" id="victim-surcharge" type="number" min="0.00" step="0.01"  name="victim-surcharge" value="30">
                                     </div>
                                 </div>
 
@@ -665,12 +742,50 @@
                         </fieldset>
                         
                         <fieldset>
-                            <label class="form-label top_30" for="compensation">Compensation</label>
+                            <label class="form-label top_30" for="discharge-compensation">Compensation</label>
                            <div class="input-icon">
                                 <i>£</i>
-                                <input class="form-control" id="discharge-compensation" type="number" min="0.0" step="0.01" name="discharge-compensation" value="{{ data['discharge-compensation'] }}">
+                                <input class="form-control" id="discharge-compensation" type="number" min="0.0" step="0.01" name="discharge-compensation" value="{{ data['discharge-compensation'] }}" onkeyup="discharge_compensationChanged()">
                             </div>
                         </fieldset>
+                        
+                        
+                        
+                        
+                        
+                        
+                        <fieldset>
+                            <div id="discharge-reasonForRemovingCompensation" class="top_15">
+                                <label class="form-label top_15 bottom_5" for="discharge-reasonForRemovingCompensation">Choose a reason for removing compensation</label>
+                                <div class="multiple-choice">
+                                    <input id="discharge-reason-radio-1" type="radio" name="discharge-reason-radio-group" value="Insufficient details provided by the prosecutor">
+                                    <label for="discharge-reason-radio-1">Insufficient details provided by the prosecutor</label>
+                                </div>
+                                <div class="multiple-choice">
+                                    <input id="discharge-reason-radio-2" type="radio" name="discharge-reason-radio-group" value="Limited means of the defendant">
+                                    <label for="discharge-reason-radio-2">Limited means of the defendant</label>
+                                </div>
+                                <div class="multiple-choice">
+                                    <input id="discharge-reason-radio-3" type="radio" name="discharge-reason-radio-group" value="There is no loss or damage">
+                                    <label for="discharge-reason-radio-3">There is no loss or damage</label>
+                                </div>
+                                <div class="multiple-choice" data-target="discharge-reason-other">
+                                    <input id="discharge-reason-radio-4" type="radio" name="discharge-reason-radio-group" value="Other">
+                                    <label for="discharge-reason-radio-4">Other</label>
+                                </div>
+
+                                <div class="panel panel-border-wide js-hidden" id="discharge-reason-other">
+                                    <label class="form-label" for="discharge-reason-other">Give reason</label>
+                                    <textarea class="form-control form-control-3-4" name="discharge-reason-other" id="discharge-reason-other" rows="2"></textarea>
+                                </div>
+
+                            </div>
+                        </fieldset>
+                        
+                        
+                        
+                        
+                        
                         
                         <hr class="top_60 bottom_60">
 

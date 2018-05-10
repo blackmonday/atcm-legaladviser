@@ -74,6 +74,8 @@ router.post('/', function (req, res) {
         req.session.data['claiming-benefits-group'] = "No"
         req.session.data['benefits-details'] = ""
         
+        req.session.data['compensation'] = "20"
+        req.session.data['discharge-compensation'] = "20"
         req.session.data['discharge-costs'] = "125"
         req.session.data['discharge-victim-surcharge'] = "30"
         
@@ -139,6 +141,8 @@ router.post('/', function (req, res) {
         req.session.data['claiming-benefits-group'] = "No"
         req.session.data['benefits-details'] = ""
         
+        req.session.data['compensation'] = "20"
+        req.session.data['discharge-compensation'] = "20"
         req.session.data['discharge-costs'] = "125"
         req.session.data['discharge-victim-surcharge'] = "30"
         
@@ -204,6 +208,8 @@ router.post('/', function (req, res) {
         req.session.data['claiming-benefits-group'] = "No"
         req.session.data['benefits-details'] = ""
         
+        req.session.data['compensation'] = "20"
+        req.session.data['discharge-compensation'] = "20"
         req.session.data['discharge-costs'] = "125"
         req.session.data['discharge-victim-surcharge'] = "30"
         
@@ -269,6 +275,8 @@ router.post('/', function (req, res) {
         req.session.data['claiming-benefits-group'] = "No"
         req.session.data['benefits-details'] = ""
         
+        req.session.data['compensation'] = "20"
+        req.session.data['discharge-compensation'] = "20"
         req.session.data['discharge-costs'] = "125"
         req.session.data['discharge-victim-surcharge'] = "30"
         
