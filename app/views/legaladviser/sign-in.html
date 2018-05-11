@@ -29,23 +29,34 @@
 
             <div id="financialPenalty">
                 
-                <h1 class="heading-xlarge top_30 bottom_30">Sign in to Common Platform</h1>
-
-                <div class="form-group bottom_15">
-                    <label class="form-label" for="username">Username</label>
-                    <input class="form-control" id="username" type="text" name="username">
-
-                    <label class="form-label top_15" for="password">Password</label>
-                    <input class="form-control" id="password" type="text" name="password">
-                </div>
-                
                 <form class="form" action="" method="post">
+                    
+                    <h1 class="heading-xlarge top_30 bottom_30">Sign in to Common Platform</h1>
+
+                    <div class="form-group bottom_15">
+                        <fieldset data-required data-error="Enter a valid username">
+                            <legend class="form-label" for="username">Username</legend>
+                            <label class="form-label" for="username" style="display: none">Username</label>
+                            <input class="form-control" id="username" type="text" name="username">
+                        </fieldset>
+                    </div>
+                    
+                    <div class="form-group bottom_15">
+                        <fieldset data-required data-error="Enter a valid password" class="top_15">
+                            <legend class="form-label" for="password">Password</legend>
+                            <label class="form-label" for="password" style="display: none">Password</label>
+                            <input class="form-control" id="password" type="text" name="password">
+                        </fieldset>
+                        
+                    </div>
+                
                     <div class="form-group">
                         
                         <input class="button top_15" type="submit" value="Sign in" onClick="isChecked()">
                         <p class="top_15 dummy-link">Reset your password</p>
 
                     </div>
+                    
                 </form>
 
             </div>
