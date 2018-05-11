@@ -84,7 +84,7 @@ router.post('/', function (req, res) {
         
         req.session.data['payToCourtCostsHeader'] = "Check costs"
                 
-        res.redirect('/legaladviser/dashboard')
+        res.redirect('/legaladviser/sign-in')
         
     } else if (prosecutor == "DVLA (no back duty)") {
         req.session.data['case-reference-number'] = "2694617"
@@ -151,7 +151,7 @@ router.post('/', function (req, res) {
         
         req.session.data['payToCourtCostsHeader'] = "Check costs and surcharge"
         
-        res.redirect('/legaladviser/dashboard')
+        res.redirect('/legaladviser/sign-in')
         
     } else if (prosecutor == "TFL") {
         req.session.data['case-reference-number'] = "2694617"
@@ -218,7 +218,7 @@ router.post('/', function (req, res) {
         
         req.session.data['payToCourtCostsHeader'] = "Check costs and surcharge"
         
-        res.redirect('/legaladviser/dashboard')
+        res.redirect('/legaladviser/sign-in')
         
     } else if (prosecutor == "TVL") {
         req.session.data['case-reference-number'] = "2694617"
@@ -285,7 +285,7 @@ router.post('/', function (req, res) {
         
         req.session.data['payToCourtCostsHeader'] = "Check costs and surcharge"
         
-        res.redirect('/legaladviser/dashboard')
+        res.redirect('/legaladviser/sign-in')
         
     }
 
@@ -521,6 +521,24 @@ router.post('/legaladviser/defendants-online-plea', function (req, res) {
     
 })
 
+
+
+// *******
+// SIGN IN
+router.post('/legaladviser/sign-in', function (req, res) {
+    
+    res.redirect('/legaladviser/sign-in-authentication')
+    
+})
+
+
+// ************************
+// SIGN IN - AUTHENTICATION
+router.post('/legaladviser/sign-in-authentication', function (req, res) {
+    
+    res.redirect('/legaladviser/dashboard')
+    
+})
 
 
 // ********

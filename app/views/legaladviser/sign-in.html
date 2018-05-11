@@ -1,4 +1,4 @@
-{% extends "layout-CPP.html" %}
+{% extends "layout-CPP-no-sign-in.html" %}
 
 {% block page_title %}
     GOV.UK prototype kit
@@ -31,14 +31,19 @@
                 
                 <h1 class="heading-xlarge top_30 bottom_30">Sign in to Common Platform</h1>
 
+                <div class="form-group bottom_15">
+                    <label class="form-label" for="username">Username</label>
+                    <input class="form-control" id="username" type="text" name="username">
+
+                    <label class="form-label top_15" for="password">Password</label>
+                    <input class="form-control" id="password" type="text" name="password">
+                </div>
+                
                 <form class="form" action="" method="post">
                     <div class="form-group">
                         
-                        
-                        
-                        
-                        <input class="button top_15" type="submit" value="Sign out" onClick="isChecked()">
-                        <p class="top_15"><a href="javascript:history.go(-1);">Cancel</a></p>
+                        <input class="button top_15" type="submit" value="Sign in" onClick="isChecked()">
+                        <p class="top_15 dummy-link">Reset your password</p>
 
                     </div>
                 </form>
