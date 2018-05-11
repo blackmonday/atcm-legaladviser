@@ -1,0 +1,61 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+    GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<style>
+</style>
+
+<script>
+    window.onload = function() {
+    }
+</script>
+
+<main id="content" role="main">
+    
+    <div class="grid-row">
+        <div class="column-full">
+            <!-- Alpha phase banner -->
+            {% include "includes/phase_banner_alpha.html" %}
+        </div>
+    </div>
+
+    <div class="grid-row top_30">
+        
+        <div class="column-two-thirds">
+
+            <div id="financialPenalty">
+                
+                <h1 class="heading-xlarge top_30 bottom_30">Sign out</h1>
+                
+                <!-- NOTIFICATION BANNER PATTERN - RED + ALERT ICON -->
+                <div class="notification-banner-nest notification-banner-red bottom_15">
+                    <div class="notification-banner">
+                        <div class="notification-banner-icon">
+                            <object data="/public/images/alert-icon-white.svg" type="image/svg+xml"></object>
+                        </div>
+                        <div class="notification-banner-text">Are you sure you want to sign out?</div>
+                    </div>
+                </div>
+
+                <form class="form" action="" method="post">
+                    <div class="form-group">
+                        <input class="button top_15" type="submit" value="Sign out" onClick="isChecked()">
+                        <p class="top_15"><a href="javascript:history.go(-1);">Cancel</a></p>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+        <div class="column-one-third">
+        </div>
+            
+    </div>
+    
+</main>
+{% endblock %}

@@ -520,3 +520,13 @@ router.post('/legaladviser/defendants-online-plea', function (req, res) {
     res.redirect('/legaladviser/case-details-page')
     
 })
+
+
+
+// ********
+// SIGN OUT
+router.post('/legaladviser/sign-out', function (req, res) {
+    
+    res.redirect('http://gov.uk')
+    
+})

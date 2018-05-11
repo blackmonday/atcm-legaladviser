@@ -10,6 +10,17 @@
 
 {% block proposition_header %}
 
+<style>
+    #signout {
+        color:white;
+        text-decoration: none;
+    }
+    #signout:hover {
+        color:white;
+        text-decoration: underline;
+    }
+</style>
+
   <div class="header-proposition">
     <div class="content">
       <nav id="proposition-menu">
@@ -23,7 +34,7 @@
     </div>
   </div>
 
-  <p style="color: #FFF; font-weight: bold; margin: 0; padding-top: 7px; text-align: right; float: right; margin-right: 20px;">Sign out</p><p style="color: #FFF; font-weight: bold; margin: 0; margin-right: 30px; padding-top: 7px; text-align: right; float: right">Your account</p>
+  <a href="sign-out.html"><p style="font-weight: bold; margin: 0; padding-top: 7px; text-align: right; float: right; margin-right: 20px;" id="signout">Sign out</p></a><p style="color: #FFF; font-weight: bold; margin: 0; margin-right: 30px; padding-top: 7px; text-align: right; float: right">Your account</p>
 
 {% endblock %}
 
