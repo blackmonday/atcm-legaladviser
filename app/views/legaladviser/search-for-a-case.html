@@ -62,9 +62,10 @@
                 <thead>
                     <tr>
                         <th scope="col" style="width:175px">Name</th>
-                        <th scope="col">Reference</th>
-                        <th scope="col">Date of birth</th>
+                        <th scope="col">Case reference number</th>
                         <th scope="col">Case status</th>
+                        <th scope="col">Date of birth</th>
+                        <th scope="col">Prosecutor</th>
                         <th scope="col">Notice served</th>
                     </tr>
                 </thead>
@@ -72,9 +73,9 @@
                     <tr>
                         <th scope="row"><a href="case-details-page.html"><span class="last-name">{{data['defendents-last-name']}}</span> {{data['defendents-first-name']}}</a></th>
                         <td>{{data['case-reference-number']}}</td>
+                        <td>{{data['case-status']}}</td>
                         <td>{{data['defendents-dob-short']}}</td>
-                        <!--<td>{{data['case-status']}}</td>-->
-                        <td>{{data['defendents-plea']}}</td>
+                        <td>{{data['prosecutor']}}</td>
                         <td>{{data['notice-served']}}</td>
                     </tr>
                 </tbody>

@@ -8,8 +8,8 @@
 
 <style>
     .check-your-decisions-table td {
-        border: 0;
-        padding: 5px;
+        /*border: 0;*/
+        padding: 20px 0 20px 0;
     }
     .table-cell-width {
         width: 40%;
@@ -851,7 +851,7 @@
         <div class="grid-row top_30">
             <div class="column-full">
 
-                <h1 class="heading-xlarge top_0 bottom_5">Check your decision</h1>
+                <h1 class="heading-xlarge top_00 bottom_5">Check your decision</h1>
 
                 <form class="form" action="" method="post">
                     <div class="form-group">
@@ -867,27 +867,26 @@
                                     <td><a href="case-details-page">Change</a></td>
                                 </tr>
                                 <tr>
-                                    <td class="table-cell-width bold">Offence type</td>
+                                    <td class="table-cell-width">Offence type</td>
                                     <td>{{data['offence-type']}}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td class="table-cell-width bold">Verdict</td>
+                                    <td class="table-cell-width">Verdict</td>
                                     <td>{{data['verdict']}}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td class="table-cell-width bold">Result</td>
+                                    <td class="table-cell-width">Result</td>
                                     <td>{{data['decision']}}</td>
                                     <td></td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <hr>
 
                         <!-- OUTCOME -->
-                        <table class="check-your-decisions-table">
+                        <table class="check-your-decisions-table top_60">
                             <tbody>
                                 <tr>
                                     <td class="heading-medium">Outcome</td>
@@ -895,42 +894,41 @@
                                     <td><a href="confirm-outcome.html">Change</a></td>
                                 </tr>
                                 <tr>
-                                    <td class="table-cell-width bold">Defendant's weekly income</td>
+                                    <td class="table-cell-width">Defendant's weekly income</td>
                                     <td>£<span id="incomeCalculation">{{data['defendents-income-amount']}}</span></td>
                                     <td><span id="incomeFrequency" style="display:none">{{data['income-frequency-group']}}</span></td>
                                 </tr>
                                 <tr>
-                                    <td class="table-cell-width bold">Guilty plea taken into account</td>
+                                    <td class="table-cell-width">Guilty plea taken into account</td>
                                     <td>{{data['guilty-plea-taken-into-account']}}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td class="table-cell-width bold">Fine band applied</td>
+                                    <td class="table-cell-width">Fine band applied</td>
                                     <td>{{data['banding-group']}}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td class="table-cell-width bold">Penalty</td>
+                                    <td class="table-cell-width">Penalty</td>
                                     <td>£{{data['penalty-or-fine-amount']}}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td class="table-cell-width bold">Back duty</td>
+                                    <td class="table-cell-width">Back duty</td>
                                     <td>£{{data['back-duty-amount']}}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td class="table-cell-width bold">Compensation</td>
+                                    <td class="table-cell-width">Compensation</td>
                                     <td>£{{data['compensation-amount']}}</td>
                                     <td></td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <hr>
 
                         <!-- COSTS -->
-                        <table class="check-your-decisions-table">
+                        <table class="check-your-decisions-table top_60">
                             <tbody>
                                 <tr>
                                     <td class="heading-medium">Costs</td>
@@ -938,22 +936,21 @@
                                     <td><a href="payment-method.html">Change</a></td>
                                 </tr>
                                 <tr>
-                                    <td class="table-cell-width bold">Costs</td>
+                                    <td class="table-cell-width">Costs</td>
                                     <td>£{{data['costs']}}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td class="table-cell-width bold">Collection order issued</td>
+                                    <td class="table-cell-width">Collection order issued</td>
                                     <td id="confirm-collection-order">{{data['confirm-collection-order']}}</td>
                                     <td></td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <hr>
                         
                         <!-- PAYMENT -->
-                        <table id="finacialPenaltySection" class="check-your-decisions-table">
+                        <table id="finacialPenaltySection" class="check-your-decisions-table top_60">
                             <tbody>
                                 <tr>
                                     <td class="heading-medium">Payment</td>
@@ -961,12 +958,12 @@
                                     <td><a href="payment-method">Change</a></td>
                                 </tr>
                                 <tr>
-                                    <td class="table-cell-width bold">Total</td>
+                                    <td class="table-cell-width">Total</td>
                                     <td>£{{data['total-payment']}}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td class="table-cell-width bold">Payment method</td>
+                                    <td class="table-cell-width">Payment method</td>
                                     <td><span id="paymentMethod">{{data['payment-method-group']}}</span></td>
                                     <td></td>
                                 </tr>
@@ -978,41 +975,41 @@
                         <table id="payDirectToCourtSection" class="check-your-decisions-table">
                             <tbody>
                                 <tr>
-                                    <td class="table-cell-width bold">Reason you didn't deduct from benefits</td>
+                                    <td class="table-cell-width">Reason you didn't deduct from benefits</td>
                                     <td>{{data['deduct-from-benefits-group']}} {{data['other-reason']}}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td class="table-cell-width bold">How should defendant pay the court</td>
+                                    <td class="table-cell-width">How should defendant pay the court</td>
                                     <td id="howShouldDefendantPay">{{data['how-should-defendent-pay-group']}}</td>
                                     <td></td>
                                 </tr>
                                 
                                 <tr id="lumpSum14or28">
-                                    <td class="table-cell-width bold">Lump sum amount</td>
+                                    <td class="table-cell-width">Lump sum amount</td>
                                     <td>£<span id="totalPayment">{{data['total-payment']}}</span><!-- <span style="text-transform: lowercase">{{data['set-reserve-terms-group']}}</span>--></td>
                                     <td></td>
                                 </tr>
                                 
                                 <tr id="lumpSumPluInstalments">
-                                    <td class="table-cell-width bold">Lump sum amount</td>
+                                    <td class="table-cell-width">Lump sum amount</td>
                                     <td>£<span id="totalPayment">{{data['lump-sum-amount']}}</span><!-- <span style="text-transform: lowercase">{{data['set-reserve-terms-group']}}</span>--></td>
                                     <td></td>
                                 </tr>
                                 
                                 <tr id="instalments">
-                                    <td class="table-cell-width bold">Instalment amount</td>
+                                    <td class="table-cell-width">Instalment amount</td>
                                     <td>£<span id="instalmentAmount1">{{data['instalment-amount-1']}}</span><span id="instalmentAmount2">{{data['instalment-amount-2']}}</span></td>
                                     <td></td>
                                 </tr>
                                 
                                 <tr id="instalmentsFrequency">
-                                    <td class="table-cell-width bold">How often should instalments be made?</td>
+                                    <td class="table-cell-width">How often should instalments be made?</td>
                                     <td>{{data['instalment-length-group']}}</td>
                                     <td></td>
                                 </tr>
                                 <tr id="instalmentsStartDate">
-                                    <td class="table-cell-width bold">Instalment start date</td>
+                                    <td class="table-cell-width">Instalment start date</td>
                                     <td id="instalmentsDate1">{{ data['day'] }} <span id="instalmentMonth1">{{ data['month'] }}</span> {{ data['year'] }}</td>
                                     <td id="instalmentsDate2">{{ data['day2'] }} <span id="instalmentMonth2">{{ data['month2'] }}</span> {{ data['year2'] }}</td>
                                     <td></td>
@@ -1026,41 +1023,41 @@
                         <table id="deductFromBenefitsSection" class="check-your-decisions-table">
                             <tbody>
                                 <tr>
-                                    <td class="table-cell-width bold">Reason for deducting from benefits</td>
+                                    <td class="table-cell-width">Reason for deducting from benefits</td>
                                     <td>{{data['reason-for-deducting-from-benefits-group']}}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td class="table-cell-width bold">How should defendant pay the court</td>
+                                    <td class="table-cell-width">How should defendant pay the court</td>
                                     <td id="howShouldDefendantPay_2">{{data['set-reserve-terms-group']}}</td>
                                     <td></td>
                                 </tr>
 
                                 <tr id="lumpSum14or28_2">
-                                    <td class="table-cell-width bold">Lump sum amount</td>
+                                    <td class="table-cell-width">Lump sum amount</td>
                                     <td>£<span id="totalPayment_2">{{data['total-payment']}}</span><!-- <span style="text-transform: lowercase">{{data['set-reserve-terms-group']}}</span>--></td>
                                     <td></td>
                                 </tr>
                                 
                                 <tr id="lumpSumPluInstalments_2">
-                                    <td class="table-cell-width bold">Lump sum amount</td>
+                                    <td class="table-cell-width">Lump sum amount</td>
                                     <td>£<span id="totalPayment_2">{{data['lump-sum-amount']}}</span><!-- <span style="text-transform: lowercase">{{data['set-reserve-terms-group']}}</span>--></td>
                                     <td></td>
                                 </tr>
                                 
                                 <tr id="instalments_2">
-                                    <td class="table-cell-width bold">Instalment amount</td>
+                                    <td class="table-cell-width">Instalment amount</td>
                                     <td>£<span id="instalmentAmount1_2">{{data['instalment-amount-1']}}</span><span id="instalmentAmount2_2">{{data['instalment-amount-2']}}</span></td>
                                     <td></td>
                                 </tr>
                                 
                                 <tr id="instalmentsFrequency_2">
-                                    <td class="table-cell-width bold">How often should instalments be made?</td>
+                                    <td class="table-cell-width">How often should instalments be made?</td>
                                     <td>{{data['lump-sum-instalment-frequency-group']}}</td>
                                     <td></td>
                                 </tr>
                                 <tr id="instalmentsStartDate_2">
-                                    <td class="table-cell-width bold">Instalment start date</td>
+                                    <td class="table-cell-width">Instalment start date</td>
                                     <td id="instalmentsDate1_2">{{ data['day'] }} <span id="instalmentMonth1_2">{{ data['month'] }}</span> {{ data['year'] }}</td>
                                     <td id="instalmentsDate2_2">{{ data['day2'] }} <span id="instalmentMonth2_2">{{ data['month2'] }}</span> {{ data['year2'] }}</td>
                                     <td></td>
@@ -1074,12 +1071,12 @@
                         <table id="attachToEarningsSection" class="check-your-decisions-table">
                             <tbody>
                                 <tr>
-                                    <td class="table-cell-width bold">Reason you attached to earnings</td>
+                                    <td class="table-cell-width">Reason you attached to earnings</td>
                                     <td>{{data['reason-for-attaching-to-earnings-group']}}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td class="table-cell-width bold">How should defendant pay the court</td>
+                                    <td class="table-cell-width">How should defendant pay the court</td>
                                     <td id="howShouldDefendantPay_3">{{data['set-reserve-terms-group']}}</td>
                                     <td></td>
                                 </tr>
@@ -1088,17 +1085,17 @@
                                 
                                 
                                 <tr id="lumpSum_3">
-                                    <td class="table-cell-width bold">Lump sum amount</td>
+                                    <td class="table-cell-width">Lump sum amount</td>
                                     <td>£<span id="a2eTotalPayment">{{data['total-payment']}}</span><span id="a2eLumpSumAmount">{{data['lump-sum-amount']}}</span></td>
                                     <td></td>
                                 </tr>
                                 <tr id="instalments_3">
-                                    <td class="table-cell-width bold">Instalment amount</td>
+                                    <td class="table-cell-width">Instalment amount</td>
                                     <td>£{{data['instalments-amount']}}</td>
                                     <td></td>
                                 </tr>
                                 <tr id="instalmentsOnly_3">
-                                    <td class="table-cell-width bold">Instalment amount</td>
+                                    <td class="table-cell-width">Instalment amount</td>
                                     <td>£{{data['instalments-only-amount']}}</td>
                                     <td></td>
                                 </tr>
@@ -1106,12 +1103,12 @@
                                 
                                 
                                 <tr id="instalmentsFrequency_3">
-                                    <td class="table-cell-width bold">How often should instalments be made?</td>
+                                    <td class="table-cell-width">How often should instalments be made?</td>
                                     <td><span id="a2eFrequency1">{{data['lump-sum-instalment-frequency-group']}}</span><span id="a2eFrequency2">{{data['instalment-only-frequency-group-2']}}</span></td>
                                     <td></td>
                                 </tr>
                                 <tr id="instalmentsStartDate_3">
-                                    <td class="table-cell-width bold">Instalment start date</td>
+                                    <td class="table-cell-width">Instalment start date</td>
                                     <td id="instalmentsDate1_3">{{ data['day'] }} <span id="instalmentMonth1_3">{{ data['month'] }}</span> {{ data['year'] }}</td>
                                     <td id="instalmentsDate2_3">{{ data['day2'] }} <span id="instalmentMonth2_3">{{ data['month2'] }}</span> {{ data['year2'] }}</td>
                                     <td></td>
@@ -1131,44 +1128,44 @@
                         <table id="attachToEarningsSection_employerDetails" class="check-your-decisions-table">
                             <tbody>
                                 <tr>
-                                    <td class="table-cell-width bold">Employer reference</td>
+                                    <td class="table-cell-width">Employer reference</td>
                                     <td id="a2eEmployeeReference">{{ data['a2e-employee-reference'] }}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td class="table-cell-width bold">Employer name</td>
+                                    <td class="table-cell-width">Employer name</td>
                                     <td id="a2eEmployerName">{{ data['a2e-employer-name'] }}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td class="table-cell-width bold">Employer address</td>
+                                    <td class="table-cell-width">Employer address</td>
                                     <td style="text-align: left">
                                         <span id="a2eAddressLine1">{{ data['a2e-employer-address-line-1'] }}<br></span>
                                         <span id="a2eAddressLine2">{{ data['a2e-employer-address-line-2'] }}<br></span>
                                         <span id="a2eAddressTown">{{ data['a2e-employer-town-or-city'] }}<br></span>
                                         <span id="a2eAddressPostcode">{{ data['a2e-employer-postcode'] }}</span>
                                     </td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <td class="table-cell-width bold">Employer telephone</td>
+                                    <td class="table-cell-width">Employer telephone</td>
                                     <td id="a2eEmployerTelephone">{{data['a2e-employer-telephone']}}</td>
                                     <td></td>
                                 </tr>
                             </tbody>
                         </table>
                         
-                        <hr>
 
                         <!-- ADD A NOTE -->
-                        <label class="form-label" for="optional-note">
+                        <div class="top_60"><label class="form-label" for="optional-note">
                             <span class="heading-medium">Add a note (optional)</span>
                             <p class="bottom_5">This will only be seen by court staff</p>
                         </label>
-                        <textarea class="form-control form-control-3-4" name="optional-note" id="optional-note" rows="5"></textarea>
+                            <textarea class="form-control form-control-3-4" name="optional-note" id="optional-note" rows="5"></textarea>
 
-                        <input class="button top_30" type="submit" value="Continue">
+                            <input class="button top_30" type="submit" value="Continue">
                         <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
-
+                        </div>
                     </div>
                 </form>
 
@@ -1178,7 +1175,7 @@
     </div>
         
     <div id="referToCourtHearing">
-        <h1 class="heading-xlarge top_0 bottom_5">Check your decision</h1>
+        <h1 class="heading-xlarge top_30 bottom_5">Check your decision</h1>
 
         <form class="form" action="" method="post">
             <div class="form-group">
@@ -1194,27 +1191,25 @@
                             <td><a href="case-details-page">Change</a></td>
                         </tr>
                         <tr>
-                            <td class="table-cell-width bold">Offence type</td>
+                            <td class="table-cell-width">Offence type</td>
                             <td>{{data['offence-type']}}</td>
                             <td></td>
                         </tr>
                         <tr>
-                            <td class="table-cell-width bold">Verdict</td>
+                            <td class="table-cell-width">Verdict</td>
                             <td>{{data['verdict']}}</td>
                             <td></td>
                         </tr>
                         <tr>
-                            <td class="table-cell-width bold">Result</td>
+                            <td class="table-cell-width">Result</td>
                             <td>{{data['decision']}}</td>
                             <td></td>
                         </tr>
                     </tbody>
                 </table>
-
-                <hr>
                 
                 <!-- OUTCOME -->
-                <table class="check-your-decisions-table">
+                <table class="check-your-decisions-table top_60">
                     <tbody>
                         <tr>
                             <td class="heading-medium">Outcome</td>
@@ -1223,43 +1218,43 @@
                         </tr>
 
                         <tr>
-                            <td class="table-cell-width bold">Refer to which court?</td>
+                            <td class="table-cell-width">Refer to which court?</td>
                             <td>{{ data['refer-to-which-court-group'] }}</td>
                             <td></td>
                         </tr>
 
                         <tr>
-                            <td class="table-cell-width bold">Court room</td>
+                            <td class="table-cell-width">Court room</td>
                             <td>{{ data['court-room-group'] }}</td>
                             <td></td>
                         </tr>
 
                         <tr>
-                            <td class="table-cell-width bold">Date of hearing</td>
+                            <td class="table-cell-width">Date of hearing</td>
                             <td>{{ data['hearing-day'] }} <span id="hearingMonth">{{ data['hearing-month'] }}</span> {{ data['hearing-year'] }}</td>
                             <td></td>
                         </tr>
 
                         <tr>
-                            <td class="table-cell-width bold">Start time of hearing session</td>
+                            <td class="table-cell-width ">Start time of hearing session</td>
                             <td>{{ data['hearing-time-hour'] }}:{{ data['hearing-time-minute'] }}</td>
                             <td></td>
                         </tr>
 
                         <tr>
-                            <td class="table-cell-width bold">Reason for referring to court</td>
+                            <td class="table-cell-width">Reason for referring to court</td>
                             <td><span id="reasonForReferringToCourt">{{ data['reason-for-referring-to-court-group'] }}</span><span id="equivocalPleaGroup"> - {{ data['equivocal-plea-group'] }}</span><span id="caseManagementGroup"> - {{ data['case-management-group'] }}</span></td>
                             <td></td>
                         </tr>
 
                         <tr>
-                            <td class="table-cell-width bold">Is an interpreter needed in court</td>
+                            <td class="table-cell-width">Is an interpreter needed in court</td>
                             <td id="interpreterGroup">{{ data['interpreter-group'] }}</td>
                             <td></td>
                         </tr>
 
                         <tr id="whichLanguage">
-                            <td class="table-cell-width bold">Which language</td>
+                            <td class="table-cell-width">Which language</td>
                             <td>{{ data['interpeter-language'] }}</td>
                             <td></td>
                         </tr>
@@ -1267,10 +1262,8 @@
                     </tbody>
                 </table>
 
-                <hr>
-
                 <!-- ADD A NOTE -->
-                <label class="form-label" for="optional-note">
+                <label class="form-label top_60" for="optional-note">
                     <span class="heading-medium">Add a note (optional)</span>
                     <p class="bottom_5">This will only be seen by court staff</p>
                 </label>
@@ -1284,7 +1277,7 @@
     </div>
     
     <div id="withdraw">
-        <h1 class="heading-xlarge top_0 bottom_5">Check your decision</h1>
+        <h1 class="heading-xlarge top_30 bottom_5">Check your decision</h1>
 
         <h2 class="heading-large">Offence 1</h2>
 
@@ -1297,32 +1290,30 @@
                     <td><a href="case-details-page">Change</a></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Offence type</td>
+                    <td class="table-cell-width">Offence type</td>
                     <td>{{data['offence-type']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Verdict</td>
+                    <td class="table-cell-width">Verdict</td>
                     <td>{{data['verdict']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Result</td>
+                    <td class="table-cell-width">Result</td>
                     <td>{{data['decision']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Reason for withdrawal</td>
+                    <td class="table-cell-width">Reason for withdrawal</td>
                     <td>{{data['withdrawn-reason']}}</td>
                     <td></td>
                 </tr>
             </tbody>
         </table>
 
-        <hr>
-
         <!-- ADD A NOTE -->
-        <form class="form" action="" method="post">
+        <form class="form top_60" action="" method="post">
             <div class="form-group">
                 <label class="form-label" for="optional-note">
                     <span class="heading-medium">Add a note (optional)</span>
@@ -1340,7 +1331,7 @@
 
     <div id="discharge">
         
-        <h1 class="heading-xlarge top_0 bottom_5">Check your decision</h1>
+        <h1 class="heading-xlarge top_30 bottom_5">Check your decision</h1>
 
         <h2 class="heading-large">Offence 1</h2>
 
@@ -1353,27 +1344,25 @@
                     <td><a href="case-details-page">Change</a></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Offence type</td>
+                    <td class="table-cell-width">Offence type</td>
                     <td>{{data['offence-type']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Verdict</td>
+                    <td class="table-cell-width">Verdict</td>
                     <td>{{data['verdict']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Result</td>
+                    <td class="table-cell-width">Result</td>
                     <td>{{data['decision']}}</td>
                     <td></td>
                 </tr>
             </tbody>
         </table>
-
-        <hr>
   
         <!-- OUTCOME -->
-        <table class="check-your-decisions-table">
+        <table class="check-your-decisions-table top_60">
             <tbody>
                 <tr>
                     <td class="heading-medium">Outcome</td>
@@ -1381,22 +1370,20 @@
                     <td><a href="/legaladviser/confirm-outcome">Change</a></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Type of discharge</td>
+                    <td class="table-cell-width">Type of discharge</td>
                     <td>{{data['discharge-type-group']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Compensation</td>
+                    <td class="table-cell-width">Compensation</td>
                     <td>£{{data['discharge-compensation']}}</td>
                     <td></td>
                 </tr>
             </tbody>
         </table>
-
-        <hr>
         
         <!-- COSTS -->
-        <table class="check-your-decisions-table">
+        <table class="check-your-decisions-table top_60">
             <tbody>
                 <tr>
                     <td class="heading-medium">Costs</td>
@@ -1404,27 +1391,25 @@
                     <td><a href="confirm-outcome">Change</a></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Costs</td>
+                    <td class="table-cell-width">Costs</td>
                     <td>£{{data['discharge-costs']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Victim surcharge</td>
+                    <td class="table-cell-width">Victim surcharge</td>
                     <td>£{{data['discharge-victim-surcharge']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Collection order issued</td>
+                    <td class="table-cell-width">Collection order issued</td>
                     <td id="discharge-confirm-collection-order">{{data['discharge-confirm-collection-order']}}</td>
                     <td></td>
                 </tr>
             </tbody>
         </table>
 
-        <hr>
-
         <!-- PAYMENT -->
-        <table id="finacialPenaltySection2" class="check-your-decisions-table">
+        <table id="finacialPenaltySection2" class="check-your-decisions-table top_60">
             <tbody>
                 <tr>
                     <td class="heading-medium">Payment</td>
@@ -1432,12 +1417,12 @@
                     <td><a href="payment-method">Change</a></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Total</td>
+                    <td class="table-cell-width">Total</td>
                     <td>£{{data['total-payment-discharge']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Payment method</td>
+                    <td class="table-cell-width">Payment method</td>
                     <td><span id="paymentMethod">{{data['payment-method-group']}}</span></td>
                     <td></td>
                 </tr>
@@ -1454,12 +1439,12 @@
         <table id="payDirectToCourtSection2" class="check-your-decisions-table">
             <tbody>
                 <tr>
-                    <td class="table-cell-width bold">Reason you didn't deduct from benefits</td>
+                    <td class="table-cell-width">Reason you didn't deduct from benefits</td>
                     <td>{{data['deduct-from-benefits-group']}} {{data['other-reason']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">How should defendent pay the court</td>
+                    <td class="table-cell-width">How should defendent pay the court</td>
                     <td id="discharge_howToPay">{{data['how-should-defendent-pay-group']}}</td>
                     <td></td>
                 </tr>
@@ -1472,7 +1457,7 @@
         <table id="discharge_lumpSumOnly" class="check-your-decisions-table">
             <tbody>
                 <tr>
-                    <td class="table-cell-width bold">Lump sum amount</td>
+                    <td class="table-cell-width">Lump sum amount</td>
                     <td>£{{data['total-payment-discharge']}}</td>
                     <td></td>
                 </tr>
@@ -1485,22 +1470,22 @@
         <table id="discharge_lumpSumInstalments" class="check-your-decisions-table">
             <tbody>
                 <tr>
-                    <td class="table-cell-width bold">Lump sum amount</td>
+                    <td class="table-cell-width">Lump sum amount</td>
                     <td>£{{data['lump-sum-amount']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Instalment amount</td>
+                    <td class="table-cell-width">Instalment amount</td>
                     <td>£{{data['instalment-amount-1']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Instalment frequency</td>
+                    <td class="table-cell-width">Instalment frequency</td>
                     <td>{{data['instalment-length-group']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Instalment start date</td>
+                    <td class="table-cell-width">Instalment start date</td>
                     <td>{{data['day']}} <span id="discharge_instalmentMonth1">{{data['month']}}</span> {{data['year']}}</td>
                     <td></td>
                 </tr>
@@ -1513,17 +1498,17 @@
         <table id="discharge_instalmentsOnly" class="check-your-decisions-table">
             <tbody>
                 <tr>
-                    <td class="table-cell-width bold">Instalment amount</td>
+                    <td class="table-cell-width">Instalment amount</td>
                     <td>£ {{data['instalment-amount-2']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Instalment frequency</td>
+                    <td class="table-cell-width">Instalment frequency</td>
                     <td>{{data['instalment-length-group-2']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Instalment start date</td>
+                    <td class="table-cell-width">Instalment start date</td>
                     <td>{{data['day2']}} <span id="discharge_instalmentMonth2">{{data['month2']}}</span> {{data['year2']}}</td>
                     <td></td>
                 </tr>
@@ -1541,12 +1526,12 @@
         <table id="deductFromBenefitsSection2" class="check-your-decisions-table">
             <tbody>
                 <tr>
-                    <td class="table-cell-width bold">Reason for deducting from benefits</td>
+                    <td class="table-cell-width">Reason for deducting from benefits</td>
                     <td>{{data['reason-for-deducting-from-benefits-group']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Reserve terms</td>
+                    <td class="table-cell-width">Reserve terms</td>
                     <td id="discharge_setReserveTermsGroup">{{data['set-reserve-terms-group']}}</td>
                     <td></td>
                 </tr>
@@ -1559,7 +1544,7 @@
         <table id="deductFromBenefitsSection2_lumpSumOnly" class="check-your-decisions-table">
             <tbody>
                 <tr>
-                    <td class="table-cell-width bold">Lump sum amount</td>
+                    <td class="table-cell-width">Lump sum amount</td>
                     <td>£{{data['total-payment-discharge']}}</td>
                     <td></td>
                 </tr>
@@ -1572,23 +1557,23 @@
         <table id="deductFromBenefitsSection2_LumpSumInstalments" class="check-your-decisions-table">
             <tbody>
                 <tr>
-                    <td class="table-cell-width bold">Lump sum amount</td>
+                    <td class="table-cell-width">Lump sum amount</td>
                     <td>£{{data['lump-sum-amount']}}</td>
                     <td>£{{data['lump-sum-amount']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Instalment amount</td>
+                    <td class="table-cell-width">Instalment amount</td>
                     <td>£{{data['instalment-amount-1']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Instalment frequency</td>
+                    <td class="table-cell-width">Instalment frequency</td>
                     <td>{{data['lump-sum-instalment-frequency-group']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Instalment start date</td>
+                    <td class="table-cell-width">Instalment start date</td>
                     <td>{{data['day2']}} <span id="discharge_instalmentMonth1_2">{{data['month2']}}</span> {{data['year2']}}</td>
                     <td></td>
                 </tr>
@@ -1601,17 +1586,17 @@
         <table id="deductFromBenefitsSection2_instalmentsOnly" class="check-your-decisions-table">
             <tbody>
                 <tr>
-                    <td class="table-cell-width bold">Instalment amount</td>
+                    <td class="table-cell-width">Instalment amount</td>
                     <td>£{{data['instalment-amount-2']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Instalment frequency</td>
+                    <td class="table-cell-width">Instalment frequency</td>
                     <td>{{data['instalment-only-frequency-group']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Instalment start date</td>
+                    <td class="table-cell-width">Instalment start date</td>
                     <td>{{data['day']}} <span id="discharge_instalmentMonth2_2">{{data['month']}}</span> {{data['year']}}</td>
                     <td></td>
                 </tr>
@@ -1630,12 +1615,12 @@
         <table id="attachToEarningsSection2" class="check-your-decisions-table">
             <tbody>
                 <tr>
-                    <td class="table-cell-width bold">Reason for attaching to earnings</td>
+                    <td class="table-cell-width">Reason for attaching to earnings</td>
                     <td>{{data['reason-for-attaching-to-earnings-group']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Reserve terms</td>
+                    <td class="table-cell-width">Reserve terms</td>
                     <td id="a2e_setReserveTermsGroup">{{data['set-reserve-terms-group']}}</td>
                     <td></td>
                 </tr>
@@ -1648,7 +1633,7 @@
         <table id="attachToEarningsSection2_lumpSumOnly" class="check-your-decisions-table">
             <tbody>
                 <tr>
-                    <td class="table-cell-width bold">Lump sum amount</td>
+                    <td class="table-cell-width">Lump sum amount</td>
                     <td>£{{data['total-payment-discharge']}}</td>
                     <td></td>
                 </tr>
@@ -1661,17 +1646,17 @@
         <table id="attachToEarningsSection2_employerDetails" class="check-your-decisions-table">
             <tbody>
                 <tr>
-                    <td class="table-cell-width bold">Employer reference</td>
+                    <td class="table-cell-width">Employer reference</td>
                     <td id="a2eEmployeeReference_2">{{ data['a2e-employee-reference'] }}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Employer name</td>
+                    <td class="table-cell-width">Employer name</td>
                     <td id="a2eEmployerName_2">{{ data['a2e-employer-name'] }}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Employer address</td>
+                    <td class="table-cell-width">Employer address</td>
                     <td style="text-align: left">
                         <span id="a2eAddressLine1_2">{{ data['a2e-employer-address-line-1'] }}<br></span>
                         <span id="a2eAddressLine2_2">{{ data['a2e-employer-address-line-2'] }}<br></span>
@@ -1680,7 +1665,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Employer telephone</td>
+                    <td class="table-cell-width">Employer telephone</td>
                     <td id="a2eEmployerTelephone_2">{{data['a2e-employer-telephone']}}</td>
                     <td></td>
                 </tr>
@@ -1693,22 +1678,22 @@
         <table id="attachToEarningsSection2_lumpSumInstalment" class="check-your-decisions-table">
             <tbody>
                 <tr>
-                    <td class="table-cell-width bold">Lump sum amount</td>
+                    <td class="table-cell-width">Lump sum amount</td>
                     <td>£{{data['lump-sum-amount']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Instalment amount</td>
+                    <td class="table-cell-width">Instalment amount</td>
                     <td>£{{data['instalments-amount']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Instalment frequency</td>
+                    <td class="table-cell-width">Instalment frequency</td>
                     <td>{{data['lump-sum-instalment-frequency-group']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Instalment start date</td>
+                    <td class="table-cell-width">Instalment start date</td>
                     <td>{{ data['day'] }} <span id="a2eMonth2">{{ data['month'] }}</span> {{ data['year'] }}</td>
                     <td></td>
                 </tr>
@@ -1721,17 +1706,17 @@
         <table id="attachToEarningsSection2_instalmentOnly" class="check-your-decisions-table">
             <tbody>
                 <tr>
-                    <td class="table-cell-width bold">Instalment amount</td>
+                    <td class="table-cell-width">Instalment amount</td>
                     <td>£{{data['instalments-only-amount']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Instalment frequency</td>
+                    <td class="table-cell-width">Instalment frequency</td>
                     <td>{{data['instalment-only-frequency-group-2']}}</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="table-cell-width bold">Instalment start date</td>
+                    <td class="table-cell-width">Instalment start date</td>
                     <td>{{ data['day2'] }} <span id="a2eMonth">{{ data['month2'] }}</span> {{ data['year2'] }}</td>
                     <td></td>
                 </tr>
@@ -1744,8 +1729,6 @@
 
         
        
-
-        <hr>
         
         <form class="form" action="" method="post">
             <div class="form-group">
@@ -1758,7 +1741,7 @@
     </div>
 
     <div id="dismiss">
-        <h1 class="heading-xlarge top_0 bottom_5">Check your decision</h1>
+        <h1 class="heading-xlarge top_30 bottom_5">Check your decision</h1>
 
         <form class="form" action="" method="post">
             <div class="form-group">
@@ -1774,27 +1757,25 @@
                             <td><a href="/legaladviser/confirm-outcome">Change</a></td>
                         </tr>
                         <tr>
-                            <td class="table-cell-width bold">Offence type</td>
+                            <td class="table-cell-width">Offence type</td>
                             <td>{{data['offence-type']}}</td>
                             <td></td>
                         </tr>
                         <tr>
-                            <td class="table-cell-width bold">Verdict</td>
+                            <td class="table-cell-width">Verdict</td>
                             <td>{{data['verdict']}}</td>
                             <td></td>
                         </tr>
                         <tr>
-                            <td class="table-cell-width bold">Result</td>
+                            <td class="table-cell-width">Result</td>
                             <td>{{data['decision']}}</td>
                             <td></td>
                         </tr>
                     </tbody>
                 </table>
-
-                <hr>
                 
                 <!-- ADD A NOTE -->
-                <label class="form-label" for="optional-note">
+                <label class="form-label top_60" for="optional-note">
                     <span class="heading-medium">Add a note (optional)</span>
                     <p class="bottom_5">This will only be seen by court staff</p>
                 </label>
