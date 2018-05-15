@@ -522,7 +522,6 @@ router.post('/legaladviser/defendants-online-plea', function (req, res) {
 })
 
 
-
 // *******
 // SIGN IN
 router.post('/legaladviser/sign-in', function (req, res) {
