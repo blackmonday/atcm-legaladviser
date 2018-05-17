@@ -16,33 +16,17 @@
 <script>
     window.onload = function() {
         
-        var dobMonth2 = document.getElementById('dobMonth2').innerText;
-        if (dobMonth2 == "1") {
-            document.getElementById('dobMonth2').innerText = "January";
-        } else if (dobMonth2 == "2") {
-            document.getElementById('dobMonth2').innerText = "February";
-        } else if (dobMonth2 == "3") {
-            document.getElementById('dobMonth2').innerText = "March";
-        } else if (dobMonth2 == "4") {
-            document.getElementById('dobMonth2').innerText = "April";
-        } else if (dobMonth2 == "5") {
-            document.getElementById('dobMonth2').innerText = "May";
-        } else if (dobMonth2 == "6") {
-            document.getElementById('dobMonth2').innerText = "June";
-        } else if (dobMonth2 == "7") {
-            document.getElementById('dobMonth2').innerText = "July";
-        } else if (dobMonth2 == "8") {
-            document.getElementById('dobMonth2').innerText = "August";
-        } else if (dobMonth2 == "9") {
-            document.getElementById('dobMonth2').innerText = "September";
-        } else if (dobMonth2 == "10") {
-            document.getElementById('dobMonth2').innerText = "October";
-        } else if (dobMonth2 == "11") {
-            document.getElementById('dobMonth2').innerText = "November";
-        } else if (dobMonth2 == "12") {
-            document.getElementById('dobMonth2').innerText = "December";
-        } 
         
+        /* ************* */
+        /* ************* */
+        /* CONVERT MONTH */
+        var dobMonth2 = document.getElementById("dobMonth2").innerText;
+
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var monthsShort = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+        document.getElementById("dobMonth2").innerText = months[dobMonth2];
+                
         var defendantsHomeTelephone = document.getElementById('defendantsHomeTelephone').innerText;
         if (defendantsHomeTelephone == "") {
             document.getElementById('defendantsHomeTelephone').innerText = "—"

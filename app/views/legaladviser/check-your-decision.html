@@ -20,7 +20,47 @@
 </style>
 
 <script>
-    window.onload = function() {  
+    window.onload = function() {
+        
+        /* ************* */
+        /* ************* */
+        /* CONVERT MONTH */
+        var hearingMonth = document.getElementById("hearingMonth").innerText;
+        var instalmentMonth1 = document.getElementById("instalmentMonth1").innerText;
+        var instalmentMonth1_2 = document.getElementById("instalmentMonth1_2").innerText;
+        var instalmentMonth1_3 = document.getElementById("instalmentMonth1_3").innerText;
+        var instalmentMonth2 = document.getElementById("instalmentMonth2").innerText;
+        var instalmentMonth2_2 = document.getElementById("instalmentMonth2_2").innerText;
+        var instalmentMonth2_3 = document.getElementById("instalmentMonth2_3").innerText;
+        var discharge_instalmentMonth1 = document.getElementById("discharge_instalmentMonth1").innerText;
+        var discharge_instalmentMonth1_2 = document.getElementById("discharge_instalmentMonth1_2").innerText;
+        var discharge_instalmentMonth2 = document.getElementById("discharge_instalmentMonth2").innerText;
+        var discharge_instalmentMonth2_2 = document.getElementById("discharge_instalmentMonth2_2").innerText;
+        var a2eMonth = document.getElementById("a2eMonth").innerText;
+        var a2eMonth2 = document.getElementById("a2eMonth2").innerText;
+
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var monthsShort = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+        document.getElementById("hearingMonth").innerText = months[hearingMonth];
+        document.getElementById("instalmentMonth1").innerText = months[instalmentMonth1];
+        document.getElementById("instalmentMonth1_2").innerText = months[instalmentMonth1_2];
+        document.getElementById("instalmentMonth1_3").innerText = months[instalmentMonth1_3];
+        document.getElementById("instalmentMonth2").innerText = months[instalmentMonth2];
+        document.getElementById("instalmentMonth2_2").innerText = months[instalmentMonth2_2];
+        document.getElementById("instalmentMonth2_3").innerText = months[instalmentMonth2_3];
+        document.getElementById("discharge_instalmentMonth1").innerText = months[discharge_instalmentMonth1];
+        document.getElementById("discharge_instalmentMonth1_2").innerText = months[discharge_instalmentMonth1_2];
+        document.getElementById("discharge_instalmentMonth2").innerText = months[discharge_instalmentMonth2];
+        document.getElementById("discharge_instalmentMonth2_2").innerText = months[discharge_instalmentMonth2_2];
+        document.getElementById("a2eMonth").innerText = months[a2eMonth];
+        document.getElementById("a2eMonth2").innerText = months[a2eMonth2];
+        
+                        
+
+        
+        
+        
         
         /* WHAT DECISION CONTENT SHOULD BE DISPLAYED */
         var decision = document.getElementById('decision').innerText;
@@ -186,37 +226,16 @@
         
         
         
+    
+    
+        
+        
+        
+        
+        
         
 
 
-        /* REFER TO COURT HEARING */
-        var paymentMonth = document.getElementById("hearingMonth").innerText;
-        if (paymentMonth == "1") {
-            document.getElementById("hearingMonth").innerText = "January";
-        } else if (paymentMonth == "2") {
-            document.getElementById("hearingMonth").innerText = "February";
-        } else if (paymentMonth == "3") {
-            document.getElementById("hearingMonth").innerText = "March";
-        } else if (paymentMonth == "4") {
-            document.getElementById("hearingMonth").innerText = "April";
-        } else if (paymentMonth == "5") {
-            document.getElementById("hearingMonth").innerText = "May";
-        } else if (paymentMonth == "6") {
-            document.getElementById("hearingMonth").innerText = "June";
-        } else if (paymentMonth == "7") {
-            document.getElementById("hearingMonth").innerText = "July";
-        } else if (paymentMonth == "8") {
-            document.getElementById("hearingMonth").innerText = "August";
-        } else if (paymentMonth == "9") {
-            document.getElementById("hearingMonth").innerText = "September";
-        } else if (paymentMonth == "10") {
-            document.getElementById("hearingMonth").innerText = "October";
-        } else if (paymentMonth == "11") {
-            document.getElementById("hearingMonth").innerText = "November";
-        } else if (paymentMonth == "12") {
-            document.getElementById("hearingMonth").innerText = "December";
-        }
-        
         if (document.getElementById("interpreterGroup").innerText == "Yes") {
             document.getElementById("whichLanguage").style.display = "table-row";
         } else {
@@ -239,187 +258,6 @@
 
         
         
-        
-        
-        
-        
-        
-        
-        
-        /* INSTALMENT MONTH */
-        var instalmentMonth1 = document.getElementById("instalmentMonth1").innerText;
-        if (instalmentMonth1 == "1") {
-            document.getElementById("instalmentMonth1").innerText = "January";
-        } else if (instalmentMonth1 == "2") {
-            document.getElementById("instalmentMonth1").innerText = "February";
-        } else if (instalmentMonth1 == "3") {
-            document.getElementById("instalmentMonth1").innerText = "March";
-        } else if (instalmentMonth1 == "4") {
-            document.getElementById("instalmentMonth1").innerText = "April";
-        } else if (instalmentMonth1 == "5") {
-            document.getElementById("instalmentMonth1").innerText = "May";
-        } else if (instalmentMonth1 == "6") {
-            document.getElementById("instalmentMonth1").innerText = "June";
-        } else if (instalmentMonth1 == "7") {
-            document.getElementById("instalmentMonth1").innerText = "July";
-        } else if (instalmentMonth1 == "8") {
-            document.getElementById("instalmentMonth1").innerText = "August";
-        } else if (instalmentMonth1 == "9") {
-            document.getElementById("instalmentMonth1").innerText = "September";
-        } else if (instalmentMonth1 == "10") {
-            document.getElementById("instalmentMonth1").innerText = "October";
-        } else if (instalmentMonth1 == "11") {
-            document.getElementById("instalmentMonth1").innerText = "November";
-        } else if (instalmentMonth1 == "12") {
-            document.getElementById("instalmentMonth1").innerText = "December";
-        }
-
-        var instalmentMonth1_2 = document.getElementById("instalmentMonth1_2").innerText;
-        if (instalmentMonth1_2 == "1") {
-            document.getElementById("instalmentMonth1_2").innerText = "January";
-        } else if (instalmentMonth1_2 == "2") {
-            document.getElementById("instalmentMonth1_2").innerText = "February";
-        } else if (instalmentMonth1_2 == "3") {
-            document.getElementById("instalmentMonth1_2").innerText = "March";
-        } else if (instalmentMonth1_2 == "4") {
-            document.getElementById("instalmentMonth1_2").innerText = "April";
-        } else if (instalmentMonth1_2 == "5") {
-            document.getElementById("instalmentMonth1_2").innerText = "May";
-        } else if (instalmentMonth1_2 == "6") {
-            document.getElementById("instalmentMonth1_2").innerText = "June";
-        } else if (instalmentMonth1_2 == "7") {
-            document.getElementById("instalmentMonth1_2").innerText = "July";
-        } else if (instalmentMonth1_2 == "8") {
-            document.getElementById("instalmentMonth1_2").innerText = "August";
-        } else if (instalmentMonth1_2 == "9") {
-            document.getElementById("instalmentMonth1_2").innerText = "September";
-        } else if (instalmentMonth1_2 == "10") {
-            document.getElementById("instalmentMonth1_2").innerText = "October";
-        } else if (instalmentMonth1_2 == "11") {
-            document.getElementById("instalmentMonth1_2").innerText = "November";
-        } else if (instalmentMonth1_2 == "12") {
-            document.getElementById("instalmentMonth1_2").innerText = "December";
-        }
-
-        var instalmentMonth2 = document.getElementById("instalmentMonth2").innerText;
-        if (instalmentMonth2 == "1") {
-            document.getElementById("instalmentMonth2").innerText = "January";
-        } else if (instalmentMonth2 == "2") {
-            document.getElementById("instalmentMonth2").innerText = "February";
-        } else if (instalmentMonth2 == "3") {
-            document.getElementById("instalmentMonth2").innerText = "March";
-        } else if (instalmentMonth2 == "4") {
-            document.getElementById("instalmentMonth2").innerText = "April";
-        } else if (instalmentMonth2 == "5") {
-            document.getElementById("instalmentMonth2").innerText = "May";
-        } else if (instalmentMonth2 == "6") {
-            document.getElementById("instalmentMonth2").innerText = "June";
-        } else if (instalmentMonth2 == "7") {
-            document.getElementById("instalmentMonth2").innerText = "July";
-        } else if (instalmentMonth2 == "8") {
-            document.getElementById("instalmentMonth2").innerText = "August";
-        } else if (instalmentMonth2 == "9") {
-            document.getElementById("instalmentMonth2").innerText = "September";
-        } else if (instalmentMonth2 == "10") {
-            document.getElementById("instalmentMonth2").innerText = "October";
-        } else if (instalmentMonth2 == "11") {
-            document.getElementById("instalmentMonth2").innerText = "November";
-        } else if (instalmentMonth2 == "12") {
-            document.getElementById("instalmentMonth2").innerText = "December";
-        }
-        
-        var instalmentMonth2_2 = document.getElementById("instalmentMonth2_2").innerText;
-        if (instalmentMonth2_2 == "1") {
-            document.getElementById("instalmentMonth2_2").innerText = "January";
-        } else if (instalmentMonth2_2 == "2") {
-            document.getElementById("instalmentMonth2_2").innerText = "February";
-        } else if (instalmentMonth2_2 == "3") {
-            document.getElementById("instalmentMonth2_2").innerText = "March";
-        } else if (instalmentMonth2_2 == "4") {
-            document.getElementById("instalmentMonth2_2").innerText = "April";
-        } else if (instalmentMonth2_2 == "5") {
-            document.getElementById("instalmentMonth2_2").innerText = "May";
-        } else if (instalmentMonth2_2 == "6") {
-            document.getElementById("instalmentMonth2_2").innerText = "June";
-        } else if (instalmentMonth2_2 == "7") {
-            document.getElementById("instalmentMonth2_2").innerText = "July";
-        } else if (instalmentMonth2_2 == "8") {
-            document.getElementById("instalmentMonth2_2").innerText = "August";
-        } else if (instalmentMonth2_2 == "9") {
-            document.getElementById("instalmentMonth2_2").innerText = "September";
-        } else if (instalmentMonth2_2 == "10") {
-            document.getElementById("instalmentMonth2_2").innerText = "October";
-        } else if (instalmentMonth2_2 == "11") {
-            document.getElementById("instalmentMonth2_2").innerText = "November";
-        } else if (instalmentMonth2_2 == "12") {
-            document.getElementById("instalmentMonth2_2").innerText = "December";
-        }
-        
-        
-        
-        
-        
-        
-        
-        var instalmentMonth1_3 = document.getElementById("instalmentMonth1_3").innerText;
-        if (instalmentMonth1_3 == "1") {
-            document.getElementById("instalmentMonth1_3").innerText = "January";
-        } else if (instalmentMonth1_3 == "2") {
-            document.getElementById("instalmentMonth1_3").innerText = "February";
-        } else if (instalmentMonth1_3 == "3") {
-            document.getElementById("instalmentMonth1_3").innerText = "March";
-        } else if (instalmentMonth1_3 == "4") {
-            document.getElementById("instalmentMonth1_3").innerText = "April";
-        } else if (instalmentMonth1_3 == "5") {
-            document.getElementById("instalmentMonth1_3").innerText = "May";
-        } else if (instalmentMonth1_3 == "6") {
-            document.getElementById("instalmentMonth1_3").innerText = "June";
-        } else if (instalmentMonth1_3 == "7") {
-            document.getElementById("instalmentMonth1_3").innerText = "July";
-        } else if (instalmentMonth1_3 == "8") {
-            document.getElementById("instalmentMonth1_3").innerText = "August";
-        } else if (instalmentMonth1_3 == "9") {
-            document.getElementById("instalmentMonth1_3").innerText = "September";
-        } else if (instalmentMonth1_3 == "10") {
-            document.getElementById("instalmentMonth1_3").innerText = "October";
-        } else if (instalmentMonth1_3 == "11") {
-            document.getElementById("instalmentMonth1_3").innerText = "November";
-        } else if (instalmentMonth1_3 == "12") {
-            document.getElementById("instalmentMonth1_3").innerText = "December";
-        }
-        
-        var instalmentMonth2_3 = document.getElementById("instalmentMonth2_3").innerText;
-        if (instalmentMonth2_3 == "1") {
-            document.getElementById("instalmentMonth2_3").innerText = "January";
-        } else if (instalmentMonth2_3 == "2") {
-            document.getElementById("instalmentMonth2_3").innerText = "February";
-        } else if (instalmentMonth2_3 == "3") {
-            document.getElementById("instalmentMonth2_3").innerText = "March";
-        } else if (instalmentMonth2_3 == "4") {
-            document.getElementById("instalmentMonth2_3").innerText = "April";
-        } else if (instalmentMonth2_3 == "5") {
-            document.getElementById("instalmentMonth2_3").innerText = "May";
-        } else if (instalmentMonth2_3 == "6") {
-            document.getElementById("instalmentMonth2_3").innerText = "June";
-        } else if (instalmentMonth2_3 == "7") {
-            document.getElementById("instalmentMonth2_3").innerText = "July";
-        } else if (instalmentMonth2_3 == "8") {
-            document.getElementById("instalmentMonth2_3").innerText = "August";
-        } else if (instalmentMonth2_3 == "9") {
-            document.getElementById("instalmentMonth2_3").innerText = "September";
-        } else if (instalmentMonth2_3 == "10") {
-            document.getElementById("instalmentMonth2_3").innerText = "October";
-        } else if (instalmentMonth2_3 == "11") {
-            document.getElementById("instalmentMonth2_3").innerText = "November";
-        } else if (instalmentMonth2_3 == "12") {
-            document.getElementById("instalmentMonth2_3").innerText = "December";
-        }
-
-
-        
-        
-                        
-                        
         
         
         
@@ -653,182 +491,6 @@
         
 
         
-        
-        /* DISCHARGE */
-        /* INSTALMENT MONTH */
-        var discharge_instalmentMonth1 = document.getElementById("discharge_instalmentMonth1").innerText;
-        if (discharge_instalmentMonth1 == "1") {
-            document.getElementById("discharge_instalmentMonth1").innerText = "January";
-        } else if (discharge_instalmentMonth1 == "2") {
-            document.getElementById("discharge_instalmentMonth1").innerText = "February";
-        } else if (discharge_instalmentMonth1 == "3") {
-            document.getElementById("discharge_instalmentMonth1").innerText = "March";
-        } else if (discharge_instalmentMonth1 == "4") {
-            document.getElementById("discharge_instalmentMonth1").innerText = "April";
-        } else if (discharge_instalmentMonth1 == "5") {
-            document.getElementById("discharge_instalmentMonth1").innerText = "May";
-        } else if (discharge_instalmentMonth1 == "6") {
-            document.getElementById("discharge_instalmentMonth1").innerText = "June";
-        } else if (discharge_instalmentMonth1 == "7") {
-            document.getElementById("discharge_instalmentMonth1").innerText = "July";
-        } else if (discharge_instalmentMonth1 == "8") {
-            document.getElementById("discharge_instalmentMonth1").innerText = "August";
-        } else if (discharge_instalmentMonth1 == "9") {
-            document.getElementById("discharge_instalmentMonth1").innerText = "September";
-        } else if (discharge_instalmentMonth1 == "10") {
-            document.getElementById("discharge_instalmentMonth1").innerText = "October";
-        } else if (discharge_instalmentMonth1 == "11") {
-            document.getElementById("discharge_instalmentMonth1").innerText = "November";
-        } else if (discharge_instalmentMonth1 == "12") {
-            document.getElementById("discharge_instalmentMonth1").innerText = "December";
-        }
-
-        var discharge_instalmentMonth1_2 = document.getElementById("discharge_instalmentMonth1_2").innerText;
-        if (discharge_instalmentMonth1_2 == "1") {
-            document.getElementById("discharge_instalmentMonth1_2").innerText = "January";
-        } else if (discharge_instalmentMonth1_2 == "2") {
-            document.getElementById("discharge_instalmentMonth1_2").innerText = "February";
-        } else if (discharge_instalmentMonth1_2 == "3") {
-            document.getElementById("discharge_instalmentMonth1_2").innerText = "March";
-        } else if (discharge_instalmentMonth1_2 == "4") {
-            document.getElementById("discharge_instalmentMonth1_2").innerText = "April";
-        } else if (discharge_instalmentMonth1_2 == "5") {
-            document.getElementById("discharge_instalmentMonth1_2").innerText = "May";
-        } else if (discharge_instalmentMonth1_2 == "6") {
-            document.getElementById("discharge_instalmentMonth1_2").innerText = "June";
-        } else if (discharge_instalmentMonth1_2 == "7") {
-            document.getElementById("discharge_instalmentMonth1_2").innerText = "July";
-        } else if (discharge_instalmentMonth1_2 == "8") {
-            document.getElementById("discharge_instalmentMonth1_2").innerText = "August";
-        } else if (discharge_instalmentMonth1_2 == "9") {
-            document.getElementById("discharge_instalmentMonth1_2").innerText = "September";
-        } else if (discharge_instalmentMonth1_2 == "10") {
-            document.getElementById("discharge_instalmentMonth1_2").innerText = "October";
-        } else if (discharge_instalmentMonth1_2 == "11") {
-            document.getElementById("discharge_instalmentMonth1_2").innerText = "November";
-        } else if (discharge_instalmentMonth1_2 == "12") {
-            document.getElementById("discharge_instalmentMonth1_2").innerText = "December";
-        }
-        
-        
-        var discharge_instalmentMonth2 = document.getElementById("discharge_instalmentMonth2").innerText;
-        if (discharge_instalmentMonth2 == "1") {
-            document.getElementById("discharge_instalmentMonth2").innerText = "January";
-        } else if (discharge_instalmentMonth2 == "2") {
-            document.getElementById("discharge_instalmentMonth2").innerText = "February";
-        } else if (discharge_instalmentMonth2 == "3") {
-            document.getElementById("discharge_instalmentMonth2").innerText = "March";
-        } else if (discharge_instalmentMonth2 == "4") {
-            document.getElementById("discharge_instalmentMonth2").innerText = "April";
-        } else if (discharge_instalmentMonth2 == "5") {
-            document.getElementById("discharge_instalmentMonth2").innerText = "Ma7";
-        } else if (discharge_instalmentMonth2 == "6") {
-            document.getElementById("discharge_instalmentMonth2").innerText = "June";
-        } else if (discharge_instalmentMonth2 == "7") {
-            document.getElementById("discharge_instalmentMonth2").innerText = "July";
-        } else if (discharge_instalmentMonth2 == "8") {
-            document.getElementById("discharge_instalmentMonth2").innerText = "August";
-        } else if (discharge_instalmentMonth2 == "9") {
-            document.getElementById("discharge_instalmentMonth2").innerText = "September";
-        } else if (discharge_instalmentMonth2 == "10") {
-            document.getElementById("discharge_instalmentMonth2").innerText = "October";
-        } else if (discharge_instalmentMonth2 == "11") {
-            document.getElementById("discharge_instalmentMonth2").innerText = "November";
-        } else if (discharge_instalmentMonth2 == "12") {
-            document.getElementById("discharge_instalmentMonth2").innerText = "December";
-        }
-        
-        var discharge_instalmentMonth2_2 = document.getElementById("discharge_instalmentMonth2_2").innerText;
-        if (discharge_instalmentMonth2_2 == "1") {
-            document.getElementById("discharge_instalmentMonth2_2").innerText = "January";
-        } else if (discharge_instalmentMonth2_2 == "2") {
-            document.getElementById("discharge_instalmentMonth2_2").innerText = "February";
-        } else if (discharge_instalmentMonth2_2 == "3") {
-            document.getElementById("discharge_instalmentMonth2_2").innerText = "March";
-        } else if (discharge_instalmentMonth2_2 == "4") {
-            document.getElementById("discharge_instalmentMonth2_2").innerText = "April";
-        } else if (discharge_instalmentMonth2_2 == "5") {
-            document.getElementById("discharge_instalmentMonth2_2").innerText = "May";
-        } else if (discharge_instalmentMonth2_2 == "6") {
-            document.getElementById("discharge_instalmentMonth2_2").innerText = "June";
-        } else if (discharge_instalmentMonth2_2 == "7") {
-            document.getElementById("discharge_instalmentMonth2_2").innerText = "July";
-        } else if (discharge_instalmentMonth2_2 == "8") {
-            document.getElementById("discharge_instalmentMonth2_2").innerText = "August";
-        } else if (discharge_instalmentMonth2_2 == "9") {
-            document.getElementById("discharge_instalmentMonth2_2").innerText = "September";
-        } else if (discharge_instalmentMonth2_2 == "10") {
-            document.getElementById("discharge_instalmentMonth2_2").innerText = "October";
-        } else if (discharge_instalmentMonth2_2 == "11") {
-            document.getElementById("discharge_instalmentMonth2_2").innerText = "November";
-        } else if (discharge_instalmentMonth2_2 == "12") {
-            document.getElementById("discharge_instalmentMonth2_2").innerText = "December";
-        }
-        
-
-        
-        
-        
-        
-        
-        
-        
-        /* ATTACH TO EARNINGS */
-        /* INSTALMENT MONTH */
-        var a2eMonth = document.getElementById("a2eMonth").innerText;
-        if (a2eMonth == "1") {
-            document.getElementById("a2eMonth").innerText = "January";
-        } else if (a2eMonth == "2") {
-            document.getElementById("a2eMonth").innerText = "February";
-        } else if (a2eMonth == "3") {
-            document.getElementById("a2eMonth").innerText = "March";
-        } else if (a2eMonth == "4") {
-            document.getElementById("a2eMonth").innerText = "April";
-        } else if (a2eMonth == "5") {
-            document.getElementById("a2eMonth").innerText = "May";
-        } else if (a2eMonth == "6") {
-            document.getElementById("a2eMonth").innerText = "June";
-        } else if (a2eMonth == "7") {
-            document.getElementById("a2eMonth").innerText = "July";
-        } else if (a2eMonth == "8") {
-            document.getElementById("a2eMonth").innerText = "August";
-        } else if (a2eMonth == "9") {
-            document.getElementById("a2eMonth").innerText = "September";
-        } else if (a2eMonth == "10") {
-            document.getElementById("a2eMonth").innerText = "October";
-        } else if (a2eMonth == "11") {
-            document.getElementById("a2eMonth").innerText = "November";
-        } else if (a2eMonth == "12") {
-            document.getElementById("a2eMonth").innerText = "December";
-        }
-        
-        var a2eMonth2 = document.getElementById("a2eMonth2").innerText;
-        if (a2eMonth2 == "1") {
-            document.getElementById("a2eMonth2").innerText = "January";
-        } else if (a2eMonth2 == "2") {
-            document.getElementById("a2eMonth2").innerText = "February";
-        } else if (a2eMonth2 == "3") {
-            document.getElementById("a2eMonth2").innerText = "March";
-        } else if (a2eMonth2 == "4") {
-            document.getElementById("a2eMonth2").innerText = "April";
-        } else if (a2eMonth2 == "5") {
-            document.getElementById("a2eMonth2").innerText = "May";
-        } else if (a2eMonth2 == "6") {
-            document.getElementById("a2eMonth2").innerText = "June";
-        } else if (a2eMonth2 == "7") {
-            document.getElementById("a2eMonth2").innerText = "July";
-        } else if (a2eMonth2 == "8") {
-            document.getElementById("a2eMonth2").innerText = "August";
-        } else if (a2eMonth2 == "9") {
-            document.getElementById("a2eMonth2").innerText = "September";
-        } else if (a2eMonth2 == "10") {
-            document.getElementById("a2eMonth2").innerText = "October";
-        } else if (a2eMonth2 == "11") {
-            document.getElementById("a2eMonth2").innerText = "November";
-        } else if (a2eMonth2 == "12") {
-            document.getElementById("a2eMonth2").innerText = "December";
-        }
-                
     }
 </script>
 

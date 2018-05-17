@@ -114,59 +114,8 @@
             document.getElementById('homeTelephone').style.display = "none";
         }
         
-        var dobMonth = document.getElementById('dobMonth').innerText;
-        if (dobMonth == "1") {
-            document.getElementById('dobMonth').innerText = "January";
-        } else if (dobMonth == "2") {
-            document.getElementById('dobMonth').innerText = "February";
-        } else if (dobMonth == "3") {
-            document.getElementById('dobMonth').innerText = "March";
-        } else if (dobMonth == "4") {
-            document.getElementById('dobMonth').innerText = "April";
-        } else if (dobMonth == "5") {
-            document.getElementById('dobMonth').innerText = "May";
-        } else if (dobMonth == "6") {
-            document.getElementById('dobMonth').innerText = "June";
-        } else if (dobMonth == "7") {
-            document.getElementById('dobMonth').innerText = "July";
-        } else if (dobMonth == "8") {
-            document.getElementById('dobMonth').innerText = "August";
-        } else if (dobMonth == "9") {
-            document.getElementById('dobMonth').innerText = "September";
-        } else if (dobMonth == "10") {
-            document.getElementById('dobMonth').innerText = "October";
-        } else if (dobMonth == "11") {
-            document.getElementById('dobMonth').innerText = "November";
-        } else if (dobMonth == "12") {
-            document.getElementById('dobMonth').innerText = "December";
-        } 
         
-        var dobMonth2 = document.getElementById('dobMonth2').innerText;
-        if (dobMonth2 == "1") {
-            document.getElementById('dobMonth2').innerText = "January";
-        } else if (dobMonth2 == "2") {
-            document.getElementById('dobMonth2').innerText = "February";
-        } else if (dobMonth2 == "3") {
-            document.getElementById('dobMonth2').innerText = "March";
-        } else if (dobMonth2 == "4") {
-            document.getElementById('dobMonth2').innerText = "April";
-        } else if (dobMonth2 == "5") {
-            document.getElementById('dobMonth2').innerText = "May";
-        } else if (dobMonth2 == "6") {
-            document.getElementById('dobMonth2').innerText = "June";
-        } else if (dobMonth2 == "7") {
-            document.getElementById('dobMonth2').innerText = "July";
-        } else if (dobMonth2 == "8") {
-            document.getElementById('dobMonth2').innerText = "August";
-        } else if (dobMonth2 == "9") {
-            document.getElementById('dobMonth2').innerText = "September";
-        } else if (dobMonth2 == "10") {
-            document.getElementById('dobMonth2').innerText = "October";
-        } else if (dobMonth2 == "11") {
-            document.getElementById('dobMonth2').innerText = "November";
-        } else if (dobMonth2 == "12") {
-            document.getElementById('dobMonth2').innerText = "December";
-        } 
+        
         
         
         
@@ -180,15 +129,6 @@
         
                 
        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         
@@ -299,91 +239,30 @@
         
         
         
+        
+        /* ************* */
+        /* ************* */
+        /* CONVERT MONTH */
+        var dobMonth = document.getElementById('dobMonth').innerText;
+        var dobMonth2 = document.getElementById('dobMonth2').innerText;
         var paymentMonth = document.getElementById("paymentMonth").innerText;
-        if (paymentMonth == "1") {
-            document.getElementById("paymentMonth").innerText = "January";
-        } else if (paymentMonth == "2") {
-            document.getElementById("paymentMonth").innerText = "February";
-        } else if (paymentMonth == "3") {
-            document.getElementById("paymentMonth").innerText = "March";
-        } else if (paymentMonth == "4") {
-            document.getElementById("paymentMonth").innerText = "April";
-        } else if (paymentMonth == "5") {
-            document.getElementById("paymentMonth").innerText = "May";
-        } else if (paymentMonth == "6") {
-            document.getElementById("paymentMonth").innerText = "June";
-        } else if (paymentMonth == "7") {
-            document.getElementById("paymentMonth").innerText = "July";
-        } else if (paymentMonth == "8") {
-            document.getElementById("paymentMonth").innerText = "August";
-        } else if (paymentMonth == "9") {
-            document.getElementById("paymentMonth").innerText = "September";
-        } else if (paymentMonth == "10") {
-            document.getElementById("paymentMonth").innerText = "October";
-        } else if (paymentMonth == "11") {
-            document.getElementById("paymentMonth").innerText = "November";
-        } else if (paymentMonth == "12") {
-            document.getElementById("paymentMonth").innerText = "December";
-        }
-        
         var paymentMonth2 = document.getElementById("paymentMonth2").innerText;
-        if (paymentMonth2 == "1") {
-            document.getElementById("paymentMonth2").innerText = "January";
-        } else if (paymentMonth2 == "2") {
-            document.getElementById("paymentMonth2").innerText = "February";
-        } else if (paymentMonth2 == "3") {
-            document.getElementById("paymentMonth2").innerText = "March";
-        } else if (paymentMonth2 == "4") {
-            document.getElementById("paymentMonth2").innerText = "April";
-        } else if (paymentMonth2 == "5") {
-            document.getElementById("paymentMonth2").innerText = "May";
-        } else if (paymentMonth2 == "6") {
-            document.getElementById("paymentMonth2").innerText = "June";
-        } else if (paymentMonth2 == "7") {
-            document.getElementById("paymentMonth2").innerText = "July";
-        } else if (paymentMonth2 == "8") {
-            document.getElementById("paymentMonth2").innerText = "August";
-        } else if (paymentMonth2 == "9") {
-            document.getElementById("paymentMonth2").innerText = "September";
-        } else if (paymentMonth2 == "10") {
-            document.getElementById("paymentMonth2").innerText = "October";
-        } else if (paymentMonth2 == "11") {
-            document.getElementById("paymentMonth2").innerText = "November";
-        } else if (paymentMonth2 == "12") {
-            document.getElementById("paymentMonth2").innerText = "December";
-        }
+        var hearingMonth = document.getElementById("hearingMonth").innerText;
+
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var monthsShort = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+        document.getElementById('dobMonth').innerText = months[dobMonth];
+        document.getElementById('dobMonth2').innerText = months[dobMonth2];
+        document.getElementById("paymentMonth").innerText = months[paymentMonth];
+        document.getElementById("paymentMonth2").innerText = months[paymentMonth2];
+        document.getElementById("hearingMonth").innerText = months[hearingMonth];
+
+        
+
+
         
         
-        
-        
-        /* ********************** */
-        /* REFER TO COURT HEARING */
-        var paymentMonth = document.getElementById("hearingMonth").innerText;
-        if (paymentMonth == "1") {
-            document.getElementById("hearingMonth").innerText = "January";
-        } else if (paymentMonth == "2") {
-            document.getElementById("hearingMonth").innerText = "February";
-        } else if (paymentMonth == "3") {
-            document.getElementById("hearingMonth").innerText = "March";
-        } else if (paymentMonth == "4") {
-            document.getElementById("hearingMonth").innerText = "April";
-        } else if (paymentMonth == "5") {
-            document.getElementById("hearingMonth").innerText = "May";
-        } else if (paymentMonth == "6") {
-            document.getElementById("hearingMonth").innerText = "June";
-        } else if (paymentMonth == "7") {
-            document.getElementById("hearingMonth").innerText = "July";
-        } else if (paymentMonth == "8") {
-            document.getElementById("hearingMonth").innerText = "August";
-        } else if (paymentMonth == "9") {
-            document.getElementById("hearingMonth").innerText = "September";
-        } else if (paymentMonth == "10") {
-            document.getElementById("hearingMonth").innerText = "October";
-        } else if (paymentMonth == "11") {
-            document.getElementById("hearingMonth").innerText = "November";
-        } else if (paymentMonth == "12") {
-            document.getElementById("hearingMonth").innerText = "December";
-        }
 
         
         
