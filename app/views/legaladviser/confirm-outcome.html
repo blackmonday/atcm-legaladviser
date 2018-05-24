@@ -484,199 +484,198 @@
     
             <div id="referToCourtHearing">
 
-                        <h1 class="heading-xlarge top_0 bottom_5">Confirm outcome</h1>
+                <h1 class="heading-xlarge top_0 bottom_5">Confirm outcome</h1>
 
-                        <h3 class="heading-large bottom_15">Offence 1</h3>
-                        <h4 class="heading-medium top_15 bottom_5">{{data['offence-type']}}</h4>
-                        <p class="top_5 bottom_15">{{data['offence-description']}}</p>
-                        <p id="backDutyLength" class="bold top_15 bottom_30">{{data['back-duty-description']}}</p>
+                <h3 class="heading-large bottom_15">Offence 1</h3>
+                <h4 class="heading-medium top_15 bottom_5">{{data['offence-type']}}</h4>
+                <p class="top_5 bottom_15">{{data['offence-description']}}</p>
+                <p id="backDutyLength" class="bold top_15 bottom_30">{{data['back-duty-description']}}</p>
 
+                <form class="form" action="" method="post">
+                    <div class="form-group">
                         <h3 class="heading-medium bottom_15">Refer for court hearing</h3>
 
-                         <form class="form" action="" method="post">
-                            <div class="form-group">
-                                <fieldset>
-                                    <legend class="bottom_5">Refer to which court?</legend>
-                                    <select name="refer-to-which-court-group">
-                                        <option value="Court Location One">Court Location One</option>
-                                        <option value="Court Location Two">Court Location Two</option>
-                                        <option value="Court Location Three">Court Location Three</option>
-                                        <option value="Court Location Four">Court Location Four</option>
-                                        <option value="Court Location Five">Court Location Five</option>
-                                        <option value="Court Location Six">Court Location Six</option>
-                                        <option value="Court Location Seven">Court Location Seven</option>
-                                        <option value="Court Location Eight">Court Location Eight</option>
-                                        <option value="Court Location Nine">Court Location Nine</option>
-                                        <option value="Court Location Ten">Court Location Ten</option>
-                                    </select>
-                                </fieldset>
+                        <fieldset>
+                            <legend class="bottom_5">Refer to which court?</legend>
+                            <select name="refer-to-which-court-group">
+                                <option value="Court Location One">Court Location One</option>
+                                <option value="Court Location Two">Court Location Two</option>
+                                <option value="Court Location Three">Court Location Three</option>
+                                <option value="Court Location Four">Court Location Four</option>
+                                <option value="Court Location Five">Court Location Five</option>
+                                <option value="Court Location Six">Court Location Six</option>
+                                <option value="Court Location Seven">Court Location Seven</option>
+                                <option value="Court Location Eight">Court Location Eight</option>
+                                <option value="Court Location Nine">Court Location Nine</option>
+                                <option value="Court Location Ten">Court Location Ten</option>
+                            </select>
+                        </fieldset>
 
-                                <fieldset class="top_30">
-                                    <legend class="bottom_5">Court room</legend>
-                                    <select name="court-room-group">
-                                        <option value="Court Room A">Court Room A</option>
-                                        <option value="Court Room B">Court Room B</option>
-                                        <option value="Court Room C">Court Room C</option>
-                                        <option value="Court Room D">Court Room D</option>
-                                        <option value="Court Room E">Court Room E</option>
-                                        <option value="Court Room F">Court Room F</option>
-                                        <option value="Court Room G">Court Room G</option>
-                                    </select>
-                                </fieldset>
+                        <fieldset class="top_30">
+                            <legend class="bottom_5">Court room</legend>
+                            <select name="court-room-group">
+                                <option value="Court Room A">Court Room A</option>
+                                <option value="Court Room B">Court Room B</option>
+                                <option value="Court Room C">Court Room C</option>
+                                <option value="Court Room D">Court Room D</option>
+                                <option value="Court Room E">Court Room E</option>
+                                <option value="Court Room F">Court Room F</option>
+                                <option value="Court Room G">Court Room G</option>
+                            </select>
+                        </fieldset>
 
-                                <fieldset class="top_30">
-                                    <legend>
-                                        <span class="form-label">Date of hearing</span>
-                                        <span class="form-hint">For example, 31 3 2018</span>
-                                    </legend>
-                                    <div class="form-date">
-                                        <div class="form-group form-group-day">
-                                            <label class="form-label" for="hearing-day">Day</label>
-                                            <input class="form-control" id="hearing-day" name="hearing-day" type="number" pattern="[0-9]*" value="{{ data['hearing-day'] }}">
-                                        </div>
-                                        <div class="form-group form-group-month">
-                                            <label class="form-label" for="hearing-month">Month</label>
-                                            <input class="form-control" id="hearing-month" name="hearing-month" type="number" pattern="[0-9]*" value="{{ data['hearing-month'] }}">
-                                        </div>
-                                        <div class="form-group form-group-year">
-                                            <label class="form-label" for="hearing-year">Year</label>
-                                            <input class="form-control" id="hearing-year" name="hearing-year" type="number" pattern="[0-9]*" value="{{ data['hearing-year'] }}">
-                                        </div>
-                                    </div>
-                                </fieldset>
-
-                                <fieldset class="top_30">
-                                    <legend>
-                                        <span class="form-label">Start time of hearing session</span>
-                                        <span class="form-hint">For example, 13:30</span>
-                                    </legend>
-                                    <div class="form-date">
-                                        <div class="form-group">
-                                            <input class="form-control" id="hearing-time-hour" name="hearing-time-hour" type="number" pattern="[0-9]*" value="{{ data['hearing-time-hour'] }}">
-                                        </div>
-                                        <div class="form-group" style="width: 15px; margin: 7px 0 0 -8px;">:</div>
-                                        <div class="form-group">
-                                            <input class="form-control" id="hearing-time-minute" name="hearing-time-minute" type="number" pattern="[0-9]*" value="{{ data['hearing-time-minute'] }}">
-                                        </div>
-                                    </div>
-                                </fieldset>
-
-
-
-
-                                <fieldset>
-                                    <legend>
-                                        <h3 class="heading-medium">Reason for referring to court</h3>
-                                    </legend>
-                                    <div class="multiple-choice" data-target="equivocol-plea-type">
-                                        <input id="radio-1" type="radio" name="reason-for-referring-to-court-group" value="Equivocal plea" {{ checked('reason-for-referring-to-court-group','Equivocal plea') }}>
-                                        <label for="radio-1">Equivocal plea</label>
-                                    </div>
-
-                                    <div class="js-hidden" id="equivocol-plea-type">
-                                        <div class="panel panel-border-wide top_15">
-                                            <div class="multiple-choice">
-                                                <input id="radio-1a" type="radio" name="equivocal-plea-group" value="Defendant to attend to clarify plea" {{ checked('equivocal-plea-group','Defendant to attend to clarify plea') }}>
-                                                <label for="radio-1a">Defendant to attend to clarify plea</label>
-                                            </div>
-                                            <div class="multiple-choice">
-                                                <input id="radio-1b" type="radio" name="equivocal-plea-group" value="For trial" {{ checked('equivocal-plea-group','For trial') }}>
-                                                <label for="radio-1b">For trial</label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-
-                                    <div class="multiple-choice">
-                                        <input id="radio-2" type="radio" name="reason-for-referring-to-court-group" value="Defence request" {{ checked('reason-for-referring-to-court-group','Defence request') }}>
-                                        <label for="radio-2">Defence request</label>
-                                    </div>
-                                    <div class="multiple-choice">
-                                        <input id="radio-3" type="radio" name="reason-for-referring-to-court-group" value="For trial" {{ checked('reason-for-referring-to-court-group','For trial') }}>
-                                        <label for="radio-3">For trial</label>
-                                    </div>
-
-
-
-
-                                    <div class="multiple-choice" data-target="case-management-hearing-type">
-                                        <input id="radio-4" type="radio" name="reason-for-referring-to-court-group" value="For case management hearing" {{ checked('reason-for-referring-to-court-group','For case management hearing') }}>
-                                        <label for="radio-4">For case management hearing</label>
-                                    </div>
-
-                                    <div class="js-hidden" id="case-management-hearing-type">
-                                        <div class="panel panel-border-wide top_15">
-                                            <div class="multiple-choice">
-                                                <input id="radio-hearing-1" type="radio" name="case-management-group" value="Defendant to attend" {{ checked('equivocal-plea-group','Defendant to attend') }}>
-                                                <label for="radio-hearing-1">Defendant to attend</label>
-                                            </div>
-                                            <div class="multiple-choice">
-                                                <input id="radio-hearing-2" type="radio" name="case-management-group" value="No need for defendant to attend" {{ checked('equivocal-plea-group','No need for defendant to attend') }}>
-                                                <label for="radio-hearing-2">No need for defendant to attend</label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="multiple-choice">
-                                        <input id="radio-5" type="radio" name="reason-for-referring-to-court-group" value="For sentencing hearing (defendant to attend)" {{ checked('reason-for-referring-to-court-group','For sentencing hearing (defendant to attend)') }}>
-                                        <label for="radio-5">For sentencing hearing (defendant to attend)</label>
-                                    </div>
-                                    <div class="multiple-choice">
-                                        <input id="radio-6" type="radio" name="reason-for-referring-to-court-group" value="For disqualification (defendant to attend)" {{ checked('reason-for-referring-to-court-group','For disqualification (defendant to attend)') }}>
-                                        <label for="radio-6">For disqualification (defendant to attend)</label>
-                                    </div>
-                                    <div class="multiple-choice">
-                                        <input id="radio-7" type="radio" name="reason-for-referring-to-court-group" value="Case unsuitable for SJP" {{ checked('reason-for-referring-to-court-group','Case unsuitable for SJP') }}>
-                                        <label for="radio-7">Case unsuitable for SJP</label>
-                                    </div>
-                                </fieldset>
-
-                                <fieldset class="top_30">
-                                    <div class="form-group bottom_15">
-                                        <fieldset class="inline">
-                                            <legend class="heading-small">Is an interpreter needed in court?</legend>
-                                            <div class="multiple-choice"  data-target="interpreter-required">
-                                                <input id="interpreter-1" type="radio" name="interpreter-group" value="Yes" {{ checked('interpreter-group','Yes') }}>
-                                                <label for="interpreter-1">Yes</label>
-                                            </div>
-
-                                            <div class="multiple-choice" data-target="details-not-correct">
-                                                <input id="interpreter-2" type="radio" name="interpreter-group" value="No" {{ checked('interpreter-group','No') }}>
-                                                <label for="interpreter-2">No</label>
-                                            </div>
-                                        </fieldset>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <fieldset class="inline">
-                                            <div class="js-hidden" id="interpreter-required">
-                                                <div class="panel panel-border-wide">
-                                                    <p class="bottom_5">Which language?</p>
-                                                    <p class="form-hint bottom_5">You can include sign language</p>
-                                                    <input class="form-control" id="interpeter-language" type="text" name="interpeter-language"value="{{ data['interpeter-language'] }}">
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                </fieldset>
-
-
-
-
-
-
-
-
-                                <input class="button top_30" type="submit" value="Continue">
-                                <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
+                        <fieldset class="top_30">
+                            <legend>
+                                <span class="form-label">Date of hearing</span>
+                                <span class="form-hint">For example, 31 3 2018</span>
+                            </legend>
+                            <div class="form-date">
+                                <div class="form-group form-group-day">
+                                    <label class="form-label" for="hearing-day">Day</label>
+                                    <input class="form-control" id="hearing-day" name="hearing-day" type="number" pattern="[0-9]*" value="{{ data['hearing-day'] }}">
+                                </div>
+                                <div class="form-group form-group-month">
+                                    <label class="form-label" for="hearing-month">Month</label>
+                                    <input class="form-control" id="hearing-month" name="hearing-month" type="number" pattern="[0-9]*" value="{{ data['hearing-month'] }}">
+                                </div>
+                                <div class="form-group form-group-year">
+                                    <label class="form-label" for="hearing-year">Year</label>
+                                    <input class="form-control" id="hearing-year" name="hearing-year" type="number" pattern="[0-9]*" value="{{ data['hearing-year'] }}">
+                                </div>
                             </div>
-                        </form>
+                        </fieldset>
+                        
 
+                        
+                        
+                        
+                        
+                        <details class="top_15 bottom_15">
+                            <summary><span class="summary">View dates to avoid</span></summary>
+                            <div class="panel panel-border-narrow" style="margin-bottom:15px">
+                                <p>{{data['dates-to-avoid']}}</p>
+                            </div>
+                        </details>
+
+                        
+                        
+                        
+                        
+                        
+                        <fieldset class="top_15">
+                            <legend>
+                                <span class="form-label">Start time of hearing session</span>
+                                <span class="form-hint">For example, 13:30</span>
+                            </legend>
+                            <div class="form-date">
+                                <div class="form-group">
+                                    <input class="form-control" id="hearing-time-hour" name="hearing-time-hour" type="number" pattern="[0-9]*" value="{{ data['hearing-time-hour'] }}">
+                                </div>
+                                <div class="form-group" style="width: 15px; margin: 7px 0 0 -8px;">:</div>
+                                <div class="form-group">
+                                    <input class="form-control" id="hearing-time-minute" name="hearing-time-minute" type="number" pattern="[0-9]*" value="{{ data['hearing-time-minute'] }}">
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>
+                                <h3 class="heading-medium">Reason for referring to court</h3>
+                            </legend>
+                            <div class="multiple-choice" data-target="equivocol-plea-type">
+                                <input id="radio-1" type="radio" name="reason-for-referring-to-court-group" value="Equivocal plea" {{ checked('reason-for-referring-to-court-group','Equivocal plea') }}>
+                                <label for="radio-1">Equivocal plea</label>
+                            </div>
+
+                            <div class="js-hidden" id="equivocol-plea-type">
+                                <div class="panel panel-border-wide top_15">
+                                    <div class="multiple-choice">
+                                        <input id="radio-1a" type="radio" name="equivocal-plea-group" value="Defendant to attend to clarify plea" {{ checked('equivocal-plea-group','Defendant to attend to clarify plea') }}>
+                                        <label for="radio-1a">Defendant to attend to clarify plea</label>
+                                    </div>
+                                    <div class="multiple-choice">
+                                        <input id="radio-1b" type="radio" name="equivocal-plea-group" value="For trial" {{ checked('equivocal-plea-group','For trial') }}>
+                                        <label for="radio-1b">For trial</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="multiple-choice">
+                                <input id="radio-2" type="radio" name="reason-for-referring-to-court-group" value="Defence request" {{ checked('reason-for-referring-to-court-group','Defence request') }}>
+                                <label for="radio-2">Defence request</label>
+                            </div>
+                            <div class="multiple-choice">
+                                <input id="radio-3" type="radio" name="reason-for-referring-to-court-group" value="For trial" {{ checked('reason-for-referring-to-court-group','For trial') }}>
+                                <label for="radio-3">For trial</label>
+                            </div>
+
+                            <div class="multiple-choice" data-target="case-management-hearing-type">
+                                <input id="radio-4" type="radio" name="reason-for-referring-to-court-group" value="For case management hearing" {{ checked('reason-for-referring-to-court-group','For case management hearing') }}>
+                                <label for="radio-4">For case management hearing</label>
+                            </div>
+
+                            <div class="js-hidden" id="case-management-hearing-type">
+                                <div class="panel panel-border-wide top_15">
+                                    <div class="multiple-choice">
+                                        <input id="radio-hearing-1" type="radio" name="case-management-group" value="Defendant to attend" {{ checked('equivocal-plea-group','Defendant to attend') }}>
+                                        <label for="radio-hearing-1">Defendant to attend</label>
+                                    </div>
+                                    <div class="multiple-choice">
+                                        <input id="radio-hearing-2" type="radio" name="case-management-group" value="No need for defendant to attend" {{ checked('equivocal-plea-group','No need for defendant to attend') }}>
+                                        <label for="radio-hearing-2">No need for defendant to attend</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="multiple-choice">
+                                <input id="radio-5" type="radio" name="reason-for-referring-to-court-group" value="For sentencing hearing (defendant to attend)" {{ checked('reason-for-referring-to-court-group','For sentencing hearing (defendant to attend)') }}>
+                                <label for="radio-5">For sentencing hearing (defendant to attend)</label>
+                            </div>
+                            <div class="multiple-choice">
+                                <input id="radio-6" type="radio" name="reason-for-referring-to-court-group" value="For disqualification (defendant to attend)" {{ checked('reason-for-referring-to-court-group','For disqualification (defendant to attend)') }}>
+                                <label for="radio-6">For disqualification (defendant to attend)</label>
+                            </div>
+                            <div class="multiple-choice">
+                                <input id="radio-7" type="radio" name="reason-for-referring-to-court-group" value="Case unsuitable for SJP" {{ checked('reason-for-referring-to-court-group','Case unsuitable for SJP') }}>
+                                <label for="radio-7">Case unsuitable for SJP</label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="top_30">
+                            <div class="form-group bottom_15">
+                                <fieldset class="inline">
+                                    <legend class="heading-small">Is an interpreter needed in court?</legend>
+                                    <div class="multiple-choice"  data-target="interpreter-required">
+                                        <input id="interpreter-1" type="radio" name="interpreter-group" value="Yes" {{ checked('interpreter-group','Yes') }}>
+                                        <label for="interpreter-1">Yes</label>
+                                    </div>
+
+                                    <div class="multiple-choice" data-target="details-not-correct">
+                                        <input id="interpreter-2" type="radio" name="interpreter-group" value="No" {{ checked('interpreter-group','No') }}>
+                                        <label for="interpreter-2">No</label>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div class="form-group">
+                                <fieldset class="inline">
+                                    <div class="js-hidden" id="interpreter-required">
+                                        <div class="panel panel-border-wide">
+                                            <p class="bottom_5">Which language?</p>
+                                            <p class="form-hint bottom_5">You can include sign language</p>
+                                            <input class="form-control" id="interpeter-language" type="text" name="interpeter-language"value="{{ data['interpeter-language'] }}">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </fieldset>
+
+                        <input class="button top_30" type="submit" value="Continue">
+                        <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
                     </div>
+                </form>
+
+            </div>
 
             <div id="withdraw">
 

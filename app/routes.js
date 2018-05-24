@@ -52,7 +52,10 @@ router.post('/', function (req, res) {
         req.session.data['case-status'] = "No plea received"
         req.session.data['prosecutor'] = "DVLA"
         req.session.data['notice-served'] = "30 April 2018"
-        req.session.data['dates-to-avoid'] = "18 June 2018"
+        
+        //req.session.data['dates-to-avoid'] = "18 June 2018"
+        req.session.data['dates-to-avoid'] = "19 May 2018 (Rest Day) 20 May 2018 (Rest Day)  21 May 2018 (Rest Day) 22 May 2018 (Rest Day) 28 May 2018 (Rest Day) 3 Jun 2018 (Rest Day) 7 Jun 2018 (Rest Day) 8 Jun 2018 (Rest Day) 11 Jun 2018 (15 - Lieu Day (taken)) 16 Jun 2018 (Rest Day) 17 Jun 2018 (Rest Day) 18 Jun 2018 (Rest Day) 19 Jun 2018 (Rest Day) 27 Jun 2018 (Rest Day) 28 Jun 2018 (Rest Day) 4 Jul 2018 (Rest Day) 10 Jul 2018 (Rest Day) 16 Jul 2018 (Rest Day) 17 Jul 2018 (Rest Day) 18 Jul 2018 (Rest Day) 19 Jul 2018 (Rest Day) 25 Jul 2018 (Rest Day) 31 Jul 2018 (Rest Day) 1 Aug 2018 (02 - Annual Leave) 2 Aug 2018 (02 - Annual Leave) 3 Aug 2018 (02 - Annual Leave) 4 Aug 2018 (Rest Day) 5 Aug 2018 (Rest Day) 6 Aug 2018 (02 - Annual Leave) 13 Aug 2018 (Rest Day) 14 Aug 2018 (Rest Day) 15 Aug 2018 (Rest Day) 16 Aug 2018 (Rest Day) 24 Aug 2018 (Rest Day) 25 Aug 2018 (Rest Day) 29 Aug 2018 (Rest Day)"
+        
         req.session.data['mitigation'] = "No mitigation given"
         req.session.data['offence-type'] = "Keep a vehicle without a vehicle license"
         req.session.data['offence-description'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
@@ -119,7 +122,10 @@ router.post('/', function (req, res) {
         req.session.data['case-status'] = "No plea received"
         req.session.data['prosecutor'] = "DVLA"
         req.session.data['notice-served'] = "30 April 2018"
-        req.session.data['dates-to-avoid'] = "18 June 2018"
+
+        //req.session.data['dates-to-avoid'] = "18 June 2018"
+        req.session.data['dates-to-avoid'] = "19 May 2018 (Rest Day) 20 May 2018 (Rest Day)  21 May 2018 (Rest Day) 22 May 2018 (Rest Day) 28 May 2018 (Rest Day) 3 Jun 2018 (Rest Day) 7 Jun 2018 (Rest Day) 8 Jun 2018 (Rest Day) 11 Jun 2018 (15 - Lieu Day (taken)) 16 Jun 2018 (Rest Day) 17 Jun 2018 (Rest Day) 18 Jun 2018 (Rest Day) 19 Jun 2018 (Rest Day) 27 Jun 2018 (Rest Day) 28 Jun 2018 (Rest Day) 4 Jul 2018 (Rest Day) 10 Jul 2018 (Rest Day) 16 Jul 2018 (Rest Day) 17 Jul 2018 (Rest Day) 18 Jul 2018 (Rest Day) 19 Jul 2018 (Rest Day) 25 Jul 2018 (Rest Day) 31 Jul 2018 (Rest Day) 1 Aug 2018 (02 - Annual Leave) 2 Aug 2018 (02 - Annual Leave) 3 Aug 2018 (02 - Annual Leave) 4 Aug 2018 (Rest Day) 5 Aug 2018 (Rest Day) 6 Aug 2018 (02 - Annual Leave) 13 Aug 2018 (Rest Day) 14 Aug 2018 (Rest Day) 15 Aug 2018 (Rest Day) 16 Aug 2018 (Rest Day) 24 Aug 2018 (Rest Day) 25 Aug 2018 (Rest Day) 29 Aug 2018 (Rest Day)"
+
         req.session.data['mitigation'] = "No mitigation given"
         req.session.data['offence-type'] = "Keep a vehicle without a vehicle license"
         req.session.data['offence-description'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
@@ -186,7 +192,10 @@ router.post('/', function (req, res) {
         req.session.data['case-status'] = "No plea received"
         req.session.data['prosecutor'] = "Transport for London"
         req.session.data['notice-served'] = "30 April 2018"
-        req.session.data['dates-to-avoid'] = "18 June 2018"
+
+        //req.session.data['dates-to-avoid'] = "18 June 2018"
+        req.session.data['dates-to-avoid'] = "19 May 2018 (Rest Day) 20 May 2018 (Rest Day)  21 May 2018 (Rest Day) 22 May 2018 (Rest Day) 28 May 2018 (Rest Day) 3 Jun 2018 (Rest Day) 7 Jun 2018 (Rest Day) 8 Jun 2018 (Rest Day) 11 Jun 2018 (15 - Lieu Day (taken)) 16 Jun 2018 (Rest Day) 17 Jun 2018 (Rest Day) 18 Jun 2018 (Rest Day) 19 Jun 2018 (Rest Day) 27 Jun 2018 (Rest Day) 28 Jun 2018 (Rest Day) 4 Jul 2018 (Rest Day) 10 Jul 2018 (Rest Day) 16 Jul 2018 (Rest Day) 17 Jul 2018 (Rest Day) 18 Jul 2018 (Rest Day) 19 Jul 2018 (Rest Day) 25 Jul 2018 (Rest Day) 31 Jul 2018 (Rest Day) 1 Aug 2018 (02 - Annual Leave) 2 Aug 2018 (02 - Annual Leave) 3 Aug 2018 (02 - Annual Leave) 4 Aug 2018 (Rest Day) 5 Aug 2018 (Rest Day) 6 Aug 2018 (02 - Annual Leave) 13 Aug 2018 (Rest Day) 14 Aug 2018 (Rest Day) 15 Aug 2018 (Rest Day) 16 Aug 2018 (Rest Day) 24 Aug 2018 (Rest Day) 25 Aug 2018 (Rest Day) 29 Aug 2018 (Rest Day)"
+
         req.session.data['mitigation'] = "No mitigation given"
         req.session.data['offence-type'] = "Passenger used ticket issued for another person"
         req.session.data['offence-description'] = "On 10 Nov 2016 at Belmont Hill, Lewisham, SE13, being a passenger on a Public Services Vehicle being operated on behalf of London Bus Company Limited , used for the carriage of passengers at separate fares, used a ticket which had been issued for use by another person on terms that it was not transferable. Contrary to regulation 7(1)(b) of the Public Service Vehicles (Conduct of Drivers, Inspectors, Conductors and Passengers) Regulations 1990 and section 25 of the Public Passenger Vehicles Act 1981."
@@ -253,7 +262,10 @@ router.post('/', function (req, res) {
         req.session.data['case-status'] = "No plea received"
         req.session.data['prosecutor'] = "TV Licensing"
         req.session.data['notice-served'] = "30 April 2018"
-        req.session.data['dates-to-avoid'] = "18 June 2018"
+
+        //req.session.data['dates-to-avoid'] = "18 June 2018"
+        req.session.data['dates-to-avoid'] = "19 May 2018 (Rest Day) 20 May 2018 (Rest Day)  21 May 2018 (Rest Day) 22 May 2018 (Rest Day) 28 May 2018 (Rest Day) 3 Jun 2018 (Rest Day) 7 Jun 2018 (Rest Day) 8 Jun 2018 (Rest Day) 11 Jun 2018 (15 - Lieu Day (taken)) 16 Jun 2018 (Rest Day) 17 Jun 2018 (Rest Day) 18 Jun 2018 (Rest Day) 19 Jun 2018 (Rest Day) 27 Jun 2018 (Rest Day) 28 Jun 2018 (Rest Day) 4 Jul 2018 (Rest Day) 10 Jul 2018 (Rest Day) 16 Jul 2018 (Rest Day) 17 Jul 2018 (Rest Day) 18 Jul 2018 (Rest Day) 19 Jul 2018 (Rest Day) 25 Jul 2018 (Rest Day) 31 Jul 2018 (Rest Day) 1 Aug 2018 (02 - Annual Leave) 2 Aug 2018 (02 - Annual Leave) 3 Aug 2018 (02 - Annual Leave) 4 Aug 2018 (Rest Day) 5 Aug 2018 (Rest Day) 6 Aug 2018 (02 - Annual Leave) 13 Aug 2018 (Rest Day) 14 Aug 2018 (Rest Day) 15 Aug 2018 (Rest Day) 16 Aug 2018 (Rest Day) 24 Aug 2018 (Rest Day) 25 Aug 2018 (Rest Day) 29 Aug 2018 (Rest Day)"
+
         req.session.data['mitigation'] = "I have been long term sick and I can't get to the post office to buy a TV Licence"
         req.session.data['offence-type'] = "Possess/control TV set with intent another use install without a licence"
         req.session.data['offence-description'] = "On 01/11/2017 at Chelmsford in the county of Essex were in possession or control of a colour television receiver knowing, or having reasonable grounds for believing, that another person intended to install or use the receiver without a licence."
