@@ -497,6 +497,11 @@ tr {
     text-decoration: underline;
     color:#005EA5;
 }
+.dummy-link:hover, #fakeLink:hover {
+    text-decoration: underline;
+    color:#2B8CC4;
+    cursor: pointer;
+}
 
 
 
