@@ -1,4 +1,4 @@
-6{% extends "layout-CPP.html" %}
+{% extends "layout-CPP.html" %}
 
 {% block page_title %}
     GOV.UK prototype kit
@@ -339,6 +339,8 @@
         width: 40%;
     }
 </style>
+
+{% include "includes/timeout-overlay.html" %}
 
 <div id="overlay-file-1" onclick="overlay_file_1_off()">
     <div id="overlay-info">

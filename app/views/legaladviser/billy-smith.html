@@ -6,6 +6,8 @@
 
 {% block content %}
 
+{% include "includes/timeout-overlay.html" %}
+
 <div id="overlay-file-1" onclick="overlay_file_1_off()">
     <div id="overlay-info">
         <h3 class="heading-medium top_0 bottom_15">Remove a file</h3>
@@ -30,7 +32,6 @@
         <p class="remove-link bottom_0" onclick="overlay_file_1_off()">cancel</p>
     </div>
 </div>
-
 
 <main id="content" role="main">
     
