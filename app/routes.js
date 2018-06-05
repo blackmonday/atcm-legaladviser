@@ -353,7 +353,8 @@ router.post('/legaladviser/confirm-outcome', function (req, res) {
     
     
     var decisionMade = req.session.data['make-a-decision-group']
-    if (decisionMade == "Financial penalty") {
+    var decisionMadeb = req.session.data['make-a-decision-group-b']
+    if (decisionMade == "Financial penalty" || decisionMadeb == "Financial penalty") {
         res.redirect('/legaladviser/payment-method')
     }
     if (decisionMade == "Refer to court hearing") {
@@ -362,7 +363,7 @@ router.post('/legaladviser/confirm-outcome', function (req, res) {
     if (decisionMade == "Withdraw") {
         res.redirect('/legaladviser/check-your-decision')
     }
-    if (decisionMade == "Discharge") {
+    if (decisionMade == "Discharge" || decisionMadeb == "Discharge") {
         res.redirect('/legaladviser/payment-method')
     }
     

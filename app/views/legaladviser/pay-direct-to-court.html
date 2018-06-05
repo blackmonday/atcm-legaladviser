@@ -17,9 +17,10 @@
     window.onload = function() {
               
         var decision = document.getElementById('decision').innerHTML;
-        if (decision == "Financial penalty") {
+        var decisionb = document.getElementById('decision-b').innerHTML;
+        if (decision == "Financial penalty" || decisionb == "Financial penalty") {
             document.getElementById('totalPaymentDischarge').style.display = "none";
-        } else if (decision == "Discharge") {
+        } else if (decision == "Discharge" || decisionb == "Discharge") {
             document.getElementById('totalPayment').style.display = "none"
         }
 

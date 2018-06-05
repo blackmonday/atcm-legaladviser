@@ -20,9 +20,10 @@
         //alert("total-payment="+document.getElementById('totalPaymentDischarge').innerHTML);
         
         var decision = document.getElementById('decision').innerHTML;
-        if (decision == "Financial penalty") {
+        var decisionb = document.getElementById('decisionb').innerHTML;
+        if (decision == "Financial penalty" || decisionb == "Financial penalty") {
             document.getElementById('totalPaymentDischarge').style.display = "none";
-        } else if (decision == "Discharge") {
+        } else if (decision == "Discharge" || decisionb == "Discharge") {
             document.getElementById('totalPayment').style.display = "none"
         }
     
@@ -41,7 +42,8 @@
             
             {% include "includes/persist-info-banner.html" %}
             
-            <div id="decision" style="display:">{{data['make-a-decision-group']}}</div>
+            <div id="decision" style="display:none">{{data['make-a-decision-group']}}</div>
+            <div id="decisionb" style="display:none">{{data['make-a-decision-group-b']}}</div>
 
         </div>
     </div>
