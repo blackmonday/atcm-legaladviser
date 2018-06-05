@@ -137,18 +137,37 @@
         
         //CHECK COMPENSATION
         var compensation_amount = document.getElementById('compensation-amount').value;
-        if (compensation_amount == "0") {
+        var prosecutor = document.getElementById('prosecutor').innerText;
+        if (compensation_amount == "0" && prosecutor != "DVLA") {
             document.getElementById('reasonForRemovingCompensation').style.display = "block";
         } else {
             document.getElementById('reasonForRemovingCompensation').style.display = "none";
         }
         
         var discharge_compensation_amount = document.getElementById('discharge-compensation').value;
-        if (discharge_compensation_amount == "0") {
+        if (discharge_compensation_amount == "0" && prosecutor != "DVLA") {
             document.getElementById('discharge-reasonForRemovingCompensation').style.display = "block";
         } else {
             document.getElementById('discharge-reasonForRemovingCompensation').style.display = "none";
         }
+                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
     }
     
@@ -245,6 +264,8 @@
             {% include "includes/breadcrumb_back.html" %}
              
             {% include "includes/persist-info-banner.html" %}
+            
+            <div id="prosecutor" style="display:none">{{data['prosecutor']}}</div>
 
         </div>
     </div>

@@ -15,6 +15,16 @@
 
 <script>
     window.onload = function() {
+        
+        //alert("total-payment="+document.getElementById('totalPayment').innerHTML);
+        //alert("total-payment="+document.getElementById('totalPaymentDischarge').innerHTML);
+        
+        var decision = document.getElementById('decision').innerHTML;
+        if (decision == "Financial penalty") {
+            document.getElementById('totalPaymentDischarge').style.display = "none";
+        } else if (decision == "Discharge") {
+            document.getElementById('totalPayment').style.display = "none"
+        }
     
     }
 </script>
@@ -30,6 +40,8 @@
             {% include "includes/breadcrumb_back.html" %}
             
             {% include "includes/persist-info-banner.html" %}
+            
+            <div id="decision" style="display:">{{data['make-a-decision-group']}}</div>
 
         </div>
     </div>
@@ -43,7 +55,7 @@
 
             <div class="panel panel-border-wide bottom_30">
                 <p class="bottom_5">Total to pay</p>
-                <p class="bold top_5">£{{data['total-payment']}}{{data['total-payment-discharge']}}</p>
+                <p class="bold top_5">£<span id="totalPayment">{{data['total-payment']}}</span><span id="totalPaymentDischarge">{{data['total-payment-discharge']}}</span></p>
             </div>
 
             <form class="form" action="" method="post">

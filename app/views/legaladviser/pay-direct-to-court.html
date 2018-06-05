@@ -15,7 +15,14 @@
 
 <script>
     window.onload = function() {
-                
+              
+        var decision = document.getElementById('decision').innerHTML;
+        if (decision == "Financial penalty") {
+            document.getElementById('totalPaymentDischarge').style.display = "none";
+        } else if (decision == "Discharge") {
+            document.getElementById('totalPayment').style.display = "none"
+        }
+
     }
 </script>
 
@@ -43,7 +50,7 @@
             
             <div class="panel panel-border-wide bottom_30">
                 <p class="bottom_5">Total to pay</p>
-                <p class="bold top_5">£{{data['total-payment']}}{{data['total-payment-discharge']}}</p>
+                <p class="bold top_5">£<span id="totalPayment">{{data['total-payment']}}</span><span id="totalPaymentDischarge">{{data['total-payment-discharge']}}</span></p>
             </div>
             
             <form class="form" action="" method="post">
