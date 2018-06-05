@@ -15,6 +15,7 @@ module.exports = router
 router.post('/', function (req, res) {
     
     req.session.data['SJPsessionStarted'] = "False"
+    req.session.data['changesMade'] = "No"
 
     var prosecutor = req.session.data['prosecutor-group']
     req.session.data['magistrates-name'] = "Alice Johnson"
@@ -377,11 +378,6 @@ router.post('/legaladviser/confirm-outcome', function (req, res) {
     
 })
 
-
-
-
-
-
 // **************
 // PAYMENT METHOD
 router.post('/legaladviser/payment-method', function (req, res) {
@@ -406,11 +402,6 @@ router.post('/legaladviser/pay-direct-to-court', function (req, res) {
     
 })
 
-
-
-
-
-
 // ********************
 // DEDUCT FROM BENEFITS
 router.post('/legaladviser/deduct-from-benefits', function (req, res) {
@@ -418,11 +409,6 @@ router.post('/legaladviser/deduct-from-benefits', function (req, res) {
     res.redirect('/legaladviser/check-your-decision')
     
 })
-
-
-
-
-
 
 // ******************
 // ATTACH TO EARNINGS
@@ -444,10 +430,6 @@ router.post('/legaladviser/check-your-decision', function (req, res) {
     res.redirect('/legaladviser/case-details-page')
     
 })
-
-
-
-
 
 // ******************************
 // ADD OR CHANGE PERSONAL DETAILS
@@ -474,13 +456,11 @@ router.post('/legaladviser/add-or-change-personal-details', function (req, res) 
         
     req.session.data['warning-banner-switch'] = "on"
     
+    req.session.data['changesMade'] = "Yes"
+    
     res.redirect('/legaladviser/case-details-page')
     
 })
-
-
-
-
 
 // ********************
 // ADD OR CHANGE INCOME
@@ -507,11 +487,6 @@ router.post('/legaladviser/add-or-change-income', function (req, res) {
     
 })
 
-
-
-
-
-
 // ***********
 // CHANGE PLEA
 router.post('/legaladviser/change-plea', function (req, res) {
@@ -522,9 +497,6 @@ router.post('/legaladviser/change-plea', function (req, res) {
     
 })
 
-
-
-
 // **********************
 // DEFENDANTS ONLINE PLEA
 router.post('/legaladviser/defendants-online-plea', function (req, res) {
@@ -532,7 +504,6 @@ router.post('/legaladviser/defendants-online-plea', function (req, res) {
     res.redirect('/legaladviser/case-details-page')
     
 })
-
 
 // *******
 // SIGN IN
@@ -542,7 +513,6 @@ router.post('/legaladviser/sign-in', function (req, res) {
     
 })
 
-
 // ************************
 // SIGN IN - AUTHENTICATION
 router.post('/legaladviser/sign-in-authentication', function (req, res) {
@@ -550,7 +520,6 @@ router.post('/legaladviser/sign-in-authentication', function (req, res) {
     res.redirect('/legaladviser/dashboard')
     
 })
-
 
 // ********
 // SIGN OUT

@@ -322,7 +322,32 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /* CHANGES MADE ??? */
+        var changesMade = document.getElementById('changesMade').innerText;
+        if (changesMade == "Yes") {
+            //document.getElementById('confirmation').style.display = "block";
+        }
+        
+        //var cat = sessionStorage.getItem('changesMade');
+        if (sessionStorage.getItem('changesMade') == "Yes") {
+            document.getElementById('confirmation').style.display = "block";
+            sessionStorage.setItem('changesMade', 'No');
+        }
+        //alert(sessionStorage.getItem('changesMade'));
 
+        
+        
+        
         
     }
 </script>
@@ -378,6 +403,9 @@
             <div id="prosecutorCheck" style="display:none">{{ data['prosecutor-group'] }}</div>
             
             {% include "includes/persist-info-banner.html" %}
+            
+            <div id="changesMade" style="display:none">{{data['changesMade']}}</div>
+            <div id="confirmation" style="display: none">{% include "includes/confirmation-banner.html" %}</div>
 
         </div>
     </div>
