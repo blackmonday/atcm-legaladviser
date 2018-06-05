@@ -11,6 +11,15 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
         var defendants_plea = document.getElementById('defendantsPlea').innerText;
         var case_status = document.getElementById('case-status').innerText;
         var decision = document.getElementById('decision').innerText;
@@ -317,17 +326,10 @@
             document.getElementById('defendentsTitle').innerText = "";
         }
 
+
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
         
         
         
@@ -349,6 +351,24 @@
         
         
         
+        
+        
+        
+        
+        
+        var interpretorGroup = document.getElementById('interpretorGroup').innerText;        
+        if (interpretorGroup == "Yes") {
+            document.getElementById('interpeterLanguage').style.display = "block";
+        } else {
+            document.getElementById('interpeterLanguage').style.display = "none";
+        }
+
+        
+        
+        
+        
+        
+
     }
 </script>
 
@@ -691,6 +711,13 @@
                                             <p class="top_0 bottom_10">Summons issued for hearing before {{ data['refer-to-which-court-group'] }} on {{ data['hearing-day'] }} <span id="hearingMonth">{{ data['hearing-month'] }}</span> {{ data['hearing-year'] }} at {{ data['court-room-group'] }} at {{ data['hearing-time-hour'] }}:{{ data['hearing-time-minute'] }}.</p>
                                             <p class="top_10 bottom_15">Reason: {{data['reason-for-referring-to-court-group']}}</p>
                                         </td>
+                                    </tr>
+                                    
+                                    <tr style="border-top: 1px solid #BFC1C3">
+                                        <td class="bold"><p class="bold top_15 bottom_5">Is an interpreter needed in court</p></td>
+                                        <td><p id="interpretorGroup" class="top_15 bottom_5">{{data['interpreter-group']}}</p>
+                                        <p id="interpeterLanguage" class="top_10 bottom_15">Language: {{data['interpeter-language']}}</p>
+</td>
                                     </tr>
                                     
                                     <tr style="border-top: 1px solid #BFC1C3">
