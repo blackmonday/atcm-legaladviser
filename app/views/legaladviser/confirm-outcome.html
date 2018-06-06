@@ -67,13 +67,15 @@
         var decisiontype = document.getElementById('decision').innerText;
         var decisiontype_b = document.getElementById('decision-b').innerText;
         if ((decisiontype == "Financial penalty") || (decisiontype_b == "Financial penalty")) {
+            document.getElementById('financialPenalty').style.display = "block"; 
             document.getElementById('referToCourtHearing').style.display = "none"; 
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
             
         } else if (decisiontype == "Refer to court hearing") {
-            document.getElementById('financialPenalty').style.display = "none"; 
+            document.getElementById('financialPenalty').style.display = "none";
+            document.getElementById('referToCourtHearing').style.display = "block"; 
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
@@ -81,6 +83,7 @@
         } else if (decisiontype == "Withdraw") {
             document.getElementById('financialPenalty').style.display = "none"; 
             document.getElementById('referToCourtHearing').style.display = "none";
+            document.getElementById('withdraw').style.display = "block";
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
             
@@ -88,6 +91,7 @@
             document.getElementById('financialPenalty').style.display = "none"; 
             document.getElementById('referToCourtHearing').style.display = "none"; 
             document.getElementById('withdraw').style.display = "none";
+            document.getElementById('discharge').style.display = "block";
             document.getElementById('dismiss').style.display = "none";
            
         } else if (decisiontype == "Dismiss") {
@@ -95,6 +99,7 @@
             document.getElementById('referToCourtHearing').style.display = "none"; 
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('discharge').style.display = "none";
+            document.getElementById('dismiss').style.display = "block";
         }
         
         
@@ -273,7 +278,7 @@
         
         <div class="column-two-thirds">
 
-            <div id="financialPenalty">
+            <div id="financialPenalty" style="display:none">
                 
                 <h1 class="heading-xlarge top_0 bottom_5">Confirm outcome</h1>
 
@@ -516,7 +521,7 @@
 
             </div>       
     
-            <div id="referToCourtHearing">
+            <div id="referToCourtHearing" style="display:none">
 
                 <h1 class="heading-xlarge top_0 bottom_5">Confirm outcome</h1>
 
@@ -704,14 +709,14 @@
                             </div>
                         </fieldset>
 
-                        <input class="button top_30" type="submit" value="Continue">
+                        <input class="button top_15" type="submit" value="Continue">
                         <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
                     </div>
                 </form>
 
             </div>
 
-            <div id="withdraw">
+            <div id="withdraw" style="display:none">
 
                 <h1 class="heading-xlarge top_0 bottom_5">Confirm outcome</h1>
 
@@ -724,7 +729,7 @@
                     <div class="form-group">
                         <label class="heading-medium" for="withdrawn-reason">Withdraw</label>
                         <p class="bottom_5">Reason for withdrawing offence</p>
-                        <textarea class="form-control form-control-3-4" name="withdrawn-reason" id="withdrawn-reason" rows="5">{{ data['withdrawn-reason'] }}</textarea>
+                        <textarea class="form-control" name="withdrawn-reason" id="withdrawn-reason" rows="8" style="width:100%">{{ data['withdrawn-reason'] }}</textarea>
 
                         <input class="button top_30" type="submit" value="Continue">
                         <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
@@ -733,7 +738,7 @@
 
             </div>
 
-            <div id="discharge">
+            <div id="discharge" style="display:none">
 
                 <h1 class="heading-xlarge top_0 bottom_5">Confirm outcome</h1>
 
@@ -880,7 +885,7 @@
 
             </div>
             
-            <div id="dismiss">
+            <div id="dismiss" style="display:none">
                 <h1 class="heading-xlarge top_0 bottom_5">Confirm outcome</h1>
                 
                 <h3 class="heading-large bottom_15">Offence 1</h3>
@@ -893,7 +898,7 @@
                         
                         <fieldset class="inline">
                             <legend>
-                                <h2 class="heading-medium bottom_5">Dismiss this offence</h2>
+                                <h2 class="heading-medium top_15 bottom_5">Dismiss this offence</h2>
                                 <p class="top_5 bottom_5">Are you sure you want to dismiss this offence?</p>
                             </legend>
                             <div class="multiple-choice">

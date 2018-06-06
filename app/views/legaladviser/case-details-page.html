@@ -9,20 +9,11 @@
 <script>
     window.onload = function() {
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         var defendants_plea = document.getElementById('defendantsPlea').innerText;
         var case_status = document.getElementById('case-status').innerText;
         var decision = document.getElementById('decision').innerText;
+        
+        //alert("defendants_plea="+defendants_plea+" ||| case_status="+case_status+" ||| decision="+decision);
         
         if (decision == "") {
             if (defendants_plea == "NO PLEA RECEIVED") {
@@ -142,12 +133,23 @@
         
         
         
-        /* ************** */
-        /* ************** */
-        /* ************** */
-        /* ************** */
-        /* ************** */
-        /* ************** */
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /* ********************************* */
+        /* ********************************* */
+        /* ********************************* */
+        /* ********************************* */
+        /* ********************************* */
+        /* ********************************* */
+        /* DECISION - PAYMENT AND COLLECTION */
         
         var howToPayFinal2 = document.getElementById('setReserveTermsGroup').innerText;
         var howToPayFinal = document.getElementById('howToPayGroup').innerText;
@@ -165,12 +167,12 @@
         if (howToPayFinal2 == "Instalments only") {
             document.getElementById('totalPayment').style.display = "none";
             document.getElementById('lumpSumAmount').style.display = "none";
+            //document.getElementById('lumpSumAmount_b').style.display = "none";
             //document.getElementById('instalmentOnly').style.display = "block";
         }
 
         
 
-        // lump sum amount 2 ?????
         
         
         
@@ -183,9 +185,11 @@
         
         
         
-        /* CHECK DECISION */
+        /* CHECK DECISION - WHAT IS DISPLAYED IN THE DECISION TAB? */
         var decisiontype = document.getElementById('decision').innerText;
-        if (decisiontype == "Financial penalty") {
+        var decisiontype_b = document.getElementById('decision-b').innerText;
+                        
+        if ((decisiontype == "Financial penalty") || (decisiontype == "Prove SJP" && decisiontype_b == "Financial penalty")) {
             document.getElementById('referToCourtHearingTab').style.display = "none";
             document.getElementById('withdrawTab').style.display = "none";
             document.getElementById('dischargeTab').style.display = "none";
@@ -203,7 +207,7 @@
             document.getElementById('dischargeTab').style.display = "none";
             document.getElementById('dismissTab').style.display = "none";
             
-        } else if (decisiontype == "Discharge") {
+        } else if ((decisiontype == "Discharge") || (decisiontype == "Prove SJP" && decisiontype_b == "Discharge")) {
             document.getElementById('financialPenaltyTab').style.display = "none"; 
             document.getElementById('referToCourtHearingTab').style.display = "none";
             document.getElementById('withdrawTab').style.display = "none";
@@ -235,7 +239,6 @@
         if (caseStatus == "Completed") {
             document.getElementById("makeADecisionForm").style.display = "none";
             document.getElementById("statmentOfFactGroup").style.display = "none";
-            document.getElementById("tabGroup2").style.display = "block";
             document.getElementById("tabGroup2").style.display = "block";
         } else {
             document.getElementById("makeADecisionForm").style.display = "block";
@@ -453,6 +456,7 @@
                 </div>
             </div>
             
+            <!-- TABS -->
             <div class="tabGroup top_30">
                 <a id="tabA" class="tab-on" onclick="tabGroup(tabContent, 'TAB-ONE')" href="javascript: void(0)">Case details</a>
                 <a id="tabB" class="tab" onclick="tabGroup(tabContent, 'TAB-TWO')" href="javascript: void(0)">Defendant details</a>
@@ -550,14 +554,17 @@
             
             <hr class="top_60 bottom_60">
             
+            <!-- OFFENCE DETAILS -->
             <h2 class="heading-large">Offence 1</h2>
             <h3 class="heading-medium bottom_5">{{data['offence-type']}}</h3>
             <p>{{data['offence-description']}}</p>
             <p id="backDutyLength" class="bold">{{data['back-duty-description']}}</p>
             
+            <!-- PLEA BOX -->
             <div class="top_60">
                 <span id="defendantsPlea" class="label">{{data['defendents-plea']}}</span><span id="changePleaLink" style="margin-left: 15px"><a href="change-plea.html">Change plea</a></span>
             </div>
+            
         </div>
         
         <div class="column-one-third">
@@ -584,11 +591,13 @@
     <div class="grid-row top_15">
         <div class="column-two-thirds">
             
+            <!-- STATEMENT OF FACTS -->
             <div id="statmentOfFactGroup">
                 <h3 class="heading-medium bottom_5">Statement of facts</h3>
                 <p>{{data['statement-of-facts']}}</p>
             </div>
             
+            <!-- TABS 2 -->
             <div id="tabGroup2">
                 <div class="tabGroup2 top_60">
                     <a id="tabA2" class="tab-on-2" onclick="tabGroup2(tabContent2, 'TAB-ONE-2')" href="javascript: void(0)">Details</a>
@@ -597,13 +606,13 @@
                 </div>
                 <div id="tabContent2" class="top_30">
 
-                    <!-- TAB ONE -->
+                    <!-- TAB ONE - STATEMENT OF FACTS -->
                     <div id="tabOneContent2">
                         <h3 class="heading-medium bottom_5 top_0">Statement of facts</h3>
                         <p>{{data['statement-of-facts']}}</p>
                     </div>
 
-                    <!-- TAB TWO -->
+                    <!-- TAB TWO - DECISION -->
                     <div id="tabTwoContent2">
                         
                         <!-- FINANCIAL PENALTY TAB -->
@@ -875,6 +884,7 @@
 
         </div>
         
+        <!-- MAKE A DECISION -->
         <div class="column-one-third" style="margin-top: 45px">
             <div class="right-column-nav">
                 

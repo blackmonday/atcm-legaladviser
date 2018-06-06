@@ -39,15 +39,10 @@
                         
             <h1 class="heading-xlarge top_0 bottom_30">Attach to earnings</h1>
 
-            
-            
-            
-            
-            
-            
             <form class="form" action="" method="post">
                 <div class="form-group">
 
+                    <!-- EMPLOYER DETAILS -->
                     <fieldset>
                         <legend>
                             <h1 class="heading-medium">Employer details</h1>
@@ -87,6 +82,7 @@
 
                     </fieldset>
                     
+                    <!-- REASON FOR ATTACHING TO EARNINGS -->
                     <fieldset>
                         <legend>
                             <h1 class="heading-medium">Reason for attaching to earnings</h1>
@@ -99,13 +95,13 @@
                             <input id="radio-a2" type="radio" name="reason-for-attaching-to-earnings-group" value="Defendant failed to pay in past" {{ checked('reason-for-attaching-to-earnings-group','Defendant failed to pay in past') }}>
                             <label for="radio-a2">Defendant failed to pay in past</label>
                         </div>
-                        <p class="form-block">or</p>
                         <div class="multiple-choice">
                             <input id="radio-a3" type="radio" name="reason-for-attaching-to-earnings-group" value="Defendant requested this" {{ checked('reason-for-attaching-to-earnings-group','Defendant requested this') }}>
                             <label for="radio-a3">Defendant requested this</label>
                         </div>
                     </fieldset>
                     
+                    <!-- SET RESERVE TERMS -->
                     <fieldset>
                         <legend>
                             <h1 class="heading-medium">Set reserve terms</h1>
