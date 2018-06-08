@@ -45,6 +45,7 @@
             <form class="form" action="" method="post">
                 <div class="form-group">
 
+                    <!-- REASON FOR DEDUCTING FROM BENEFITS -->
                     <fieldset>
                         <legend>
                             <h1 class="heading-medium">Reason for deducting from benefits</h1>
@@ -64,166 +65,145 @@
                         </div>
                     </fieldset>
                     
+                    <!-- SET RESERVE TERMS -->
                     <fieldset>
+                        
                         <legend>
                             <h1 class="heading-medium">Set reserve terms</h1>
                         </legend>
+                        
                         <div class="multiple-choice">
-                            <input id="radio-b1" type="radio" name="set-reserve-terms-group" value="Lump sum within 14 days" {{ checked('set-reserve-terms-group','Lump sum within 14 days') }}>
+                            <input id="radio-b1" type="radio" name="dbo-set-reserve-terms-group" value="Lump sum within 14 days" {{ checked('dbo-set-reserve-terms-group','Lump sum within 14 days') }}>
                             <label for="radio-b1">Lump sum within 14 days</label>
                         </div>
+                        
                         <div class="multiple-choice">
-                            <input id="radio-b2" type="radio" name="set-reserve-terms-group" value="Lump sum within 28 days" {{ checked('set-reserve-terms-group','Lump sum within 28 days') }}>
+                            <input id="radio-b2" type="radio" name="dbo-set-reserve-terms-group" value="Lump sum within 28 days" {{ checked('dbo-set-reserve-terms-group','Lump sum within 28 days') }}>
                             <label for="radio-b2">Lump sum within 28 days</label>
                         </div>
                         
                         <div class="multiple-choice" data-target="lump-sum-plus-instalments">
-                            <input id="radio-b3" type="radio" name="set-reserve-terms-group" value="Lump sum plus instalments" {{ checked('set-reserve-terms-group','Lump sum plus instalments') }}>
+                            <input id="radio-b3" type="radio" name="dbo-set-reserve-terms-group" value="Lump sum plus instalments" {{ checked('dbo-set-reserve-terms-group','Lump sum plus instalments') }}>
                             <label for="radio-b3">Lump sum plus instalments</label>
                         </div>
-                        <div class="js-hidden" id="lump-sum-plus-instalments">
-                            <div class="panel panel-border-wide top_15">
-                                
-                                <fieldset>
-                                    <label class="form-label" for="lump-sum-amount">Lump sum amount</label>
-                                    <div class="input-icon">
-                                        <i>£</i>
-                                        <input class="form-control" id="lump-sum-amount" type="number" min="0.0" step="0.01"  name="lump-sum-amount" value="{{ data['lump-sum-amount'] }}">
-                                    </div>
-                                </fieldset>
-                                
-                                <fieldset class="top_15">
-                                    <label class="form-label" for="instalment-amount-1">Instalment amount</label>
-                                    <div class="input-icon">
-                                        <i>£</i>
-                                        <input class="form-control" id="instalment-amount-1" type="number" min="0.0" step="0.01"  name="instalment-amount-1" value="{{ data['instalment-amount-1'] }}">
-                                    </div>
-                                </fieldset>
+                        
+                                <div class="js-hidden" id="lump-sum-plus-instalments">
+                                    <div class="panel panel-border-wide top_15">
 
-                                <fieldset class="top_15">
-                                    <legend>
-                                        <p>How often should instalment be made?</p>
-                                    </legend>
-                                    <div class="multiple-choice">
-                                        <input id="instalment-frequency-1" type="radio" name="lump-sum-instalment-frequency-group" value="Weekly" {{ checked('lump-sum-instalment-frequency-group','Weekly') }}>
-                                        <label for="instalment-frequency-1">Weekly</label>
+                                        <fieldset>
+                                            <label class="form-label" for="dbo-lump-sum-amount">Lump sum amount</label>
+                                            <div class="input-icon">
+                                                <i>£</i>
+                                                <input class="form-control" id="dbo-lump-sum-amount" type="number" min="0.0" step="0.01"  name="dbo-lump-sum-amount" value="{{ data['dbo-lump-sum-amount'] }}">
+                                            </div>
+                                        </fieldset>
+
+                                        <fieldset class="top_15">
+                                            <label class="form-label" for="dbo-instalment-amount-1">Instalment amount</label>
+                                            <div class="input-icon">
+                                                <i>£</i>
+                                                <input class="form-control" id="dbo-instalment-amount-1" type="number" min="0.0" step="0.01"  name="dbo-instalment-amount-1" value="{{ data['dbo-instalment-amount-1'] }}">
+                                            </div>
+                                        </fieldset>
+
+                                        <fieldset class="top_15">
+                                            <legend>
+                                                <p>How often should instalment be made?</p>
+                                            </legend>
+                                            <div class="multiple-choice">
+                                                <input id="instalment-frequency-1" type="radio" name="dbo-lump-sum-instalment-frequency-group" value="Weekly" {{ checked('dbo-lump-sum-instalment-frequency-group','Weekly') }}>
+                                                <label for="instalment-frequency-1">Weekly</label>
+                                            </div>
+                                            <div class="multiple-choice">
+                                                <input id="instalment-frequency-2" type="radio" name="dbo-lump-sum-instalment-frequency-group" value="Fortnightly" {{ checked('dbo-lump-sum-instalment-frequency-group','Fortnightly') }}>
+                                                <label for="instalment-frequency-2">Fortnightly</label>
+                                            </div>
+                                            <div class="multiple-choice">
+                                                <input id="instalment-frequency-3" type="radio" name="dbo-lump-sum-instalment-frequency-group" value="Monthly" {{ checked('dbo-lump-sum-instalment-frequency-group','Monthly') }}>
+                                                <label for="instalment-frequency-3">Monthly</label>
+                                            </div>
+                                        </fieldset>
+
+                                        <fieldset class="top_15">
+                                            <legend>
+                                                <span class="form-label">Instalment start date</span>
+                                                <span class="form-hint">For example, 31 3 2018</span>
+                                            </legend>
+                                            <div class="form-date">
+                                                <div class="form-group form-group-day">
+                                                    <label class="form-label" for="dbo-day2">Day</label>
+                                                    <input class="form-control" id="dbo-day2" name="dbo-day2" type="number" pattern="[0-9]*" value="{{ data['dbo-day2'] }}">
+                                                </div>
+                                                <div class="form-group form-group-month">
+                                                    <label class="form-label" for="dbo-month2">Month</label>
+                                                    <input class="form-control" id="dbo-month2" name="dbo-month2" type="number" pattern="[0-9]*" value="{{ data['dbo-month2'] }}">
+                                                </div>
+                                                <div class="form-group form-group-year">
+                                                    <label class="form-label" for="dbo-year2">Year</label>
+                                                    <input class="form-control" id="dbo-year2" name="dbo-year2" type="number" pattern="[0-9]*" value="{{ data['dbo-year2'] }}">
+                                                </div>
+                                            </div>
+                                        </fieldset>
+
                                     </div>
-                                    <div class="multiple-choice">
-                                        <input id="instalment-frequency-2" type="radio" name="lump-sum-instalment-frequency-group" value="Fortnightly" {{ checked('lump-sum-instalment-frequency-group','Fortnightly') }}>
-                                        <label for="instalment-frequency-2">Fortnightly</label>
-                                    </div>
-                                    <div class="multiple-choice">
-                                        <input id="instalment-frequency-3" type="radio" name="lump-sum-instalment-frequency-group" value="Monthly" {{ checked('lump-sum-instalment-frequency-group','Monthly') }}>
-                                        <label for="instalment-frequency-3">Monthly</label>
-                                    </div>
-                                </fieldset>
-                                
-                                <fieldset class="top_15">
-                                    <legend>
-                                        <span class="form-label">Instalment start date</span>
-                                        <span class="form-hint">For example, 31 3 2018</span>
-                                    </legend>
-                                    <div class="form-date">
-                                        <div class="form-group form-group-day">
-                                            <label class="form-label" for="day2">Day</label>
-                                            <input class="form-control" id="day2" name="day2" type="number" pattern="[0-9]*" value="{{ data['day2'] }}">
-                                        </div>
-                                        <div class="form-group form-group-month">
-                                            <label class="form-label" for="month2">Month</label>
-                                            <input class="form-control" id="month2" name="month2" type="number" pattern="[0-9]*" value="{{ data['month2'] }}">
-                                        </div>
-                                        <div class="form-group form-group-year">
-                                            <label class="form-label" for="year2">Year</label>
-                                            <input class="form-control" id="year2" name="year2" type="number" pattern="[0-9]*" value="{{ data['year2'] }}">
-                                        </div>
-                                    </div>
-                                </fieldset>
-                                
-                            </div>
-                        </div>
-                        
-                        
-                        
-                        
+                                </div>
                         
                         <div class="multiple-choice" data-target="instalments-only">
-                            <input id="radio-b4" type="radio" name="set-reserve-terms-group" value="Instalments only">
+                            <input id="radio-b4" type="radio" name="dbo-set-reserve-terms-group" value="Instalments only" {{ checked('dbo-set-reserve-terms-group','Instalments only') }}>
                             <label for="radio-b4">Instalments only</label>
                         </div>
-                        <div class="js-hidden" id="instalments-only">
-                            <div class="panel panel-border-wide top_15">
-                                <label class="form-label" for="instalment-amount-2">Instalment amount</label>
-                                <div class="input-icon">
-                                    <i>£</i>
-                                    <input class="form-control" id="instalment-amount-2" type="number" min="0.0" step="0.01"  name="instalment-amount-2" value="{{ data['instalment-amount-2'] }}">
-                                </div>
-                                
-                                <fieldset class="top_15">
-                                    <legend>
-                                        <p>How often should instalment be made?</p>
-                                    </legend>
-                                    <div class="multiple-choice">
-                                        <input id="instalment-frequency-1" type="radio" name="instalment-only-frequency-group" value="Weekly" {{ checked('instalment-only-frequency-group','Weekly') }}>
-                                        <label for="instalment-frequency-1">Weekly</label>
-                                    </div>
-                                    <div class="multiple-choice">
-                                        <input id="instalment-frequency-2" type="radio" name="instalment-only-frequency-group" value="Fortnightly" {{ checked('instalment-only-frequency-group','Fortnightly') }}>
-                                        <label for="instalment-frequency-2">Fortnightly</label>
-                                    </div>
-                                    <div class="multiple-choice">
-                                        <input id="instalment-frequency-3" type="radio" name="instalment-only-frequency-group" value="Monthly" {{ checked('instalment-only-frequency-group','Monthly') }}>
-                                        <label for="instalment-frequency-3">Monthly</label>
-                                    </div>
-                                </fieldset>
-                                
-                                <fieldset class="top_15">
-                                    <legend>
-                                        <span class="form-label">Instalment start date</span>
-                                        <span class="form-hint">For example, 31 3 2018</span>
-                                    </legend>
-                                    <div class="form-date">
-                                        <div class="form-group form-group-day">
-                                            <label class="form-label" for="day">Day</label>
-                                            <input class="form-control" id="day" name="day" type="number" pattern="[0-9]*" value="{{ data['day'] }}">
+                        
+                                <div class="js-hidden" id="instalments-only">
+                                    <div class="panel panel-border-wide top_15">
+                                        <label class="form-label" for="instalment-amount-2">Instalment amount</label>
+                                        <div class="input-icon">
+                                            <i>£</i>
+                                            <input class="form-control" id="dbo-instalment-amount-2" type="number" min="0.0" step="0.01"  name="dbo-instalment-amount-2" value="{{ data['dbo-instalment-amount-2'] }}">
                                         </div>
-                                        <div class="form-group form-group-month">
-                                            <label class="form-label" for="month">Month</label>
-                                            <input class="form-control" id="month" name="month" type="number" pattern="[0-9]*" value="{{ data['month'] }}">
-                                        </div>
-                                        <div class="form-group form-group-year">
-                                            <label class="form-label" for="year">Year</label>
-                                            <input class="form-control" id="year" name="year" type="number" pattern="[0-9]*" value="{{ data['year'] }}">
-                                        </div>
-                                    </div>
-                                </fieldset>
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
 
-                            </div>
-                        </div>
+                                        <fieldset class="top_15">
+                                            <legend>
+                                                <p>How often should instalment be made?</p>
+                                            </legend>
+                                            <div class="multiple-choice">
+                                                <input id="instalment-frequency-1" type="radio" name="dbo-instalment-only-frequency-group" value="Weekly" {{ checked('dbo-instalment-only-frequency-group','Weekly') }}>
+                                                <label for="instalment-frequency-1">Weekly</label>
+                                            </div>
+                                            <div class="multiple-choice">
+                                                <input id="instalment-frequency-2" type="radio" name="dbo-instalment-only-frequency-group" value="Fortnightly" {{ checked('dbo-instalment-only-frequency-group','Fortnightly') }}>
+                                                <label for="instalment-frequency-2">Fortnightly</label>
+                                            </div>
+                                            <div class="multiple-choice">
+                                                <input id="instalment-frequency-3" type="radio" name="dbo-instalment-only-frequency-group" value="Monthly" {{ checked('dbo-instalment-only-frequency-group','Monthly') }}>
+                                                <label for="instalment-frequency-3">Monthly</label>
+                                            </div>
+                                        </fieldset>
+
+                                        <fieldset class="top_15">
+                                            <legend>
+                                                <span class="form-label">Instalment start date</span>
+                                                <span class="form-hint">For example, 31 3 2018</span>
+                                            </legend>
+                                            <div class="form-date">
+                                                <div class="form-group form-group-day">
+                                                    <label class="form-label" for="dbo-day">Day</label>
+                                                    <input class="form-control" id="dbo-day" name="dbo-day" type="number" pattern="[0-9]*" value="{{ data['dbo-day'] }}">
+                                                </div>
+                                                <div class="form-group form-group-month">
+                                                    <label class="form-label" for="dbo-month">Month</label>
+                                                    <input class="form-control" id="dbo-month" name="dbo-month" type="number" pattern="[0-9]*" value="{{ data['dbo-month'] }}">
+                                                </div>
+                                                <div class="form-group form-group-year">
+                                                    <label class="form-label" for="dbo-year">Year</label>
+                                                    <input class="form-control" id="dbo-year" name="dbo-year" type="number" pattern="[0-9]*" value="{{ data['dbo-year'] }}">
+                                                </div>
+                                            </div>
+                                        </fieldset>
+
+                                    </div>
+                                </div>
                         
                     </fieldset>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     
                     <input class="button top_15" type="submit" value="Continue">
                     <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>

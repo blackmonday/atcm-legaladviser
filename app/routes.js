@@ -403,6 +403,18 @@ router.post('/legaladviser/payment-method', function (req, res) {
 // PAY DIRECT TO COURT
 router.post('/legaladviser/pay-direct-to-court', function (req, res) {
     
+    /*
+    if (req.session.data['how-should-defendent-pay-group'] == "Instalments only") {
+        res.redirect('http://bing.com')
+    }
+    */
+    
+    /*
+    if (req.session.data['payment-method-group'] == "Pay direct to court") {
+        res.redirect('http://bing.com')
+    }
+    */
+    
     res.redirect('/legaladviser/check-your-decision')
     
 })
