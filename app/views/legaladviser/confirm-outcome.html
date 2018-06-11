@@ -72,6 +72,7 @@
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
+            document.getElementById('referBackToSJP').style.display = "none";
             
         } else if (decisiontype == "Refer to court hearing") {
             document.getElementById('financialPenalty').style.display = "none";
@@ -79,6 +80,7 @@
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
+            document.getElementById('referBackToSJP').style.display = "none";
             
         } else if (decisiontype == "Withdraw") {
             document.getElementById('financialPenalty').style.display = "none"; 
@@ -86,6 +88,7 @@
             document.getElementById('withdraw').style.display = "block";
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
+            document.getElementById('referBackToSJP').style.display = "none";
             
        } else if ((decisiontype == "Discharge") || (decisiontype_b == "Discharge")) {
             document.getElementById('financialPenalty').style.display = "none"; 
@@ -93,6 +96,7 @@
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('discharge').style.display = "block";
             document.getElementById('dismiss').style.display = "none";
+            document.getElementById('referBackToSJP').style.display = "none";
            
         } else if (decisiontype == "Dismiss") {
             document.getElementById('financialPenalty').style.display = "none"; 
@@ -100,6 +104,16 @@
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "block";
+            document.getElementById('referBackToSJP').style.display = "none";
+           
+        } else if (decisiontype == "Refer back to SJP") {
+            document.getElementById('financialPenalty').style.display = "none"; 
+            document.getElementById('referToCourtHearing').style.display = "none"; 
+            document.getElementById('withdraw').style.display = "none";
+            document.getElementById('discharge').style.display = "none";
+            document.getElementById('dismiss').style.display = "none";
+            document.getElementById('referBackToSJP').style.display = "block";
+            
         }
         
         
@@ -871,6 +885,54 @@
                                 <input id="dismiss-offence-2" type="radio" name="dismiss-this-offence-group" value="No" {{ checked('dismiss-this-offence-group','No') }}>
                                 <label for="dismiss-offence-2">No</label>
                             </div>
+                        </fieldset>
+
+                        
+                        <input class="button top_30" type="submit" value="Continue">
+                        <p class="top_15"><a href="javascript:history.go(-1);">Back</a></p>
+
+                    </div>
+                </form>
+
+            </div>
+              
+            <div id="referBackToSJP" style="display:none">
+                <h1 class="heading-xlarge top_0 bottom_5">Confirm outcome</h1>
+                
+                <h3 class="heading-large bottom_15">Offence 1</h3>
+                <h4 class="heading-medium top_15 bottom_5">{{data['offence-type']}}</h4>
+                <p class="top_5 bottom_15">{{data['offence-description']}}</p>
+                <p id="backDutyLength" class="bold top_15 bottom_15">{{data['back-duty-description']}}</p>
+                
+                <form class="form" action="" method="post">
+                    <div class="form-group">
+                        
+                        <fieldset>
+                            <legend>
+                                <h2 class="heading-medium top_15 bottom_5">Refer back to SJP</h2>
+                                <p class="top_5 bottom_5">Reason for referring offence:</p>
+                            </legend>
+                            <div class="multiple-choice">
+                                <input id="refer-back-to-sjp-1" type="radio" name="refer-back-to-sjp-group" value="Defendant enquiry" {{ checked('refer-back-to-sjp-group','Defendant enquiry') }}>
+                                <label for="refer-back-to-sjp-1">Defendant enquiry</label>
+                            </div>
+                            <div class="multiple-choice">
+                                <input id="refer-back-to-sjp-2" type="radio" name="refer-back-to-sjp-group" value="Prosecutor enquiry" {{ checked('refer-back-to-sjp-group','Prosecutor enquiry') }}>
+                                <label for="refer-back-to-sjp-2">Prosecutor enquiry</label>
+                            </div>
+                            <div class="multiple-choice">
+                                <input id="refer-back-to-sjp-3" type="radio" name="refer-back-to-sjp-group" value="Disqualification Representations" {{ checked('refer-back-to-sjp-group','Disqualification Representations') }}>
+                                <label for="refer-back-to-sjp-3">Disqualification Representations</label>
+                            </div>
+                            <div class="multiple-choice" data-target="other-refer-to-sjp">
+                                <input id="refer-back-to-sjp-4" type="radio" name="refer-back-to-sjp-group" value="Other" {{ checked('refer-back-to-sjp-group','Other') }}>
+                                <label for="refer-back-to-sjp-4">Other</label>
+                            </div>
+                                            <div class="panel panel-border-narrow js-hidden" id="other-refer-to-sjp">
+                                                <label class="form-label" for="other-sjp-reason">What is the other reason?</label>
+                                                <textarea class="form-control" name="other-refer-to-sjp-reason" id="other-refer-to-sjp-reason" rows="5" style="width: 100%">{{data['other-refer-to-sjp-reason']}}</textarea>
+                                            </div>
+
                         </fieldset>
 
                         

@@ -74,32 +74,54 @@
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
+            document.getElementById('referBackToSsjp').style.display = "none";
             
         } else if (decision == "Refer to court hearing") {
             document.getElementById('financialPenalty').style.display = "none";
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
+            document.getElementById('referBackToSsjp').style.display = "none";
             
         } else if (decision == "Withdraw") {
             document.getElementById('financialPenalty').style.display = "none";
             document.getElementById('referToCourtHearing').style.display = "none";
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
+            document.getElementById('referBackToSsjp').style.display = "none";
             
         } else if ((decision == "Discharge") || ((decision == "Prove SJP") && (decision_b == "Discharge"))) {
             document.getElementById('financialPenalty').style.display = "none";
             document.getElementById('referToCourtHearing').style.display = "none";
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
+            document.getElementById('referBackToSsjp').style.display = "none";
             
         } else if (decision == "Dismiss") {
             document.getElementById('financialPenalty').style.display = "none";
             document.getElementById('referToCourtHearing').style.display = "none";
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('discharge').style.display = "none";
+            document.getElementById('referBackToSsjp').style.display = "none";
             
+        } else if (decision == "Refer back to SJP") {
+            document.getElementById('financialPenalty').style.display = "none";
+            document.getElementById('referToCourtHearing').style.display = "none";
+            document.getElementById('withdraw').style.display = "none";
+            document.getElementById('discharge').style.display = "none";
+            document.getElementById('dismiss').style.display = "none";
+            
+            document.getElementById('reasonForReferringBackToSJP').style.display = "table-row";
+            
+            var referBackToSJPReason = document.getElementById('referBackToSJPReason').innerText;
+            if(referBackToSJPReason == "Other") {
+                document.getElementById('otherReasonForReferringBackToSJP').style.display = "table-row";
+            } else {
+                document.getElementById('otherReasonForReferringBackToSJP').style.display = "none";
+            }
+
         }
+        
 
         
         
@@ -1556,6 +1578,65 @@
                         <tr>
                             <td class="table-cell-width">Result</td>
                             <td>{{data['decision']}}</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <!-- ADD A NOTE -->
+                <label class="form-label top_60" for="optional-note">
+                    <span class="heading-medium">Add a note (optional)</span>
+                    <p class="bottom_5">This will only be seen by court staff</p>
+                </label>
+                <textarea class="form-control form-control-3-4" name="optional-note" id="optional-note" rows="5"></textarea>
+
+                <input class="button top_30" type="submit" value="Continue" onclick="javascript: sessionStorage.setItem('changesMade', 'Yes')">
+                <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
+
+            </div>
+        </form>
+    </div>
+
+    <div id="referBackToSJP">
+        <h1 class="heading-xlarge top_30 bottom_5">Check your decision</h1>
+
+        <form class="form" action="" method="post">
+            <div class="form-group">
+                
+                <h2 class="heading-large">Offence 1</h2>
+
+                <!-- DECISION -->
+                <table class="check-your-decisions-table">
+                    <tbody>
+                        <tr>
+                            <td class="heading-medium">Decision</td>
+                            <td></td>
+                            <td><a href="/legaladviser/confirm-outcome">Change</a></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell-width">Offence type</td>
+                            <td>{{data['offence-type']}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell-width">Verdict</td>
+                            <td>{{data['verdict']}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell-width">Result</td>
+                            <td>{{data['decision']}}</td>
+                            <td></td>
+                        </tr>
+                        
+                        <tr id="reasonForReferringBackToSJP" style="dislay:none">
+                            <td class="table-cell-width">Reason for referring</td>
+                            <td id="referBackToSJPReason">{{data['refer-back-to-sjp-group']}}</td>
+                            <td></td>
+                        </tr>
+                        <tr id="otherReasonForReferringBackToSJP" style="dislay:none">
+                            <td class="table-cell-width">Other Reason</td>
+                            <td>{{data['other-refer-to-sjp-reason']}}</td>
                             <td></td>
                         </tr>
                     </tbody>

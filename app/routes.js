@@ -371,6 +371,10 @@ router.post('/legaladviser/confirm-outcome', function (req, res) {
         res.redirect('/legaladviser/payment-method')
     }
     
+    if (decisionMade == "Refer back to SJP") {
+        res.redirect('/legaladviser/check-your-decision')
+    }
+    
     /* DISMISS */
     if (decisionMade == "Dismiss") {
         var dismissCase = req.session.data['dismiss-this-offence-group']

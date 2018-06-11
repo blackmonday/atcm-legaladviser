@@ -169,6 +169,7 @@
             document.getElementById('referToCourtHearingTab').style.display = "none";
             document.getElementById('dismissTab').style.display = "none";
             document.getElementById('withdrawTab').style.display = "none";
+            document.getElementById('referBackToSJPTab').style.display = "none";
             
                     //alert(setReserveTermsGroup);
             
@@ -217,6 +218,7 @@
             document.getElementById('referToCourtHearingTab').style.display = "none";
             document.getElementById('dismissTab').style.display = "none";
             document.getElementById('withdrawTab').style.display = "none";
+            document.getElementById('referBackToSJPTab').style.display = "none";
         }
         
         if (decisionGroup == "Refer to court hearing") {
@@ -225,6 +227,7 @@
             //document.getElementById('referToCourtHearingTab').style.display = "none";
             document.getElementById('dismissTab').style.display = "none";
             document.getElementById('withdrawTab').style.display = "none";
+            document.getElementById('referBackToSJPTab').style.display = "none";
         }
         
         if (decisionGroup == "Dismiss") {
@@ -233,6 +236,7 @@
             document.getElementById('referToCourtHearingTab').style.display = "none";
             //document.getElementById('dismissTab').style.display = "none";
             document.getElementById('withdrawTab').style.display = "none";
+            document.getElementById('referBackToSJPTab').style.display = "none";
         }
         
         if (decisionGroup == "Withdraw") {
@@ -241,6 +245,26 @@
             document.getElementById('referToCourtHearingTab').style.display = "none";
             document.getElementById('dismissTab').style.display = "none";
             //document.getElementById('withdrawTab').style.display = "none";
+            document.getElementById('referBackToSJPTab').style.display = "none";
+        }
+        
+        if (decisionGroup == "Refer back to SJP") {
+            document.getElementById('financialPenaltyTab').style.display = "none";
+            document.getElementById('dischargeTab').style.display = "none";
+            document.getElementById('referToCourtHearingTab').style.display = "none";
+            document.getElementById('dismissTab').style.display = "none";
+            document.getElementById('withdrawTab').style.display = "none";
+            //document.getElementById('referBackToSJPTab').style.display = "none";
+            
+            var referBackToSJPReason = document.getElementById('referBackToSJPReason').innerText;
+            if(referBackToSJPReason == "Other") {
+                document.getElementById('otherReasonForReferringBackToSJP').style.display = "table-row";
+            } else {
+                document.getElementById('otherReasonForReferringBackToSJP').style.display = "none";
+            }
+            
+            
+            
         }
         
                         
@@ -798,6 +822,41 @@
                         
                         </div>
                         
+                        <!-- REFER BACK TO SJP TAB -->
+                        <div id="referBackToSJPTab">
+                            
+                            <p style="color: red; display:none">Refer back to SJP tab</p>
+                            
+                            <h4 class="heading-medium bottom_10 top_0">Court decision</h4>
+
+                            <table class="court-decision">
+                                <tbody>
+                                    <tr>
+                                        <td class="bold">Result</td>
+                                        <td>{{data['decision']}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bold">Reason for referring</td>
+                                        <td id="referBackToSJPReason">{{data['refer-back-to-sjp-group']}}</td>
+                                    </tr>
+                                    <tr id="otherReasonForReferringBackToSJP" style="dislay:none">
+                                        <td class="bold">Other reason</td>
+                                        <td>{{data['other-refer-to-sjp-reason']}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bold">Decision made</td>
+                                        <td>
+                                            <div>1 May 2018</div>
+                                            <div class="top_10">Legal adviser: Joe Bloggs<br>
+                                            Magistrates: {{ data['magistrates-name']}}<br>
+                                            <span class="form-hint">Stratford Magistrate's Court</span></div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        
+                        </div>
+                        
                     </div>
 
                 </div>   
@@ -854,6 +913,10 @@
                                     <input id="radio-4" type="radio" name="make-a-decision-group" value="Dismiss">
                                     <label for="radio-4">Dismiss</label>
                                 </div>
+                                <div class="multiple-choice">
+                                    <input id="radio-5" type="radio" name="make-a-decision-group" value="Refer back to SJP">
+                                    <label for="radio-5">Refer back to SJP</label>
+                                </div>
                             </div>
                             
                             <div id="guiltyPlea">
@@ -877,6 +940,10 @@
                                     <input id="radio-5-2" type="radio" name="make-a-decision-group" value="Dismiss">
                                     <label for="radio-5-2">Dismiss</label>
                                 </div>
+                                <div class="multiple-choice">
+                                    <input id="radio-5-3" type="radio" name="make-a-decision-group" value="DiRefer back to SJPsmiss">
+                                    <label for="radio-5-3">Refer back to SJP</label>
+                                </div>
                             </div>
                             
                             <div id="notGuiltyPlea">
@@ -890,7 +957,11 @@
                                 </div>
                                 <div class="multiple-choice">
                                     <input id="radio-3-3" type="radio" name="make-a-decision-group" value="Dismiss">
-                                    <label for="radio-2-3">Dismiss</label>
+                                    <label for="radio-3-3">Dismiss</label>
+                                </div>
+                                <div class="multiple-choice">
+                                    <input id="radio-4-3" type="radio" name="make-a-decision-group" value="Refer back to SJP">
+                                    <label for="radio-4-3">Refer back to SJP</label>
                                 </div>
                             </div>
                             
