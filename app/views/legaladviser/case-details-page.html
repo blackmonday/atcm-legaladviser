@@ -156,13 +156,13 @@
         /* ************************************** */
         /* ************************************** */
         /* ************************************** */
-        /* WHAT DECISION TAB SHOUDL BE DISPLAYED? */
+        /* WHAT DECISION TAB SHOULD BE DISPLAYED? */
         
         var decisionGroup = document.getElementById('decisionGroup').innerText;
         var decisionGroup_b = document.getElementById('decisionGroup_b').innerText;
         var payCourtTerms = document.getElementById('payCourtTerms').innerText;
         var setReserveTermsGroup = document.getElementById('setReserveTermsGroup').innerText;
-        
+                
         if ((decisionGroup == "Financial penalty") || (decisionGroup_b == "Financial penalty")) {
             //document.getElementById('financialPenaltyTab').style.display = "none";
             document.getElementById('dischargeTab').style.display = "none";
@@ -263,6 +263,10 @@
                 document.getElementById('otherReasonForReferringBackToSJP').style.display = "none";
             }
             
+            if (delegatePowers == "No") {
+                document.getElementById('magistrate').style.display = "none";
+            }
+            
             
             
         }
@@ -353,6 +357,7 @@
     </div>
 
     <span style="">{% include "includes/display-decision.html" %}</span>
+    <span id="delegatePowers" id="display:">{{data['delegate-powers-group']}}</span>
 
     <div class="grid-row top_30">
         
@@ -848,7 +853,7 @@
                                         <td>
                                             <div>1 May 2018</div>
                                             <div class="top_10">Legal adviser: Joe Bloggs<br>
-                                            Magistrates: {{ data['magistrates-name']}}<br>
+                                            <span id="magistrate">Magistrates: {{ data['magistrates-name']}}<br></span>
                                             <span class="form-hint">Stratford Magistrate's Court</span></div>
                                         </td>
                                     </tr>
