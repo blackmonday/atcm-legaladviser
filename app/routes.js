@@ -62,7 +62,7 @@ router.post('/', function (req, res) {
         req.session.data['offence-type'] = "Keep a vehicle without a vehicle license"
         req.session.data['offence-description'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         req.session.data['statement-of-facts'] = "Eiusmod tempor orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        req.session.data['back-duty-description'] = "2 months unpaid duty"
+        req.session.data['back-duty-description'] = "2 months and 16 days unpaid duty"
         req.session.data['offence-banding-header'] = "Check penalty, back duty and compensation"
         req.session.data['guilty-plea-taken-into-account'] = "Yes"
         req.session.data['verdict'] = "Proved SJP"
@@ -133,7 +133,7 @@ router.post('/', function (req, res) {
         req.session.data['offence-type'] = "Keep a vehicle without a vehicle license"
         req.session.data['offence-description'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         req.session.data['statement-of-facts'] = "Eiusmod tempor orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        req.session.data['back-duty-description'] = "2 months unpaid duty"
+        req.session.data['back-duty-description'] = "2 months and 16 days unpaid duty"
         req.session.data['offence-banding-header'] = "Check fine and compensation"
         req.session.data['guilty-plea-taken-into-account'] = "Yes"
         req.session.data['verdict'] = "Proved SJP"
@@ -362,24 +362,29 @@ router.post('/legaladviser/confirm-outcome', function (req, res) {
         res.redirect('/legaladviser/payment-method')
     }
     if (decisionMade == "Refer to court hearing") {
-        res.redirect('/legaladviser/check-your-decision')
+        //res.redirect('/legaladviser/check-your-decision')
+        res.redirect('/legaladviser/case-details-page')
     }
     if (decisionMade == "Withdraw") {
-        res.redirect('/legaladviser/check-your-decision')
+        //res.redirect('/legaladviser/check-your-decision')
+        res.redirect('/legaladviser/case-details-page')
     }
     if (decisionMade == "Discharge" || decisionMadeb == "Discharge") {
         res.redirect('/legaladviser/payment-method')
     }
     
     if (decisionMade == "Refer back to SJP") {
-        res.redirect('/legaladviser/check-your-decision')
+        //res.redirect('/legaladviser/check-your-decision')
+        res.redirect('/legaladviser/case-details-page')
     }
     
     /* DISMISS */
     if (decisionMade == "Dismiss") {
         var dismissCase = req.session.data['dismiss-this-offence-group']
         if (dismissCase == "Yes") {
-            res.redirect('/legaladviser/check-your-decision')
+            //res.redirect('/legaladviser/check-your-decision')
+            res.redirect('/legaladviser/case-details-page')
+
         } else if (dismissCase == "No") {
             res.redirect('/legaladviser/case-details-page')
         }
@@ -419,7 +424,8 @@ router.post('/legaladviser/pay-direct-to-court', function (req, res) {
     }
     */
     
-    res.redirect('/legaladviser/check-your-decision')
+    //res.redirect('/legaladviser/check-your-decision')
+    res.redirect('/legaladviser/case-details-page')
     
 })
 
@@ -427,7 +433,8 @@ router.post('/legaladviser/pay-direct-to-court', function (req, res) {
 // DEDUCT FROM BENEFITS
 router.post('/legaladviser/deduct-from-benefits', function (req, res) {
     
-    res.redirect('/legaladviser/check-your-decision')
+    //res.redirect('/legaladviser/check-your-decision')
+    res.redirect('/legaladviser/case-details-page')
     
 })
 
@@ -435,7 +442,8 @@ router.post('/legaladviser/deduct-from-benefits', function (req, res) {
 // ATTACH TO EARNINGS
 router.post('/legaladviser/attach-to-earnings', function (req, res) {
     
-    res.redirect('/legaladviser/check-your-decision')
+    //res.redirect('/legaladviser/check-your-decision')
+    res.redirect('/legaladviser/case-details-page')
     
 })
 
