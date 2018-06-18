@@ -16,6 +16,10 @@ router.post('/', function (req, res) {
     
     req.session.data['SJPsessionStarted'] = "False"
     req.session.data['changesMade'] = "No"
+    
+    
+    //req.session.data['checkYourAnswersToggle'] = "No"
+
 
     var prosecutor = req.session.data['prosecutor-group']
     req.session.data['magistrates-name'] = "Alice Johnson"
@@ -341,6 +345,8 @@ router.post('/legaladviser/case-details-page', function (req, res) {
 // CONFIRM OUTCOME
 router.post('/legaladviser/confirm-outcome', function (req, res) {
     
+    var checkYourAnswersToggle = req.session.data['checkYourAnswersToggle']
+    
     var fine = Number(req.session.data['penalty-or-fine-amount'])
     var backduty = Number(req.session.data['back-duty-amount'])
     var compensation = Number(req.session.data['compensation-amount'])
@@ -362,29 +368,102 @@ router.post('/legaladviser/confirm-outcome', function (req, res) {
         res.redirect('/legaladviser/payment-method')
     }
     if (decisionMade == "Refer to court hearing") {
-        //res.redirect('/legaladviser/check-your-decision')
-        res.redirect('/legaladviser/case-details-page')
+        
+        
+        
+        
+        
+        
+        
+        
+        var checkYourAnswersToggle = req.session.data['checkYourAnswersToggle']
+
+        if (checkYourAnswersToggle == "No") {
+            res.redirect('/legaladviser/case-details-page')
+        } else {
+            res.redirect('/legaladviser/check-your-decision')
+        }
+
+        
+        
+        
+        
+        
+        
     }
     if (decisionMade == "Withdraw") {
-        //res.redirect('/legaladviser/check-your-decision')
-        res.redirect('/legaladviser/case-details-page')
+
+        
+        
+        
+        
+        
+        
+        var checkYourAnswersToggle = req.session.data['checkYourAnswersToggle']
+
+        if (checkYourAnswersToggle == "No") {
+            res.redirect('/legaladviser/case-details-page')
+        } else {
+            res.redirect('/legaladviser/check-your-decision')
+        }
+
+        
+        
+        
+        
+        
+        
     }
     if (decisionMade == "Discharge" || decisionMadeb == "Discharge") {
         res.redirect('/legaladviser/payment-method')
     }
     
     if (decisionMade == "Refer back to SJP") {
-        //res.redirect('/legaladviser/check-your-decision')
-        res.redirect('/legaladviser/case-details-page')
+        
+        
+        
+        
+        
+        
+        var checkYourAnswersToggle = req.session.data['checkYourAnswersToggle']
+
+        if (checkYourAnswersToggle == "No") {
+            res.redirect('/legaladviser/case-details-page')
+        } else {
+            res.redirect('/legaladviser/check-your-decision')
+        }
+        
+        
+        
+        
+        
+        
+        
     }
     
     /* DISMISS */
     if (decisionMade == "Dismiss") {
         var dismissCase = req.session.data['dismiss-this-offence-group']
         if (dismissCase == "Yes") {
-            //res.redirect('/legaladviser/check-your-decision')
-            res.redirect('/legaladviser/case-details-page')
+            
+            
+            
+           
+            
+            
+        var checkYourAnswersToggle = req.session.data['checkYourAnswersToggle']
 
+        if (checkYourAnswersToggle == "No") {
+            res.redirect('/legaladviser/case-details-page')
+        } else {
+            res.redirect('/legaladviser/check-your-decision')
+        }
+
+            
+            
+            
+            
+            
         } else if (dismissCase == "No") {
             res.redirect('/legaladviser/case-details-page')
         }
@@ -424,8 +503,22 @@ router.post('/legaladviser/pay-direct-to-court', function (req, res) {
     }
     */
     
-    //res.redirect('/legaladviser/check-your-decision')
-    res.redirect('/legaladviser/case-details-page')
+    
+    
+    
+    
+    var checkYourAnswersToggle = req.session.data['checkYourAnswersToggle']
+    
+    if (checkYourAnswersToggle == "No") {
+        res.redirect('/legaladviser/case-details-page')
+    } else {
+        res.redirect('/legaladviser/check-your-decision')
+    }
+    
+    
+    
+    
+    
     
 })
 
@@ -433,8 +526,23 @@ router.post('/legaladviser/pay-direct-to-court', function (req, res) {
 // DEDUCT FROM BENEFITS
 router.post('/legaladviser/deduct-from-benefits', function (req, res) {
     
-    //res.redirect('/legaladviser/check-your-decision')
-    res.redirect('/legaladviser/case-details-page')
+    
+    
+    
+    
+    
+    var checkYourAnswersToggle = req.session.data['checkYourAnswersToggle']
+    
+    if (checkYourAnswersToggle == "No") {
+        res.redirect('/legaladviser/case-details-page')
+    } else {
+        res.redirect('/legaladviser/check-your-decision')
+    }
+    
+    
+    
+    
+    
     
 })
 
@@ -442,8 +550,29 @@ router.post('/legaladviser/deduct-from-benefits', function (req, res) {
 // ATTACH TO EARNINGS
 router.post('/legaladviser/attach-to-earnings', function (req, res) {
     
-    //res.redirect('/legaladviser/check-your-decision')
-    res.redirect('/legaladviser/case-details-page')
+    
+    
+    
+    
+    
+    
+    
+    
+    var checkYourAnswersToggle = req.session.data['checkYourAnswersToggle']
+    
+    if (checkYourAnswersToggle == "No") {
+        res.redirect('/legaladviser/case-details-page')
+    } else {
+        res.redirect('/legaladviser/check-your-decision')
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
 })
 
