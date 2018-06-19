@@ -586,9 +586,18 @@ router.post('/legaladviser/check-your-decision', function (req, res) {
     req.session.data['payment-terms'] = "to be paid as a lump sum in 28 days"
 
     res.redirect('/legaladviser/case-details-page')
+    //res.redirect('/legaladviser/decision-submitted')
     
 })
 
+// ******************
+// DECISION SUBMITTED
+router.post('/legaladviser/decision-submitted', function (req, res) {
+    
+        res.redirect('/legaladviser/case-details-page')
+
+})
+            
 // ******************************
 // ADD OR CHANGE PERSONAL DETAILS
 router.post('/legaladviser/add-or-change-personal-details', function (req, res) {

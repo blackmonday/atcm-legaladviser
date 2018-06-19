@@ -1,0 +1,67 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+    GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<style>
+    tr {
+        vertical-align: top;
+    }
+</style>
+
+{% include "includes/timeout-overlay.html" %}
+
+<main id="content" role="main">
+    
+    <div class="grid-row">
+        <div class="column-full">
+            <!-- Alpha phase banner -->
+            {% include "includes/phase_banner_alpha.html" %}
+            {% include "includes/breadcrumb_back.html" %}
+            
+            {% include "includes/persist-info-banner.html" %}
+                        
+        </div>
+    </div>
+
+    <div class="grid-row top_30">
+        <div class="column-two-thirds">
+
+            <!-- NOTIFICATION BANNER PATTERN - TURQOISE + TICK ICON -->
+            <div class="notification-banner-nest notification-banner-turqoise bottom_30">
+                <div class="notification-banner">
+                    <div class="notification-banner-icon">
+                        <object data="/public/images/tick-icon-white.svg" type="image/svg+xml"></object>
+                    </div>
+                    <div class="notification-banner-text">Decision submitted</div>
+                </div>
+            </div>
+            
+            <form class="form" action="" method="post">            
+                <div class="form-group">
+                    <input class="button" type="submit" value="Continue">
+                </div>
+            </form>
+            
+        </div>
+        
+        <div class="coloumn-one-third">
+            <!-- RIGHT COLUMN NAVIGATION - VARIATION FIVE -->
+            <!--
+            <div class="right-column-nav">
+                <hr class="bold-hr">
+                <h3 class="heading-medium">Case options</h3>
+                <p><a href="">Withdraw offence</a></p>
+            </div>
+            -->
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}
+
+
