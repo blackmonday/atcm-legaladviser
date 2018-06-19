@@ -263,8 +263,8 @@
             document.getElementById('withdrawTab').style.display = "none";
             //document.getElementById('referBackToSJPTab').style.display = "none";
             
-            document.getElementById('case-status').innerText = "No plea received";
-            document.getElementById('defendantsPlea').innerText = "NO PLEA RECEIVED";
+            document.getElementById('case-status').innerText = "Refer back to SJP";
+            document.getElementById('defendantsPlea').innerText = document.getElementById('defenantsPleaOriginal').innerText;
             document.getElementById('changePleaLink').style.display = "inline-block";
             document.getElementById('makeADecisionForm').style.display = "block";
             document.getElementById('noPlea').style.display = "block";
@@ -272,6 +272,17 @@
             document.getElementById('notGuiltyPlea').style.display = "none";
                         
             var referBackToSJPReason = document.getElementById('referBackToSJPReason').innerText;
+            
+            //var defenantsPleaOriginal = document.getElementById('defenantsPleaOriginal').innerText;
+            //alert(defenantsPleaOriginal);
+            
+            
+            
+            
+            
+            
+            
+            
 
             //document.getElementById('otherReasonForReferringBackToSJP').style.display = "table-row";
             //var referBackToSJPReason4 = document.getElementById('referBackToSJPReason4').innerText;
@@ -404,6 +415,12 @@
 
     <span style="">{% include "includes/display-decision.html" %}</span>
     <span id="delegatePowers" id="display:">{{data['delegate-powers-group']}}</span>
+    <span id="defenantsPleaOriginal" id="display:">{{data['defendents-plea-original']}}</span>
+    
+
+    
+    
+    
 
     <div class="grid-row top_30">
         

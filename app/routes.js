@@ -54,6 +54,7 @@ router.post('/', function (req, res) {
         req.session.data['employment-status-group'] = "Employed (full or part-time)"
         //req.session.data['defendents-plea'] = "Pleaded guilty"
         req.session.data['defendents-plea'] = "No plea received"
+        req.session.data['defendents-plea-original'] = "No plea received"
         req.session.data['defendents-nin'] = "AB 12 34 56 C"
         req.session.data['case-status'] = "No plea received"
         req.session.data['prosecutor'] = "DVLA"
@@ -659,6 +660,7 @@ router.post('/legaladviser/add-or-change-income', function (req, res) {
 router.post('/legaladviser/change-plea', function (req, res) {
     
     req.session.data['defendents-plea'] = req.session.data['new-defendents-plea']
+    req.session.data['defendents-plea-original'] = req.session.data['new-defendents-plea']
 
     res.redirect('/legaladviser/case-details-page')
     
