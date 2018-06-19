@@ -354,12 +354,11 @@ router.post('/legaladviser/confirm-outcome', function (req, res) {
     var costs = Number(req.session.data['costs'])
     req.session.data['total-payment'] = fine+backduty+compensation+costs;
     
-    
-    
     var dischargeCompensation = Number(req.session.data['discharge-compensation'])
     var dischargeCosts = Number(req.session.data['discharge-costs'])
     var dischargeVictimSurcharge = Number(req.session.data['discharge-victim-surcharge'])
     req.session.data['total-payment-discharge'] = dischargeCompensation+dischargeCosts+dischargeVictimSurcharge;
+    
     
     
     
@@ -369,14 +368,7 @@ router.post('/legaladviser/confirm-outcome', function (req, res) {
         res.redirect('/legaladviser/payment-method')
     }
     if (decisionMade == "Refer to court hearing") {
-        
-        
-        
-        
-        
-        
-        
-        
+
         var checkYourAnswersToggle = req.session.data['checkYourAnswersToggle']
 
         if (checkYourAnswersToggle == "No") {
@@ -385,20 +377,8 @@ router.post('/legaladviser/confirm-outcome', function (req, res) {
             res.redirect('/legaladviser/check-your-decision')
         }
 
-        
-        
-        
-        
-        
-        
     }
     if (decisionMade == "Withdraw") {
-
-        
-        
-        
-        
-        
         
         var checkYourAnswersToggle = req.session.data['checkYourAnswersToggle']
 
@@ -407,12 +387,6 @@ router.post('/legaladviser/confirm-outcome', function (req, res) {
         } else {
             res.redirect('/legaladviser/check-your-decision')
         }
-
-        
-        
-        
-        
-        
         
     }
     if (decisionMade == "Discharge" || decisionMadeb == "Discharge") {
@@ -421,11 +395,6 @@ router.post('/legaladviser/confirm-outcome', function (req, res) {
     
     if (decisionMade == "Refer back to SJP") {
         
-        
-        
-        
-        
-        
         var checkYourAnswersToggle = req.session.data['checkYourAnswersToggle']
 
         if (checkYourAnswersToggle == "No") {
@@ -433,41 +402,27 @@ router.post('/legaladviser/confirm-outcome', function (req, res) {
         } else {
             res.redirect('/legaladviser/check-your-decision')
         }
-        
-        
-        
-        
-        
-        
         
     }
     
     /* DISMISS */
     if (decisionMade == "Dismiss") {
+        
         var dismissCase = req.session.data['dismiss-this-offence-group']
+        
         if (dismissCase == "Yes") {
-            
-            
-            
-           
-            
-            
-        var checkYourAnswersToggle = req.session.data['checkYourAnswersToggle']
+            var checkYourAnswersToggle = req.session.data['checkYourAnswersToggle']
 
-        if (checkYourAnswersToggle == "No") {
-            res.redirect('/legaladviser/case-details-page')
-        } else {
-            res.redirect('/legaladviser/check-your-decision')
-        }
-
-            
-            
-            
-            
+            if (checkYourAnswersToggle == "No") {
+                res.redirect('/legaladviser/case-details-page')
+            } else {
+                res.redirect('/legaladviser/check-your-decision')
+            }
             
         } else if (dismissCase == "No") {
             res.redirect('/legaladviser/case-details-page')
         }
+        
     }
     
 })
