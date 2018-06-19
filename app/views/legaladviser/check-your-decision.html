@@ -110,11 +110,31 @@
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
-                        
-            document.getElementById('reasonForReferringBackToSJP').style.display = "table-row";
             
-            var referBackToSJPReason = document.getElementById('referBackToSJPReason').innerText;
-            if(referBackToSJPReason == "Other") {
+            var reasonForReferringCase = document.getElementById('reasonForReferringCase').innerText;
+
+            //document.getElementById('otherReasonForReferringBackToSJP').style.display = "table-row";
+            //var referBackToSJPReason4 = document.getElementById('referBackToSJPReason4').innerText;
+            
+            if(reasonForReferringCase == "Defendant enquiry") {
+                document.getElementById('defendantEnquiryReasonForReferringBackToSJP').style.display = "table-row";
+            } else {
+                document.getElementById('defendantEnquiryReasonForReferringBackToSJP').style.display = "none";
+            }
+
+            if(reasonForReferringCase == "Prosecutor enquiry") {
+                document.getElementById('prosecutorEnquiryReasonForReferringBackToSJP').style.display = "table-row";
+            } else {
+                document.getElementById('prosecutorEnquiryReasonForReferringBackToSJP').style.display = "none";
+            }
+
+            if(reasonForReferringCase == "Disqualification Representations") {
+                document.getElementById('disqualificationRepresentationsReasonForReferringBackToSJP').style.display = "table-row";
+            } else {
+                document.getElementById('disqualificationRepresentationsReasonForReferringBackToSJP').style.display = "none";
+            }
+
+            if(reasonForReferringCase == "Other") {
                 document.getElementById('otherReasonForReferringBackToSJP').style.display = "table-row";
             } else {
                 document.getElementById('otherReasonForReferringBackToSJP').style.display = "none";
@@ -1644,14 +1664,32 @@
                             <td></td>
                         </tr>
                         
-                        <tr id="reasonForReferringBackToSJP" style="dislay:none">
-                            <td class="table-cell-width">Reason for referring</td>
-                            <td id="referBackToSJPReason">{{data['refer-back-to-sjp-group']}}</td>
+                        
+                        
+                        <tr id="defendantEnquiryForReferringBackToSJP">
+                            <td class="table-cell-width">Reason for referring case</td>
+                            <td id="reasonForReferringCase">{{data['refer-back-to-sjp-group']}}</td>
                             <td></td>
                         </tr>
-                        <tr id="otherReasonForReferringBackToSJP" style="dislay:none">
-                            <td class="table-cell-width">Other Reason</td>
-                            <td>{{data['other-refer-to-sjp-reason']}}</td>
+                        
+                        <tr id="defendantEnquiryReasonForReferringBackToSJP" style="display:none">
+                            <td class="table-cell-width">Reason for defendant enquiry</td>
+                            <td id="referBackToSJPReason1">{{data['defendant-enquiry-reason']}}</td>
+                            <td></td>
+                        </tr>
+                        <tr id="prosecutorEnquiryReasonForReferringBackToSJP" style="display:none">
+                            <td class="table-cell-width">Reason for prosecutor enquiry</td>
+                            <td id="referBackToSJPReason2">{{data['prosecutor-enquiry-reason']}}</td>
+                            <td></td>
+                        </tr>
+                        <tr id="disqualificationRepresentationsReasonForReferringBackToSJP" style="display:none">
+                            <td class="table-cell-width">Reason for disqualification representations</td>
+                            <td id="referBackToSJPReason3">{{data['disqualification-representations-reason']}}</td>
+                            <td></td>
+                        </tr>
+                        <tr id="otherReasonForReferringBackToSJP" style="display:none">
+                            <td class="table-cell-width">Other reason</td>
+                            <td id="referBackToSJPReason4">{{data['other-refer-to-sjp-reason']}}</td>
                             <td></td>
                         </tr>
                     </tbody>

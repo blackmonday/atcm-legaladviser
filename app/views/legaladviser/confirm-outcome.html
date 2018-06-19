@@ -910,20 +910,35 @@
                         <fieldset>
                             <legend>
                                 <h2 class="heading-medium top_15 bottom_5">Refer back to SJP</h2>
-                                <p class="top_5 bottom_5">Reason for referring offence:</p>
+                                <p class="top_5 bottom_5">Reason for referring case:</p>
                             </legend>
-                            <div class="multiple-choice">
+                            <div class="multiple-choice" data-target="defendant-enquiry-reason">
                                 <input id="refer-back-to-sjp-1" type="radio" name="refer-back-to-sjp-group" value="Defendant enquiry" {{ checked('refer-back-to-sjp-group','Defendant enquiry') }}>
                                 <label for="refer-back-to-sjp-1">Defendant enquiry</label>
                             </div>
-                            <div class="multiple-choice">
+                                            <div class="panel panel-border-narrow js-hidden" id="defendant-enquiry-reason">
+                                                <label class="form-label" for="defendant-enquiry-reason">What is the  reason for defendant enquiry?</label>
+                                                <textarea class="form-control" name="defendant-enquiry-reason" id="defendant-enquiry-reason" rows="5" style="width: 100%">{{data['defendant-enquiry-reason']}}</textarea>
+                                            </div>
+
+                            <div class="multiple-choice" data-target="prosecutor-enquiry-reason">
                                 <input id="refer-back-to-sjp-2" type="radio" name="refer-back-to-sjp-group" value="Prosecutor enquiry" {{ checked('refer-back-to-sjp-group','Prosecutor enquiry') }}>
                                 <label for="refer-back-to-sjp-2">Prosecutor enquiry</label>
                             </div>
-                            <div class="multiple-choice">
+                                            <div class="panel panel-border-narrow js-hidden" id="prosecutor-enquiry-reason">
+                                                <label class="form-label" for="prosecutor-enquiry-reason">What is the  reason for prosecutor enquiry?</label>
+                                                <textarea class="form-control" name="prosecutor-enquiry-reason" id="prosecutor-enquiry-reason" rows="5" style="width: 100%">{{data['prosecutor-enquiry-reason']}}</textarea>
+                                            </div>
+
+                            <div class="multiple-choice" data-target="disqualification-representations-reason">
                                 <input id="refer-back-to-sjp-3" type="radio" name="refer-back-to-sjp-group" value="Disqualification Representations" {{ checked('refer-back-to-sjp-group','Disqualification Representations') }}>
                                 <label for="refer-back-to-sjp-3">Disqualification Representations</label>
                             </div>
+                                            <div class="panel panel-border-narrow js-hidden" id="disqualification-representations-reason">
+                                                <label class="form-label" for="disqualification-representations-reason">What is the reason for disqualification representations?</label>
+                                                <textarea class="form-control" name="disqualification-representations-reason" id="disqualification-representations-reason" rows="5" style="width: 100%">{{data['disqualification-representations-reason']}}</textarea>
+                                            </div>
+
                             <div class="multiple-choice" data-target="other-refer-to-sjp">
                                 <input id="refer-back-to-sjp-4" type="radio" name="refer-back-to-sjp-group" value="Other" {{ checked('refer-back-to-sjp-group','Other') }}>
                                 <label for="refer-back-to-sjp-4">Other</label>

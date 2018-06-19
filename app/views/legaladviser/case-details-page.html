@@ -219,6 +219,7 @@
             document.getElementById('dismissTab').style.display = "none";
             document.getElementById('withdrawTab').style.display = "none";
             document.getElementById('referBackToSJPTab').style.display = "none";
+            
         }
         
         if (decisionGroup == "Refer to court hearing") {
@@ -228,6 +229,10 @@
             document.getElementById('dismissTab').style.display = "none";
             document.getElementById('withdrawTab').style.display = "none";
             document.getElementById('referBackToSJPTab').style.display = "none";
+            
+            if (delegatePowers == "No") {
+                document.getElementById('magistrate').style.display = "none";
+            }
         }
         
         if (decisionGroup == "Dismiss") {
@@ -237,6 +242,7 @@
             //document.getElementById('dismissTab').style.display = "none";
             document.getElementById('withdrawTab').style.display = "none";
             document.getElementById('referBackToSJPTab').style.display = "none";
+            
         }
         
         if (decisionGroup == "Withdraw") {
@@ -246,6 +252,7 @@
             document.getElementById('dismissTab').style.display = "none";
             //document.getElementById('withdrawTab').style.display = "none";
             document.getElementById('referBackToSJPTab').style.display = "none";
+            
         }
         
         if (decisionGroup == "Refer back to SJP") {
@@ -257,21 +264,52 @@
             //document.getElementById('referBackToSJPTab').style.display = "none";
             
             var referBackToSJPReason = document.getElementById('referBackToSJPReason').innerText;
+
+            //document.getElementById('otherReasonForReferringBackToSJP').style.display = "table-row";
+            //var referBackToSJPReason4 = document.getElementById('referBackToSJPReason4').innerText;
+            
+            if(referBackToSJPReason == "Defendant enquiry") {
+                document.getElementById('defendantEnquiryReasonForReferringBackToSJP').style.display = "table-row";
+            } else {
+                document.getElementById('defendantEnquiryReasonForReferringBackToSJP').style.display = "none";
+            }
+
+            if(referBackToSJPReason == "Prosecutor enquiry") {
+                document.getElementById('prosecutorEnquiryReasonForReferringBackToSJP').style.display = "table-row";
+            } else {
+                document.getElementById('prosecutorEnquiryReasonForReferringBackToSJP').style.display = "none";
+            }
+
+            if(referBackToSJPReason == "Disqualification Representations") {
+                document.getElementById('disqualificationRepresentationsReasonForReferringBackToSJP').style.display = "table-row";
+            } else {
+                document.getElementById('disqualificationRepresentationsReasonForReferringBackToSJP').style.display = "none";
+            }
+
             if(referBackToSJPReason == "Other") {
                 document.getElementById('otherReasonForReferringBackToSJP').style.display = "table-row";
             } else {
                 document.getElementById('otherReasonForReferringBackToSJP').style.display = "none";
             }
             
-            if (delegatePowers == "No") {
-                document.getElementById('magistrate').style.display = "none";
-            }
-            
-            
-            
         }
         
-                        
+
+        
+        
+        
+        /* *********************************************** */
+        /* *********************************************** */
+        /* DISPLAY MAGISTRATE DETAILS IN THE DECISION TAB? */
+        if (delegatePowers == "No") {
+            document.getElementById('magistrate1').style.display = "none";
+            document.getElementById('magistrate2').style.display = "none";
+            document.getElementById('magistrate3').style.display = "none";
+            document.getElementById('magistrate4').style.display = "none";
+            document.getElementById('magistrate5').style.display = "none";
+            document.getElementById('magistrate6').style.display = "none";
+        } 
+  
 
         
         
@@ -585,7 +623,7 @@
                                         <td>
                                             <div>13 April 2018</div>
                                             <div class="top_10">Legal adviser: Joe Bloggs<br>
-                                            Magistrate: {{ data['magistrates-name']}}<br>
+                                            <span id="magistrate1">Magistrate: {{ data['magistrates-name']}}<br></span>
                                             <span class="form-hint">Lorem Ipsum Magistrate's Court</span></div>
                                         </td>
                                     </tr>
@@ -678,7 +716,7 @@
                                         <td>
                                             <div>13 April 2018</div>
                                             <div class="top_10">Legal adviser: Joe Bloggs<br>
-                                            Magistrates: {{ data['magistrates-name']}}<br>
+                                            <span id="magistrate2">Magistrate: {{ data['magistrates-name']}}<br></span>
                                             <span class="form-hint">Lorem Ipsum Magistrate's Court Magistrate's Court</span></div>
                                         </td>
                                     </tr>
@@ -752,7 +790,7 @@
                                         <td class="bold"><p class="bold top_15 bottom_5">Is an interpreter needed in court</p></td>
                                         <td><p id="interpretorGroup" class="top_15 bottom_5">{{data['interpreter-group']}}</p>
                                         <p id="interpeterLanguage" class="top_10 bottom_15">Language: {{data['interpeter-language']}}</p>
-</td>
+                                        </td>
                                     </tr>
                                     
                                     <tr style="border-top: 1px solid #BFC1C3">
@@ -760,7 +798,7 @@
                                         <td>
                                             <div class="top_15">13 April 2018</div>
                                             <div class="top_10">Legal adviser: Joe Bloggs<br>
-                                            Magistrate: {{ data['magistrates-name']}}<br>
+                                            <span id="magistrate3">Magistrate: {{ data['magistrates-name']}}<br></span>
                                             <span style="color:#6F777B">Lorem Ipsum Magistrate's Court Magistrate's Court</span></div>
                                         </td>
                                     </tr>
@@ -791,7 +829,7 @@
                                         <td>
                                             <div>1 May 2018</div>
                                             <div class="top_10">Legal adviser: Joe Bloggs<br>
-                                            Magistrates: {{ data['magistrates-name']}}<br>
+                                            <span id="magistrate4">Magistrate: {{ data['magistrates-name']}}<br></span>
                                             <span class="form-hint">Stratford Magistrate's Court</span></div>
                                         </td>
                                     </tr>
@@ -818,7 +856,7 @@
                                         <td>
                                             <div>1 May 2018</div>
                                             <div class="top_10">Legal adviser: Joe Bloggs<br>
-                                            Magistrates: {{ data['magistrates-name']}}<br>
+                                            <span id="magistrate5">Magistrate: {{ data['magistrates-name']}}<br></span>
                                             <span class="form-hint">Stratford Magistrate's Court</span></div>
                                         </td>
                                     </tr>
@@ -842,18 +880,48 @@
                                     </tr>
                                     <tr>
                                         <td class="bold">Reason for referring</td>
-                                        <td id="referBackToSJPReason">{{data['refer-back-to-sjp-group']}}</td>
+                                        <td><span id="referBackToSJPReason">{{data['refer-back-to-sjp-group']}}</span><br>
+                                            <span id="defendantEnquiryReasonForReferringBackToSJP">Reason: {{data['defendant-enquiry-reason']}}<br></span>
+                                            <span id="prosecutorEnquiryReasonForReferringBackToSJP">Reason: {{data['prosecutor-enquiry-reason']}}<br></span>
+                                            <span id="disqualificationRepresentationsReasonForReferringBackToSJP">Reason: {{data['disqualification-representations-reason']}}<br></span>
+                                            <span id="otherReasonForReferringBackToSJP">Reason: {{data['other-refer-to-sjp-reason']}}<br></span>
+                                        </td>
                                     </tr>
-                                    <tr id="otherReasonForReferringBackToSJP" style="dislay:none">
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <tr id="defendantEnquiryReasonForReferringBackToSJP" style="display:none">
+                                        <td class="bold">Reason for defendant enquiry</td>
+                                        <td>{{data['other-refer-to-sjp-reason']}}</td>
+                                    </tr>
+                                    <tr id="prosecutorEnquiryReasonForReferringBackToSJP" style="display:none">
+                                        <td class="bold">Reason for prosecutor enquiry</td>
+                                        <td>{{data['other-refer-to-sjp-reason']}}</td>
+                                    </tr>
+                                    <tr id="disqualificationRepresentationsReasonForReferringBackToSJP" style="display:none">
+                                        <td class="bold">Reason for disqualification representation</td>
+                                        <td>{{data['other-refer-to-sjp-reason']}}</td>
+                                    </tr>
+                                    <tr id="otherReasonForReferringBackToSJP" style="display:none">
                                         <td class="bold">Other reason</td>
                                         <td>{{data['other-refer-to-sjp-reason']}}</td>
                                     </tr>
+                                    
+
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
                                     <tr>
                                         <td class="bold">Decision made</td>
                                         <td>
                                             <div>1 May 2018</div>
                                             <div class="top_10">Legal adviser: Joe Bloggs<br>
-                                            <span id="magistrate">Magistrates: {{ data['magistrates-name']}}<br></span>
+                                            <span id="magistrate6">Magistrate: {{ data['magistrates-name']}}<br></span>
                                             <span class="form-hint">Stratford Magistrate's Court</span></div>
                                         </td>
                                     </tr>
