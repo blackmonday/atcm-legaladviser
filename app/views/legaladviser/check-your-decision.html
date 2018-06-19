@@ -74,35 +74,35 @@
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
-            document.getElementById('referBackToSsjp').style.display = "none";
+            document.getElementById('referBackToSJP').style.display = "none";
             
         } else if (decision == "Refer to court hearing") {
             document.getElementById('financialPenalty').style.display = "none";
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
-            document.getElementById('referBackToSsjp').style.display = "none";
+            document.getElementById('referBackToSJP').style.display = "none";
             
         } else if (decision == "Withdraw") {
             document.getElementById('financialPenalty').style.display = "none";
             document.getElementById('referToCourtHearing').style.display = "none";
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
-            document.getElementById('referBackToSsjp').style.display = "none";
+            document.getElementById('referBackToSJP').style.display = "none";
             
         } else if ((decision == "Discharge") || ((decision == "Prove SJP") && (decision_b == "Discharge"))) {
             document.getElementById('financialPenalty').style.display = "none";
             document.getElementById('referToCourtHearing').style.display = "none";
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
-            document.getElementById('referBackToSsjp').style.display = "none";
+            document.getElementById('referBackToSJP').style.display = "none";
             
         } else if (decision == "Dismiss") {
             document.getElementById('financialPenalty').style.display = "none";
             document.getElementById('referToCourtHearing').style.display = "none";
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('discharge').style.display = "none";
-            document.getElementById('referBackToSsjp').style.display = "none";
+            document.getElementById('referBackToSJP').style.display = "none";
             
         } else if (decision == "Refer back to SJP") {
             document.getElementById('financialPenalty').style.display = "none";
@@ -110,7 +110,7 @@
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
-            
+                        
             document.getElementById('reasonForReferringBackToSJP').style.display = "table-row";
             
             var referBackToSJPReason = document.getElementById('referBackToSJPReason').innerText;
@@ -640,7 +640,8 @@
 
     <div id="financialPenalty">
         <div class="grid-row top_30">
-            <div class="column-full">
+            <div class="column-full" style="border: 1px solid red">
+                <p class="form-hint">Financial penalty</p>
 
                 <h1 class="heading-xlarge top_00 bottom_5">Check your decision</h1>
 
@@ -967,163 +968,10 @@
 
         </div>
     </div>
-        
-    <div id="referToCourtHearing">
-        <h1 class="heading-xlarge top_30 bottom_5">Check your decision</h1>
 
-        <form class="form" action="" method="post">
-            <div class="form-group">
-                
-                <h2 class="heading-large">Offence 1</h2>
-
-                <!-- DECISION -->
-                <table class="check-your-decisions-table">
-                    <tbody>
-                        <tr>
-                            <td class="heading-medium">Decision</td>
-                            <td></td>
-                            <td><a href="case-details-page">Change</a></td>
-                        </tr>
-                        <tr>
-                            <td class="table-cell-width">Offence type</td>
-                            <td>{{data['offence-type']}}</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td class="table-cell-width">Verdict</td>
-                            <td>{{data['verdict']}}</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td class="table-cell-width">Result</td>
-                            <td>{{data['decision']}}</td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <!-- OUTCOME -->
-                <table class="check-your-decisions-table top_60">
-                    <tbody>
-                        <tr>
-                            <td class="heading-medium">Outcome</td>
-                            <td></td>
-                            <td><a href="confirm-outcome">Change</a></td>
-                        </tr>
-
-                        <tr>
-                            <td class="table-cell-width">Refer to which court?</td>
-                            <td>{{ data['refer-to-which-court-group'] }}</td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td class="table-cell-width">Court room</td>
-                            <td>{{ data['court-room-group'] }}</td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td class="table-cell-width">Date of hearing</td>
-                            <td>{{ data['hearing-day'] }} <span id="hearingMonth">{{ data['hearing-month'] }}</span> {{ data['hearing-year'] }}</td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td class="table-cell-width ">Start time of hearing session</td>
-                            <td>{{ data['hearing-time-hour'] }}:{{ data['hearing-time-minute'] }}</td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td class="table-cell-width">Reason for referring to court</td>
-                            <td><span id="reasonForReferringToCourt">{{ data['reason-for-referring-to-court-group'] }}</span><span id="equivocalPleaGroup"> - {{ data['equivocal-plea-group'] }}</span><span id="caseManagementGroup"> - {{ data['case-management-group'] }}</span></td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td class="table-cell-width">Is an interpreter needed in court</td>
-                            <td id="interpreterGroup">{{ data['interpreter-group'] }}</td>
-                            <td></td>
-                        </tr>
-
-                        <tr id="whichLanguage">
-                            <td class="table-cell-width">Which language</td>
-                            <td>{{ data['interpeter-language'] }}</td>
-                            <td></td>
-                        </tr>
-
-                    </tbody>
-                </table>
-
-                <!-- ADD A NOTE -->
-                <label class="form-label top_60" for="optional-note">
-                    <span class="heading-medium">Add a note (optional)</span>
-                    <p class="bottom_5">This will only be seen by court staff</p>
-                </label>
-                <textarea class="form-control form-control-3-4" name="optional-note" id="optional-note" rows="5"></textarea>
-                    
-                <input class="button top_30" type="submit" value="Continue" onclick="javascript: sessionStorage.setItem('changesMade', 'Yes')">
-                <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
-
-            </div>
-        </form>
-    </div>
-    
-    <div id="withdraw">
-        <h1 class="heading-xlarge top_30 bottom_5">Check your decision</h1>
-
-        <h2 class="heading-large">Offence 1</h2>
-
-        <!-- DECISION -->
-        <table class="check-your-decisions-table">
-            <tbody>
-                <tr>
-                    <td class="heading-medium">Decision</td>
-                    <td></td>
-                    <td><a href="case-details-page">Change</a></td>
-                </tr>
-                <tr>
-                    <td class="table-cell-width">Offence type</td>
-                    <td>{{data['offence-type']}}</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="table-cell-width">Verdict</td>
-                    <td>{{data['verdict']}}</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="table-cell-width">Result</td>
-                    <td>{{data['decision']}}</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="table-cell-width">Reason for withdrawal</td>
-                    <td>{{data['withdrawn-reason']}}</td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <!-- ADD A NOTE -->
-        <form class="form top_60" action="" method="post">
-            <div class="form-group">
-                <label class="form-label" for="optional-note">
-                    <span class="heading-medium">Add a note (optional)</span>
-                    <p class="bottom_5">This will only be seen by court staff</p>
-                </label>
-                <textarea class="form-control form-control-3-4" name="optional-note" id="optional-note" rows="5"></textarea>
-
-                <input class="button top_30" type="submit" value="Continue" onclick="javascript: sessionStorage.setItem('changesMade', 'Yes')">
-                <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
-
-            </div>
-        </form>
-        
-    </div>
-
+    <!--<div id="discharge" style="border: 1px solid orange">-->
     <div id="discharge">
+        <p class="form-hint">Discharge</p>
         
         <h1 class="heading-xlarge top_30 bottom_5">Check your decision</h1>
 
@@ -1548,8 +1396,172 @@
         </form>
         
     </div>
+    
+    <!--<div id="withdraw" style="border: 1px solid blue">-->
+    <div id="withdraw">
+        <p class="form-hint">Withdraw</p>
+        
+        <h1 class="heading-xlarge top_30 bottom_5">Check your decision</h1>
 
+        <h2 class="heading-large">Offence 1</h2>
+
+        <!-- DECISION -->
+        <table class="check-your-decisions-table">
+            <tbody>
+                <tr>
+                    <td class="heading-medium">Decision</td>
+                    <td></td>
+                    <td><a href="case-details-page">Change</a></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width">Offence type</td>
+                    <td>{{data['offence-type']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width">Verdict</td>
+                    <td>{{data['verdict']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width">Result</td>
+                    <td>{{data['decision']}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-cell-width">Reason for withdrawal</td>
+                    <td>{{data['withdrawn-reason']}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- ADD A NOTE -->
+        <form class="form top_60" action="" method="post">
+            <div class="form-group">
+                <label class="form-label" for="optional-note">
+                    <span class="heading-medium">Add a note (optional)</span>
+                    <p class="bottom_5">This will only be seen by court staff</p>
+                </label>
+                <textarea class="form-control form-control-3-4" name="optional-note" id="optional-note" rows="5"></textarea>
+
+                <input class="button top_30" type="submit" value="Continue" onclick="javascript: sessionStorage.setItem('changesMade', 'Yes')">
+                <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
+
+            </div>
+        </form>
+        
+    </div>
+        
+    <!--<div id="referToCourtHearing" style="border: 1px solid green">-->
+    <div id="referToCourtHearing">
+        <p class="form-hint">Refer to court hearing</p>
+        
+        <h1 class="heading-xlarge top_30 bottom_5">Check your decision</h1>
+
+        <form class="form" action="" method="post">
+            <div class="form-group">
+                
+                <h2 class="heading-large">Offence 1</h2>
+
+                <!-- DECISION -->
+                <table class="check-your-decisions-table">
+                    <tbody>
+                        <tr>
+                            <td class="heading-medium">Decision</td>
+                            <td></td>
+                            <td><a href="case-details-page">Change</a></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell-width">Offence type</td>
+                            <td>{{data['offence-type']}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell-width">Verdict</td>
+                            <td>{{data['verdict']}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell-width">Result</td>
+                            <td>{{data['decision']}}</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <!-- OUTCOME -->
+                <table class="check-your-decisions-table top_60">
+                    <tbody>
+                        <tr>
+                            <td class="heading-medium">Outcome</td>
+                            <td></td>
+                            <td><a href="confirm-outcome">Change</a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="table-cell-width">Refer to which court?</td>
+                            <td>{{ data['refer-to-which-court-group'] }}</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td class="table-cell-width">Court room</td>
+                            <td>{{ data['court-room-group'] }}</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td class="table-cell-width">Date of hearing</td>
+                            <td>{{ data['hearing-day'] }} <span id="hearingMonth">{{ data['hearing-month'] }}</span> {{ data['hearing-year'] }}</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td class="table-cell-width ">Start time of hearing session</td>
+                            <td>{{ data['hearing-time-hour'] }}:{{ data['hearing-time-minute'] }}</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td class="table-cell-width">Reason for referring to court</td>
+                            <td><span id="reasonForReferringToCourt">{{ data['reason-for-referring-to-court-group'] }}</span><span id="equivocalPleaGroup"> - {{ data['equivocal-plea-group'] }}</span><span id="caseManagementGroup"> - {{ data['case-management-group'] }}</span></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td class="table-cell-width">Is an interpreter needed in court</td>
+                            <td id="interpreterGroup">{{ data['interpreter-group'] }}</td>
+                            <td></td>
+                        </tr>
+
+                        <tr id="whichLanguage">
+                            <td class="table-cell-width">Which language</td>
+                            <td>{{ data['interpeter-language'] }}</td>
+                            <td></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <!-- ADD A NOTE -->
+                <label class="form-label top_60" for="optional-note">
+                    <span class="heading-medium">Add a note (optional)</span>
+                    <p class="bottom_5">This will only be seen by court staff</p>
+                </label>
+                <textarea class="form-control form-control-3-4" name="optional-note" id="optional-note" rows="5"></textarea>
+                    
+                <input class="button top_30" type="submit" value="Continue" onclick="javascript: sessionStorage.setItem('changesMade', 'Yes')">
+                <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
+
+            </div>
+        </form>
+    </div>
+
+    <!--<div id="dismiss" style="border: 1px solid grey">-->
     <div id="dismiss">
+        <p class="form-hint">Dismiss</p>
+        
         <h1 class="heading-xlarge top_30 bottom_5">Check your decision</h1>
 
         <form class="form" action="" method="post">
@@ -1597,7 +1609,10 @@
         </form>
     </div>
 
+    <!--<div id="referBackToSJP" style="border: 1px solid purple">-->
     <div id="referBackToSJP">
+        <p class="form-hint">Refer back to SJP</p>
+        
         <h1 class="heading-xlarge top_30 bottom_5">Check your decision</h1>
 
         <form class="form" action="" method="post">
