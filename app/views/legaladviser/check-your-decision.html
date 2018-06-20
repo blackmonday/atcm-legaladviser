@@ -375,7 +375,7 @@
             document.getElementById('payDirectToCourtSection').style.display = "none";
             document.getElementById('deductFromBenefitsSection').style.display = "none";
             document.getElementById('attachToEarningsSection').style.display = "table";
-            document.getElementById('attachToEarningsSection_employerDetails').style.display = "block";
+            document.getElementById('attachToEarningsSection_employerDetails').style.display = "table";
             
                     // Attach to earnings
                     if (howShouldDefendantPay_3 == "Lump sum within 14 days" || howShouldDefendantPay_3 == "Lump sum within 28 days") {
@@ -660,8 +660,10 @@
 
     <div id="financialPenalty">
         <div class="grid-row top_30">
-            <div class="column-full" style="border: 1px solid red">
-                <p class="form-hint">Financial penalty</p>
+            
+            <!--<div class="column-full" style="border: 1px solid red">-->
+            <div class="column-full">
+                <!--<p class="form-hint">Financial penalty</p>-->
 
                 <h1 class="heading-xlarge top_00 bottom_5">Check your decision</h1>
 
@@ -991,7 +993,7 @@
 
     <!--<div id="discharge" style="border: 1px solid orange">-->
     <div id="discharge">
-        <p class="form-hint">Discharge</p>
+        <!--<p class="form-hint">Discharge</p>-->
         
         <h1 class="heading-xlarge top_30 bottom_5">Check your decision</h1>
 
@@ -1070,12 +1072,6 @@
             </tbody>
         </table>
 
-        
-
-
-        
-        
-        
         <!-- PAYMENT -->
         <!-- TOTAL AND PAYMENT METHOD -->
         <table id="" class="check-your-decisions-table top_60">
@@ -1100,7 +1096,8 @@
 
         <!-- PAYMENT -->
         <!-- PAY DIRECT TO COURT -->
-        <div id="dischargePayDirectToCourt" style="border: 2px solid red">
+        <!--<div id="dischargePayDirectToCourt" style="border: 2px solid red">-->
+        <div id="dischargePayDirectToCourt">
             
             <table id="payDirectToCourtSection2" class="check-your-decisions-table">
                 <tbody>
@@ -1125,14 +1122,17 @@
             <!-- PAYMENT -->
             <!-- PAY DIRECT TO COURT -->
             <!-- LUMP SUM PLUS INSTALMENTS -->
-            <table id="discharge_lumpSumInstalments" class="check-your-decisions-table" style="border: 2px dashed red">
+            <!--<table id="discharge_lumpSumInstalments" class="check-your-decisions-table" style="border: 2px dashed red">-->
+            <table id="discharge_lumpSumInstalments">
                 <tbody>
 
+                    <!--
                     <tr>
                         <td class="table-cell-width" style="color: red">Discharge - Pay direct to court - Lump sum + instalment</td>
                         <td></td>
                         <td></td>
                     </tr>
+                    -->
 
                     <tr>
                         <td class="table-cell-width">Instalment amount</td>
@@ -1155,14 +1155,17 @@
             <!-- PAYMENT -->
             <!-- PAY DIRECT TO COURT -->
             <!-- INSTALMENTS ONLY -->
-            <table id="discharge_instalmentsOnly" class="check-your-decisions-table" style="border: 2px dashed red">
+            <!--<table id="discharge_instalmentsOnly" class="check-your-decisions-table" style="border: 2px dashed red">-->
+            <table id="discharge_instalmentsOnly" class="check-your-decisions-table">
                 <tbody>
 
+                    <!--
                     <tr>
                         <td class="table-cell-width" style="color: red">Discharge - Pay direct to court - Instalment only</td>
                         <td></td>
                         <td></td>
                     </tr>
+                    -->
 
                     <tr>
                         <td class="table-cell-width">Instalment amount</td>
@@ -1186,7 +1189,8 @@
         
         <!-- PAYMENT -->
         <!-- DEDUCT FROM BENEFITS -->
-        <div id="dischargeDBO" style="border: 2px solid green">
+        <!--<div id="dischargeDBO" style="border: 2px solid green">-->
+        <div id="dischargeDBO">
             
             <table id="deductFromBenefitsSection2" class="check-your-decisions-table">
                 <tbody>
@@ -1211,7 +1215,8 @@
             <!-- PAYMENT -->
             <!-- DEDUCT FROM BENEFITS -->
             <!-- LUMP SUM + INSTALMENTS -->
-            <table id="deductFromBenefitsSection2_LumpSumInstalments" class="check-your-decisions-table" style="border: 2px dashed green">
+            <!--<table id="deductFromBenefitsSection2_LumpSumInstalments" class="check-your-decisions-table" style="border: 2px dashed green">-->
+            <table id="deductFromBenefitsSection2_LumpSumInstalments" class="check-your-decisions-table">
                 <tbody>
                     
                     <tr>
@@ -1241,14 +1246,17 @@
             <!-- PAYMENT -->
             <!-- DEDUCT FROM BENEFITS -->
             <!-- INSTALMENTS ONLY -->
-            <table id="deductFromBenefitsSection2_instalmentsOnly" class="check-your-decisions-table" style="border: 2px dashed green">
+            <!--<table id="deductFromBenefitsSection2_instalmentsOnly" class="check-your-decisions-table" style="border: 2px dashed green">-->
+            <table id="deductFromBenefitsSection2_instalmentsOnly" class="check-your-decisions-table">
                 <tbody>
                     
+                    <!--
                     <tr>
                         <td class="table-cell-width" style="color: green">Instalment only</td>
                         <td></td>
                         <td></td>
                     </tr>
+                    -->
                     
                     <tr>
                         <td class="table-cell-width">Instalment amount</td>
@@ -1270,15 +1278,10 @@
 
         </div>
         
-        
-        
-        
-        
-        
-        
         <!-- PAYMENT -->
         <!-- ATTACH TO EARNINGS -->
-        <div id="dischargeA2E" style="border: 2px solid blue">
+        <!--<div id="dischargeA2E" style="border: 2px solid blue">-->
+        <div id="dischargeA2E">
 
             <table id="attachToEarningsSection2" class="check-your-decisions-table">
                 <tbody>
@@ -1303,14 +1306,17 @@
             <!-- PAYMENT -->
             <!-- ATTACH TO EARNINGS -->
             <!-- LUMP SUM + INSTALMENT -->
-            <table id="attachToEarningsSection2_lumpSumInstalment" class="check-your-decisions-table"style="border: 2px dashed blue">
+            <!--<table id="attachToEarningsSection2_lumpSumInstalment" class="check-your-decisions-table" style="border: 2px dashed blue">-->
+            <table id="attachToEarningsSection2_lumpSumInstalment" class="check-your-decisions-table">
                 <tbody>
                     
+                    <!--
                     <tr>
                         <td class="table-cell-width" style="color: blue">Discharge - A2E - Lump sum + instalment</td>
                         <td></td>
                         <td></td>
                     </tr>
+                    -->
                     
                     <tr>
                         <td class="table-cell-width">Instalment amount</td>
@@ -1333,14 +1339,17 @@
             <!-- PAYMENT -->
             <!-- ATTACH TO EARNINGS -->
             <!-- INSTALMENTS ONLY -->
-            <table id="attachToEarningsSection2_instalmentOnly" class="check-your-decisions-table"style="border: 2px dashed blue">
+            <!--<table id="attachToEarningsSection2_instalmentOnly" class="check-your-decisions-table" style="border: 2px dashed blue">-->
+            <table id="attachToEarningsSection2_instalmentOnly" class="check-your-decisions-table">
                 <tbody>
                     
+                    <!--
                     <tr>
                         <td class="table-cell-width" style="color: blue">Discharge - A2E - Instalment only</td>
                         <td></td>
                         <td></td>
                     </tr>
+                    -->
                     
                     <tr>
                         <td class="table-cell-width">Instalment amount</td>

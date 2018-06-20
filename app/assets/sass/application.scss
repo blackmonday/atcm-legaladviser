@@ -200,7 +200,7 @@ $path: "/public/images/";
 
 
 /* TABS PATTERN */
-.tab, .tab:link, .tab2, .tab2:link {
+.tab, .tab:link, .tab2, .tab2:link, .tab3, .tab3:link {
     text-decoration: none;
     padding: 10px 15px 8px 15px;
     display: inline-block;
@@ -209,25 +209,26 @@ $path: "/public/images/";
     margin-right: 3px;
     height: 20px;
 }
-.tab:hover, .tab2:hover {
+.tab:hover, .tab2:hover, .tab3:hover {
     text-decoration: none;
 }
-.tab:active, .tab2:active {
+.tab:active, .tab2:active, .tab3:active {
     color: #0B0C0C;
     text-decoration: none;
 }
-.tab:visited, .tab2:visited {
+.tab:visited, .tab2:visited, .tab3:visited {
     color: #0B0C0C;
     text-decoration: none;
 }
-.tab:focus, .tab2:focus {
+.tab:focus, .tab2:focus, .tab3:focus {
     color: #0B0C0C;
     text-decoration: none;
     background-color: #DEE0E2;
     border: 3px solid #FFBF47;
 }
 .tab-on, .tab-on:link, .tab-on:hover, .tab-on:active, .tab-on:visited, .tab-on:focus,
-.tab-on-2, .tab-on-2:link, .tab-on-2:hover, .tab-on-2:active, .tab-on-2:visited, .tab-on-2:focus{
+.tab-on-2, .tab-on-2:link, .tab-on-2:hover, .tab-on-2:active, .tab-on-2:visited, .tab-on-2:focus,
+.tab-on-3, .tab-on-3:link, .tab-on-3:hover, .tab-on-3:active, .tab-on-3:visited, .tab-on-3:focus {
     color: #0B0C0C;
     text-decoration: none;
     padding: 10px 15px 8px 15px;
@@ -243,7 +244,7 @@ $path: "/public/images/";
     background: #BFC1C3;
     margin-top: -1px;
 }
-#tabTwoContent, #tabThreeContent, #tabTwoContent2, #tabThreeContent2 {
+#tabTwoContent, #tabThreeContent, #tabTwoContent2, #tabThreeContent2, #tabThreeContent2 {
     display: none;
 }
 

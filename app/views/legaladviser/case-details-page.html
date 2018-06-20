@@ -55,6 +55,26 @@
                 document.getElementById('notGuiltyPlea').style.display = "block";
             }
         }
+        
+        
+        
+        
+        
+        /* *********************************************** */
+        /* *********************************************** */
+        /* DISPLAY MAGISTRATE DETAILS IN THE DECISION TAB? */
+        if (delegatePowers == "No") {
+            document.getElementById('magistrate1').style.display = "none";
+            document.getElementById('magistrate2').style.display = "none";
+            document.getElementById('magistrate3').style.display = "none";
+            document.getElementById('magistrate4').style.display = "none";
+            document.getElementById('magistrate5').style.display = "none";
+            document.getElementById('magistrate6').style.display = "none";
+        } 
+  
+
+        
+        
 
         
         
@@ -151,7 +171,7 @@
 
         
         
-        
+
         /* ************************************** */
         /* ************************************** */
         /* ************************************** */
@@ -222,17 +242,13 @@
             
         }
         
-        if (decisionGroup == "Refer to court hearing") {
+        if (decisionGroup == "Refer to court hearing") {            
             document.getElementById('financialPenaltyTab').style.display = "none";
             document.getElementById('dischargeTab').style.display = "none";
             //document.getElementById('referToCourtHearingTab').style.display = "none";
             document.getElementById('dismissTab').style.display = "none";
             document.getElementById('withdrawTab').style.display = "none";
             document.getElementById('referBackToSJPTab').style.display = "none";
-            
-            if (delegatePowers == "No") {
-                document.getElementById('magistrate').style.display = "none";
-            }
         }
         
         if (decisionGroup == "Dismiss") {
@@ -280,7 +296,7 @@
             
             
             
-            
+
             
             
 
@@ -314,43 +330,53 @@
         }
         
 
-        
-        
-        
-        /* *********************************************** */
-        /* *********************************************** */
-        /* DISPLAY MAGISTRATE DETAILS IN THE DECISION TAB? */
-        if (delegatePowers == "No") {
-            document.getElementById('magistrate1').style.display = "none";
-            document.getElementById('magistrate2').style.display = "none";
-            document.getElementById('magistrate3').style.display = "none";
-            document.getElementById('magistrate4').style.display = "none";
-            document.getElementById('magistrate5').style.display = "none";
-            document.getElementById('magistrate6').style.display = "none";
-        } 
-  
 
-        
         
         /* ************* */
         /* ************* */
         /* CONVERT MONTH */
 
-        //var dobMonth = document.getElementById('dobMonth').innerText;
-        //var dobMonth2 = document.getElementById('dobMonth2').innerText;
+        var dobMonth = document.getElementById('dobMonth').innerText;
+        var dobMonth2 = document.getElementById('dobMonth2').innerText;
         var paymentMonth = document.getElementById("paymentMonth").innerText;
         var paymentMonth2 = document.getElementById("paymentMonth2").innerText;
-        //var hearingMonth = document.getElementById("hearingMonth").innerText;
+        var hearingMonth = document.getElementById("hearingMonth").innerText;
 
         var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         var monthsShort = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-        //document.getElementById('dobMonth').innerText = months[dobMonth];
-        //document.getElementById('dobMonth2').innerText = months[dobMonth2];
+        document.getElementById('dobMonth').innerText = months[dobMonth];
+        document.getElementById('dobMonth2').innerText = months[dobMonth2];
         document.getElementById("paymentMonth").innerText = months[paymentMonth-1];
         document.getElementById("paymentMonth2").innerText = months[paymentMonth2-1];
-        //document.getElementById("hearingMonth").innerText = months[hearingMonth];
+        document.getElementById("hearingMonth").innerText = months[hearingMonth];
     
+        
+        
+
+        
+        /* ********************** */
+        /* GET DATE FOR NOTES TAB */
+        var d = new Date();
+        var fullYear = d.getFullYear();
+        var dayOfMonth = d.getDate();
+        var month = d.getMonth();
+        var hours = d.getHours();
+        var minutes = d.getMinutes();
+        
+        var month2 = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var monthShort2 = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        
+        if (minutes <= 9) {
+            minutes = "0"+minutes;
+        }
+
+        //alert(fullYear+" "+dayOfMonth+" "+month2[month]);
+        document.getElementById('dateOfNote').innerText = dayOfMonth+" "+month2[month]+" "+fullYear+" at "+hours+":"+minutes;
+        
+        
+        
+        
     }
     
 </script>
@@ -414,9 +440,8 @@
     </div>
 
     <span style="">{% include "includes/display-decision.html" %}</span>
-    <span id="delegatePowers" id="display:">{{data['delegate-powers-group']}}</span>
-    <span id="defenantsPleaOriginal" id="display:">{{data['defendents-plea-original']}}</span>
-    
+    <span id="delegatePowers" style="display:none">{{data['delegate-powers-group']}}</span>
+    <span id="defenantsPleaOriginal" style="display:none">{{data['defendents-plea-original']}}</span>
 
     
     
@@ -591,6 +616,7 @@
                 <div class="tabGroup2 top_60">
                     <a id="tabA2" class="tab-on-2" onclick="tabGroup2(tabContent2, 'TAB-ONE-2')" href="javascript: void(0)">Details</a>
                     <a id="tabB2" class="tab2" onclick="tabGroup2(tabContent2, 'TAB-TWO-2')" href="javascript: void(0)">Decision</a>
+                    <a id="tabC2" class="tab3" onclick="tabGroup2(tabContent2, 'TAB-THREE-2')" href="javascript: void(0)">Notes</a>
                     <hr>
                 </div>
                 
@@ -955,6 +981,14 @@
                         
                         </div>
                         
+                    </div>
+                    
+                    <!-- TAB THREE - NOTES -->
+                    <div id="tabThreeContent2">
+                        <h4 id="dateOfNote" class="heading-small bottom_5 top_0"></h4>
+                        <h5 class="form-hint bottom_10">Legal adviser: Joe Bloggs</h5>
+                        <p>{{data['optional-note']}}</p>
+
                     </div>
 
                 </div>   
