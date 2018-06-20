@@ -377,6 +377,24 @@
         
         
         
+        
+        
+        
+        
+        // noteNoContent
+        // noteContent
+
+        var optionalNote = document.getElementById('optionalNote').innerText;
+        if (optionalNote == "") {
+            document.getElementById('noteNoContent').style.display = "block";
+            document.getElementById('noteContent').style.display = "none";
+        } else {
+            document.getElementById('noteNoContent').style.display = "none";
+            document.getElementById('noteContent').style.display = "block";
+        }
+        
+        
+        
     }
     
 </script>
@@ -985,9 +1003,14 @@
                     
                     <!-- TAB THREE - NOTES -->
                     <div id="tabThreeContent2">
-                        <h4 id="dateOfNote" class="heading-small bottom_5 top_0"></h4>
-                        <h5 class="form-hint bottom_10">Legal adviser: Joe Bloggs</h5>
-                        <p>{{data['optional-note']}}</p>
+
+                        <div id="noteNoContent">There are no notes for this case.</div>
+                        
+                        <div id="noteContent">
+                            <h4 id="dateOfNote" class="heading-small bottom_5 top_0"></h4>
+                            <h5 class="form-hint bottom_10">Legal adviser: Joe Bloggs</h5>
+                            <p id="optionalNote">{{data['optional-note']}}</p>
+                        </div>
 
                     </div>
 
