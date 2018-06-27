@@ -317,7 +317,13 @@ router.post('/', function (req, res) {
 // DASHBOARD PAGE
 router.post('/legaladviser/dashboard', function (req, res) {
                     
-    res.redirect('/legaladviser/search-for-a-case')
+    var searchForACaseGroup = req.session.data['search-for-a-case-group']
+    if (searchForACaseGroup == "Single Justice Procedure") {
+        res.redirect('/legaladviser/search-for-a-case')
+    } else if (searchForACaseGroup == "Criminal Court") {
+        res.redirect('/legaladviser/dashboard')
+    }
+    
     
 })
 
