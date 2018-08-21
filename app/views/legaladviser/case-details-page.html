@@ -21,6 +21,26 @@
             } else {
                 document.getElementById('case-status').innerText = "Plea received - ready for decision";
             }
+            
+        } else if (decision == "Refer back to SJP") {
+            document.getElementById('case-status').innerText = "Refer SJP";
+            document.getElementById('referSJP').style.display = "table-row";
+            
+            if (document.getElementById('referSJPreason').innerText != "Other") {
+                document.getElementById('referSJPother').style.display = "none";
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        
+        
         } else if (decision != "") {
             document.getElementById('case-status').innerText = "Completed";
             document.getElementById('changePleaLink').style.display = "none";
@@ -386,6 +406,9 @@
     .table-cell-width {
         width: 40%;
     }
+    #referSJP {
+        display:none;
+    }
 </style>
 
 {% include "includes/timeout-overlay.html" %}
@@ -472,6 +495,10 @@
                         <tr>
                             <th class="bold" style="border: none; width: 33%">Case status</th>
                             <td id="case-status" style="border: none">{{data['case-status']}}</td>
+                        </tr>
+                        <tr id="referSJP">
+                            <th class="bold" style="padding-top:0; border: none; width: 33%"></th>
+                            <td id="case-status" style="padding-top:0; border: none"><span id="referSJPreason">{{data['referring-this-offence-group']}}</span><span id="referSJPother"> - {{data['other-refer-reason']}}</span></td>
                         </tr>
                         <tr>
                             <th class="bold" style="border: none">Prosecutor</th>
@@ -930,6 +957,10 @@
                                 <div class="multiple-choice">
                                     <input id="radio-4" type="radio" name="make-a-decision-group" value="Dismiss">
                                     <label for="radio-4">Dismiss</label>
+                                </div>
+                                <div class="multiple-choice">
+                                    <input id="radio-5" type="radio" name="make-a-decision-group" value="Refer back to SJP">
+                                    <label for="radio-5">Refer back to SJP</label>
                                 </div>
                             </div>
                             

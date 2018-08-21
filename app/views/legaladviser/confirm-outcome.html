@@ -72,6 +72,7 @@
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
+            document.getElementById('referBackToSJP').style.display = "none";
             
         } else if (decisiontype == "Refer to court hearing") {
             document.getElementById('financialPenalty').style.display = "none";
@@ -79,6 +80,7 @@
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
+            document.getElementById('referBackToSJP').style.display = "none";
             
         } else if (decisiontype == "Withdraw") {
             document.getElementById('financialPenalty').style.display = "none"; 
@@ -86,6 +88,7 @@
             document.getElementById('withdraw').style.display = "block";
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
+            document.getElementById('referBackToSJP').style.display = "none";
             
        } else if ((decisiontype == "Discharge") || (decisiontype_b == "Discharge")) {
             document.getElementById('financialPenalty').style.display = "none"; 
@@ -93,6 +96,7 @@
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('discharge').style.display = "block";
             document.getElementById('dismiss').style.display = "none";
+            document.getElementById('referBackToSJP').style.display = "none";
            
         } else if (decisiontype == "Dismiss") {
             document.getElementById('financialPenalty').style.display = "none"; 
@@ -100,6 +104,15 @@
             document.getElementById('withdraw').style.display = "none";
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "block";
+            document.getElementById('referBackToSJP').style.display = "none";
+            
+        } else if (decisiontype == "Refer back to SJP") {
+            document.getElementById('financialPenalty').style.display = "none"; 
+            document.getElementById('referToCourtHearing').style.display = "none"; 
+            document.getElementById('withdraw').style.display = "none";
+            document.getElementById('discharge').style.display = "none";
+            document.getElementById('dismiss').style.display = "none";
+            document.getElementById('referBackToSJP').style.display = "block";
         }
         
         
@@ -913,6 +926,56 @@
 
                         
                         <input class="button top_30" type="submit" value="Continue">
+                        <p class="top_15"><a href="javascript:history.go(-1);">Back</a></p>
+
+                    </div>
+                </form>
+
+            </div>
+                        
+            <div id="referBackToSJP" style="display:none">
+                <h1 class="heading-xlarge top_0 bottom_5">Confirm outcome</h1>
+                
+                <h3 class="heading-large bottom_15">Offence 1</h3>
+                <h4 class="heading-medium top_15 bottom_5">{{data['offence-type']}}</h4>
+                <p class="top_5 bottom_15">{{data['offence-description']}}</p>
+                <p id="backDutyLength" class="bold top_15 bottom_15">{{data['back-duty-description']}}</p>
+                
+                <form class="form" action="" method="post">
+                    <div class="form-group">
+                        
+                        <fieldset>
+                            <legend>
+                                <h2 class="heading-medium top_15 bottom_5">Refer back to SJP</h2>
+                                <p class="top_5 bottom_5">Reason for referring offence</p>
+                            </legend>
+                            <div class="multiple-choice">
+                                <input id="referring-offence-1" type="radio" name="referring-this-offence-group" value="Defendant enquiry" {{ checked('referring-this-offence-group','Defendant enquiry') }}>
+                                <label for="referring-offence-1">Defendant enquiry</label>
+                            </div>
+                            <div class="multiple-choice">
+                                <input id="referring-offence-2" type="radio" name="referring-this-offence-group" value="Prosecutor enquiry" {{ checked('referring-this-offence-group','Prosecutor enquiry') }}>
+                                <label for="referring-offence-2">Prosecutor enquiry</label>
+                            </div>
+                            <div class="multiple-choice">
+                                <input id="referring-offence-3" type="radio" name="referring-this-offence-group" value="Disqualification Representations" {{ checked('referring-this-offence-group','Disqualification Representations') }}>
+                                <label for="referring-offence-3">Disqualification Representations</label>
+                            </div>
+                            <div class="multiple-choice" data-target="other">
+                                <input id="referring-offence-4" type="radio" name="referring-this-offence-group" value="Other" {{ checked('referring-this-offence-group','Other') }}>
+                                <label for="referring-offence-4">Other</label>
+                            </div>
+                            <div class="panel panel-border-narrow js-hidden" id="other">
+                                <label class="form-label" for="other-refer-reason">
+                                    What is the other reason?
+                                </label>
+                                    <textarea class="form-control form-control-3-4" name="other-refer-reason" id="other-refer-reason" rows="5"></textarea>
+                            </div>
+
+                        </fieldset>
+
+                        
+                        <input class="button top_30" type="submit" value="Confirm">
                         <p class="top_15"><a href="javascript:history.go(-1);">Back</a></p>
 
                     </div>

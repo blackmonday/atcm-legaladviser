@@ -370,6 +370,9 @@ router.post('/legaladviser/confirm-outcome', function (req, res) {
     if (decisionMade == "Discharge" || decisionMadeb == "Discharge") {
         res.redirect('/legaladviser/payment-method')
     }
+    if (decisionMade == "Refer back to SJP") {
+        res.redirect('/legaladviser/case-details-page')
+    }
     
     /* DISMISS */
     if (decisionMade == "Dismiss") {
