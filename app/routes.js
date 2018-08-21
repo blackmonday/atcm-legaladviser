@@ -402,7 +402,7 @@ router.post('/legaladviser/confirm-outcome', function (req, res) {
         res.redirect('/legaladviser/case-details-page')
     }
     
-    if (decisionMade == "Refer back to SJP") {
+    /*if (decisionMade == "Refer back to SJP") {
         
         var checkYourAnswersToggle = req.session.data['checkYourAnswersToggle']
 
@@ -412,7 +412,7 @@ router.post('/legaladviser/confirm-outcome', function (req, res) {
             res.redirect('/legaladviser/check-your-decision')
         }
         
-    }
+    }*/
     
     /* DISMISS */
     if (decisionMade == "Dismiss") {
