@@ -12,7 +12,7 @@
         var defendants_plea = document.getElementById('defendantsPlea').innerText;
         var case_status = document.getElementById('case-status').innerText;
         var decision = document.getElementById('decision').innerText;
-                
+        
         //alert("defendants_plea="+defendants_plea+" ||| case_status="+case_status+" ||| decision="+decision);
         
         if (decision == "") {
@@ -75,38 +75,37 @@
                 document.getElementById('notGuiltyPlea').style.display = "block";
             }
         }
+            // No plea received
+            // Pleaded Guilty SJP
+            // Pleaded Guilty - Court hearing requested
+            // Pleaded Not Guilty
+            
         
         
         
         
         
-        /* *********************************************** */
-        /* *********************************************** */
-        /* DISPLAY MAGISTRATE DETAILS IN THE DECISION TAB? */
-        if (delegatePowers == "No") {
-            document.getElementById('magistrate1').style.display = "none";
-            document.getElementById('magistrate2').style.display = "none";
-            document.getElementById('magistrate3').style.display = "none";
-            document.getElementById('magistrate4').style.display = "none";
-            document.getElementById('magistrate5').style.display = "none";
-            document.getElementById('magistrate6').style.display = "none";
-        } 
-  
-
-        
-        
-
         
         
         
-        /* ********** */
-        /* ********** */
-        /* ********** */
-        /* ********** */
-        /* INCOME TAB */
+        var dischargeConfirmCollectionOrder = document.getElementById('dischargeConfirmCollectionOrder').innerText;
+        if (dischargeConfirmCollectionOrder == "on") {
+            document.getElementById('dischargeConfirmCollectionOrder').innerText = "Yes";
+        } else {
+            document.getElementById('dischargeConfirmCollectionOrder').innerText = "No";
+        }
+        
+        
+        
+        
+        
+        
+        
+        
         if (document.getElementById('benefits-being-claimed').innerText == "No") {
             document.getElementById('benefits-details-group').style.display = "none"
         }
+        
         
         var incomeCalculation2 = Number(document.getElementById("incomeCalculation").innerText);
         
@@ -119,45 +118,136 @@
         } else if (document.getElementById('incomeFrequency').innerText == "Annually") {
             document.getElementById("incomeCalculation").innerText = incomeCalculation2/52;
         }
-
         
         
         
-        /* ********************** */
-        /* ********************** */
-        /* ********************** */
-        /* ********************** */
-        /* DEFENDANTS DETAILS TAB */
+        
+                
         var homeTelephone = document.getElementById('homeTelephone').innerText;
         if(homeTelephone != "") {
             document.getElementById('addHomeTelephone').style.display = "none";
         } else {
             document.getElementById('homeTelephone').style.display = "none";
         }
-
         
         
         
-        /* ************************************ */
-        /* ************************************ */
-        /* ************************************ */
-        /* ************************************ */
-        /* WARNING BANNER FOR CHANGE OF DETAILS */
+        
+        
+        
+        
         var warningBannerSwitch = document.getElementById('warningBannerSwitch').innerText;
         if (warningBannerSwitch == "on") {
             document.getElementById('warningBanner').style.display = "block"
         } else {
             document.getElementById('warningBanner').style.display = "none"
         }
-
+        
+                
+       
         
         
         
-        /* *********************************** */
-        /* *********************************** */
-        /* *********************************** */
-        /* *********************************** */
-        /* CHANGE CONTENT BASED ON CASE STATUS */
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /* ********************************* */
+        /* ********************************* */
+        /* ********************************* */
+        /* ********************************* */
+        /* ********************************* */
+        /* ********************************* */
+        /* DECISION - PAYMENT AND COLLECTION */
+        
+        var howToPayFinal2 = document.getElementById('setReserveTermsGroup').innerText;
+        var howToPayFinal = document.getElementById('howToPayGroup').innerText;
+                
+        if ((howToPayFinal2 == "Lump sum within 14 days") || (howToPayFinal2 == "Lump sum within 28 days")) {
+            //document.getElementById('totalPayment').style.display = "block";
+            document.getElementById('lumpSumAmount').style.display = "none";
+            document.getElementById('instalmentOnly').style.display = "none";
+        }
+        if (howToPayFinal2 == "Lump sum plus instalments") {
+            document.getElementById('totalPayment').style.display = "none";
+            //document.getElementById('lumpSumAmount').style.display = "block";
+            //document.getElementById('instalmentOnly').style.display = "none";
+        }
+        if (howToPayFinal2 == "Instalments only") {
+            document.getElementById('totalPayment').style.display = "none";
+            document.getElementById('lumpSumAmount').style.display = "none";
+            //document.getElementById('lumpSumAmount_b').style.display = "none";
+            //document.getElementById('instalmentOnly').style.display = "block";
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /* CHECK DECISION - WHAT IS DISPLAYED IN THE DECISION TAB? */
+        var decisiontype = document.getElementById('decision').innerText;
+        var decisiontype_b = document.getElementById('decision-b').innerText;
+                        
+        if ((decisiontype == "Financial penalty") || (decisiontype == "Prove SJP" && decisiontype_b == "Financial penalty")) {
+            document.getElementById('referToCourtHearingTab').style.display = "none";
+            document.getElementById('withdrawTab').style.display = "none";
+            document.getElementById('dischargeTab').style.display = "none";
+            document.getElementById('dismissTab').style.display = "none";
+            
+        } else if (decisiontype == "Refer to court hearing") {
+            document.getElementById('financialPenaltyTab').style.display = "none"; 
+            document.getElementById('withdrawTab').style.display = "none";
+            document.getElementById('dischargeTab').style.display = "none";
+            document.getElementById('dismissTab').style.display = "none";
+            
+        } else if (decisiontype == "Withdraw") {
+            document.getElementById('financialPenaltyTab').style.display = "none"; 
+            document.getElementById('referToCourtHearingTab').style.display = "none";
+            document.getElementById('dischargeTab').style.display = "none";
+            document.getElementById('dismissTab').style.display = "none";
+            
+        } else if ((decisiontype == "Discharge") || (decisiontype == "Prove SJP" && decisiontype_b == "Discharge")) {
+            document.getElementById('financialPenaltyTab').style.display = "none"; 
+            document.getElementById('referToCourtHearingTab').style.display = "none";
+            document.getElementById('withdrawTab').style.display = "none";
+            document.getElementById('dismissTab').style.display = "none";
+            
+        } else if (decisiontype == "Dismiss") {
+            document.getElementById('financialPenaltyTab').style.display = "none"; 
+            document.getElementById('referToCourtHearingTab').style.display = "none";
+            document.getElementById('withdrawTab').style.display = "none";
+            document.getElementById('dischargeTab').style.display = "none";
+        }
+        
+        var prosecutorCheck = document.getElementById("prosecutorCheck").innerText;
+        if (prosecutorCheck == "DVLA (with back duty)") {
+            document.getElementById("backDutyLength").style.display = "block";
+        } else {
+            document.getElementById("backDutyLength").style.display = "none";
+            document.getElementById("backDutyLength").style.display = "none";
+        }
+        
+        
+        
+        
+        
+        
+        
         var caseStatus = document.getElementById("case-status").innerText;
         if (caseStatus == "Completed") {
             document.getElementById("makeADecisionForm").style.display = "none";
@@ -168,15 +258,90 @@
             document.getElementById("statmentOfFactGroup").style.display = "block";
             document.getElementById("tabGroup2").style.display = "none";
         }
-
         
         
         
-        /* ******************* */
-        /* ******************* */
-        /* ******************* */
-        /* ******************* */
-        /* CONFIRMATION BANNER */
+        
+        
+        
+        
+        /* ************* */
+        /* ************* */
+        /* CONVERT MONTH */
+        var dobMonth = document.getElementById('dobMonth').innerText;
+        var dobMonth2 = document.getElementById('dobMonth2').innerText;
+        var paymentMonth = document.getElementById("paymentMonth").innerText;
+        var paymentMonth2 = document.getElementById("paymentMonth2").innerText;
+        var hearingMonth = document.getElementById("hearingMonth").innerText;
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var monthsShort = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        document.getElementById('dobMonth').innerText = months[dobMonth];
+        document.getElementById('dobMonth2').innerText = months[dobMonth2];
+        document.getElementById("paymentMonth").innerText = months[paymentMonth];
+        document.getElementById("paymentMonth2").innerText = months[paymentMonth2];
+        document.getElementById("hearingMonth").innerText = months[hearingMonth];
+        
+        
+        
+        
+        
+        
+        
+        
+        var payCourtTerms = document.getElementById('payCourtTerms').innerText;
+        if ((payCourtTerms == "Lump sum within 14 days") || (payCourtTerms == "Lump sum within 28 days")) {
+            //document.getElementById("totalPayment").style.display = "none";
+            document.getElementById("lumpSumAmount").style.display = "none";
+            document.getElementById("instalmentOnly").style.display = "none";
+            
+            //document.getElementById("dischargeLumpSum").style.display = "none";
+            document.getElementById("dischargeLumpSumInstal").style.display = "none";
+            document.getElementById("dischargeInstal").style.display = "none";
+            
+        } else if (payCourtTerms == "Lump sum plus instalments") {
+            document.getElementById("totalPayment").style.display = "none";
+            //document.getElementById("lumpSumAmount").style.display = "none";
+            document.getElementById("instalmentOnly").style.display = "none";
+            
+            document.getElementById("dischargeLumpSum").style.display = "none";
+            //document.getElementById("dischargeLumpSumInstal").style.display = "none";
+            document.getElementById("dischargeInstal").style.display = "none";
+            
+        } else if (payCourtTerms == "Instalments only") {
+            document.getElementById("totalPayment").style.display = "none";
+            document.getElementById("lumpSumAmount").style.display = "none";
+            //document.getElementById("instalmentOnly").style.display = "none";
+            
+            document.getElementById("dischargeLumpSum").style.display = "none";
+            document.getElementById("dischargeLumpSumInstal").style.display = "none";
+            //document.getElementById("dischargeInstal").style.display = "none";
+            
+        }
+        
+        // totalPayment
+        // lumpSumAmount
+        // instalmentOnly
+        
+        
+        // document.getElementById("dischargeLumpSum").style.display = "none";
+        // document.getElementById("dischargeLumpSumInstal").style.display = "none";
+        // document.getElementById("dischargeInstal").style.display = "none";
+        // dischargeLumpSum
+        // dischargeLumpSumInstal
+        // dischargeInstal
+        
+        
+        var defendentsTitle = document.getElementById('defendentsTitle').innerText;
+        if (defendentsTitle == " ") {
+            document.getElementById('defendentsTitle').innerText = "";
+        }
+        
+        
+        
+        
+        
+        
+        /* CHANGES MADE ??? */
         var changesMade = document.getElementById('changesMade').innerText;
         if (changesMade == "Yes") {
             //document.getElementById('confirmation').style.display = "block";
@@ -188,211 +353,6 @@
             sessionStorage.setItem('changesMade', 'No');
         }
         //alert(sessionStorage.getItem('changesMade'));
-
-        
-        
-
-        /* ************************************** */
-        /* ************************************** */
-        /* ************************************** */
-        /* ************************************** */
-        /* WHAT DECISION TAB SHOULD BE DISPLAYED? */
-        
-        var decisionGroup = document.getElementById('decisionGroup').innerText;
-        var decisionGroup_b = document.getElementById('decisionGroup_b').innerText;
-        var payCourtTerms = document.getElementById('payCourtTerms').innerText;
-        var setReserveTermsGroup = document.getElementById('setReserveTermsGroup').innerText;
-                
-        if ((decisionGroup == "Financial penalty") || (decisionGroup_b == "Financial penalty")) {
-            //document.getElementById('financialPenaltyTab').style.display = "none";
-            document.getElementById('dischargeTab').style.display = "none";
-            document.getElementById('referToCourtHearingTab').style.display = "none";
-            document.getElementById('dismissTab').style.display = "none";
-            document.getElementById('withdrawTab').style.display = "none";
-            document.getElementById('referBackToSJPTab').style.display = "none";
-            
-                    //alert(setReserveTermsGroup);
-            
-                    //if (setReserveTermsGroup == "Pay direct to court") {
-                        if (payCourtTerms == "Lump sum within 14 days" || payCourtTerms == "Lump sum within 28 days") {
-                            //document.getElementById('totalPayment').style.display = "none";
-                            document.getElementById('lumpSumAmount_b').style.display = "none";
-                            document.getElementById('lumpSumAmount').style.display = "none";
-                            document.getElementById('instalmentOnly').style.display = "none";
-                        }
-
-                        if (payCourtTerms == "Lump sum plus instalments" || payCourtTerms == "Lump sum plus instalments") {
-                            document.getElementById('totalPayment').style.display = "none";
-                            //document.getElementById('lumpSumAmount_b').style.display = "none";
-                            //document.getElementById('lumpSumAmount').style.display = "none";
-                            document.getElementById('instalmentOnly').style.display = "none";
-                        }
-
-                        if (payCourtTerms == "Instalments only" || payCourtTerms == "Instalments only") {
-                            document.getElementById('totalPayment').style.display = "none";
-                            document.getElementById('lumpSumAmount_b').style.display = "none";
-                            document.getElementById('lumpSumAmount').style.display = "none";
-                            //document.getElementById('instalmentOnly').style.display = "none";
-                        }
-                    //}
-            
-                    /*
-                    if (setReserveTermsGroup == "Deduct from benefits") {
-                        if (payCourtTerms == "Lump sum within 14 days" || payCourtTerms == "Lump sum within 28 days") {
-                            alert("Deduct from benefits - Lump 14 or 28")
-                        }
-                        if (payCourtTerms == "Lump sum plus instalments" || payCourtTerms == "Lump sum plus instalments") {
-                            alert("Deduct from benefits - Lump + instal")
-                        }
-                        if (payCourtTerms == "Instalments only" || payCourtTerms == "Instalments only") {
-                            alert("Deduct from benefits - Instal only")
-                        }
-                    }
-                    */
-            
-        }
-        
-        if ((decisionGroup == "Discharge") || (decisionGroup_b == "Discharge")) {
-            document.getElementById('financialPenaltyTab').style.display = "none";
-            //document.getElementById('dischargeTab').style.display = "none";
-            document.getElementById('referToCourtHearingTab').style.display = "none";
-            document.getElementById('dismissTab').style.display = "none";
-            document.getElementById('withdrawTab').style.display = "none";
-            document.getElementById('referBackToSJPTab').style.display = "none";
-            
-        }
-        
-        if (decisionGroup == "Refer to court hearing") {            
-            document.getElementById('financialPenaltyTab').style.display = "none";
-            document.getElementById('dischargeTab').style.display = "none";
-            //document.getElementById('referToCourtHearingTab').style.display = "none";
-            document.getElementById('dismissTab').style.display = "none";
-            document.getElementById('withdrawTab').style.display = "none";
-            document.getElementById('referBackToSJPTab').style.display = "none";
-        }
-        
-        if (decisionGroup == "Dismiss") {
-            document.getElementById('financialPenaltyTab').style.display = "none";
-            document.getElementById('dischargeTab').style.display = "none";
-            document.getElementById('referToCourtHearingTab').style.display = "none";
-            //document.getElementById('dismissTab').style.display = "none";
-            document.getElementById('withdrawTab').style.display = "none";
-            document.getElementById('referBackToSJPTab').style.display = "none";
-            
-        }
-        
-        if (decisionGroup == "Withdraw") {
-            document.getElementById('financialPenaltyTab').style.display = "none";
-            document.getElementById('dischargeTab').style.display = "none";
-            document.getElementById('referToCourtHearingTab').style.display = "none";
-            document.getElementById('dismissTab').style.display = "none";
-            //document.getElementById('withdrawTab').style.display = "none";
-            document.getElementById('referBackToSJPTab').style.display = "none";
-            
-        }
-        
-        if (decisionGroup == "Refer back to SJP") {
-            document.getElementById('financialPenaltyTab').style.display = "none";
-            document.getElementById('dischargeTab').style.display = "none";
-            document.getElementById('referToCourtHearingTab').style.display = "none";
-            document.getElementById('dismissTab').style.display = "none";
-            document.getElementById('withdrawTab').style.display = "none";
-            //document.getElementById('referBackToSJPTab').style.display = "none";
-            
-            document.getElementById('case-status').innerText = "Refer back to SJP";
-            document.getElementById('defendantsPlea').innerText = document.getElementById('defenantsPleaOriginal').innerText;
-            document.getElementById('changePleaLink').style.display = "inline-block";
-            document.getElementById('makeADecisionForm').style.display = "block";
-            document.getElementById('noPlea').style.display = "block";
-            document.getElementById('guiltyPlea').style.display = "none";
-            document.getElementById('notGuiltyPlea').style.display = "none";
-                        
-            var referBackToSJPReason = document.getElementById('referBackToSJPReason').innerText;
-            
-            //var defenantsPleaOriginal = document.getElementById('defenantsPleaOriginal').innerText;
-            //alert(defenantsPleaOriginal);
-            
-            
-            
-            
-            
-
-            
-            
-
-            //document.getElementById('otherReasonForReferringBackToSJP').style.display = "table-row";
-            //var referBackToSJPReason4 = document.getElementById('referBackToSJPReason4').innerText;
-            
-            if(referBackToSJPReason == "Defendant enquiry") {
-                document.getElementById('defendantEnquiryReasonForReferringBackToSJP').style.display = "table-row";
-            } else {
-                document.getElementById('defendantEnquiryReasonForReferringBackToSJP').style.display = "none";
-            }
-
-            if(referBackToSJPReason == "Prosecutor enquiry") {
-                document.getElementById('prosecutorEnquiryReasonForReferringBackToSJP').style.display = "table-row";
-            } else {
-                document.getElementById('prosecutorEnquiryReasonForReferringBackToSJP').style.display = "none";
-            }
-
-            if(referBackToSJPReason == "Disqualification Representations") {
-                document.getElementById('disqualificationRepresentationsReasonForReferringBackToSJP').style.display = "table-row";
-            } else {
-                document.getElementById('disqualificationRepresentationsReasonForReferringBackToSJP').style.display = "none";
-            }
-
-            if(referBackToSJPReason == "Other") {
-                document.getElementById('otherReasonForReferringBackToSJP').style.display = "table-row";
-            } else {
-                document.getElementById('otherReasonForReferringBackToSJP').style.display = "none";
-            }
-            
-        }
-        
-
-
-        
-        /* ************* */
-        /* ************* */
-        /* CONVERT MONTH */
-
-        var dobMonth = document.getElementById('dobMonth').innerText;
-        var dobMonth2 = document.getElementById('dobMonth2').innerText;
-        var paymentMonth = document.getElementById("paymentMonth").innerText;
-        var paymentMonth2 = document.getElementById("paymentMonth2").innerText;
-        var hearingMonth = document.getElementById("hearingMonth").innerText;
-
-        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        var monthsShort = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-        document.getElementById('dobMonth').innerText = months[dobMonth];
-        document.getElementById('dobMonth2').innerText = months[dobMonth2];
-        document.getElementById("paymentMonth").innerText = months[paymentMonth-1];
-        document.getElementById("paymentMonth2").innerText = months[paymentMonth2-1];
-        document.getElementById("hearingMonth").innerText = months[hearingMonth];
-    
-        
-        
-
-        
-        /* ********************** */
-        /* GET DATE FOR NOTES TAB */
-        var d = new Date();
-        var fullYear = d.getFullYear();
-        var dayOfMonth = d.getDate();
-        var month = d.getMonth();
-        var hours = d.getHours();
-        var minutes = d.getMinutes();
-        
-        var month2 = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        var monthShort2 = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-        
-        if (minutes <= 9) {
-            minutes = "0"+minutes;
-        }
-
-        //alert(fullYear+" "+dayOfMonth+" "+month2[month]);
-        document.getElementById('dateOfNote').innerText = dayOfMonth+" "+month2[month]+" "+fullYear+" at "+hours+":"+minutes;
         
         
         
@@ -401,22 +361,19 @@
         
         
         
-        // noteNoContent
-        // noteContent
-
-        var optionalNote = document.getElementById('optionalNote').innerText;
-        if (optionalNote == "") {
-            document.getElementById('noteNoContent').style.display = "block";
-            document.getElementById('noteContent').style.display = "none";
+        
+        var interpretorGroup = document.getElementById('interpretorGroup').innerText;        
+        if (interpretorGroup == "Yes") {
+            document.getElementById('interpeterLanguage').style.display = "block";
         } else {
-            document.getElementById('noteNoContent').style.display = "none";
-            document.getElementById('noteContent').style.display = "block";
+            document.getElementById('interpeterLanguage').style.display = "none";
         }
+        
+        
         
         
         
     }
-    
 </script>
 
 <style>
@@ -481,15 +438,8 @@
     </div>
 
     <span style="">{% include "includes/display-decision.html" %}</span>
-    <span id="delegatePowers" style="display:none">{{data['delegate-powers-group']}}</span>
-    <span id="defenantsPleaOriginal" style="display:none">{{data['defendents-plea-original']}}</span>
-
-    
-    
-    
 
     <div class="grid-row top_30">
-        
         <div class="column-two-thirds">
             
             <h1 class="heading-xlarge top_0 bottom_5">{{ data['defendents-first-name']}} <span class="last-name">{{ data['defendents-last-name']}}</span></h1>
@@ -657,14 +607,11 @@
             
             <!-- TABS 2 -->
             <div id="tabGroup2">
-                
                 <div class="tabGroup2 top_60">
                     <a id="tabA2" class="tab-on-2" onclick="tabGroup2(tabContent2, 'TAB-ONE-2')" href="javascript: void(0)">Details</a>
                     <a id="tabB2" class="tab2" onclick="tabGroup2(tabContent2, 'TAB-TWO-2')" href="javascript: void(0)">Decision</a>
-                    <a id="tabC2" class="tab3" onclick="tabGroup2(tabContent2, 'TAB-THREE-2')" href="javascript: void(0)">Notes</a>
                     <hr>
                 </div>
-                
                 <div id="tabContent2" class="top_30">
 
                     <!-- TAB ONE - STATEMENT OF FACTS -->
@@ -675,15 +622,9 @@
 
                     <!-- TAB TWO - DECISION -->
                     <div id="tabTwoContent2">
-
-                        <p id="setReserveTermsGroup" style="color: red; display:none">{{data['payment-method-group']}}</p>
-                        <p id="payCourtTerms" style="color: red; display:none">{{data['how-should-defendent-pay-group']}}</p>
-                        <!--<p id="setReserveTermsGroup" style="color: red; display:">{{data['set-reserve-terms-group']}}</p>-->
-                                                
+                        
                         <!-- FINANCIAL PENALTY TAB -->
                         <div id="financialPenaltyTab">
-                            
-                            <p style="color: red; display:none">Financial penalty tab</p>
 
                             <!-- COURT DECISION -->
                             <h4 class="heading-medium bottom_10 top_0">Court decision</h4>
@@ -703,10 +644,6 @@
                                         <td>£{{data['compensation-amount']}}</td>
                                     </tr>
                                     <tr>
-                                        <td class="bold">To pay back duty</td>
-                                        <td>£{{data['back-duty-amount']}}</td>
-                                    </tr>
-                                    <tr>
                                         <td class="bold">To pay costs of</td>
                                         <td>£{{data['costs']}}</td>
                                     </tr>
@@ -719,7 +656,7 @@
                                         <td>
                                             <div>13 April 2018</div>
                                             <div class="top_10">Legal adviser: Joe Bloggs<br>
-                                            <span id="magistrate1">Magistrate: {{ data['magistrates-name']}}<br></span>
+                                            Magistrate: {{ data['magistrates-name']}}<br>
                                             <span class="form-hint">Lorem Ipsum Magistrate's Court</span></div>
                                         </td>
                                     </tr>
@@ -731,14 +668,12 @@
                             <!-- PAYMENT AND COLLECTION -->
                             <h4 class="heading-medium bottom_10 top_0">Payment and collection</h4>
                             
+                            <span id="payCourtTerms" style="display: none">{{data['how-should-defendent-pay-group']}}</span>
+                            
+                            <span id="setReserveTermsGroup" style="display:none">{{data['set-reserve-terms-group']}}</span>
+
                             <table class="payment-and-collection">
                                 <tbody>
-                                    
-                                    <tr>
-                                        <td class="bold table-cell-width">Total</td>
-                                        <td>£{{data['total-payment']}}</td>
-                                    </tr>
-
                                     <tr>
                                         <td class="bold table-cell-width">Collection order made</td>
                                         <td>{{data['payment-method-group']}}</td>
@@ -751,28 +686,28 @@
                                     
                                     <tr id="lumpSumAmount_b">
                                         <td class="bold table-cell-width">Lump sum</td>
-                                        <td id="lumpSumAmount_b">£{{data['lump-sum-amount']}}{{data['dbo-lump-sum-amount']}}</td>
+                                        <td>£{{data['lump-sum-amount']}}</td>
                                     </tr>
                                     
                                     <tr id="lumpSumAmount">
                                         <td class="bold table-cell-width">Payment terms</td>
-                                        <td id="lumpSumAmout">£{{data['instalment-amount-1']}}{{data['dbo-instalment-amount-1']}} to be paid <span id="howToPayGroup" style="text-transform: lowercase">{{data['instalment-length-group']}}</span> starting on
-
-                                        <span id="paymentDay">{{data['day']}}{{data['dbo-day2']}}</span>
-                                        <span id="paymentMonth">{{data['month']}}{{data['dbo-month2']}}</span>
-                                        <span id="paymentYear">{{data['year']}}{{data['dbo-year2']}}</span></td>
+                                        <td>£{{data['instalment-amount-1']}} to be paid <span id="howToPayGroup" style="text-transform: lowercase">{{data['instalment-length-group']}}</span> starting on
+                                            
+                                        <span id="paymentDay">{{data['day']}}</span>
+                                        <span id="paymentMonth">{{data['month']}}</span>
+                                        <span id="paymentYear">{{data['year']}}</span></td>
                                             
                                     </tr>
                                     
                                     <tr id="instalmentOnly">
                                         <td class="bold table-cell-width">Payment terms</td>
-                                        <td>£{{data['instalment-amount-2']}} to be paid <span style="text-transform: lowercase">{{data['instalment-only-frequency-group']}}</span> starting on  
+                                        <td>£{{data['instalments-only-amount']}} to be paid <span style="text-transform: lowercase">{{data['instalment-only-frequency-group']}}</span> starting on  
                                         
-                                        <span id="paymentDay2">{{data['day2']}}</span> 
+                                        <span id="paymentDay2">{{data['day']}}</span> 
 
-                                        <span id="paymentMonth2">{{data['month2']}}</span> 
+                                        <span id="paymentMonth2">{{data['month']}}</span> 
 
-                                        <span id="paymentYear2">{{data['year2']}}</span></td>
+                                        <span id="paymentYear2">{{data['year']}}</span></td>
                                         
                                     </tr>
                                     
@@ -781,11 +716,72 @@
                             
                         </div>
 
+                        <!-- REFER TO COURT HEARING TAB -->
+                        <div id="referToCourtHearingTab">
+                            <h4 class="heading-medium bottom_10 top_0">Court decision</h4>
+                            
+                            <table class="court-decision">
+                                <tbody>
+                                    <tr>
+                                        <td class="bold table-cell-width">Referred to full court hearing</td>
+                                        <td>
+                                            <p class="top_0 bottom_10">Summons issued for hearing before {{ data['refer-to-which-court-group'] }} on {{ data['hearing-day'] }} <span id="hearingMonth">{{ data['hearing-month'] }}</span> {{ data['hearing-year'] }} at {{ data['court-room-group'] }} at {{ data['hearing-time-hour'] }}:{{ data['hearing-time-minute'] }}.</p>
+                                            <p class="top_10 bottom_15">Reason: {{data['reason-for-referring-to-court-group']}}</p>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr style="border-top: 1px solid #BFC1C3">
+                                        <td class="bold"><p class="bold top_15 bottom_5">Is an interpreter needed in court</p></td>
+                                        <td><p id="interpretorGroup" class="top_15 bottom_5">{{data['interpreter-group']}}</p>
+                                        <p id="interpeterLanguage" class="top_10 bottom_15">Language: {{data['interpeter-language']}}</p>
+</td>
+                                    </tr>
+                                    
+                                    <tr style="border-top: 1px solid #BFC1C3">
+                                        <td class="bold"><p class="bold top_15">Decision made</p></td>
+                                        <td>
+                                            <div class="top_15">13 April 2018</div>
+                                            <div class="top_10">Legal adviser: Joe Bloggs<br>
+                                            Magistrate: {{ data['magistrates-name']}}<br>
+                                            <span style="color:#6F777B">Lorem Ipsum Magistrate's Court Magistrate's Court</span></div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                        </div>
+                        
+                        <!-- DISMISS TAB -->
+                        <div id="dismissTab">
+                            <h4 class="heading-medium bottom_10 top_0">Court decision</h4>
+                        
+                            <table class="court-decision">
+                                <tbody>
+                                    <tr>
+                                        <td class="bold table-cell-width">Verdict</td>
+                                        <td>{{data['verdict']}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bold">Result</td>
+                                        <td>{{data['decision']}}ed</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bold">Decision made</td>
+                                        <td>
+                                            <div>1 May 2018</div>
+                                            <div class="top_10">Legal adviser: Joe Bloggs<br>
+                                            Magistrates: {{ data['magistrates-name']}}<br>
+                                            <span class="form-hint">Stratford Magistrate's Court</span></div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        
                         <!-- DISCHARGE TAB -->
                         <div id="dischargeTab">
                             
-                            <p style="color: red; display:none">Discharge tab</p>
-                                                    
                             <!-- COURT DECISION -->
                             <h4 class="heading-medium bottom_10 top_0">Court decision</h4>
                             
@@ -793,7 +789,7 @@
                                 <tbody>
                                     <tr>
                                         <td class="bold table-cell-width">Result</td>
-                                        <td>{{data['decision']}}</td>
+                                        <td>{{data['decision']}}d</td>
                                     </tr>
                                     <tr>
                                         <td class="bold">To pay compensation of</td>
@@ -812,7 +808,7 @@
                                         <td>
                                             <div>13 April 2018</div>
                                             <div class="top_10">Legal adviser: Joe Bloggs<br>
-                                            <span id="magistrate2">Magistrate: {{ data['magistrates-name']}}<br></span>
+                                            Magistrates: {{ data['magistrates-name']}}<br>
                                             <span class="form-hint">Lorem Ipsum Magistrate's Court Magistrate's Court</span></div>
                                         </td>
                                     </tr>
@@ -865,80 +861,8 @@
 
                         </div>
                         
-                        <!-- REFER TO COURT HEARING TAB -->
-                        <div id="referToCourtHearingTab">
-                            
-                            <p style="color: red; display:none">Refer to court hearing tab</p>
-
-                            <h4 class="heading-medium bottom_10 top_0">Court decision</h4>
-                            
-                            <table class="court-decision">
-                                <tbody>
-                                    <tr>
-                                        <td class="bold table-cell-width">Referred to full court hearing</td>
-                                        <td>
-                                            <p class="top_0 bottom_10">Summons issued for hearing before {{ data['refer-to-which-court-group'] }} on {{ data['hearing-day'] }} <span id="hearingMonth">{{ data['hearing-month'] }}</span> {{ data['hearing-year'] }} at {{ data['court-room-group'] }} at {{ data['hearing-time-hour'] }}:{{ data['hearing-time-minute'] }}.</p>
-                                            <p class="top_10 bottom_15">Reason: {{data['reason-for-referring-to-court-group']}}</p>
-                                        </td>
-                                    </tr>
-                                    
-                                    <tr style="border-top: 1px solid #BFC1C3">
-                                        <td class="bold"><p class="bold top_15 bottom_5">Is an interpreter needed in court</p></td>
-                                        <td><p id="interpretorGroup" class="top_15 bottom_5">{{data['interpreter-group']}}</p>
-                                        <p id="interpeterLanguage" class="top_10 bottom_15">Language: {{data['interpeter-language']}}</p>
-                                        </td>
-                                    </tr>
-                                    
-                                    <tr style="border-top: 1px solid #BFC1C3">
-                                        <td class="bold"><p class="bold top_15">Decision made</p></td>
-                                        <td>
-                                            <div class="top_15">13 April 2018</div>
-                                            <div class="top_10">Legal adviser: Joe Bloggs<br>
-                                            <span id="magistrate3">Magistrate: {{ data['magistrates-name']}}<br></span>
-                                            <span style="color:#6F777B">Lorem Ipsum Magistrate's Court Magistrate's Court</span></div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            
-                        </div>
-                        
-                        <!-- DISMISS TAB -->
-                        <div id="dismissTab">
-                            
-                            <p style="color: red; display:none">Dismiss tab</p>
-                            
-                            <h4 class="heading-medium bottom_10 top_0">Court decision</h4>
-                        
-                            <table class="court-decision">
-                                <tbody>
-                                    <tr>
-                                        <td class="bold table-cell-width">Verdict</td>
-                                        <td>{{data['verdict']}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bold">Result</td>
-                                        <td>{{data['decision']}}ed</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bold">Decision made</td>
-                                        <td>
-                                            <div>1 May 2018</div>
-                                            <div class="top_10">Legal adviser: Joe Bloggs<br>
-                                            <span id="magistrate4">Magistrate: {{ data['magistrates-name']}}<br></span>
-                                            <span class="form-hint">Stratford Magistrate's Court</span></div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                        </div>
-                        
                         <!-- WITHDRAW TAB -->
                         <div id="withdrawTab">
-                            
-                            <p style="color: red; display:none">Withdraw tab</p>
-                            
                             <h4 class="heading-medium bottom_10 top_0">Court decision</h4>
 
                             <table class="court-decision">
@@ -952,7 +876,7 @@
                                         <td>
                                             <div>1 May 2018</div>
                                             <div class="top_10">Legal adviser: Joe Bloggs<br>
-                                            <span id="magistrate5">Magistrate: {{ data['magistrates-name']}}<br></span>
+                                            Magistrates: {{ data['magistrates-name']}}<br>
                                             <span class="form-hint">Stratford Magistrate's Court</span></div>
                                         </td>
                                     </tr>
@@ -961,84 +885,6 @@
                         
                         </div>
                         
-                        <!-- REFER BACK TO SJP TAB -->
-                        <div id="referBackToSJPTab">
-                            
-                            <p style="color: red; display:none">Refer back to SJP tab</p>
-                            
-                            <h4 class="heading-medium bottom_10 top_0">Court decision</h4>
-
-                            <table class="court-decision">
-                                <tbody>
-                                    <tr>
-                                        <td class="bold">Result</td>
-                                        <td>{{data['decision']}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bold">Reason for referring</td>
-                                        <td><span id="referBackToSJPReason">{{data['refer-back-to-sjp-group']}}</span><br>
-                                            <span id="defendantEnquiryReasonForReferringBackToSJP">Reason: {{data['defendant-enquiry-reason']}}<br></span>
-                                            <span id="prosecutorEnquiryReasonForReferringBackToSJP">Reason: {{data['prosecutor-enquiry-reason']}}<br></span>
-                                            <span id="disqualificationRepresentationsReasonForReferringBackToSJP">Reason: {{data['disqualification-representations-reason']}}<br></span>
-                                            <span id="otherReasonForReferringBackToSJP">Reason: {{data['other-refer-to-sjp-reason']}}<br></span>
-                                        </td>
-                                    </tr>
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    <tr id="defendantEnquiryReasonForReferringBackToSJP" style="display:none">
-                                        <td class="bold">Reason for defendant enquiry</td>
-                                        <td>{{data['other-refer-to-sjp-reason']}}</td>
-                                    </tr>
-                                    <tr id="prosecutorEnquiryReasonForReferringBackToSJP" style="display:none">
-                                        <td class="bold">Reason for prosecutor enquiry</td>
-                                        <td>{{data['other-refer-to-sjp-reason']}}</td>
-                                    </tr>
-                                    <tr id="disqualificationRepresentationsReasonForReferringBackToSJP" style="display:none">
-                                        <td class="bold">Reason for disqualification representation</td>
-                                        <td>{{data['other-refer-to-sjp-reason']}}</td>
-                                    </tr>
-                                    <tr id="otherReasonForReferringBackToSJP" style="display:none">
-                                        <td class="bold">Other reason</td>
-                                        <td>{{data['other-refer-to-sjp-reason']}}</td>
-                                    </tr>
-                                    
-
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    <tr>
-                                        <td class="bold">Decision made</td>
-                                        <td>
-                                            <div>1 May 2018</div>
-                                            <div class="top_10">Legal adviser: Joe Bloggs<br>
-                                            <span id="magistrate6">Magistrate: {{ data['magistrates-name']}}<br></span>
-                                            <span class="form-hint">Stratford Magistrate's Court</span></div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        
-                        </div>
-                        
-                    </div>
-                    
-                    <!-- TAB THREE - NOTES -->
-                    <div id="tabThreeContent2">
-
-                        <div id="noteNoContent">There are no notes for this case.</div>
-                        
-                        <div id="noteContent">
-                            <h4 id="dateOfNote" class="heading-small bottom_5 top_0"></h4>
-                            <h5 class="form-hint bottom_10">Legal adviser: Joe Bloggs</h5>
-                            <p id="optionalNote">{{data['optional-note']}}</p>
-                        </div>
-
                     </div>
 
                 </div>   
@@ -1047,8 +893,6 @@
         </div>
         
         <!-- MAKE A DECISION -->
-        <p id="decisionGroup" style="color: red; display:none">{{data['make-a-decision-group']}}</p>
-        <p id="decisionGroup_b" style="color: red; display:none">{{data['make-a-decision-group-b']}}</p>
         <div class="column-one-third" style="margin-top: 45px">
             <div class="right-column-nav">
                 
@@ -1122,10 +966,6 @@
                                     <input id="radio-5-2" type="radio" name="make-a-decision-group" value="Dismiss">
                                     <label for="radio-5-2">Dismiss</label>
                                 </div>
-                                <div class="multiple-choice">
-                                    <input id="radio-5-3" type="radio" name="make-a-decision-group" value="Refer back to SJP">
-                                    <label for="radio-5-3">Refer back to SJP</label>
-                                </div>
                             </div>
                             
                             <div id="notGuiltyPlea">
@@ -1139,11 +979,7 @@
                                 </div>
                                 <div class="multiple-choice">
                                     <input id="radio-3-3" type="radio" name="make-a-decision-group" value="Dismiss">
-                                    <label for="radio-3-3">Dismiss</label>
-                                </div>
-                                <div class="multiple-choice">
-                                    <input id="radio-4-3" type="radio" name="make-a-decision-group" value="Refer back to SJP">
-                                    <label for="radio-4-3">Refer back to SJP</label>
+                                    <label for="radio-2-3">Dismiss</label>
                                 </div>
                             </div>
                             
