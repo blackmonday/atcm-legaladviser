@@ -66,6 +66,7 @@
         /* CHECK DECISION */
         var decisiontype = document.getElementById('decision').innerText;
         var decisiontype_b = document.getElementById('decision-b').innerText;
+                
         if ((decisiontype == "Financial penalty") || (decisiontype_b == "Financial penalty")) {
             document.getElementById('financialPenalty').style.display = "block"; 
             document.getElementById('referToCourtHearing').style.display = "none"; 
@@ -105,7 +106,11 @@
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "block";
             document.getElementById('referBackToSJP').style.display = "none";
+<<<<<<< HEAD
             
+=======
+           
+>>>>>>> c318e83649367173df5b55a97fde678fb25216d1
         } else if (decisiontype == "Refer back to SJP") {
             document.getElementById('financialPenalty').style.display = "none"; 
             document.getElementById('referToCourtHearing').style.display = "none"; 
@@ -113,6 +118,10 @@
             document.getElementById('discharge').style.display = "none";
             document.getElementById('dismiss').style.display = "none";
             document.getElementById('referBackToSJP').style.display = "block";
+<<<<<<< HEAD
+=======
+            
+>>>>>>> c318e83649367173df5b55a97fde678fb25216d1
         }
         
         
@@ -367,16 +376,8 @@
                                         <p class="bottom_5 top_15">{{ data['penalty-or-fine'] }} has been calculated taking into account:</p>
                                         <ul class="list list-bullet bottom_30">
                                             <li>income <span class="bold">£</span><span id="defendentsIncomeShort2" class="bold">{{data['defendents-income-amount']}}</span> weekly (due to defendant claiming benefits or on low income)</li>
-                                            <li>a guilty plea of <span class="bold">33% (£<span id="penaltyOrFineDiscount"></span></span>)</li>
+                                            <li>a guilty plea discount of <span class="bold">33% (£<span id="penaltyOrFineDiscount"></span></span>)</li>
                                         </ul>
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
                                         
                                         <div id="backDutyAmount" class="top_15">
                                             <label class="form-label" for="back-duty-amount">Back duty</label>
@@ -445,15 +446,6 @@
                             </fieldset>
                             -->
 
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
                             <!--
                             <p class="bottom_5 top_30">{{ data['penalty-or-fine'] }} has been calculated taking into account:</p>
                             <ul class="list list-bullet">
@@ -461,14 +453,6 @@
                                 <li>guilty plea</li>
                             </ul>
                             -->
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
                             
                             <hr class="top_60 bottom_60">
 
@@ -494,9 +478,6 @@
                                     <input id="confirm-collection-order" name="confirm-collection-order" type="checkbox" checked onClick="checking()">
                                     <label for="confirm-collection-order">Confirm a collection order will be issued</label>
                                 </div>
-                                
-                                
-                                
                                 
                                 <div id="areYouSure" style="display: none">
                                     <fieldset class="inline">
@@ -800,11 +781,6 @@
                             </div>
                         </fieldset>
                         
-                        
-                        
-                        
-                        
-                        
                         <fieldset>
                             <div id="discharge-reasonForRemovingCompensation" class="top_15">
                                 <label class="form-label top_15 bottom_5" for="discharge-reasonForRemovingCompensation">Choose a reason for removing compensation</label>
@@ -832,11 +808,6 @@
 
                             </div>
                         </fieldset>
-                        
-                        
-                        
-                        
-                        
                         
                         <hr class="top_60 bottom_60">
 
@@ -932,7 +903,11 @@
                 </form>
 
             </div>
+<<<<<<< HEAD
                         
+=======
+              
+>>>>>>> c318e83649367173df5b55a97fde678fb25216d1
             <div id="referBackToSJP" style="display:none">
                 <h1 class="heading-xlarge top_0 bottom_5">Confirm outcome</h1>
                 
@@ -947,6 +922,7 @@
                         <fieldset>
                             <legend>
                                 <h2 class="heading-medium top_15 bottom_5">Refer back to SJP</h2>
+<<<<<<< HEAD
                                 <p class="top_5 bottom_5">Reason for referring offence</p>
                             </legend>
                             <div class="multiple-choice">
@@ -971,11 +947,54 @@
                                 </label>
                                     <textarea class="form-control form-control-3-4" name="other-refer-reason" id="other-refer-reason" rows="5"></textarea>
                             </div>
+=======
+                                <p class="top_5 bottom_5">Reason for referring case:</p>
+                            </legend>
+                            <div class="multiple-choice" data-target="defendant-enquiry-reason">
+                                <input id="refer-back-to-sjp-1" type="radio" name="refer-back-to-sjp-group" value="Defendant enquiry" {{ checked('refer-back-to-sjp-group','Defendant enquiry') }}>
+                                <label for="refer-back-to-sjp-1">Defendant enquiry</label>
+                            </div>
+                                            <div class="panel panel-border-narrow js-hidden" id="defendant-enquiry-reason">
+                                                <label class="form-label" for="defendant-enquiry-reason">What is the  reason for defendant enquiry?</label>
+                                                <textarea class="form-control" name="defendant-enquiry-reason" id="defendant-enquiry-reason" rows="5" style="width: 100%">{{data['defendant-enquiry-reason']}}</textarea>
+                                            </div>
+
+                            <div class="multiple-choice" data-target="prosecutor-enquiry-reason">
+                                <input id="refer-back-to-sjp-2" type="radio" name="refer-back-to-sjp-group" value="Prosecutor enquiry" {{ checked('refer-back-to-sjp-group','Prosecutor enquiry') }}>
+                                <label for="refer-back-to-sjp-2">Prosecutor enquiry</label>
+                            </div>
+                                            <div class="panel panel-border-narrow js-hidden" id="prosecutor-enquiry-reason">
+                                                <label class="form-label" for="prosecutor-enquiry-reason">What is the  reason for prosecutor enquiry?</label>
+                                                <textarea class="form-control" name="prosecutor-enquiry-reason" id="prosecutor-enquiry-reason" rows="5" style="width: 100%">{{data['prosecutor-enquiry-reason']}}</textarea>
+                                            </div>
+
+                            <div class="multiple-choice" data-target="disqualification-representations-reason">
+                                <input id="refer-back-to-sjp-3" type="radio" name="refer-back-to-sjp-group" value="Disqualification Representations" {{ checked('refer-back-to-sjp-group','Disqualification Representations') }}>
+                                <label for="refer-back-to-sjp-3">Disqualification Representations</label>
+                            </div>
+                                            <div class="panel panel-border-narrow js-hidden" id="disqualification-representations-reason">
+                                                <label class="form-label" for="disqualification-representations-reason">What is the reason for disqualification representations?</label>
+                                                <textarea class="form-control" name="disqualification-representations-reason" id="disqualification-representations-reason" rows="5" style="width: 100%">{{data['disqualification-representations-reason']}}</textarea>
+                                            </div>
+
+                            <div class="multiple-choice" data-target="other-refer-to-sjp">
+                                <input id="refer-back-to-sjp-4" type="radio" name="refer-back-to-sjp-group" value="Other" {{ checked('refer-back-to-sjp-group','Other') }}>
+                                <label for="refer-back-to-sjp-4">Other</label>
+                            </div>
+                                            <div class="panel panel-border-narrow js-hidden" id="other-refer-to-sjp">
+                                                <label class="form-label" for="other-sjp-reason">What is the other reason?</label>
+                                                <textarea class="form-control" name="other-refer-to-sjp-reason" id="other-refer-to-sjp-reason" rows="5" style="width: 100%">{{data['other-refer-to-sjp-reason']}}</textarea>
+                                            </div>
+>>>>>>> c318e83649367173df5b55a97fde678fb25216d1
 
                         </fieldset>
 
                         
+<<<<<<< HEAD
                         <input class="button top_30" type="submit" value="Confirm">
+=======
+                        <input class="button top_30" type="submit" value="Continue">
+>>>>>>> c318e83649367173df5b55a97fde678fb25216d1
                         <p class="top_15"><a href="javascript:history.go(-1);">Back</a></p>
 
                     </div>

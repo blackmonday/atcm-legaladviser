@@ -16,6 +16,10 @@ router.post('/', function (req, res) {
     
     req.session.data['SJPsessionStarted'] = "False"
     req.session.data['changesMade'] = "No"
+    
+    
+    //req.session.data['checkYourAnswersToggle'] = "No"
+
 
     var prosecutor = req.session.data['prosecutor-group']
     req.session.data['magistrates-name'] = "Alice Johnson"
@@ -50,6 +54,7 @@ router.post('/', function (req, res) {
         req.session.data['employment-status-group'] = "Employed (full or part-time)"
         //req.session.data['defendents-plea'] = "Pleaded guilty"
         req.session.data['defendents-plea'] = "No plea received"
+        req.session.data['defendents-plea-original'] = "No plea received"
         req.session.data['defendents-nin'] = "AB 12 34 56 C"
         req.session.data['case-status'] = "No plea received"
         req.session.data['prosecutor'] = "DVLA"
@@ -62,7 +67,7 @@ router.post('/', function (req, res) {
         req.session.data['offence-type'] = "Keep a vehicle without a vehicle license"
         req.session.data['offence-description'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         req.session.data['statement-of-facts'] = "Eiusmod tempor orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        req.session.data['back-duty-description'] = "2 months unpaid duty"
+        req.session.data['back-duty-description'] = "2 months and 16 days unpaid duty"
         req.session.data['offence-banding-header'] = "Check penalty, back duty and compensation"
         req.session.data['guilty-plea-taken-into-account'] = "Yes"
         req.session.data['verdict'] = "Proved SJP"
@@ -133,7 +138,7 @@ router.post('/', function (req, res) {
         req.session.data['offence-type'] = "Keep a vehicle without a vehicle license"
         req.session.data['offence-description'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         req.session.data['statement-of-facts'] = "Eiusmod tempor orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        req.session.data['back-duty-description'] = "2 months unpaid duty"
+        req.session.data['back-duty-description'] = "2 months and 16 days unpaid duty"
         req.session.data['offence-banding-header'] = "Check fine and compensation"
         req.session.data['guilty-plea-taken-into-account'] = "Yes"
         req.session.data['verdict'] = "Proved SJP"
@@ -312,7 +317,13 @@ router.post('/', function (req, res) {
 // DASHBOARD PAGE
 router.post('/legaladviser/dashboard', function (req, res) {
                     
-    res.redirect('/legaladviser/search-for-a-case')
+    var searchForACaseGroup = req.session.data['search-for-a-case-group']
+    if (searchForACaseGroup == "Single Justice Procedure") {
+        res.redirect('/legaladviser/search-for-a-case')
+    } else if (searchForACaseGroup == "Criminal Court") {
+        res.redirect('/legaladviser/dashboard')
+    }
+    
     
 })
 
@@ -341,18 +352,19 @@ router.post('/legaladviser/case-details-page', function (req, res) {
 // CONFIRM OUTCOME
 router.post('/legaladviser/confirm-outcome', function (req, res) {
     
+    var checkYourAnswersToggle = req.session.data['checkYourAnswersToggle']
+    
     var fine = Number(req.session.data['penalty-or-fine-amount'])
     var backduty = Number(req.session.data['back-duty-amount'])
     var compensation = Number(req.session.data['compensation-amount'])
     var costs = Number(req.session.data['costs'])
     req.session.data['total-payment'] = fine+backduty+compensation+costs;
     
-    
-    
     var dischargeCompensation = Number(req.session.data['discharge-compensation'])
     var dischargeCosts = Number(req.session.data['discharge-costs'])
     var dischargeVictimSurcharge = Number(req.session.data['discharge-victim-surcharge'])
     req.session.data['total-payment-discharge'] = dischargeCompensation+dischargeCosts+dischargeVictimSurcharge;
+    
     
     
     
@@ -362,10 +374,26 @@ router.post('/legaladviser/confirm-outcome', function (req, res) {
         res.redirect('/legaladviser/payment-method')
     }
     if (decisionMade == "Refer to court hearing") {
-        res.redirect('/legaladviser/check-your-decision')
+
+        var checkYourAnswersToggle = req.session.data['checkYourAnswersToggle']
+
+        if (checkYourAnswersToggle == "No") {
+            res.redirect('/legaladviser/case-details-page')
+        } else {
+            res.redirect('/legaladviser/check-your-decision')
+        }
+
     }
     if (decisionMade == "Withdraw") {
-        res.redirect('/legaladviser/check-your-decision')
+        
+        var checkYourAnswersToggle = req.session.data['checkYourAnswersToggle']
+
+        if (checkYourAnswersToggle == "No") {
+            res.redirect('/legaladviser/case-details-page')
+        } else {
+            res.redirect('/legaladviser/check-your-decision')
+        }
+        
     }
     if (decisionMade == "Discharge" || decisionMadeb == "Discharge") {
         res.redirect('/legaladviser/payment-method')
@@ -374,14 +402,36 @@ router.post('/legaladviser/confirm-outcome', function (req, res) {
         res.redirect('/legaladviser/case-details-page')
     }
     
+    if (decisionMade == "Refer back to SJP") {
+        
+        var checkYourAnswersToggle = req.session.data['checkYourAnswersToggle']
+
+        if (checkYourAnswersToggle == "No") {
+            res.redirect('/legaladviser/case-details-page')
+        } else {
+            res.redirect('/legaladviser/check-your-decision')
+        }
+        
+    }
+    
     /* DISMISS */
     if (decisionMade == "Dismiss") {
+        
         var dismissCase = req.session.data['dismiss-this-offence-group']
+        
         if (dismissCase == "Yes") {
-            res.redirect('/legaladviser/check-your-decision')
+            var checkYourAnswersToggle = req.session.data['checkYourAnswersToggle']
+
+            if (checkYourAnswersToggle == "No") {
+                res.redirect('/legaladviser/case-details-page')
+            } else {
+                res.redirect('/legaladviser/check-your-decision')
+            }
+            
         } else if (dismissCase == "No") {
             res.redirect('/legaladviser/case-details-page')
         }
+        
     }
     
 })
@@ -406,7 +456,34 @@ router.post('/legaladviser/payment-method', function (req, res) {
 // PAY DIRECT TO COURT
 router.post('/legaladviser/pay-direct-to-court', function (req, res) {
     
-    res.redirect('/legaladviser/check-your-decision')
+    /*
+    if (req.session.data['how-should-defendent-pay-group'] == "Instalments only") {
+        res.redirect('http://bing.com')
+    }
+    */
+    
+    /*
+    if (req.session.data['payment-method-group'] == "Pay direct to court") {
+        res.redirect('http://bing.com')
+    }
+    */
+    
+    
+    
+    
+    
+    var checkYourAnswersToggle = req.session.data['checkYourAnswersToggle']
+    
+    if (checkYourAnswersToggle == "No") {
+        res.redirect('/legaladviser/case-details-page')
+    } else {
+        res.redirect('/legaladviser/check-your-decision')
+    }
+    
+    
+    
+    
+    
     
 })
 
@@ -414,7 +491,23 @@ router.post('/legaladviser/pay-direct-to-court', function (req, res) {
 // DEDUCT FROM BENEFITS
 router.post('/legaladviser/deduct-from-benefits', function (req, res) {
     
-    res.redirect('/legaladviser/check-your-decision')
+    
+    
+    
+    
+    
+    var checkYourAnswersToggle = req.session.data['checkYourAnswersToggle']
+    
+    if (checkYourAnswersToggle == "No") {
+        res.redirect('/legaladviser/case-details-page')
+    } else {
+        res.redirect('/legaladviser/check-your-decision')
+    }
+    
+    
+    
+    
+    
     
 })
 
@@ -422,7 +515,29 @@ router.post('/legaladviser/deduct-from-benefits', function (req, res) {
 // ATTACH TO EARNINGS
 router.post('/legaladviser/attach-to-earnings', function (req, res) {
     
-    res.redirect('/legaladviser/check-your-decision')
+    
+    
+    
+    
+    
+    
+    
+    
+    var checkYourAnswersToggle = req.session.data['checkYourAnswersToggle']
+    
+    if (checkYourAnswersToggle == "No") {
+        res.redirect('/legaladviser/case-details-page')
+    } else {
+        res.redirect('/legaladviser/check-your-decision')
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
 })
 
@@ -436,9 +551,18 @@ router.post('/legaladviser/check-your-decision', function (req, res) {
     req.session.data['payment-terms'] = "to be paid as a lump sum in 28 days"
 
     res.redirect('/legaladviser/case-details-page')
+    //res.redirect('/legaladviser/decision-submitted')
     
 })
 
+// ******************
+// DECISION SUBMITTED
+router.post('/legaladviser/decision-submitted', function (req, res) {
+    
+        res.redirect('/legaladviser/case-details-page')
+
+})
+            
 // ******************************
 // ADD OR CHANGE PERSONAL DETAILS
 router.post('/legaladviser/add-or-change-personal-details', function (req, res) {
@@ -500,6 +624,7 @@ router.post('/legaladviser/add-or-change-income', function (req, res) {
 router.post('/legaladviser/change-plea', function (req, res) {
     
     req.session.data['defendents-plea'] = req.session.data['new-defendents-plea']
+    req.session.data['defendents-plea-original'] = req.session.data['new-defendents-plea']
 
     res.redirect('/legaladviser/case-details-page')
     

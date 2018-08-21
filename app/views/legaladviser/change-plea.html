@@ -12,6 +12,15 @@
     }
 </style>
 
+<script>
+    window.onload = function() {
+        var decisionGroup = document.getElementById('decisionGroup').innerHTML;
+        if (decisionGroup == "Refer back to SJP") {
+            document.getElementById('defendantsPleaLabel').innerHTML = "NO PLEA RECEIVED";
+        }
+    }
+</script>
+
 {% include "includes/timeout-overlay.html" %}
 
 <main id="content" role="main">
@@ -29,13 +38,15 @@
 
     <div class="grid-row top_30">
         <div class="column-two-thirds">
+            
+            <span id="decisionGroup" style="display:">{{data['make-a-decision-group']}}</span>
 
             <h1 class="heading-xlarge top_0 bottom_30">Change plea</h1>
             
             <h3 class="heading-small">Current plea</h3>
             
             <div class="top_15">
-                <span class="label">{{data['defendents-plea']}}</span>
+                <span id="defendantsPleaLabel" class="label">{{data['defendents-plea']}}</span>
             </div>
             
             <form class="form" action="" method="post">            

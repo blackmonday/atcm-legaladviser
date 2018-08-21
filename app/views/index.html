@@ -46,9 +46,6 @@
                     <li>Signing out completely will take the user to GOV.UK homepage</li>
                 </ul>
             </ul>
-
-            <p class="top_30 bottom_10"><span class="bold">NOTE:</span></p>
-            <p class="top_10 bottom_60">The 'Decision' tab on the case details page does not always display the correct content for financial penalty and discharge.</p>
             
             <!--<a href="/legaladviser/dashboard">Let's get started</a>-->
             
@@ -81,7 +78,24 @@
                     </fieldset>
                 </div>
                 
-                <input class="button" type="submit" value="Continue">
+                <div class="form-group">
+                    <fieldset>
+                        <legend>
+                            <h1 class="heading-medium top_15 bottom_5">Do you want to display the 'Check your decisions page?</h1>
+                            <p class="form-hint top_5">If you notice the content on this page is not displaying correctly you can disable it by selecting 'No'.</p>
+                        </legend>
+                        <div class="multiple-choice">
+                            <input id="radio-1b" type="radio" name="checkYourAnswersToggle" value="Yes" checked="checked">
+                            <label for="radio-1b">Yes</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="radio-2b" type="radio" name="checkYourAnswersToggle" value="No">
+                            <label for="radio-2b">No</label>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                <input class="button top_15 bottom_60" type="submit" value="Continue">
 
             </form>
             
