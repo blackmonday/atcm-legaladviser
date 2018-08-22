@@ -732,14 +732,43 @@
                 <p id="backDutyLength" class="bold top_15 bottom_30">{{data['back-duty-description']}}</p>
 
                 <form class="form" action="" method="post">
-                    <div class="form-group">
-                        <label class="heading-medium" for="withdrawn-reason">Withdraw</label>
-                        <p class="bottom_5">Reason for withdrawing offence</p>
-                        <textarea class="form-control" name="withdrawn-reason" id="withdrawn-reason" rows="8" style="width:100%">{{ data['withdrawn-reason'] }}</textarea>
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="heading-medium" for="withdrawn-reason">Withdraw</label>
+                            <p class="bottom_5">Reason for withdrawing offence</p>
 
-                        <input class="button top_30" type="submit" value="Continue">
-                        <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
-                    </div>
+                            <div class="multiple-choice">
+                                <input id="withdraw-reason-1" type="radio" name="withdraw-reason-group" value="Insufficient evidence">
+                                <label for="example-contact-by-email">Insufficient evidence</label>
+                            </div>
+
+                            <div class="multiple-choice">
+                                <input id="withdraw-reason-2" type="radio" name="withdraw-reason-group" value="Agreement between prosecutor and defendant reached">
+                                <label for="example-contact-by-phone">Agreement between prosecutor and defendant reached</label>
+                            </div>
+
+                            <div class="multiple-choice">
+                                <input id="withdraw-reason-3" type="radio" name="withdraw-reason-group" value="Alternative charge">
+                                <label for="example-contact-by-phone">Alternative charge</label>
+                            </div>
+
+                            <div class="multiple-choice">
+                                <input id="withdraw-reason-4" type="radio" name="withdraw-reason-group" value="Not in public interest to proceed">
+                                <label for="example-contact-by-phone">Not in public interest to proceed</label>
+                            </div>
+
+                            <div class="multiple-choice" data-target="other-reason">
+                                <input id="withdraw-reason-5" type="radio" name="withdraw-reason-group" value="Other">
+                                <label for="withdraw-reason-other">Other</label>
+                            </div>
+                            <div class="panel panel-border-narrow js-hidden" id="other-reason">
+                                <label class="form-label" for="withdraw-reason-other">Enter details</label>
+                                <textarea class="form-control" name="withdraw-reason-other" id="withdraw-reason-other" rows="8" style="width:100%">{{ data['withdraw-reason-other'] }}</textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <input class="button" type="submit" value="Continue">
+                    <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
                 </form>
 
             </div>

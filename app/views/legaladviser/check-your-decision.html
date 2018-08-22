@@ -522,7 +522,7 @@
                         
                     }
             
-            
+
         // DEDUCT FROM BENEFITS
         } else if (dischargePaymentMethod == "Deduct from benefits") {
             document.getElementById('dischargePayDirectToCourt').style.display = "none";
@@ -634,8 +634,6 @@
         if (a2eEmployerTelephone_2 == "") {
             document.getElementById('a2eEmployerTelephone_2').innerText = "—";
         }
-
-        
 
     }
     
@@ -1453,7 +1451,7 @@
                 </tr>
                 <tr>
                     <td class="table-cell-width">Reason for withdrawal</td>
-                    <td>{{data['withdrawn-reason']}}</td>
+                    <td>{{data['withdraw-reason-group']}}<span id="withdrawReasonOther"> - {{data['withdraw-reason-other']}}</span></td>
                     <td></td>
                 </tr>
             </tbody>
