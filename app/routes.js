@@ -65,8 +65,8 @@ router.post('/', function (req, res) {
         
         req.session.data['mitigation'] = "No mitigation given"
         req.session.data['offence-type'] = "Keep a vehicle without a vehicle license"
-        req.session.data['offence-description'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-        req.session.data['statement-of-facts'] = "Eiusmod tempor orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        req.session.data['offence-description'] = "On the 21.04.2018 you kept an unlicensed vehicle registration mark WN02ZRR at 21/4/2018 contrary to Section 29(1) of the Vehicle Excise and Registration Act 1994.   The previous licence expired on 1/1/2018."
+        req.session.data['statement-of-facts'] = "At 12:00 on the 21.04.2018 you failed to comply with a declaration or statement made under the Road Vehicles (Statutory Off-Road Notification) Regulations, in that you kept a Green Ford Focus registration mark WN02ZRR on George Street Croydon contrary to Section 29(1) of the Vehicle Excise and Registration Act 1994. The previous licence expired on 1/1/2018, and the annual rate of duty was £250."
         req.session.data['back-duty-description'] = "2 months and 16 days unpaid duty"
         req.session.data['offence-banding-header'] = "Check penalty, back duty and compensation"
         req.session.data['guilty-plea-taken-into-account'] = "Yes"
@@ -136,8 +136,8 @@ router.post('/', function (req, res) {
 
         req.session.data['mitigation'] = "No mitigation given"
         req.session.data['offence-type'] = "Keep a vehicle without a vehicle license"
-        req.session.data['offence-description'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-        req.session.data['statement-of-facts'] = "Eiusmod tempor orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        req.session.data['offence-description'] = "At 12:00 on the 21.04.2018 you failed to comply with a declaration or statement made under the Road Vehicles (Statutory Off-Road Notification) Regulations, in that you kept a Green Ford Focus registration mark WN02ZRR on George Street Croydon contrary to Section 29(1) of the Vehicle Excise and Registration Act 1994. The previous licence expired on 1/1/2018, and the annual rate of duty was £250."
+        req.session.data['statement-of-facts'] = "On the 21.04.2018 you kept an unlicensed vehicle registration mark WN02ZRR at 21/4/2018 contrary to Section 29(1) of the Vehicle Excise and Registration Act 1994. The previous licence expired on 1/1/2018."
         req.session.data['back-duty-description'] = "2 months and 16 days unpaid duty"
         req.session.data['offence-banding-header'] = "Check fine and compensation"
         req.session.data['guilty-plea-taken-into-account'] = "Yes"
