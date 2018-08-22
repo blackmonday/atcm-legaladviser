@@ -88,29 +88,29 @@ function tabGroup2(tableObj, which) {
 
     tabA2 = 'TAB-ONE-2';
     tabB2 = 'TAB-TWO-2';
-    tabC2 = 'TAB-THREE-2';
+    //tabC2 = 'TAB-THREE-2';
 
     if(which == tabA2) {
         document.getElementById("tabA2").className = "tab-on";
         document.getElementById("tabB2").className = "tab";
-        document.getElementById("tabC2").className = "tab";
+        //document.getElementById("tabC2").className = "tab";
         document.getElementById("tabOneContent2").style.display = "block";
         document.getElementById("tabTwoContent2").style.display = "none";
-        document.getElementById("tabThreeContent2").style.display = "none";
+        //document.getElementById("tabThreeContent2").style.display = "none";
     } else if(which == tabB2) {
         document.getElementById("tabA2").className = "tab";
         document.getElementById("tabB2").className = "tab-on";
-        document.getElementById("tabC2").className = "tab";
+        //document.getElementById("tabC2").className = "tab";
         document.getElementById("tabOneContent2").style.display = "none";
         document.getElementById("tabTwoContent2").style.display = "block";
-        document.getElementById("tabThreeContent2").style.display = "none";
+        //document.getElementById("tabThreeContent2").style.display = "none";
     } else if(which == tabC2) {
         document.getElementById("tabA2").className = "tab";
         document.getElementById("tabB2").className = "tab";
-        document.getElementById("tabC2").className = "tab-on";
+        //document.getElementById("tabC2").className = "tab-on";
         document.getElementById("tabOneContent2").style.display = "none";
         document.getElementById("tabTwoContent2").style.display = "none";
-        document.getElementById("tabThreeContent2").style.display = "block";
+        //document.getElementById("tabThreeContent2").style.display = "block";
     } 
 }
 
