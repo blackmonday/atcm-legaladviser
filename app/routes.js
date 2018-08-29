@@ -22,7 +22,7 @@ router.post('/', function (req, res) {
 
 
     var prosecutor = req.session.data['prosecutor-group']
-    req.session.data['magistrates-name'] = "Alice Johnson"
+    req.session.data['magistrates-name'] = ""
 
     if (prosecutor == "DVLA (with back duty)") {
         req.session.data['case-reference-number'] = "9012466"
@@ -42,35 +42,35 @@ router.post('/', function (req, res) {
         req.session.data['defendents-town-or-city'] = "London"
         req.session.data['defendents-postcode'] = "SE13 5EB"       
         req.session.data['defendents-home-telephone'] = ""
-        req.session.data['defendents-mobile'] = "07975337198"
-        req.session.data['defendents-email'] = "billy_s765@gmail.com"
+        // we don't know this income yet for no plea req.session.data['defendents-mobile'] = "07975337198"
+        // we don't know this income yet for no plea req.session.data['defendents-email'] = "billy_s765@gmail.com"
         req.session.data['defendents-previous-convictions'] = "2"
-        req.session.data['defendents-income'] = "£250 weekly (actual)"
-        req.session.data['defendents-income-short'] = "250"
-        req.session.data['defendents-income-amount'] = "1000"
-        req.session.data['defendents-claiming-benefits'] = "Yes"
+        // we don't know this yet for no plea req.session.data['defendents-income'] = "£250 weekly (actual)"
+        req.session.data['defendents-income-short'] = "220"//Is this the amount of the penalty? I think it's 220 for no pleas
+        // we don't know this yet for no plea req.session.data['defendents-income-amount'] = "1000"
+        // we don't know this yet for no plea req.session.data['defendents-claiming-benefits'] = "Yes"
         req.session.data['benefits-details'] = ""
-        req.session.data['defendents-employment-status'] = "Employed (full or part-time)"
-        req.session.data['employment-status-group'] = "Employed (full or part-time)"
+        // we don't know this income yet for no plea req.session.data['defendents-employment-status'] = "Employed (full or part-time)"
+        // we don't know this income yet for no plea req.session.data['employment-status-group'] = "Employed (full or part-time)"
         //req.session.data['defendents-plea'] = "Pleaded guilty"
         req.session.data['defendents-plea'] = "No plea received"
         req.session.data['defendents-plea-original'] = "No plea received"
-        req.session.data['defendents-nin'] = "AB 12 34 56 C"
+        // we don't know this income yet for no plea req.session.data['defendents-nin'] = "AB 12 34 56 C"
         req.session.data['case-status'] = "No plea received"
         req.session.data['prosecutor'] = "DVLA"
         req.session.data['notice-served'] = "30 April 2018"
         
         //req.session.data['dates-to-avoid'] = "18 June 2018"
-        req.session.data['dates-to-avoid'] = "19 May 2018 (Rest Day) 20 May 2018 (Rest Day)  21 May 2018 (Rest Day) 22 May 2018 (Rest Day) 28 May 2018 (Rest Day) 3 Jun 2018 (Rest Day) 7 Jun 2018 (Rest Day) 8 Jun 2018 (Rest Day) 11 Jun 2018 (15 - Lieu Day (taken)) 16 Jun 2018 (Rest Day) 17 Jun 2018 (Rest Day) 18 Jun 2018 (Rest Day) 19 Jun 2018 (Rest Day) 27 Jun 2018 (Rest Day) 28 Jun 2018 (Rest Day) 4 Jul 2018 (Rest Day) 10 Jul 2018 (Rest Day) 16 Jul 2018 (Rest Day) 17 Jul 2018 (Rest Day) 18 Jul 2018 (Rest Day) 19 Jul 2018 (Rest Day) 25 Jul 2018 (Rest Day) 31 Jul 2018 (Rest Day) 1 Aug 2018 (02 - Annual Leave) 2 Aug 2018 (02 - Annual Leave) 3 Aug 2018 (02 - Annual Leave) 4 Aug 2018 (Rest Day) 5 Aug 2018 (Rest Day) 6 Aug 2018 (02 - Annual Leave) 13 Aug 2018 (Rest Day) 14 Aug 2018 (Rest Day) 15 Aug 2018 (Rest Day) 16 Aug 2018 (Rest Day) 24 Aug 2018 (Rest Day) 25 Aug 2018 (Rest Day) 29 Aug 2018 (Rest Day)"
+        //commenting out for the moment as a 'no plea' case wouldn't have dates to avoid yet and it was confusing req.session.data['dates-to-avoid'] = "19 May 2018 (Rest Day) 20 May 2018 (Rest Day)  21 May 2018 (Rest Day) 22 May 2018 (Rest Day) 28 May 2018 (Rest Day) 3 Jun 2018 (Rest Day) 7 Jun 2018 (Rest Day) 8 Jun 2018 (Rest Day) 11 Jun 2018 (15 - Lieu Day (taken)) 16 Jun 2018 (Rest Day) 17 Jun 2018 (Rest Day) 18 Jun 2018 (Rest Day) 19 Jun 2018 (Rest Day) 27 Jun 2018 (Rest Day) 28 Jun 2018 (Rest Day) 4 Jul 2018 (Rest Day) 10 Jul 2018 (Rest Day) 16 Jul 2018 (Rest Day) 17 Jul 2018 (Rest Day) 18 Jul 2018 (Rest Day) 19 Jul 2018 (Rest Day) 25 Jul 2018 (Rest Day) 31 Jul 2018 (Rest Day) 1 Aug 2018 (02 - Annual Leave) 2 Aug 2018 (02 - Annual Leave) 3 Aug 2018 (02 - Annual Leave) 4 Aug 2018 (Rest Day) 5 Aug 2018 (Rest Day) 6 Aug 2018 (02 - Annual Leave) 13 Aug 2018 (Rest Day) 14 Aug 2018 (Rest Day) 15 Aug 2018 (Rest Day) 16 Aug 2018 (Rest Day) 24 Aug 2018 (Rest Day) 25 Aug 2018 (Rest Day) 29 Aug 2018 (Rest Day)"
         
-        req.session.data['mitigation'] = "No mitigation given"
+        // we don't know this income yet for no plea req.session.data['mitigation'] = "No mitigation given"
         req.session.data['offence-type'] = "Keep a vehicle without a vehicle license"
         req.session.data['offence-description'] = "On the 21.04.2018 you kept an unlicensed vehicle registration mark WN02ZRR at 21/4/2018 contrary to Section 29(1) of the Vehicle Excise and Registration Act 1994.   The previous licence expired on 1/1/2018."
         req.session.data['statement-of-facts'] = "At 12:00 on the 21.04.2018 you failed to comply with a declaration or statement made under the Road Vehicles (Statutory Off-Road Notification) Regulations, in that you kept a Green Ford Focus registration mark WN02ZRR on George Street Croydon contrary to Section 29(1) of the Vehicle Excise and Registration Act 1994. The previous licence expired on 1/1/2018, and the annual rate of duty was £250."
         req.session.data['back-duty-description'] = "2 months and 16 days unpaid duty"
         req.session.data['offence-banding-header'] = "Check penalty, back duty and compensation"
-        req.session.data['guilty-plea-taken-into-account'] = "Yes"
-        req.session.data['verdict'] = "Proved SJP"
+        req.session.data['guilty-plea-taken-into-account'] = "Yes" //wondering whether to comment this out as it's a no plea.
+        req.session.data['verdict'] = "Proved SJP" //wondering whether to comment this out as it's a no plea.
         
         req.session.data['notes-added'] = "There are no notes for this online plea."
         
