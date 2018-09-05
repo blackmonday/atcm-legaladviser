@@ -24,7 +24,7 @@ var minutes = Math.floor((xxx+yyy) / 60000);
 var seconds = (((xxx+yyy) % 60000) / 1000).toFixed(0);
 var minText;
 
-if (minutes > "1") {
+if (minutes > "5") {
     minText = "minutes"
 } else {
     minText = "minute"
