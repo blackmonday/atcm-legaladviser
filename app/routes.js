@@ -55,13 +55,13 @@ router.post('/', function (req, res) {
         req.session.data['defendents-mobile'] = ""
         req.session.data['defendents-email'] = ""
         req.session.data['defendents-previous-convictions'] = "2"
-        //req.session.data['defendents-income'] = "£250 weekly (actual)"
-        //req.session.data['defendents-income-short'] = "250"
-        //req.session.data['defendents-income-amount'] = "1000"
-        //req.session.data['defendents-claiming-benefits'] = "Yes"
-        req.session.data['defendents-income'] = ""
-        req.session.data['defendents-income-short'] = ""
-        req.session.data['defendents-income-amount'] = ""
+        req.session.data['defendents-income'] = "£250 weekly (actual)"
+        req.session.data['defendents-income-short'] = "250"
+        req.session.data['defendents-income-amount'] = "1000"
+        req.session.data['defendents-claiming-benefits'] = "Yes"
+        req.session.data['defendents-income'] = "440"
+        req.session.data['defendents-income-short'] = "440"
+        req.session.data['defendents-income-amount'] = "440"
         req.session.data['defendents-claiming-benefits'] = ""
         req.session.data['benefits-details'] = ""
         //req.session.data['defendents-employment-status'] = "Employed (full or part-time)"
@@ -208,8 +208,8 @@ router.post('/', function (req, res) {
         req.session.data['defendents-mobile'] = "07761938537"
         req.session.data['defendents-email'] = "jones-mary@gmail.com"
         req.session.data['defendents-previous-convictions'] = "1"
-        req.session.data['defendents-income'] = "£250 weekly (actual)"
-        req.session.data['defendents-income-short'] = "250"
+        req.session.data['defendents-income'] = "£440 weekly (assumed)"
+        req.session.data['defendents-income-short'] = "440"
         req.session.data['defendents-income-amount'] = "1000"
         req.session.data['defendents-claiming-benefits'] = "Yes"
         req.session.data['benefits-details'] = ""
@@ -236,7 +236,7 @@ router.post('/', function (req, res) {
         
         req.session.data['notes-added'] = "There are no notes for this online plea."
 
-        req.session.data['income-frequency-group'] = "Monthly"
+        req.session.data['income-frequency-group'] = ""
         req.session.data['employee-number'] = "100192"
         req.session.data['employer-name'] = "Sainsbury's"
         req.session.data['employer-address-line-1'] = "Albert Road South"
@@ -246,7 +246,7 @@ router.post('/', function (req, res) {
         req.session.data['employer-postcode'] = "WD17 1PE"
         req.session.data['employer-telephone'] = "01923 255252"
 
-        req.session.data['claiming-benefits-group'] = "No"
+        req.session.data['claiming-benefits-group'] = ""
         req.session.data['benefits-details'] = ""
         
         req.session.data['compensation'] = "20"
@@ -317,7 +317,7 @@ router.post('/', function (req, res) {
         req.session.data['employer-postcode'] = "WD17 1PE"
         req.session.data['employer-telephone'] = "01923 255252"
 
-        req.session.data['claiming-benefits-group'] = "No"
+        req.session.data['claiming-benefits-group'] = ""
         req.session.data['benefits-details'] = ""
         
         req.session.data['compensation'] = "20"

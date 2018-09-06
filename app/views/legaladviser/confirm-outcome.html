@@ -132,11 +132,11 @@
         }
   
         if(document.getElementById('banding-1').checked) {
-            document.getElementById("penaltyOrFineAmount").value = "250";
+            document.getElementById("penaltyOrFineAmount").value = "220";
         } else if (document.getElementById('banding-2').checked) {
-            document.getElementById("penaltyOrFineAmount").value = "500";
+            document.getElementById("penaltyOrFineAmount").value = "440";
         } else if (document.getElementById('banding-3').checked) {
-            document.getElementById("penaltyOrFineAmount").value = "750";
+            document.getElementById("penaltyOrFineAmount").value = "660";
         } else {
             document.getElementById('banding-1').checked = true;
             document.getElementById("penaltyOrFineAmount").value = "250";
@@ -210,11 +210,11 @@
     
     function checkBand() {
         if(document.getElementById('banding-1').checked) {
-            document.getElementById("penaltyOrFineAmount").value = "250";
+            document.getElementById("penaltyOrFineAmount").value = "220";
         } else if (document.getElementById('banding-2').checked) {
-            document.getElementById("penaltyOrFineAmount").value = "500";
+            document.getElementById("penaltyOrFineAmount").value = "440";
         } else if (document.getElementById('banding-3').checked) {
-            document.getElementById("penaltyOrFineAmount").value = "750";
+            document.getElementById("penaltyOrFineAmount").value = "660";
         }
         
         var penaltyOrFineAmount = document.getElementById('penaltyOrFineAmount').value;
@@ -365,8 +365,9 @@
                                         <p class="bottom_5 top_15">{{ data['penalty-or-fine'] }} has been calculated taking into account:</p>
                                         <ul class="list list-bullet bottom_30">
                                             <li>income <span class="bold">£</span><span id="defendentsIncomeShort2" class="bold">{{data['defendents-income-amount']}}</span> weekly (due to defendant claiming benefits or on low income)</li>
-                                            <li>a guilty plea of <span class="bold">33% (£<span id="penaltyOrFineDiscount"></span></span>)</li>
+                                            <!-- commenting guilty plea discount out for the moment as it's a no-plea case <li>a guilty plea of <span class="bold">33% (£<span id="penaltyOrFineDiscount"></span></span>)</li>
                                         </ul>
+                                        //-->
                                         
                                         
                                         
@@ -1020,10 +1021,10 @@
                             <span class="font-xsmall">PDF, 157KB, 2 pages</span>
                         </div>
                     </div>
-
+                <!--commenting out for now as it's a no plea
                     <h3 class="heading-small">Online plea</h3>
                     <p><a href="#">Defendant's online plea</a></p>
-
+                //-->
                 </div>
             
         </div>
