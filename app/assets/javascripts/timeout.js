@@ -4,7 +4,7 @@ var timeoutID;
 var timeoutID2;
 
 // countDown1 - How long to count down for?
-var yyy = 180000; //60000 = 1 minute
+var yyy = 300000; //60000 = 1 minute
 
 // countDown2 (timer) - How long to count down for?
 var xxx = 60000; //30000 = 30 seconds
@@ -24,7 +24,7 @@ var minutes = Math.floor((xxx+yyy) / 60000);
 var seconds = (((xxx+yyy) % 60000) / 1000).toFixed(0);
 var minText;
 
-if (minutes > "5") {
+if (minutes > "1") {
     minText = "minutes"
 } else {
     minText = "minute"
