@@ -430,7 +430,7 @@
             <div id="prosecutorCheck" style="display:none">{{ data['prosecutor-group'] }}</div>
             
             <!-- Updated to 13 cases completed -->
-            <div id="" style="text-align: right; font-weight: bold;"><span style="font-size:24px">13</span><span style="font-size:16px"> cases completed so far this session</span></div>
+            <div id="" style="text-align: right; font-weight: bold;"><span style="font-size:24px">14</span><span style="font-size:16px"> cases completed so far this session</span></div>
             
 
             
@@ -586,7 +586,7 @@
             
             <!-- PLEA BOX -->
             <div class="top_60">
-                <span id="defendantsPlea" class="label">{{data['defendents-plea']}}</span>
+                <span id="defendantsPlea" class="label">No plea received</span>
             </div>
             
         </div>
@@ -620,10 +620,25 @@
                 <h3 class="heading-medium bottom_5">Statement of facts</h3>
                 <p>{{data['statement-of-facts']}}</p>
             </div>
-            
-        </div>
+        
+        
+        
+        
+        
+        
+        <form id="makeADecisionForm" class="form top_30" action="" method="post">
+            <div class="form-group">
+                <input class="button top_15" type="submit" value="Continue to next case">
+
+            </div>
+        </form>
+        
+        
+        
+        
         
  
+        </div>
     </div>
 
 </main>

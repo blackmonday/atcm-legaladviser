@@ -376,6 +376,14 @@ router.post('/legaladviser/case-details-page', function (req, res) {
     
 })
 
+// *****************
+// CASE DETAILS PAGE - DAVE JONES
+router.post('/legaladviser/case-details-page-dave-jones', function (req, res) {
+    
+    res.redirect('/legaladviser/case-details-page-abbie-smith')
+    
+})
+
 // ***************
 // CONFIRM OUTCOME
 router.post('/legaladviser/confirm-outcome', function (req, res) {
@@ -578,7 +586,8 @@ router.post('/legaladviser/check-your-decision', function (req, res) {
     
     req.session.data['payment-terms'] = "to be paid as a lump sum in 28 days"
 
-    res.redirect('/legaladviser/case-details-page')
+    res.redirect('/legaladviser/case-details-page-dave-jones')
+    //res.redirect('/legaladviser/case-details-page')
     //res.redirect('/legaladviser/decision-submitted')
     
 })
