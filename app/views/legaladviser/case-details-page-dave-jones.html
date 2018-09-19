@@ -1,0 +1,631 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+    GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script>
+    window.onload = function() {
+        
+        var defendants_plea = document.getElementById('defendantsPlea').innerText;
+        var case_status = document.getElementById('case-status').innerText;
+        var decision = document.getElementById('decision').innerText;
+        
+        //alert("defendants_plea="+defendants_plea+" ||| case_status="+case_status+" ||| decision="+decision);
+        
+        if (decision == "") {
+            if (defendants_plea == "NO PLEA RECEIVED") {
+                document.getElementById('case-status').innerText = "No plea received";
+            } else {
+                document.getElementById('case-status').innerText = "Plea received - ready for decision";
+            }
+            
+        } else if (decision == "Refer back to SJP") {
+            document.getElementById('case-status').innerText = "Refer SJP";
+            document.getElementById('referSJP').style.display = "table-row";
+            
+            if (document.getElementById('referSJPreason').innerText != "Other") {
+                document.getElementById('referSJPother').style.display = "none";
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        
+        
+        } else if (decision != "") {
+            document.getElementById('case-status').innerText = "Completed";
+            document.getElementById('changePleaLink').style.display = "none";
+        }
+        
+        if (defendants_plea == "NO PLEA RECEIVED") {
+            document.getElementById('noPlea').style.display = "block";
+            document.getElementById('guiltyPlea').style.display = "none";
+            document.getElementById('notGuiltyPlea').style.display = "none";
+        } else if ((defendants_plea == "PLEADED GUILTY SJP") || (defendants_plea == "PLEADED GUILTY") || (defendants_plea == "PLEADED GUILTY - COURT HEARING REQUESTED")) {
+            document.getElementById('noPlea').style.display = "none";
+            document.getElementById('guiltyPlea').style.display = "block";
+            document.getElementById('notGuiltyPlea').style.display = "none";
+        } else if (defendants_plea == "PLEADED NOT GUILTY") {
+            document.getElementById('noPlea').style.display = "none";
+            document.getElementById('guiltyPlea').style.display = "none";
+            document.getElementById('notGuiltyPlea').style.display = "block";
+        }
+        
+        var SJPsessionStarted = document.getElementById('SJPsessionStarted').innerText;
+        var delegatePowers = document.getElementById('delegatePowers').innerText;
+        
+        if (SJPsessionStarted == "True") {
+            if (delegatePowers == "Yes") {
+                document.getElementById('noPlea').style.display = "block";
+                document.getElementById('guiltyPlea').style.display = "none";
+                document.getElementById('notGuiltyPlea').style.display = "none";
+            }
+            if (delegatePowers == "No") {
+                document.getElementById('noPlea').style.display = "none";
+                document.getElementById('guiltyPlea').style.display = "none";
+                document.getElementById('notGuiltyPlea').style.display = "block";
+            }
+        }
+            // No plea received
+            // Pleaded Guilty SJP
+            // Pleaded Guilty - Court hearing requested
+            // Pleaded Not Guilty
+            
+        
+        
+        
+        
+        
+        
+        
+        
+        var dischargeConfirmCollectionOrder = document.getElementById('dischargeConfirmCollectionOrder').innerText;
+        if (dischargeConfirmCollectionOrder == "on") {
+            document.getElementById('dischargeConfirmCollectionOrder').innerText = "Yes";
+        } else {
+            document.getElementById('dischargeConfirmCollectionOrder').innerText = "No";
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        if (document.getElementById('benefits-being-claimed').innerText == "No") {
+            document.getElementById('benefits-details-group').style.display = "none"
+        }
+        
+        
+        var incomeCalculation2 = Number(document.getElementById("incomeCalculation").innerText);
+        
+        if (document.getElementById('incomeFrequency').innerText == "Weekly") {
+            document.getElementById("incomeCalculation").innerText = incomeCalculation2;
+        } else if (document.getElementById('incomeFrequency').innerText == "Fortnightly") {
+            document.getElementById("incomeCalculation").innerText = incomeCalculation2/2;
+        } else if (document.getElementById('incomeFrequency').innerText == "Monthly") {
+            document.getElementById("incomeCalculation").innerText = incomeCalculation2/4;
+        } else if (document.getElementById('incomeFrequency').innerText == "Annually") {
+            document.getElementById("incomeCalculation").innerText = incomeCalculation2/52;
+        }
+        
+        
+        
+        
+                
+        var homeTelephone = document.getElementById('homeTelephone').innerText;
+        if(homeTelephone != "") {
+            document.getElementById('addHomeTelephone').style.display = "none";
+        } else {
+            document.getElementById('homeTelephone').style.display = "none";
+        }
+        
+        
+        
+        
+        
+        
+        
+        var warningBannerSwitch = document.getElementById('warningBannerSwitch').innerText;
+        if (warningBannerSwitch == "on") {
+            document.getElementById('warningBanner').style.display = "block"
+        } else {
+            document.getElementById('warningBanner').style.display = "none"
+        }
+        
+                
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /* ********************************* */
+        /* ********************************* */
+        /* ********************************* */
+        /* ********************************* */
+        /* ********************************* */
+        /* ********************************* */
+        /* DECISION - PAYMENT AND COLLECTION */
+        
+        var howToPayFinal2 = document.getElementById('setReserveTermsGroup').innerText;
+        var howToPayFinal = document.getElementById('howToPayGroup').innerText;
+                
+        if ((howToPayFinal2 == "Lump sum within 14 days") || (howToPayFinal2 == "Lump sum within 28 days")) {
+            //document.getElementById('totalPayment').style.display = "block";
+            document.getElementById('lumpSumAmount').style.display = "none";
+            document.getElementById('instalmentOnly').style.display = "none";
+        }
+        if (howToPayFinal2 == "Lump sum plus instalments") {
+            document.getElementById('totalPayment').style.display = "none";
+            //document.getElementById('lumpSumAmount').style.display = "block";
+            //document.getElementById('instalmentOnly').style.display = "none";
+        }
+        if (howToPayFinal2 == "Instalments only") {
+            document.getElementById('totalPayment').style.display = "none";
+            document.getElementById('lumpSumAmount').style.display = "none";
+            //document.getElementById('lumpSumAmount_b').style.display = "none";
+            //document.getElementById('instalmentOnly').style.display = "block";
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /* CHECK DECISION - WHAT IS DISPLAYED IN THE DECISION TAB? */
+        var decisiontype = document.getElementById('decision').innerText;
+        var decisiontype_b = document.getElementById('decision-b').innerText;
+                        
+        if ((decisiontype == "Financial penalty") || (decisiontype == "Prove SJP" && decisiontype_b == "Financial penalty")) {
+            document.getElementById('referToCourtHearingTab').style.display = "none";
+            document.getElementById('withdrawTab').style.display = "none";
+            document.getElementById('dischargeTab').style.display = "none";
+            document.getElementById('dismissTab').style.display = "none";
+            
+        } else if (decisiontype == "Refer to court hearing") {
+            document.getElementById('financialPenaltyTab').style.display = "none"; 
+            document.getElementById('withdrawTab').style.display = "none";
+            document.getElementById('dischargeTab').style.display = "none";
+            document.getElementById('dismissTab').style.display = "none";
+            
+        } else if (decisiontype == "Withdraw") {
+            document.getElementById('financialPenaltyTab').style.display = "none"; 
+            document.getElementById('referToCourtHearingTab').style.display = "none";
+            document.getElementById('dischargeTab').style.display = "none";
+            document.getElementById('dismissTab').style.display = "none";
+            
+        } else if ((decisiontype == "Discharge") || (decisiontype == "Prove SJP" && decisiontype_b == "Discharge")) {
+            document.getElementById('financialPenaltyTab').style.display = "none"; 
+            document.getElementById('referToCourtHearingTab').style.display = "none";
+            document.getElementById('withdrawTab').style.display = "none";
+            document.getElementById('dismissTab').style.display = "none";
+            
+        } else if (decisiontype == "Dismiss") {
+            document.getElementById('financialPenaltyTab').style.display = "none"; 
+            document.getElementById('referToCourtHearingTab').style.display = "none";
+            document.getElementById('withdrawTab').style.display = "none";
+            document.getElementById('dischargeTab').style.display = "none";
+        }
+        
+        var prosecutorCheck = document.getElementById("prosecutorCheck").innerText;
+        if (prosecutorCheck == "DVLA (with back duty)") {
+            document.getElementById("backDutyLength").style.display = "block";
+        } else {
+            document.getElementById("backDutyLength").style.display = "none";
+            document.getElementById("backDutyLength").style.display = "none";
+        }
+        
+        
+        
+        
+        
+        
+        
+        var caseStatus = document.getElementById("case-status").innerText;
+        if (caseStatus == "Completed") {
+            document.getElementById("makeADecisionForm").style.display = "none";
+            document.getElementById("statmentOfFactGroup").style.display = "none";
+            document.getElementById("tabGroup2").style.display = "block";
+        } else {
+            document.getElementById("makeADecisionForm").style.display = "block";
+            document.getElementById("statmentOfFactGroup").style.display = "block";
+            document.getElementById("tabGroup2").style.display = "none";
+        }
+        
+        
+        
+        
+        
+        
+        
+        /* ************* */
+        /* ************* */
+        /* CONVERT MONTH */
+        var dobMonth = document.getElementById('dobMonth').innerText;
+        var dobMonth2 = document.getElementById('dobMonth2').innerText;
+        var paymentMonth = document.getElementById("paymentMonth").innerText;
+        var paymentMonth2 = document.getElementById("paymentMonth2").innerText;
+        var hearingMonth = document.getElementById("hearingMonth").innerText;
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var monthsShort = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        document.getElementById('dobMonth').innerText = months[dobMonth];
+        document.getElementById('dobMonth2').innerText = months[dobMonth2];
+        document.getElementById("paymentMonth").innerText = months[paymentMonth];
+        document.getElementById("paymentMonth2").innerText = months[paymentMonth2];
+        document.getElementById("hearingMonth").innerText = months[hearingMonth];
+        
+        
+        
+        
+        
+        
+        
+        
+        var payCourtTerms = document.getElementById('payCourtTerms').innerText;
+        if ((payCourtTerms == "Lump sum within 14 days") || (payCourtTerms == "Lump sum within 28 days")) {
+            //document.getElementById("totalPayment").style.display = "none";
+            document.getElementById("lumpSumAmount").style.display = "none";
+            document.getElementById("instalmentOnly").style.display = "none";
+            
+            //document.getElementById("dischargeLumpSum").style.display = "none";
+            document.getElementById("dischargeLumpSumInstal").style.display = "none";
+            document.getElementById("dischargeInstal").style.display = "none";
+            
+        } else if (payCourtTerms == "Lump sum plus instalments") {
+            document.getElementById("totalPayment").style.display = "none";
+            //document.getElementById("lumpSumAmount").style.display = "none";
+            document.getElementById("instalmentOnly").style.display = "none";
+            
+            document.getElementById("dischargeLumpSum").style.display = "none";
+            //document.getElementById("dischargeLumpSumInstal").style.display = "none";
+            document.getElementById("dischargeInstal").style.display = "none";
+            
+        } else if (payCourtTerms == "Instalments only") {
+            document.getElementById("totalPayment").style.display = "none";
+            document.getElementById("lumpSumAmount").style.display = "none";
+            //document.getElementById("instalmentOnly").style.display = "none";
+            
+            document.getElementById("dischargeLumpSum").style.display = "none";
+            document.getElementById("dischargeLumpSumInstal").style.display = "none";
+            //document.getElementById("dischargeInstal").style.display = "none";
+            
+        }
+        
+        // totalPayment
+        // lumpSumAmount
+        // instalmentOnly
+        
+        
+        // document.getElementById("dischargeLumpSum").style.display = "none";
+        // document.getElementById("dischargeLumpSumInstal").style.display = "none";
+        // document.getElementById("dischargeInstal").style.display = "none";
+        // dischargeLumpSum
+        // dischargeLumpSumInstal
+        // dischargeInstal
+        
+        
+        var defendentsTitle = document.getElementById('defendentsTitle').innerText;
+        if (defendentsTitle == " ") {
+            document.getElementById('defendentsTitle').innerText = "";
+        }
+        
+        
+        
+        
+        
+        
+        /* CHANGES MADE ??? */
+        var changesMade = document.getElementById('changesMade').innerText;
+        if (changesMade == "Yes") {
+            //document.getElementById('confirmation').style.display = "block";
+        }
+        
+        //var cat = sessionStorage.getItem('changesMade');
+        if (sessionStorage.getItem('changesMade') == "Yes") {
+            document.getElementById('confirmation').style.display = "block";
+            sessionStorage.setItem('changesMade', 'No');
+        }
+        //alert(sessionStorage.getItem('changesMade'));
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        var interpretorGroup = document.getElementById('interpretorGroup').innerText;        
+        if (interpretorGroup == "Yes") {
+            document.getElementById('interpeterLanguage').style.display = "block";
+        } else {
+            document.getElementById('interpeterLanguage').style.display = "none";
+        }
+        
+        
+        
+        
+        
+    }
+</script>
+
+<style>
+    .court-decision td, .payment-and-collection td {
+        border: 0;
+        padding: 5px;
+    }
+    .court-decision td:first, .payment-and-collection td:first {
+        width:40%;
+    }
+    .table-cell-width {
+        width: 40%;
+    }
+    #referSJP {
+        display:none;
+    }
+</style>
+
+{% include "includes/timeout-overlay.html" %}
+
+<div id="overlay-file-1" onclick="overlay_file_1_off()">
+    <div id="overlay-info">
+        <h3 class="heading-medium top_0 bottom_15">Remove a file</h3>
+        <p class="top_15 bottom_15">Are you sure you want to remove the following file?</p>        
+        <table class="removeFileTable">
+            <tbody>
+                <tr>
+                    <td class="bold">Name</td>
+                    <td>SJP notice</td>
+                </tr>
+                <tr>
+                    <td class="bold">Type</td>
+                    <td>PDF, 256KB, 3 pages</td>
+                </tr>
+                <tr>
+                    <td class="bold">Uploaded on</td>
+                    <td>15 January 2018</td>
+                </tr>
+            </tbody>
+        </table>
+        <input class="button top_20 bottom_15" type="submit" value="Confirm and remove file" onclick="removeFile1(); overlay_file_1_off()">
+        <p class="remove-link bottom_0" onclick="overlay_file_1_off()">cancel</p>
+    </div>
+</div>
+
+<main id="content" role="main">
+    
+    <div class="grid-row">
+        <div class="column-full">            
+            <!-- Alpha phase banner -->
+            {% include "includes/phase_banner_alpha.html" %}
+            {% include "includes/breadcrumb_back.html" %}
+            
+            <div id="prosecutorCheck" style="display:none">{{ data['prosecutor-group'] }}</div>
+            
+            <!-- Updated to 13 cases completed -->
+            <div id="" style="text-align: right; font-weight: bold;"><span style="font-size:24px">13</span><span style="font-size:16px"> cases completed so far this session</span></div>
+            
+
+            
+            
+            
+            
+            <style>
+                #end-session-link {
+                    color:#fff;
+                    float:right;
+                    margin-right:15px;
+                }
+            </style>
+
+            <div class="peristant-info-banner">
+                <div class="peristant-info-banner-content">9012513 <span class="bold" style="margin-left:10px">Dave <span class="last-name">Jones</span></span><a href="/legaladviser/dashboard" id="end-session-link">End session</a></div>
+            </div>
+            
+            
+            
+            
+            
+            <div id="changesMade" style="display:none">{{data['changesMade']}}</div>
+            <div id="confirmation" style="display: none">{% include "includes/confirmation-banner.html" %}</div>
+
+        </div>
+    </div>
+
+    <span style="">{% include "includes/display-decision.html" %}</span>
+
+    <div class="grid-row top_30">
+        <div class="column-two-thirds">
+            
+            <h1 class="heading-xlarge top_0 bottom_5">Dave <span class="last-name">Jones</span></h1>
+            <p class="form-hint">14 March 1982 (36 years old)<br>
+            {{data['defendents-address-line-1']}}, {{data['defendents-address-line-2']}}, {{data['defendents-town-or-city']}} {{data['defendents-postcode']}}</p>
+                        
+            <!-- WARNING BANNER PATTERN -->
+            <div id="warningBanner" class="warning-banner-nest" style="display: none">
+                <div class="warning-banner">
+                    <div class="warning-banner-icon"><img src="/public/images/alert-icon-white.svg" class="warning-banner-icon"></div>
+                    <div class="warning-banner-text">The following defendant details have been updated:
+                        <div id="dob" class="top_10">Date of bith</div>
+                        <div id="address" class="top_5">Address details</div>
+                        <div id="name" class="top_5">Name</div>
+                        
+                        <div id="warningBannerSwitch" style="display:none">{{data['warning-banner-switch']}}</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TABS -->
+            <div class="tabGroup top_30">
+                <a id="tabA" class="tab-on" onclick="tabGroup(tabContent, 'TAB-ONE')" href="javascript: void(0)">Case details</a>
+                <a id="tabB" class="tab" onclick="tabGroup(tabContent, 'TAB-TWO')" href="javascript: void(0)">Defendant details</a>
+                <a id="tabC" class="tab" onclick="tabGroup(tabContent, 'TAB-THREE')" href="javascript: void(0)">Income</a>
+                <hr>
+            </div>
+            <div id="tabContent" class="top_30">
+                
+                <!-- TAB ONE -->
+                <div id="tabOneContent">
+                    <h4 class="heading-medium bottom_10">Case details</h4>
+                    <table class="top_10">
+                        <tr>
+                            <th class="bold" style="border: none; width: 33%">Case status</th>
+                            <td id="case-status-" style="border: none">Referred for court hearing<br>
+                        <span class="font-xsmall remove-link">View in Criminal Courts</span></td>
+                        </tr>
+                        <tr id="referSJP">
+                            <th class="bold" style="padding-top:0; border: none; width: 33%"></th>
+                            <td id="case-status" style="padding-top:0; border: none"><span id="referSJPreason">{{data['referring-this-offence-group']}}</span><span id="referSJPother"> - {{data['other-refer-reason']}}</span></td>
+                        </tr>
+                        <tr>
+                            <th class="bold" style="border: none">Prosecutor</th>
+                            <td style="border: none">{{data['prosecutor']}}</td>
+                        </tr>
+                        <tr>
+                            <th class="bold" style="border: none">Notice served</th>
+                            <td style="border: none">14 May 2018</td>
+                        </tr>
+                        <tr>
+                            <th class="bold" style="border: none">Dates to avoid</th>
+                            <td style="border: none">17 to 31 July 2018</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <!-- TAB TWO -->
+                <div id="tabTwoContent">
+                    <h4 class="heading-medium bottom_10">Defendant details</h4>
+                    <table class="top_10">
+                        <tr>
+                            <th class="bold" style="border: none; width: 44%">Name</th>
+                            <td style="border: none">Dave <span class="last-name">Jones</span></td>
+                        </tr>
+                        <tr>
+                            <th class="bold" style="border: none">Date of birth</th>
+                            <td style="border: none">14 March 1982 (36 years old)</td>
+                        </tr>
+                        <tr>
+                            <th class="bold" style="border: none">Address</th>
+                            <td style="border: none">{{data['defendents-address-line-1']}}<br>
+                            {{data['defendents-address-line-2']}}<br>
+                            {{data['defendents-town-or-city']}}<br>
+                            {{data['defendents-postcode']}}</td>
+                        </tr>
+                        <tr>
+                            <th class="bold" style="border: none">Email</th>
+                            <td style="border: none">{{data['defendents-email']}}</td>
+                        </tr>
+                        <tr>
+                            <th class="bold" style="border: none">Home telephone</th>
+                            <td id="addHomeTelephone" style="border: none"></td>
+                        </tr>
+                        <tr>
+                            <th class="bold" style="border: none">Mobile</th>
+                            <td style="border: none">{{data['defendents-mobile']}}</td>
+                        </tr>
+                    </table>
+                    
+                </div>
+
+                <!-- TAB THREE -->
+                <div id="tabThreeContent">
+                    <h4 class="heading-medium bottom_10">Income</h4>
+                    <table class="top_10">
+                        <tr>
+                            <th class="bold" style="border: none; width: 55%">National Insurance number</th>
+                            <td style="border: none">{{data['defendents-nin']}}</td>
+                        </tr>
+                        <tr>
+                            <th class="bold" style="border: none">Net income (converted to weekly)</th>
+                            <td style="border: none">£<span id="incomeCalculation">{{data['defendents-income-amount']}}</span><span id="incomeFrequency" style="display:none">{{data['income-frequency-group']}}</span></td>
+                        </tr>
+                        <tr>
+                            <th class="bold" style="border: none">Claiming benefits</th>
+                            <td style="border: none"><span id="benefits-being-claimed">{{data['claiming-benefits-group']}}</span><span id="benefits-details-group"> - {{data['benefits-details']}}</span></td>
+                        </tr>
+                    </table>
+                    
+                </div>
+
+            </div>
+            
+            <hr class="top_60 bottom_60">
+            
+            <!-- OFFENCE DETAILS -->
+            <h2 class="heading-large">Offence 1</h2>
+            <h3 class="heading-medium bottom_5">{{data['offence-type']}}</h3>
+            <p>{{data['offence-description']}}</p>
+            <p id="backDutyLength" class="bold">{{data['back-duty-description']}}</p>
+            
+            <!-- PLEA BOX -->
+            <div class="top_60">
+                <span id="defendantsPlea" class="label">{{data['defendents-plea']}}</span>
+            </div>
+            
+        </div>
+        
+        <div class="column-one-third">
+            <div class="right-column-nav">
+                <hr class="bold-hr ">
+                <h3 class="heading-small">Documents</h3>
+                <!-- Thumbnail - small icon -->
+                <div class="download-file top_15 bottom_30">
+                    <img src="/public/images/Thumbnail%20icon%20-%20small.png" title="document title">
+                    <div class="download-file-text">
+                        <span class="font-xsmall dummy-link">SJP notice</span>
+                        <span class="font-xsmall">PDF, 157KB, 4 pages</span>
+                    </div>
+                </div>
+                <!-- commenting this out for the moment as it's a no plea case
+                <h3 class="heading-small">Online plea</h3>
+                <p><a href="defendants-online-plea.html">Defendant's online plea</a></p>
+                -->
+            </div>
+        </div>
+
+    </div>
+
+    <div class="grid-row top_15">
+        <div class="column-two-thirds">
+            
+            <!-- STATEMENT OF FACTS -->
+            <div id="statmentOfFactGroup">
+                <h3 class="heading-medium bottom_5">Statement of facts</h3>
+                <p>{{data['statement-of-facts']}}</p>
+            </div>
+            
+        </div>
+        
+ 
+    </div>
+
+</main>
+
+{% endblock %}
