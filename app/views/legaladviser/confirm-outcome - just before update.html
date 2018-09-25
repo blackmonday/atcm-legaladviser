@@ -541,142 +541,6 @@
                 <p id="backDutyLength" class="bold top_15 bottom_30">{{data['back-duty-description']}}</p>
 
                 <form class="form" action="" method="post">
-
-                    <fieldset>
-                            <legend>
-                                <h3 class="heading-medium top_15">Reason for referring to court</h3>
-                            </legend>
-                            <div class="multiple-choice" data-target="equivocol-plea-type">
-                                <input id="radio-1" type="radio" name="reason-for-referring-to-court-group" value="Equivocal plea" {{ checked('reason-for-referring-to-court-group','Equivocal plea') }}>
-                                <label for="radio-1">Equivocal plea</label>
-                            </div>
-
-                            <div class="js-hidden" id="equivocol-plea-type">
-                                <div class="panel panel-border-wide top_15">
-                                    <div class="multiple-choice">
-                                        <input id="radio-1a" type="radio" name="equivocal-plea-group" value="Defendant to attend to clarify plea" {{ checked('equivocal-plea-group','Defendant to attend to clarify plea') }}>
-                                        <label for="radio-1a">Defendant to attend to clarify plea</label>
-                                    </div>
-                                    <div class="multiple-choice">
-                                        <input id="radio-1b" type="radio" name="equivocal-plea-group" value="For trial" {{ checked('equivocal-plea-group','For trial') }}>
-                                        <label for="radio-1b">For trial</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="multiple-choice">
-                                <input id="radio-2" type="radio" name="reason-for-referring-to-court-group" value="Defence request" {{ checked('reason-for-referring-to-court-group','Defence request') }}>
-                                <label for="radio-2">Defence request</label>
-                            </div>
-                            <div class="multiple-choice">
-                                <input id="radio-3" type="radio" name="reason-for-referring-to-court-group" value="For trial" {{ checked('reason-for-referring-to-court-group','For trial') }}>
-                                <label for="radio-3">For trial</label>
-                            </div>
-
-                            <div class="multiple-choice" data-target="case-management-hearing-type">
-                                <input id="radio-4" type="radio" name="reason-for-referring-to-court-group" value="For case management hearing" {{ checked('reason-for-referring-to-court-group','For case management hearing') }}>
-                                <label for="radio-4">For case management hearing</label>
-                            </div>
-
-                            <div class="js-hidden" id="case-management-hearing-type">
-                                <div class="panel panel-border-wide top_15">
-                                    <div class="multiple-choice">
-                                        <input id="radio-hearing-1" type="radio" name="case-management-group" value="Defendant to attend" {{ checked('equivocal-plea-group','Defendant to attend') }}>
-                                        <label for="radio-hearing-1">Defendant to attend</label>
-                                    </div>
-                                    <div class="multiple-choice">
-                                        <input id="radio-hearing-2" type="radio" name="case-management-group" value="No need for defendant to attend" {{ checked('equivocal-plea-group','No need for defendant to attend') }}>
-                                        <label for="radio-hearing-2">No need for defendant to attend</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="multiple-choice">
-                                <input id="radio-5" type="radio" name="reason-for-referring-to-court-group" value="For sentencing hearing (defendant to attend)" {{ checked('reason-for-referring-to-court-group','For sentencing hearing (defendant to attend)') }}>
-                                <label for="radio-5">For sentencing hearing (defendant to attend)</label>
-                            </div>
-                            <div class="multiple-choice">
-                                <input id="radio-6" type="radio" name="reason-for-referring-to-court-group" value="For disqualification (defendant to attend)" {{ checked('reason-for-referring-to-court-group','For disqualification (defendant to attend)') }}>
-                                <label for="radio-6">For disqualification (defendant to attend)</label>
-                            </div>
-                            <div class="multiple-choice">
-                                <input id="radio-7" type="radio" name="reason-for-referring-to-court-group" value="Case unsuitable for SJP" {{ checked('reason-for-referring-to-court-group','Case unsuitable for SJP') }}>
-                                <label for="radio-7">Case unsuitable for SJP</label>
-                            </div>
-                        </fieldset>
-                    
-                        <fieldset class="top_15">
-                            <h3 class="heading-small">Estimated hearing duration</h3>
-                            <div class="form-group">
-                                <input class="form-control form-control-1-8" id="hearing-duration" name="hearing-duration" type="number" pattern="[0-9]*" value="{{ data['hearing-duration'] }}" style="margin-right:10px">minutes
-                            </div>
-                        </fieldset>
-
-                        <fieldset class="top_15">
-                            <label class="heading-small" for="listing-notes">Listing notes (optional)</label>
-                            <span class="form-hint">This will only be seen by court staff</span>
-                            <textarea class="form-control form-control-3-4" name="listing-notes" id="listing-notes" rows="5"></textarea>
-                        </fieldset>
-
-                        <fieldset class="top_30">
-                            <div class="form-group bottom_15">
-                                <fieldset class="inline">
-                                    <legend class="heading-small">Is an interpreter needed in court?</legend>
-                                    <span class="form-hint">For languages other than Welsh</span>
-                                    <div class="multiple-choice"  data-target="interpreter-required">
-                                        <input id="interpreter-1" type="radio" name="interpreter-group" value="Yes" {{ checked('interpreter-group','Yes') }}>
-                                        <label for="interpreter-1">Yes</label>
-                                    </div>
-
-                                    <div class="multiple-choice" data-target="details-not-correct">
-                                        <input id="interpreter-2" type="radio" name="interpreter-group" value="No" {{ checked('interpreter-group','No') }}>
-                                        <label for="interpreter-2">No</label>
-                                    </div>
-                                </fieldset>
-                            </div>
-
-                            <div class="form-group">
-                                <fieldset class="inline">
-                                    <div class="js-hidden" id="interpreter-required">
-                                        <div class="panel panel-border-wide">
-                                            <p class="bottom_5">Which language?</p>
-                                            <p class="form-hint bottom_5">You can include sign language</p>
-                                            <input class="form-control" id="interpeter-language" type="text" name="interpeter-language"value="{{ data['interpeter-language'] }}">
-                                        </div>
-                                    </div>
-                                </fieldset>
-                            </div>
-                        </fieldset>
-                      
-                        <fieldset class="">
-                            <div class="form-group bottom_15">
-                                <fieldset class="inline">
-                                    <legend class="heading-small">Does the defendant wish to speak Welsh?</legend>
-                                    <div class="multiple-choice">
-                                        <input id="speak-welsh-1" type="radio" name="speak-welsh-group" value="Yes" {{ checked('speak-welsh-group','Yes') }}>
-                                        <label for="speak-welsh-1">Yes</label>
-                                    </div>
-
-                                    <div class="multiple-choice">
-                                        <input id="speak-welsh-2" type="radio" name="speak-welsh-group" value="No" {{ checked('speak-welsh-group','No') }}>
-                                        <label for="speak-welsh-2">No</label>
-                                    </div>
-                                </fieldset>
-                            </div>
-                        </fieldset>
-
-                    
-                    
-                    
-                    
-                        
-                        
-                    
-                    
-                    
-                    
-                    
-                    <!--
                     <div class="form-group">
                         <h3 class="heading-medium bottom_15">Refer for court hearing</h3>
 
@@ -763,7 +627,69 @@
                             </div>
                         </fieldset>
 
-                        
+                        <fieldset>
+                            <legend>
+                                <h3 class="heading-medium">Reason for referring to court</h3>
+                            </legend>
+                            <div class="multiple-choice" data-target="equivocol-plea-type">
+                                <input id="radio-1" type="radio" name="reason-for-referring-to-court-group" value="Equivocal plea" {{ checked('reason-for-referring-to-court-group','Equivocal plea') }}>
+                                <label for="radio-1">Equivocal plea</label>
+                            </div>
+
+                            <div class="js-hidden" id="equivocol-plea-type">
+                                <div class="panel panel-border-wide top_15">
+                                    <div class="multiple-choice">
+                                        <input id="radio-1a" type="radio" name="equivocal-plea-group" value="Defendant to attend to clarify plea" {{ checked('equivocal-plea-group','Defendant to attend to clarify plea') }}>
+                                        <label for="radio-1a">Defendant to attend to clarify plea</label>
+                                    </div>
+                                    <div class="multiple-choice">
+                                        <input id="radio-1b" type="radio" name="equivocal-plea-group" value="For trial" {{ checked('equivocal-plea-group','For trial') }}>
+                                        <label for="radio-1b">For trial</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="multiple-choice">
+                                <input id="radio-2" type="radio" name="reason-for-referring-to-court-group" value="Defence request" {{ checked('reason-for-referring-to-court-group','Defence request') }}>
+                                <label for="radio-2">Defence request</label>
+                            </div>
+                            <div class="multiple-choice">
+                                <input id="radio-3" type="radio" name="reason-for-referring-to-court-group" value="For trial" {{ checked('reason-for-referring-to-court-group','For trial') }}>
+                                <label for="radio-3">For trial</label>
+                            </div>
+
+                            <div class="multiple-choice" data-target="case-management-hearing-type">
+                                <input id="radio-4" type="radio" name="reason-for-referring-to-court-group" value="For case management hearing" {{ checked('reason-for-referring-to-court-group','For case management hearing') }}>
+                                <label for="radio-4">For case management hearing</label>
+                            </div>
+
+                            <div class="js-hidden" id="case-management-hearing-type">
+                                <div class="panel panel-border-wide top_15">
+                                    <div class="multiple-choice">
+                                        <input id="radio-hearing-1" type="radio" name="case-management-group" value="Defendant to attend" {{ checked('equivocal-plea-group','Defendant to attend') }}>
+                                        <label for="radio-hearing-1">Defendant to attend</label>
+                                    </div>
+                                    <div class="multiple-choice">
+                                        <input id="radio-hearing-2" type="radio" name="case-management-group" value="No need for defendant to attend" {{ checked('equivocal-plea-group','No need for defendant to attend') }}>
+                                        <label for="radio-hearing-2">No need for defendant to attend</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="multiple-choice">
+                                <input id="radio-5" type="radio" name="reason-for-referring-to-court-group" value="For sentencing hearing (defendant to attend)" {{ checked('reason-for-referring-to-court-group','For sentencing hearing (defendant to attend)') }}>
+                                <label for="radio-5">For sentencing hearing (defendant to attend)</label>
+                            </div>
+                            <div class="multiple-choice">
+                                <input id="radio-6" type="radio" name="reason-for-referring-to-court-group" value="For disqualification (defendant to attend)" {{ checked('reason-for-referring-to-court-group','For disqualification (defendant to attend)') }}>
+                                <label for="radio-6">For disqualification (defendant to attend)</label>
+                            </div>
+                            <div class="multiple-choice">
+                                <input id="radio-7" type="radio" name="reason-for-referring-to-court-group" value="Case unsuitable for SJP" {{ checked('reason-for-referring-to-court-group','Case unsuitable for SJP') }}>
+                                <label for="radio-7">Case unsuitable for SJP</label>
+                            </div>
+                        </fieldset>
+
                         <fieldset class="top_30">
                             <div class="form-group bottom_15">
                                 <fieldset class="inline">
@@ -796,11 +722,6 @@
                         <input class="button top_15" type="submit" value="Continue">
                         <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
                     </div>
-                    -->
-                    
-                    <input class="button top_30" type="submit" value="Continue">
-                    <div class="top_15"><a href="javascript:history.go(-1);">Back</a></div>
-                    
                 </form>
 
             </div>

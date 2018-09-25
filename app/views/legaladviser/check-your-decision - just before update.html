@@ -1524,23 +1524,35 @@
                         </tr>
 
                         <tr>
-                            <td class="table-cell-width">Reason for referring to cour</td>
-                            <td>{{ data['reason-for-referring-to-court-group'] }}</td>
+                            <td class="table-cell-width">Refer to which court?</td>
+                            <td>{{ data['refer-to-which-court-group'] }}</td>
                             <td></td>
                         </tr>
 
                         <tr>
-                            <td class="table-cell-width">Estimated hearing duration</td>
-                            <td>{{ data['hearing-duration'] }} minutes</td>
+                            <td class="table-cell-width">Court room</td>
+                            <td>{{ data['court-room-group'] }}</td>
                             <td></td>
                         </tr>
 
                         <tr>
-                            <td class="table-cell-width">Listing notes</td>
-                            <td>{{ data['listing-notes'] }}</td>
+                            <td class="table-cell-width">Date of hearing</td>
+                            <td>{{ data['hearing-day'] }} <span id="hearingMonth">{{ data['hearing-month'] }}</span> {{ data['hearing-year'] }}</td>
                             <td></td>
                         </tr>
-                        
+
+                        <tr>
+                            <td class="table-cell-width ">Start time of hearing session</td>
+                            <td>{{ data['hearing-time-hour'] }}:{{ data['hearing-time-minute'] }}</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td class="table-cell-width">Reason for referring to court</td>
+                            <td><span id="reasonForReferringToCourt">{{ data['reason-for-referring-to-court-group'] }}</span><span id="equivocalPleaGroup"> - {{ data['equivocal-plea-group'] }}</span><span id="caseManagementGroup"> - {{ data['case-management-group'] }}</span></td>
+                            <td></td>
+                        </tr>
+
                         <tr>
                             <td class="table-cell-width">Is an interpreter needed in court</td>
                             <td id="interpreterGroup">{{ data['interpreter-group'] }}</td>
@@ -1552,55 +1564,6 @@
                             <td>{{ data['interpeter-language'] }}</td>
                             <td></td>
                         </tr>
-
-                        <tr>
-                            <td class="table-cell-width">Does the defendant wish to speak Welsh</td>
-                            <td id="speak-welsh-group">{{ data['speak-welsh-group'] }}</td>
-                            <td></td>
-                        </tr>
-
-
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-
-                        <!-- NEED TO INVESTIGATE WHY REMOVING THE FOLLOWING <TR> CAUSES ERRORS -->
-                        <tr style="display: none">
-                            <td class="table-cell-width">Date of hearing</td>
-                            <td>{{ data['hearing-day'] }} <span id="hearingMonth">{{ data['hearing-month'] }}</span> {{ data['hearing-year'] }}</td>
-                            <td></td>
-                        </tr>
-
-                        <!-- NEED TO INVESTIGATE WHY REMOVING THE FOLLOWING <TR> CAUSES ERRORS -->
-                        <tr style="display: none">
-                            <td class="table-cell-width ">Start time of hearing session</td>
-                            <td>{{ data['hearing-time-hour'] }}:{{ data['hearing-time-minute'] }}</td>
-                            <td></td>
-                        </tr>
-
-                        <!-- NEED TO INVESTIGATE WHY REMOVING THE FOLLOWING <TR> CAUSES ERRORS -->
-                        <tr style="display: none">
-                            <td class="table-cell-width">Reason for referring to court</td>
-                            <td><span id="reasonForReferringToCourt">{{ data['reason-for-referring-to-court-group'] }}</span><span id="equivocalPleaGroup"> - {{ data['equivocal-plea-group'] }}</span><span id="caseManagementGroup"> - {{ data['case-management-group'] }}</span></td>
-                            <td></td>
-                        </tr>
-
-
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
 
                     </tbody>
                 </table>
