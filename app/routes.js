@@ -61,7 +61,7 @@ router.post('/', function (req, res) {
         req.session.data['defendents-claiming-benefits'] = "Yes"
         req.session.data['defendents-income'] = "440"
         req.session.data['defendents-income-short'] = "440"
-        req.session.data['defendents-income-amount'] = "440"
+        req.session.data['defendents-income-amount'] = "1760"
         req.session.data['defendents-claiming-benefits'] = ""
         req.session.data['benefits-details'] = ""
         //req.session.data['defendents-employment-status'] = "Employed (full or part-time)"
@@ -78,8 +78,8 @@ router.post('/', function (req, res) {
         req.session.data['notice-served'] = "30 April 2018"
         
         //req.session.data['dates-to-avoid'] = "18 June 2018"
-        req.session.data['dates-to-avoid'] = "19 May 2018 (Rest Day) 20 May 2018 (Rest Day)  21 May 2018 (Rest Day) 22 May 2018 (Rest Day) 28 May 2018 (Rest Day) 3 Jun 2018 (Rest Day) 7 Jun 2018 (Rest Day) 8 Jun 2018 (Rest Day) 11 Jun 2018 (15 - Lieu Day (taken)) 16 Jun 2018 (Rest Day) 17 Jun 2018 (Rest Day) 18 Jun 2018 (Rest Day) 19 Jun 2018 (Rest Day) 27 Jun 2018 (Rest Day) 28 Jun 2018 (Rest Day) 4 Jul 2018 (Rest Day) 10 Jul 2018 (Rest Day) 16 Jul 2018 (Rest Day) 17 Jul 2018 (Rest Day) 18 Jul 2018 (Rest Day) 19 Jul 2018 (Rest Day) 25 Jul 2018 (Rest Day) 31 Jul 2018 (Rest Day) 1 Aug 2018 (02 - Annual Leave) 2 Aug 2018 (02 - Annual Leave) 3 Aug 2018 (02 - Annual Leave) 4 Aug 2018 (Rest Day) 5 Aug 2018 (Rest Day) 6 Aug 2018 (02 - Annual Leave) 13 Aug 2018 (Rest Day) 14 Aug 2018 (Rest Day) 15 Aug 2018 (Rest Day) 16 Aug 2018 (Rest Day) 24 Aug 2018 (Rest Day) 25 Aug 2018 (Rest Day) 29 Aug 2018 (Rest Day)"
-        //req.session.data['dates-to-avoid'] = ""
+        //req.session.data['dates-to-avoid'] = "19 May 2018 (Rest Day) 20 May 2018 (Rest Day)  21 May 2018 (Rest Day) 22 May 2018 (Rest Day) 28 May 2018 (Rest Day) 3 Jun 2018 (Rest Day) 7 Jun 2018 (Rest Day) 8 Jun 2018 (Rest Day) 11 Jun 2018 (15 - Lieu Day (taken)) 16 Jun 2018 (Rest Day) 17 Jun 2018 (Rest Day) 18 Jun 2018 (Rest Day) 19 Jun 2018 (Rest Day) 27 Jun 2018 (Rest Day) 28 Jun 2018 (Rest Day) 4 Jul 2018 (Rest Day) 10 Jul 2018 (Rest Day) 16 Jul 2018 (Rest Day) 17 Jul 2018 (Rest Day) 18 Jul 2018 (Rest Day) 19 Jul 2018 (Rest Day) 25 Jul 2018 (Rest Day) 31 Jul 2018 (Rest Day) 1 Aug 2018 (02 - Annual Leave) 2 Aug 2018 (02 - Annual Leave) 3 Aug 2018 (02 - Annual Leave) 4 Aug 2018 (Rest Day) 5 Aug 2018 (Rest Day) 6 Aug 2018 (02 - Annual Leave) 13 Aug 2018 (Rest Day) 14 Aug 2018 (Rest Day) 15 Aug 2018 (Rest Day) 16 Aug 2018 (Rest Day) 24 Aug 2018 (Rest Day) 25 Aug 2018 (Rest Day) 29 Aug 2018 (Rest Day)"
+        req.session.data['dates-to-avoid'] = ""
         
         req.session.data['mitigation'] = "No mitigation given"
         req.session.data['offence-type'] = "Keep a vehicle without a vehicle license"
