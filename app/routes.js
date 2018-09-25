@@ -416,6 +416,7 @@ router.post('/legaladviser/confirm-outcome', function (req, res) {
         if (checkYourAnswersToggle == "No") {
             res.redirect('/legaladviser/case-details-page')
         } else {
+            req.session.data['verdict'] = "Proved SJP"
             res.redirect('/legaladviser/check-your-decision')
         }
 
