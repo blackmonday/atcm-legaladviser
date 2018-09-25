@@ -1052,7 +1052,21 @@
                         <fieldset>
                             <legend>
                                 <h2 class="heading-medium top_15 bottom_5">Refer back to SJP</h2>
-                                <p class="top_5 bottom_5">Reason for referring offence</p>
+                            </legend>
+                                <label class="form-label bottom_5" for="other-refer-reason">
+                                    Reason for referring offence (this will only be seen by court staff) 
+                                </label>
+                                    <textarea class="form-control" name="other-refer-reason" id="other-refer-reason" rows="5" style="width:100%"></textarea>
+                        </fieldset>
+                        
+                        
+                        
+                        
+                        <!-- ORIGINAL - DO NOT USE -->
+                        <!--
+                        <fieldset>
+                            <legend>
+                                <h2 class="heading-medium top_15 bottom_5">Refer back to SJP</h2>
                             </legend>
                             <div class="multiple-choice">
                                 <input id="referring-offence-1" type="radio" name="referring-this-offence-group" value="Defendant enquiry" {{ checked('referring-this-offence-group','Defendant enquiry') }}>
@@ -1078,9 +1092,15 @@
                             </div>
 
                         </fieldset>
-
+                        -->
                         
-                        <input class="button top_30" type="submit" value="Confirm">
+                        
+                        
+                        
+                        
+                        
+                        
+                        <input class="button top_30" type="submit" value="Save and continue">
                         <p class="top_15"><a href="javascript:history.go(-1);">Back</a></p>
 
                     </div>
