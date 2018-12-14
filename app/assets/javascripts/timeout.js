@@ -1,4 +1,5 @@
 /* TIME OUT */
+/* Commenting out the code for the timeout as we don't need to test it at the moment
 
 var timeoutID;
 var timeoutID2;
@@ -135,4 +136,5 @@ function countDownTimer(howLong) {
     }, 1000);
 }
 
+*/
 
