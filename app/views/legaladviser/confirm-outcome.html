@@ -1051,7 +1051,7 @@
                         
                         <fieldset>
                             <legend>
-                                <h2 class="heading-medium top_15 bottom_5">Refer back to SJP</h2>
+                                <h2 class="heading-medium top_15 bottom_5">Adjourn to later SJP hearing</h2>
                             </legend>
                                 <label class="form-label bottom_5" for="other-refer-reason">
                                     Reason for referring offence (this will only be seen by court staff) 
@@ -1059,7 +1059,46 @@
                                     <textarea class="form-control" name="other-refer-reason" id="other-refer-reason" rows="5" style="width:100%"></textarea>
                         </fieldset>
                         
+                         <!-- Experimenting with the date input element - does this work or need classes? -->
                         
+ <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="dob-hint" role="group">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h3 class="govuk-fieldset__heading">
+        Adjourn to or after date
+      </h1>
+    </legend>
+    <span id="dob-hint" class="govuk-hint">
+      For example, 31 3 2019
+    </span>
+    <div class="govuk-date-input" id="dob">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="dob-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-day" name="dob-day" type="number" pattern="[0-9]*">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="dob-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-month" name="dob-month" type="number" pattern="[0-9]*">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="dob-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob-year" name="dob-year" type="number" pattern="[0-9]*">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
                         
                         
                         <!-- ORIGINAL - DO NOT USE -->
