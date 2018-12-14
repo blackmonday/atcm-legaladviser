@@ -39,6 +39,7 @@
         var discharge_instalmentMonth2_2 = document.getElementById("discharge_instalmentMonth2_2").innerText;
         var a2eMonth = document.getElementById("a2eMonth").innerText;
         var a2eMonth2 = document.getElementById("a2eMonth2").innerText;
+        var otherReferDateMonth = document.getElementById("other-refer-date-month").innerText;
 
         var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         var monthsShort = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -56,6 +57,12 @@
         document.getElementById("discharge_instalmentMonth2_2").innerText = months[discharge_instalmentMonth2_2];
         document.getElementById("a2eMonth").innerText = months[a2eMonth];
         document.getElementById("a2eMonth2").innerText = months[a2eMonth2];
+        document.getElementById("other-refer-date-month").innerText = months[otherReferDateMonth-1];
+        
+        
+        
+        
+        
 
         
         
@@ -1712,8 +1719,14 @@
                         
                         
                         <tr id="defendantEnquiryForReferringBackToSJP">
-                            <td class="table-cell-width">Reason for referring offence</td>
+                            <td class="table-cell-width">Reason for adjourning offence</td>
                             <td id="reasonForReferringCase">{{data['other-refer-reason']}}</td>
+                            <td></td>
+                        </tr>
+                        
+                        <tr id="defendantEnquiryForReferringBackToSJP">
+                            <td class="table-cell-width">Adjourn to or after date</td>
+                            <td id="reasonForReferringCase">{{data['other-refer-date-day']}} <span id="other-refer-date-month">{{data['other-refer-date-month']}}</span> {{data['other-refer-date-year']}}</td>
                             <td></td>
                         </tr>
                         
